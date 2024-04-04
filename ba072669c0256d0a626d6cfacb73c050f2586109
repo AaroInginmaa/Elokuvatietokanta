@@ -1,0 +1,63 @@
+[33mcommit ba072669c0256d0a626d6cfacb73c050f2586109[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 8e3184e bcd9540
+Author: aavasantala <aavasantala1@gmail.com>
+Date:   Thu Apr 4 13:38:51 2024 +0300
+
+    Merge branch 'main' of https://github.com/AaroInginmaa/Elokuvatietokanta
+
+[33mcommit 8e3184e97f5a37c2e4611ad16d15b96c9beb7610[m
+Author: aavasantala <aavasantala1@gmail.com>
+Date:   Thu Apr 4 13:38:22 2024 +0300
+
+    android lisää
+
+[33mcommit bcd95401250df81217c2ea1c9909a425cd57d823[m
+Author: EinoTaimisto <eino.taimisto@outlook.com>
+Date:   Thu Apr 4 13:35:46 2024 +0300
+
+    Uus formssi
+
+[33mcommit 67d28c55d4cd3ceae02f3beb7ccd09996ed6d34b[m
+Author: aavasantala <aavasantala1@gmail.com>
+Date:   Thu Apr 4 13:10:49 2024 +0300
+
+    android jutskii
+
+[33mcommit 34b1af3b3af935c74df194da06d77ad429cbcd3a[m
+Merge: 1243014 05653c6
+Author: Lukawtf <luka.kinnunen@koudata.fi>
+Date:   Thu Apr 4 12:35:11 2024 +0300
+
+    Merge branch 'main' of https://github.com/AaroInginmaa/Elokuvatietokanta
+
+[33mcommit 05653c6ca35c78d04a81ef5d261d86f424b09478[m
+Author: EinoTaimisto <eino.taimisto@outlook.com>
+Date:   Thu Apr 4 12:34:47 2024 +0300
+
+    deleted the form app
+
+[33mcommit 1243014cd571ff8b918174ccf051c74cba8150bf[m
+Author: Lukawtf <luka.kinnunen@koudata.fi>
+Date:   Thu Apr 4 12:30:38 2024 +0300
+
+    Android tekniikka
+
+[33mcommit 25d2f9de23ba636c8dcc94129336a2b4e86b0bde[m
+Author: Aaro Inginmaa <77359720+AaroInginmaa@users.noreply.github.com>
+Date:   Thu Apr 4 12:25:03 2024 +0300
+
+    Lisätty main html sivu
+
+[33mcommit 6131edb1a9c026231b23520b54037cb4243ef95a[m
+Author: EinoTaimisto <eino.taimisto@outlook.com>
+Date:   Thu Apr 4 12:20:09 2024 +0300
+
+    Forms app commit
+    
+    Lisättiin pari alakansiota ja forms proju
+
+[33mcommit 08f8205e2c65de285f91c95ca3ab6b840b448a00[m
+Author: Aaro Inginmaa <77359720+AaroInginmaa@users.noreply.github.com>
+Date:   Thu Apr 4 12:10:28 2024 +0300
+
+    Create README.md
