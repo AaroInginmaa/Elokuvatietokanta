@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST')
     die();
 }
 
-
 if (isset($_POST)) // Make sure POST has a value and is not NULL
 {
     // Get the values from POST request made by a html form
@@ -21,16 +20,20 @@ if (isset($_POST)) // Make sure POST has a value and is not NULL
     $movie = new Movie($name, $length, $year);
     $database = new Database();
     
-    if(!$database->connect("", "", "")) // Call the connect() fucntion to connect to a database. If connection fails, script stops executing.
+    if(!$database->connect()) // Call the connect() fucntion to connect to a database. If connection fails, script stops executing.
     {
+        echo "Database connection failed.<br>";
         die();
     }    
 
     if(!$database->insert_movie($movie)) // Tries to insert a new record to datbase, if it fails connection closes and script stops executing.
     {
+        echo "Failed to insert new record.<br>";
         $database->close();
         die();
-    }    
+    }
+
+    echo "New record created succesfully";
 
     $database->close(); // Close the datbase connection
 } 
