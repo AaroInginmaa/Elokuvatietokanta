@@ -33,17 +33,12 @@ namespace FromsElokuvaTK
         private void Form1_Load(object sender, EventArgs e)
         {
 
-
         }
 
         private void SignUpBTN_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
-
-            // hide the current form
             this.Hide();
-
-            // use the `Show()` method to access the new non-modal form
             f2.Show();
         }
 

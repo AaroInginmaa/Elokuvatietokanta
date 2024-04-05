@@ -28,111 +28,113 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.performanceCounter1 = new System.Diagnostics.PerformanceCounter();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.ConfirmPWord = new System.Windows.Forms.TextBox();
-            this.PWord = new System.Windows.Forms.TextBox();
-            this.emailLBL = new System.Windows.Forms.Label();
-            this.RegisterBTN = new System.Windows.Forms.Button();
-            this.passwordLBL = new System.Windows.Forms.Label();
-            this.confirmLabel = new System.Windows.Forms.Label();
-            this.Username = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).BeginInit();
+            this.UsernameFLD = new System.Windows.Forms.TextBox();
+            this.ConfirmPWordFLD = new System.Windows.Forms.TextBox();
+            this.PWordFLD = new System.Windows.Forms.TextBox();
+            this.EmailFLD = new System.Windows.Forms.TextBox();
+            this.CreateUserBTN = new System.Windows.Forms.Button();
+            this.UserNameLBL = new System.Windows.Forms.Label();
+            this.EmailLBL = new System.Windows.Forms.Label();
+            this.PWordLBL = new System.Windows.Forms.Label();
+            this.ConfirmPWordLBL = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // UsernameFLD
             // 
-            this.textBox1.Location = new System.Drawing.Point(285, 98);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 26);
-            this.textBox1.TabIndex = 0;
+            this.UsernameFLD.Location = new System.Drawing.Point(324, 166);
+            this.UsernameFLD.Name = "UsernameFLD";
+            this.UsernameFLD.Size = new System.Drawing.Size(266, 26);
+            this.UsernameFLD.TabIndex = 0;
             // 
-            // ConfirmPWord
+            // ConfirmPWordFLD
             // 
-            this.ConfirmPWord.Location = new System.Drawing.Point(285, 191);
-            this.ConfirmPWord.Name = "ConfirmPWord";
-            this.ConfirmPWord.PasswordChar = '*';
-            this.ConfirmPWord.Size = new System.Drawing.Size(164, 26);
-            this.ConfirmPWord.TabIndex = 1;
+            this.ConfirmPWordFLD.Location = new System.Drawing.Point(324, 330);
+            this.ConfirmPWordFLD.Name = "ConfirmPWordFLD";
+            this.ConfirmPWordFLD.PasswordChar = '*';
+            this.ConfirmPWordFLD.Size = new System.Drawing.Size(266, 26);
+            this.ConfirmPWordFLD.TabIndex = 3;
             // 
-            // PWord
+            // PWordFLD
             // 
-            this.PWord.Location = new System.Drawing.Point(286, 143);
-            this.PWord.Name = "PWord";
-            this.PWord.PasswordChar = '*';
-            this.PWord.Size = new System.Drawing.Size(164, 26);
-            this.PWord.TabIndex = 2;
+            this.PWordFLD.Location = new System.Drawing.Point(324, 274);
+            this.PWordFLD.Name = "PWordFLD";
+            this.PWordFLD.PasswordChar = '*';
+            this.PWordFLD.Size = new System.Drawing.Size(266, 26);
+            this.PWordFLD.TabIndex = 2;
             // 
-            // emailLBL
+            // EmailFLD
             // 
-            this.emailLBL.AutoSize = true;
-            this.emailLBL.Location = new System.Drawing.Point(228, 98);
-            this.emailLBL.Name = "emailLBL";
-            this.emailLBL.Size = new System.Drawing.Size(52, 20);
-            this.emailLBL.TabIndex = 3;
-            this.emailLBL.Text = "Email:";
+            this.EmailFLD.Location = new System.Drawing.Point(324, 216);
+            this.EmailFLD.Name = "EmailFLD";
+            this.EmailFLD.Size = new System.Drawing.Size(266, 26);
+            this.EmailFLD.TabIndex = 1;
             // 
-            // RegisterBTN
+            // CreateUserBTN
             // 
-            this.RegisterBTN.Location = new System.Drawing.Point(286, 289);
-            this.RegisterBTN.Name = "RegisterBTN";
-            this.RegisterBTN.Size = new System.Drawing.Size(164, 49);
-            this.RegisterBTN.TabIndex = 4;
-            this.RegisterBTN.Text = "Rekisteröidy";
-            this.RegisterBTN.UseVisualStyleBackColor = true;
+            this.CreateUserBTN.BackColor = System.Drawing.Color.BlueViolet;
+            this.CreateUserBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CreateUserBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.CreateUserBTN.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.CreateUserBTN.Location = new System.Drawing.Point(359, 395);
+            this.CreateUserBTN.Name = "CreateUserBTN";
+            this.CreateUserBTN.Size = new System.Drawing.Size(197, 89);
+            this.CreateUserBTN.TabIndex = 4;
+            this.CreateUserBTN.Text = "Luo Käyttäjä";
+            this.CreateUserBTN.UseVisualStyleBackColor = false;
+            this.CreateUserBTN.Click += new System.EventHandler(this.button1_Click);
             // 
-            // passwordLBL
+            // UserNameLBL
             // 
-            this.passwordLBL.AutoSize = true;
-            this.passwordLBL.Location = new System.Drawing.Point(152, 146);
-            this.passwordLBL.Name = "passwordLBL";
-            this.passwordLBL.Size = new System.Drawing.Size(128, 20);
-            this.passwordLBL.TabIndex = 5;
-            this.passwordLBL.Text = "Kirjoita salasana:";
+            this.UserNameLBL.AutoSize = true;
+            this.UserNameLBL.Location = new System.Drawing.Point(220, 169);
+            this.UserNameLBL.Name = "UserNameLBL";
+            this.UserNameLBL.Size = new System.Drawing.Size(98, 20);
+            this.UserNameLBL.TabIndex = 5;
+            this.UserNameLBL.Text = "Käyttäjänimi:";
             // 
-            // confirmLabel
+            // EmailLBL
             // 
-            this.confirmLabel.AutoSize = true;
-            this.confirmLabel.Location = new System.Drawing.Point(138, 197);
-            this.confirmLabel.Name = "confirmLabel";
-            this.confirmLabel.Size = new System.Drawing.Size(142, 20);
-            this.confirmLabel.TabIndex = 6;
-            this.confirmLabel.Text = "Vahvista salasana:";
+            this.EmailLBL.AutoSize = true;
+            this.EmailLBL.Location = new System.Drawing.Point(225, 222);
+            this.EmailLBL.Name = "EmailLBL";
+            this.EmailLBL.Size = new System.Drawing.Size(93, 20);
+            this.EmailLBL.TabIndex = 6;
+            this.EmailLBL.Text = "Sähköposti:";
             // 
-            // Username
+            // PWordLBL
             // 
-            this.Username.AutoSize = true;
-            this.Username.Location = new System.Drawing.Point(209, 59);
-            this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(70, 20);
-            this.Username.TabIndex = 7;
-            this.Username.Text = "Käyttäjä:";
+            this.PWordLBL.AutoSize = true;
+            this.PWordLBL.Location = new System.Drawing.Point(238, 280);
+            this.PWordLBL.Name = "PWordLBL";
+            this.PWordLBL.Size = new System.Drawing.Size(80, 20);
+            this.PWordLBL.TabIndex = 7;
+            this.PWordLBL.Text = "Salasana:";
             // 
-            // textBox2
+            // ConfirmPWordLBL
             // 
-            this.textBox2.Location = new System.Drawing.Point(285, 59);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(164, 26);
-            this.textBox2.TabIndex = 8;
+            this.ConfirmPWordLBL.AutoSize = true;
+            this.ConfirmPWordLBL.Location = new System.Drawing.Point(173, 333);
+            this.ConfirmPWordLBL.Name = "ConfirmPWordLBL";
+            this.ConfirmPWordLBL.Size = new System.Drawing.Size(145, 20);
+            this.ConfirmPWordLBL.TabIndex = 8;
+            this.ConfirmPWordLBL.Text = "Vahvista Salasana:";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 450);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.Username);
-            this.Controls.Add(this.confirmLabel);
-            this.Controls.Add(this.passwordLBL);
-            this.Controls.Add(this.RegisterBTN);
-            this.Controls.Add(this.emailLBL);
-            this.Controls.Add(this.PWord);
-            this.Controls.Add(this.ConfirmPWord);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(914, 695);
+            this.Controls.Add(this.ConfirmPWordLBL);
+            this.Controls.Add(this.PWordLBL);
+            this.Controls.Add(this.EmailLBL);
+            this.Controls.Add(this.UserNameLBL);
+            this.Controls.Add(this.CreateUserBTN);
+            this.Controls.Add(this.EmailFLD);
+            this.Controls.Add(this.PWordFLD);
+            this.Controls.Add(this.ConfirmPWordFLD);
+            this.Controls.Add(this.UsernameFLD);
             this.Name = "Form2";
             this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,15 +142,14 @@
 
         #endregion
 
-        private System.Diagnostics.PerformanceCounter performanceCounter1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox ConfirmPWord;
-        private System.Windows.Forms.TextBox PWord;
-        private System.Windows.Forms.Label emailLBL;
-        private System.Windows.Forms.Button RegisterBTN;
-        private System.Windows.Forms.Label passwordLBL;
-        private System.Windows.Forms.Label confirmLabel;
-        private System.Windows.Forms.Label Username;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox UsernameFLD;
+        private System.Windows.Forms.TextBox ConfirmPWordFLD;
+        private System.Windows.Forms.TextBox PWordFLD;
+        private System.Windows.Forms.TextBox EmailFLD;
+        private System.Windows.Forms.Button CreateUserBTN;
+        private System.Windows.Forms.Label UserNameLBL;
+        private System.Windows.Forms.Label EmailLBL;
+        private System.Windows.Forms.Label PWordLBL;
+        private System.Windows.Forms.Label ConfirmPWordLBL;
     }
 }

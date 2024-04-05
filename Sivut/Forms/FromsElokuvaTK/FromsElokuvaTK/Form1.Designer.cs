@@ -30,27 +30,40 @@
         {
             this.SignUpBTN = new System.Windows.Forms.Button();
             this.LoginBTN = new System.Windows.Forms.Button();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // SignUpBTN
             // 
-            this.SignUpBTN.Location = new System.Drawing.Point(541, 176);
+            this.SignUpBTN.BackColor = System.Drawing.Color.BlueViolet;
+            this.SignUpBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.SignUpBTN.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SignUpBTN.Location = new System.Drawing.Point(241, 201);
             this.SignUpBTN.Name = "SignUpBTN";
-            this.SignUpBTN.Size = new System.Drawing.Size(186, 150);
+            this.SignUpBTN.Size = new System.Drawing.Size(186, 105);
             this.SignUpBTN.TabIndex = 3;
             this.SignUpBTN.Text = "Luo käyttäjä";
-            this.SignUpBTN.UseVisualStyleBackColor = true;
+            this.SignUpBTN.UseVisualStyleBackColor = false;
             this.SignUpBTN.Click += new System.EventHandler(this.SignUpBTN_Click);
             // 
             // LoginBTN
             // 
-            this.LoginBTN.Location = new System.Drawing.Point(229, 176);
+            this.LoginBTN.BackColor = System.Drawing.Color.BlueViolet;
+            this.LoginBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.LoginBTN.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LoginBTN.Location = new System.Drawing.Point(537, 201);
             this.LoginBTN.Name = "LoginBTN";
-            this.LoginBTN.Size = new System.Drawing.Size(186, 150);
+            this.LoginBTN.Size = new System.Drawing.Size(186, 105);
             this.LoginBTN.TabIndex = 4;
             this.LoginBTN.Text = "Kirjaudu";
-            this.LoginBTN.UseVisualStyleBackColor = true;
+            this.LoginBTN.UseVisualStyleBackColor = false;
             this.LoginBTN.Click += new System.EventHandler(this.LoginBTN_Click);
+            // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
             // 
             // Form1
             // 
@@ -62,6 +75,7 @@
             this.Name = "Form1";
             this.Text = "Elokuvatietokanta";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -69,6 +83,7 @@
         #endregion
         private System.Windows.Forms.Button SignUpBTN;
         private System.Windows.Forms.Button LoginBTN;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
 
