@@ -12,6 +12,7 @@
 
         <Button
             android:id="@+id/loginButton"
+
             android:layout_width="200dp"
             android:layout_height="match_parent"
             android:background="#FE7474"
@@ -45,7 +46,8 @@
             android:layout_height="103dp" >
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/usernameText"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
@@ -62,7 +64,7 @@
             android:layout_height="match_parent" >
 
             <EditText
-                android:id="@+id/editTextTextPassword"
+                android:id="@+id/passwordText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="10"
