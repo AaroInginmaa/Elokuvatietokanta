@@ -1,4 +1,4 @@
-# Elokuvatietokanta Projekti
+# Elokuvatietokanta projektin määräys
 
 Kehitetään elokuvatietokanta sovellus, joka toimii yhdellä yhteisellä MySQL-tietokannalla.
 Sovelluksesta luodaan eri tekniikoilla omat versiot. Jokaisesta tekniikasta vastaa yksi vastuuryhmä, joka hallinnoi tämän tekniikan osuutta. Varsinainen projektin tekeminen on jaettu jokaiselle ryhmälle niin, että kaikki kehittävät kaikkia tekniikoita jonkin verran. Tämä saattaa olla bugien korjailua, hiomista, korjaamista tai ihan vaan uuden kehittämistä.
