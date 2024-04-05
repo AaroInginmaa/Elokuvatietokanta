@@ -8,20 +8,36 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_screen)
-        buttons()
+        loginButtons()
     }
-    private fun buttons(){
-        val loginButton = findViewById<Button>(R.id.loginButton)
-        val signUpButton = findViewById<Button>(R.id.signUpButton)
+    private fun menuButtons(){
+        val searchButton = findViewById<Button>(R.id.searchButton)
+        val addButton = findViewById<Button>(R.id.addButton)
 
-        loginButton.setOnClickListener {
+        searchButton.setOnClickListener {
+            setContentView(R.layout.searchmovie)
+        }
+        addButton.setOnClickListener {
+            setContentView(R.layout.addmovie)
+        }
+    }
+    private fun loginButtons(){
+        val chooseLoginButton = findViewById<Button>(R.id.loginButton)
+        val choosesignUpButton = findViewById<Button>(R.id.signUpButton)
+        val continueButton = findViewById<Button>(R.id.continueButton)
+
+        chooseLoginButton.setOnClickListener {
             setContentView(R.layout.login_screen)
-            buttons()
+            loginButtons()
         }
 
-        signUpButton.setOnClickListener {
+        choosesignUpButton.setOnClickListener {
             setContentView(R.layout.signup_screen)
-            buttons()
+            loginButtons()
+        }
+
+        continueButton.setOnClickListener {
+            setContentView(R.layout.addorsearch)
         }
     }
 }

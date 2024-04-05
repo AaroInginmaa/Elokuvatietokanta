@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Elokuvatietokanta</string>
+    <string name="elokuvatietokanta">Elokuvatietokanta</string>
+    <string name="hae_elokuvia">Hae elokuvia</string>
 </resources>

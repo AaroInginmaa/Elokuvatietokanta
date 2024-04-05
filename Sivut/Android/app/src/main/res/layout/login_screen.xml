@@ -87,7 +87,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/continueButton"
             android:layout_width="186dp"
             android:layout_height="82dp"
             android:layout_marginStart="112dp"
