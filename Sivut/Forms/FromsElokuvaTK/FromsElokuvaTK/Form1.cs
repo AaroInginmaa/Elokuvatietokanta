@@ -44,7 +44,9 @@ namespace FromsElokuvaTK
 
         private void LoginBTN_Click(object sender, EventArgs e)
         {
-
+            KirjauduForm f3 = new KirjauduForm();
+            this.Hide();
+            f3.Show();
         }
     }
 }
