@@ -11,25 +11,27 @@ class Database
 
         if ($this->connection->connect_error)
         {
-            echo "Datbase connection failed";
+            echo "Datbase connection failed<br>";
             return false;
         }
         
-        echo "Connected succesfully";
+        echo "Connected succesfully<br>";
         return true;
     }
 
     public function insert_movie(Movie $movie)
     {
-        $sql = "INSERT INTO elokuvatietokanta.elokuvat (Nimi, Pituus, Julkaistu) VALUES ($movie->name, $movie->lenght, $movie->year)";
+        $sql = "INSERT INTO elokuvatietokanta.elokuvat (Nimi, Pituus, Julkaistu) VALUES ('$movie->name', $movie->lenght, $movie->year)";
 
         if ($this->connection->query($sql) === TRUE)
         {
-            echo "New movie created successfully";
+            echo "New record created successfully<br>";
+            return true;
         }
         else
         {
-            echo "Error: " . $sql . "<br>" . $this->connection->error;
+            echo "Error creating new record" . $this->connection->error . "<br>";
+            return false;
         }
         
     }

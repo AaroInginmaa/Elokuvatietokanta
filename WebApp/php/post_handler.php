@@ -18,14 +18,19 @@ if (isset($_POST)) // Make sure POST has a value and is not NULL
     $length = $_POST['length'];
     $year = $_POST['year'];
 
-    $movie = new Movie($name, $length, $year); // Instantiate a new movie object with necessary values.
-
-    $database = new Database(); // Instantiate a database object.
+    $movie = new Movie($name, $length, $year);
+    $database = new Database();
     
-    if(!$database->connect("", "", "")) // Call the connect() fucntion to connect to a database.
+    if(!$database->connect("", "", "")) // Call the connect() fucntion to connect to a database. If connection fails, script stops executing.
+    {
         die();
+    }    
 
-    $database->insert_movie($movie); // insert_movie() takes an Movie object as paramater, removing the neccessity of having to manually pass each value, as it does that automatically.
+    if(!$database->insert_movie($movie)) // Tries to insert a new record to datbase, if it fails connection closes and script stops executing.
+    {
+        $database->close();
+        die();
+    }    
 
     $database->close(); // Close the datbase connection
 } 
