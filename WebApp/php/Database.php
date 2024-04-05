@@ -1,22 +1,29 @@
 <?php
 
+define('DB_HOSTNAME', 'localhost');
+define('DB_USERNAME', 'root'); // Muista vaihtaa oikeiksi
+define('DB_PASSWORD', ''); // Muista vaihtaa oikeiksi
+define('DB_DATABASE', 'elokuvatietokanta');
 
 class Database
 {
     public $connection;
 
-    public function connect($host, $username, $password)
+    public function connect()
     {
-        $this->connection = new mysqli($host, $username, $password);
+        $this->connection = @new mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE); // @ Merkki poistaa turhat varoitukset.
 
         if ($this->connection->connect_error)
         {
-            echo "Datbase connection failed<br>";
             return false;
         }
         
-        echo "Connected succesfully<br>";
         return true;
+    }
+
+    public function close()
+    {
+        mysqli_close($this->connection);
     }
 
     public function insert_movie(Movie $movie)
@@ -25,19 +32,14 @@ class Database
 
         if ($this->connection->query($sql) === TRUE)
         {
-            echo "New record created successfully<br>";
             return true;
         }
         else
         {
-            echo "Error creating new record" . $this->connection->error . "<br>";
+            echo $this->connection->error . "<br>";
             return false;
         }
         
     }
 
-    public function close()
-    {
-        mysqli_close($this->connection);
-    }
 }
