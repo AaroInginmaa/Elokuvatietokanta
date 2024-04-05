@@ -1,22 +1,27 @@
 package com.example.elokuvatietokanta
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.elokuvatietokanta.ui.theme.ElokuvatietokantaTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_screen)
+        buttons()
+    }
+    private fun buttons(){
+        val loginButton = findViewById<Button>(R.id.loginButton)
+        val signUpButton = findViewById<Button>(R.id.signUpButton)
+
+        loginButton.setOnClickListener {
+            setContentView(R.layout.login_screen)
+            buttons()
+        }
+
+        signUpButton.setOnClickListener {
+            setContentView(R.layout.signup_screen)
+            buttons()
+        }
     }
 }
-
-
