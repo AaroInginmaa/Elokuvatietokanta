@@ -23,13 +23,8 @@ class Movie
         }
         catch(Exception $exception)
         {
-            echo("Error adding new actor. | $exception");
-
             return false;
         }
-
-        echo("Succesfully added new actor.");
-
         return true;
     }
 }
