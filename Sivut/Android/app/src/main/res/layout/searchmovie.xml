@@ -25,7 +25,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="98dp"
-                android:text="Elokuvatietokanta"
+                android:text="Hae elokuva"
                 android:textAlignment="center"
                 android:textSize="45sp" />
         </TableRow>
@@ -34,17 +34,18 @@
             android:layout_width="match_parent"
             android:layout_height="95dp" >
 
-            <Button
-                android:id="@+id/button3"
+            <EditText
+                android:id="@+id/editTextText8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#EDBBBB"
-                android:text="Lisää elokuva" />
+                android:ems="10"
+                android:hint="Elokuvan nimi"
+                android:inputType="text" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="86dp">
 
         </TableRow>
     </LinearLayout>
@@ -66,13 +67,6 @@
                 android:background="#ECBABA"
                 android:text="Hae Elokuva" />
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="match_parent"
-
-                android:layout_height="94dp"
-                android:background="#ECBABA"
-                android:text="Hae Elokuva" />
         </TableRow>
 
     </LinearLayout>
