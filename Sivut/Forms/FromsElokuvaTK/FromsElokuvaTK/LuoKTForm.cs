@@ -3,6 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FromsElokuvaTK
 {
@@ -19,7 +20,7 @@ namespace FromsElokuvaTK
 
         private void InitializeDatabaseConnection()
         {
-            string connectionString = "datasource=localhost;port=3306;username=test;password=test;database=elokuvatietokanta"; //Vaihtakaa tähän ne oikeat login credentiaalit
+            string connectionString = "datasource=localhost;port=3306;username=/**/;password=/**/;database=elokuvatietokanta"; //Vaihtakaa tähän ne oikeat login credentiaalit
             connection = new MySqlConnection(connectionString);
         }
 
@@ -59,6 +60,10 @@ namespace FromsElokuvaTK
             string confirmPassword = ConfirmPWordFLD.Text;
 
             bool isPasswordValid = ValidatePassword(password);
+            bool isUsernameValid = ValidateUsername(username);
+            bool isEmailValid = ValidateEmail(email);
+
+
 
             if (password != confirmPassword)
             {
@@ -66,7 +71,7 @@ namespace FromsElokuvaTK
                 return;
             }
 
-            if (isPasswordValid)
+            if (isPasswordValid && isUsernameValid && isEmailValid)
             {
                 SubmitData(username, email, password);
             }
@@ -95,6 +100,52 @@ namespace FromsElokuvaTK
 
             return (hasLower && hasUpper && hasDigit && hasSpecialChar && n >= 6);
         }
+        private bool ValidateUsername(string username)
+        {
+            try
+            {
+                connection.Open();
+                string query = $"SELECT COUNT(*) FROM users WHERE Käyttäjänimi = '{username}'";
+                command = new MySqlCommand(query, connection);
+                int count = Convert.ToInt32(command.ExecuteScalar());
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Käyttäjänimi on jo käytössä.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return true;
+        }
+
+        private bool ValidateEmail(string email)
+        {
+            try
+            {
+                connection.Open();
+                string query = $"Select COUNT(*) From users where sposti = ' {email}'";
+                command = new MySqlCommand(query, connection);
+                int count = Convert.ToInt32(command.ExecuteScalar());
+
+                if (count > 0)
+                {
+                    MessageBox.Show("Käyttäjänimi on jo käytössä.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return true;
+        }
+
 
         private void quitBTN_Click(object sender, EventArgs e)
         {

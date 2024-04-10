@@ -15,16 +15,6 @@ namespace FromsElokuvaTK
 {
     public partial class Form1 : Form
     {
-        //private MySqlConnection connection;
-        //private MySqlCommand command;
-        //private MySqlDataReader reader;
-
-
-
-
-        /*  string connectionString = "datasource=localhost; port=3306;username=root;password=;database=demouser";
-            connection = new MySqlConnection(connectionString);*/
-        //HUOM NÄÄ OON KOPIOITU SUORAAN AIKASEMMASTA FORMS HOMMASTA. En tiiä onko mistää hyötyä.
         public Form1()
         {
             InitializeComponent();

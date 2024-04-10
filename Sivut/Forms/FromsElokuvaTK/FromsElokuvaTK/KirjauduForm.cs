@@ -1,24 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FromsElokuvaTK
 {
     public partial class KirjauduForm : Form
     {
+        private MySqlConnection connection;
+        private MySqlCommand command;
+
         public KirjauduForm()
         {
             InitializeComponent();
+            InitializeDatabaseConnection();
         }
-        //YHTEYS
-        SqlConnection conn = new SqlConnection(@"");
+
+        private void InitializeDatabaseConnection()
+        {
+            string connectionString = "datasource=localhost;port=3306;username=/**/;password=/**/;database=elokuvatietokanta"; //Vaihtakaa tähän ne oikeat login credentiaalit
+            connection = new MySqlConnection(connectionString);
+        }
 
         private void KirjauduForm_Load(object sender, EventArgs e)
         {
@@ -27,7 +31,7 @@ namespace FromsElokuvaTK
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            String username, user_password;
+            string username, user_password;
 
             username = txt_username.Text;
             user_password = txt_password.Text;
@@ -35,17 +39,13 @@ namespace FromsElokuvaTK
             //TIETOJEN HAKEMINEN
             try
             {
-                String querry = "SELECT * FROM Login_new WHERE username = '"+txt_username.Text+"' AND password = '"+txt_password.Text+"'";
-                SqlDataAdapter sda = new SqlDataAdapter(querry, conn);
+                connection.Open();
+                string query = $"SELECT COUNT(*) FROM users WHERE Käyttäjänimi = '{username}' AND Salasana = '{user_password}'";
+                command = new MySqlCommand(query, connection);
+                int count = Convert.ToInt32(command.ExecuteScalar());
 
-                DataTable dtable = new DataTable();
-                sda.Fill(dtable);
-
-                if(dtable.Rows.Count > 0)
+                if (count == 1)
                 {
-                    username = txt_username.Text;
-                    user_password = txt_password.Text;
-
                     //seuraava page
                     Menuform Menuform = new Menuform();
                     Menuform.Show();
@@ -68,7 +68,7 @@ namespace FromsElokuvaTK
             }
             finally
             {
-                conn.Close();
+                connection.Close();
             }
         }
 
