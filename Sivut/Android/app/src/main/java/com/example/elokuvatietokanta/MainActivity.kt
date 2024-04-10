@@ -9,11 +9,8 @@ class MainActivity : ComponentActivity() {
 
 
     //tällä katotaan että ollaanko login vai rekisteröinti ruudussa.
-    var vittu=1
-
-
-    
     private var isPressed = 1
+    
     private var usernameValue: String = ""
     private var passwordValue: String = ""
 
