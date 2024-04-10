@@ -8,7 +8,7 @@ import androidx.activity.ComponentActivity
 
 class MainActivity : ComponentActivity() {
 
-    var vittu=0
+    var vittu=1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_screen)
