@@ -25,7 +25,7 @@ class Database
         mysqli_close($this->connection);
     }
 
-    // Tekee uuden elokuvan tietokantaan ())
+    // Tekee uuden elokuvan tietokantaan)
     public function insert_movie(Movie $movie)
     {
         $sql = "INSERT INTO elokuvatietokanta.elokuvat (elokuva_id, nimi, ohjaaja, julkaisuvuosi, kesto, genre, paa_nayttelija, arvostelu) VALUES ('NULL', '$movie->name', '$movie->director', $movie->year, $movie->lenght, '$movie->genre', '$movie->main_actor', $movie->rating)";
