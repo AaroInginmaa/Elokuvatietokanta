@@ -48,9 +48,7 @@ class MainActivity : ComponentActivity() {
 
         continueButton.setOnClickListener {
             if (vittu == 1 || vittu == 2) {
-                // Check if username, password, and email (if applicable) are not empty
                 if (username.text.isNotEmpty() && password.text.isNotEmpty() && (vittu == 1 || email.text.isNotEmpty())) {
-                    // Password validation
                     val passwordStr = password.text.toString()
                     if (isPasswordValid(passwordStr)) {
                         setContentView(R.layout.addorsearch)
@@ -66,18 +64,15 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun isPasswordValid(password: String): Boolean {
-        // Password must be at least 6 characters long
         if (password.length < 6) {
             return false
         }
 
-        // Check for at least 1 uppercase character
         val containsUpperCase = password.any { it.isUpperCase() }
         if (!containsUpperCase) {
             return false
         }
 
-        // Check for at least 1 special character from specified set
         val specialCharacters = setOf('!', '#', '?', '&', '%', '$', '€', '£', '@')
         val containsSpecialChar = password.any { specialCharacters.contains(it) }
         if (!containsSpecialChar) {
