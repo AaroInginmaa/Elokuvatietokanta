@@ -39,7 +39,20 @@ class Database
             echo $this->connection->error . "<br>";
             return false;
         }
-        
     }
 
+    public function insert_user(User $user)
+    {
+        $sql = "INSERT INTO elokuvatietokanta.kayttajat (kayttaja_id, nimi, sahkoposti, salasana) VALUES ('NULL', '$user->name', '$user->email', '$user->password')";
+
+        if ($this->connection->query($sql) === TRUE)
+        {
+            return true;
+        }
+        else
+        {
+            echo $this->connection->error . "<br>";
+            return false;
+        }
+    }
 }
