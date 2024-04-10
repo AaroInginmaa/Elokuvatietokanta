@@ -29,7 +29,7 @@ Testivaiheessa MySQL-tietokanta riittää olla omalla paikallisella koneella.
    - Eino, Waltteri, Okko
 - WPF
    - Roope, Jimi, Alexi
--Android
+- Android
    - Aava, Luka, Riku
 - Python
    - Aapo, Konsta
