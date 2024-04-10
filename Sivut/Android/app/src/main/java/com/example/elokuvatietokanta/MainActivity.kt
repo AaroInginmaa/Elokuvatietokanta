@@ -1,5 +1,4 @@
 package com.example.elokuvatietokanta
-
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -8,13 +7,17 @@ import androidx.activity.ComponentActivity
 
 class MainActivity : ComponentActivity() {
 
-    var vittu=1
+    private var isPressed = 1
+    private var usernameValue: String = ""
+    private var passwordValue: String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_screen)
         loginButtons()
     }
-    private fun menuButtons(){
+
+    private fun menuButtons() {
         val searchButton = findViewById<Button>(R.id.searchButton)
         val addButton = findViewById<Button>(R.id.addButton)
 
@@ -25,32 +28,35 @@ class MainActivity : ComponentActivity() {
             setContentView(R.layout.addmovie)
         }
     }
+
     private fun loginButtons() {
         val chooseLoginButton = findViewById<Button>(R.id.loginButton)
         val choosesignUpButton = findViewById<Button>(R.id.signUpButton)
         val continueButton = findViewById<Button>(R.id.continueButton)
 
-        val username = findViewById<EditText>(R.id.usernameText)
-        val password = findViewById<EditText>(R.id.passwordText)
-        val email = findViewById<EditText>(R.id.emailText)
+        val usernameEditText = findViewById<EditText>(R.id.usernameText)
+        val passwordEditText = findViewById<EditText>(R.id.passwordText)
+        val emailEditText = findViewById<EditText>(R.id.emailText)
 
         chooseLoginButton.setOnClickListener {
-            vittu = 1
+            isPressed = 1
             setContentView(R.layout.login_screen)
             loginButtons()
         }
 
         choosesignUpButton.setOnClickListener {
-            vittu = 2
+            isPressed = 2
             setContentView(R.layout.signup_screen)
             loginButtons()
         }
 
         continueButton.setOnClickListener {
-            if (vittu == 1 || vittu == 2) {
-                if (username.text.isNotEmpty() && password.text.isNotEmpty() && (vittu == 1 || email.text.isNotEmpty())) {
-                    val passwordStr = password.text.toString()
+            if (isPressed == 1 || isPressed == 2) {
+                if (usernameEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty() && (isPressed == 1 || emailEditText.text.isNotEmpty())) {
+                    val passwordStr = passwordEditText.text.toString()
                     if (isPasswordValid(passwordStr)) {
+                        usernameValue = usernameEditText.text.toString()
+                        passwordValue = passwordStr
                         setContentView(R.layout.addorsearch)
                         menuButtons()
                     } else {
@@ -74,11 +80,6 @@ class MainActivity : ComponentActivity() {
         }
 
         val specialCharacters = setOf('!', '#', '?', '&', '%', '$', '€', '£', '@')
-        val containsSpecialChar = password.any { specialCharacters.contains(it) }
-        if (!containsSpecialChar) {
-            return false
-        }
-
-        return true
+        return password.any { specialCharacters.contains(it) }
     }
 }
