@@ -1,0 +1,67 @@
+﻿@page "/editmovie"
+@using Models
+@inject NavigationManager NavigationManager
+
+<PageTitle>Add Movie</PageTitle>
+
+<h3>Add Movie</h3>
+
+<EditForm Model="@_movie" FormName="editMovie" OnSubmit="HandleSubmit">
+    <form>
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <InputText id="title" @bind-Value="_movie.Title" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label for="director" class="form-label">Director</label>
+            <InputText id="director" @bind-Value="_movie.Director" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label for="releaseYear" class="form-label">Release Year</label>
+            <InputNumber id="releaseYear" @bind-Value="_movie.ReleaseYear" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label for="length" class="form-label">Length</label>
+            <InputNumber id="length" @bind-Value="_movie.Length" class="form-control" />
+            <div class="form-text">Movie's length in minutes</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="rating" class="form-label">Rating</label>
+            <InputNumber id="rating" @bind-Value="_movie.Rating" class="form-control" />
+            <div class="form-text">Movie's rating on IMDB</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="genre" class="form-label">Genre</label>
+            <InputText id="genre" @bind-Value="_movie.Genre" class="form-control" />
+            <div class="form-text">Movie's genre</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Image Link</label>
+            <InputText id="image" @bind-Value="_movie.Image" class="form-control" />
+            <div class="form-text">Enter image's link. We recommend to copy images from IMDB</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</EditForm>
+
+@code {
+    [SupplyParameterFromForm]
+    private Movie _movie { get; set; } = new(string.Empty);
+
+    private Database _database = new Database();
+
+    private void HandleSubmit()
+    {
+        if (_movie.Title != string.Empty)
+            _database.InsertMovie(_movie);
+
+        NavigationManager.NavigateTo("/movies");
+    }
+}

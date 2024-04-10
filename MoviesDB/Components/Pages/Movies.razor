@@ -1,0 +1,45 @@
+﻿@page "/movies"
+@using Models
+
+<PageTitle>Movies</PageTitle>
+
+<h1>Movies</h1>
+
+@if (_movieSummary.GetMovies().Count == 0)
+{
+    <h3>Loading...</h3>
+}
+else
+{
+    <table class="table table-striped table-bordered table-hover mt-5">
+        <thead class="table-dark">
+            <th></th>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Release Date</th>
+            <th>Length</th>
+            <th>Rating</th>
+            <th>Genre</th>
+        </thead>
+
+        <tbody>
+            @foreach (Movie movie in _movieSummary.GetMovies())
+            {
+                <tr>
+                    <td><img class="" width="140" src="@movie.Image" /></td>
+                    <td><h3>@movie.Title </h3</td>
+                    <td><strong>@movie.Director</strong></td>
+                    <td><strong>@movie.ReleaseYear</strong></td>
+                    <td><strong>@movie.Length minutes</strong></td>
+                    <td><strong>@movie.Rating</strong></td>
+                    <td><strong>@movie.Genre</strong></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code
+{
+    private MovieSummary _movieSummary = new MovieSummary();
+}
