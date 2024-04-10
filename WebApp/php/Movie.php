@@ -22,7 +22,7 @@ class Movie
         try
         {
             array_push($this->actors_arr, $actor_name);
-            $this->actors_str = implode(", ", $this->actors_arr);
+            $this->actors_str = implode(", ", $this->actors_arr); // Tekee actors arraysta yhden stringin, pitäisi helpottaa tietokantaan laittamista.
         }
         catch(Exception $exception)
         {
