@@ -1,5 +1,4 @@
 package com.example.elokuvatietokanta
-
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -13,6 +12,11 @@ class MainActivity : ComponentActivity() {
     var vittu=1
 
 
+    
+    private var isPressed = 1
+    private var usernameValue: String = ""
+    private var passwordValue: String = ""
+
     //kun ohjelma alkaa, mennään loginscreeniin
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +25,7 @@ class MainActivity : ComponentActivity() {
     }
 
     //hae ja lisää elokuva ruudun nappulat
-    private fun menuButtons(){
+    private fun menuButtons() {
         val searchButton = findViewById<Button>(R.id.searchButton)
         val addButton = findViewById<Button>(R.id.addButton)
 
@@ -45,18 +49,16 @@ class MainActivity : ComponentActivity() {
         //kirjaudu/rekisteröidy nappi alhaalla
         val continueButton = findViewById<Button>(R.id.continueButton)
 
-
         //text fieldit kirjautumis/rekisteröinti ruuduissa
-        val username = findViewById<EditText>(R.id.usernameText)
-        val password = findViewById<EditText>(R.id.passwordText)
-        val email = findViewById<EditText>(R.id.emailText)
+        val usernameEditText = findViewById<EditText>(R.id.usernameText)
+        val passwordEditText = findViewById<EditText>(R.id.passwordText)
+        val emailEditText = findViewById<EditText>(R.id.emailText)
 
 
         //jos painaa login tab nappia ylhäällä niin menee login ruutuun
         chooseLoginButton.setOnClickListener {
-
             //tämä settaa sen että ollaan login ruudussa (tiedetään että tarvitaan ottaa vain kahdesta text fieldistä eikä kolmesta
-            vittu = 1
+            isPressed = 1
             setContentView(R.layout.login_screen)
             loginButtons()
         }
@@ -64,17 +66,19 @@ class MainActivity : ComponentActivity() {
         //jos painaa rekisteröidy tab nappia ylhäällä niin menee rekisteröidy ruutuun
         choosesignUpButton.setOnClickListener {
             //ollaan rekisteröinti ruudussa, otetaan kaikki kolme text fieldiä
-            vittu = 2
+            isPressed = 2
             setContentView(R.layout.signup_screen)
             loginButtons()
         }
 
         //login ja rekisteröinti nappi alhaalla joka checkaa onko kaikki kohdat täytetty ja onko salasana valid
         continueButton.setOnClickListener {
-            if (vittu == 1 || vittu == 2) {
-                if (username.text.isNotEmpty() && password.text.isNotEmpty() && (vittu == 1 || email.text.isNotEmpty())) {
-                    val passwordStr = password.text.toString()
+            if (isPressed == 1 || isPressed == 2) {
+                if (usernameEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty() && (isPressed == 1 || emailEditText.text.isNotEmpty())) {
+                    val passwordStr = passwordEditText.text.toString()
                     if (isPasswordValid(passwordStr)) {
+                        usernameValue = usernameEditText.text.toString()
+                        passwordValue = passwordStr
                         setContentView(R.layout.addorsearch)
                         menuButtons()
                     } else {
@@ -100,11 +104,6 @@ class MainActivity : ComponentActivity() {
         }
 
         val specialCharacters = setOf('!', '#', '?', '&', '%', '$', '€', '£', '@')
-        val containsSpecialChar = password.any { specialCharacters.contains(it) }
-        if (!containsSpecialChar) {
-            return false
-        }
-
-        return true
+        return password.any { specialCharacters.contains(it) }
     }
 }
