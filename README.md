@@ -21,6 +21,8 @@ Käyttöliittymät täytyy suunnitella etukäteen, tehkää tekniikalle soveltuv
 Testivaiheessa MySQL-tietokanta riittää olla omalla paikallisella koneella.
 
 ## Tiimit
+> [!NOTE]
+> Muista varmistaa [aikataulusta](https://docs.google.com/spreadsheets/d/1NEqnXOf7Z1ryIY_puHlkVnVfvkVt-kew2BHigMRRhkQ/edit#gid=0) tiimisi tekniikka.
 - HTML, PHP
    - Aaro, Arttu, Lassi
 - Windows Forms
