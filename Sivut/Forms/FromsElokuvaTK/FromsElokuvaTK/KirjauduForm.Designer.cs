@@ -41,41 +41,45 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(137, 142);
+            this.label1.Location = new System.Drawing.Point(154, 178);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 16);
+            this.label1.Size = new System.Drawing.Size(94, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Käyttäjänimi";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(137, 208);
+            this.label2.Location = new System.Drawing.Point(154, 260);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 16);
+            this.label2.Size = new System.Drawing.Size(76, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Salasana";
             // 
             // txt_username
             // 
-            this.txt_username.Location = new System.Drawing.Point(301, 142);
+            this.txt_username.Location = new System.Drawing.Point(339, 178);
+            this.txt_username.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(264, 22);
+            this.txt_username.Size = new System.Drawing.Size(296, 26);
             this.txt_username.TabIndex = 2;
             // 
             // txt_password
             // 
-            this.txt_password.Location = new System.Drawing.Point(301, 201);
+            this.txt_password.Location = new System.Drawing.Point(339, 251);
+            this.txt_password.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(264, 22);
+            this.txt_password.PasswordChar = '*';
+            this.txt_password.Size = new System.Drawing.Size(296, 26);
             this.txt_password.TabIndex = 3;
             // 
             // button_login
             // 
             this.button_login.BackColor = System.Drawing.SystemColors.Control;
-            this.button_login.Location = new System.Drawing.Point(489, 242);
+            this.button_login.Location = new System.Drawing.Point(550, 302);
+            this.button_login.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_login.Name = "button_login";
-            this.button_login.Size = new System.Drawing.Size(75, 40);
+            this.button_login.Size = new System.Drawing.Size(84, 50);
             this.button_login.TabIndex = 4;
             this.button_login.Text = "Kirjaudu";
             this.button_login.UseVisualStyleBackColor = false;
@@ -84,9 +88,10 @@
             // button_clear
             // 
             this.button_clear.BackColor = System.Drawing.SystemColors.Control;
-            this.button_clear.Location = new System.Drawing.Point(339, 241);
+            this.button_clear.Location = new System.Drawing.Point(381, 301);
+            this.button_clear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_clear.Name = "button_clear";
-            this.button_clear.Size = new System.Drawing.Size(75, 41);
+            this.button_clear.Size = new System.Drawing.Size(92, 51);
             this.button_clear.TabIndex = 5;
             this.button_clear.Text = "Tyhjennä";
             this.button_clear.UseVisualStyleBackColor = false;
@@ -95,9 +100,10 @@
             // button_exít
             // 
             this.button_exít.BackColor = System.Drawing.SystemColors.Control;
-            this.button_exít.Location = new System.Drawing.Point(141, 325);
+            this.button_exít.Location = new System.Drawing.Point(159, 406);
+            this.button_exít.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_exít.Name = "button_exít";
-            this.button_exít.Size = new System.Drawing.Size(75, 35);
+            this.button_exít.Size = new System.Drawing.Size(84, 44);
             this.button_exít.TabIndex = 6;
             this.button_exít.Text = "Poistu";
             this.button_exít.UseVisualStyleBackColor = false;
@@ -106,9 +112,10 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(141, 284);
+            this.button1.Location = new System.Drawing.Point(159, 354);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 35);
+            this.button1.Size = new System.Drawing.Size(84, 44);
             this.button1.TabIndex = 7;
             this.button1.Text = "Takaisin";
             this.button1.UseVisualStyleBackColor = false;
@@ -116,9 +123,9 @@
             // 
             // KirjauduForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(900, 562);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button_exít);
             this.Controls.Add(this.button_clear);
@@ -127,6 +134,7 @@
             this.Controls.Add(this.txt_username);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "KirjauduForm";
             this.Text = "Kirjaudu";
             this.Load += new System.EventHandler(this.KirjauduForm_Load);

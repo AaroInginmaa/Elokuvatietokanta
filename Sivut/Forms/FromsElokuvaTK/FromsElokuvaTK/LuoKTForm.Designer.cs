@@ -1,6 +1,6 @@
 ﻿namespace FromsElokuvaTK
 {
-    partial class Form2
+    partial class LuoKTForm
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,8 @@
             this.EmailLBL = new System.Windows.Forms.Label();
             this.PWordLBL = new System.Windows.Forms.Label();
             this.ConfirmPWordLBL = new System.Windows.Forms.Label();
+            this.quitBTN = new System.Windows.Forms.Button();
+            this.BackBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UsernameFLD
@@ -119,11 +121,41 @@
             this.ConfirmPWordLBL.TabIndex = 8;
             this.ConfirmPWordLBL.Text = "Vahvista Salasana:";
             // 
-            // Form2
+            // quitBTN
+            // 
+            this.quitBTN.BackColor = System.Drawing.Color.BlueViolet;
+            this.quitBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.quitBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quitBTN.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.quitBTN.Location = new System.Drawing.Point(808, 12);
+            this.quitBTN.Name = "quitBTN";
+            this.quitBTN.Size = new System.Drawing.Size(94, 47);
+            this.quitBTN.TabIndex = 10;
+            this.quitBTN.Text = "Poistu";
+            this.quitBTN.UseVisualStyleBackColor = false;
+            this.quitBTN.Click += new System.EventHandler(this.quitBTN_Click);
+            // 
+            // BackBTN
+            // 
+            this.BackBTN.BackColor = System.Drawing.Color.BlueViolet;
+            this.BackBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BackBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackBTN.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackBTN.Location = new System.Drawing.Point(686, 12);
+            this.BackBTN.Name = "BackBTN";
+            this.BackBTN.Size = new System.Drawing.Size(116, 47);
+            this.BackBTN.TabIndex = 11;
+            this.BackBTN.Text = "Takaisin";
+            this.BackBTN.UseVisualStyleBackColor = false;
+            this.BackBTN.Click += new System.EventHandler(this.BackBTN_Click);
+            // 
+            // LuoKTForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 695);
+            this.Controls.Add(this.BackBTN);
+            this.Controls.Add(this.quitBTN);
             this.Controls.Add(this.ConfirmPWordLBL);
             this.Controls.Add(this.PWordLBL);
             this.Controls.Add(this.EmailLBL);
@@ -133,7 +165,7 @@
             this.Controls.Add(this.PWordFLD);
             this.Controls.Add(this.ConfirmPWordFLD);
             this.Controls.Add(this.UsernameFLD);
-            this.Name = "Form2";
+            this.Name = "LuoKTForm";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,5 +183,7 @@
         private System.Windows.Forms.Label EmailLBL;
         private System.Windows.Forms.Label PWordLBL;
         private System.Windows.Forms.Label ConfirmPWordLBL;
+        private System.Windows.Forms.Button quitBTN;
+        private System.Windows.Forms.Button BackBTN;
     }
 }

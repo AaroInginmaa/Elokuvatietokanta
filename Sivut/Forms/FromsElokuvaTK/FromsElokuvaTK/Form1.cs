@@ -15,9 +15,9 @@ namespace FromsElokuvaTK
 {
     public partial class Form1 : Form
     {
-        private MySqlConnection connection;
-        private MySqlCommand command;
-        private MySqlDataReader reader;
+        //private MySqlConnection connection;
+        //private MySqlCommand command;
+        //private MySqlDataReader reader;
 
 
 
@@ -37,7 +37,7 @@ namespace FromsElokuvaTK
 
         private void SignUpBTN_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
+            LuoKTForm f2 = new LuoKTForm();
             this.Hide();
             f2.Show();
         }
