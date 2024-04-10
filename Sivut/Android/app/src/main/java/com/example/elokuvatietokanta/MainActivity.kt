@@ -1,16 +1,18 @@
 package com.example.elokuvatietokanta
+//import android.os.your.mother
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 
+
 class MainActivity : ComponentActivity() {
 
 
     //tällä katotaan että ollaanko login vai rekisteröinti ruudussa.
     private var isPressed = 1
-    
+
     private var usernameValue: String = ""
     private var passwordValue: String = ""
 
@@ -76,8 +78,15 @@ class MainActivity : ComponentActivity() {
                     if (isPasswordValid(passwordStr)) {
                         usernameValue = usernameEditText.text.toString()
                         passwordValue = passwordStr
-                        setContentView(R.layout.addorsearch)
-                        menuButtons()
+
+                        if(checkLogin(usernameValue, passwordValue)){
+                            setContentView(R.layout.addorsearch)
+                            menuButtons()
+                        }
+                        else{
+                            Toast.makeText(this, "Käyttäjänimi, sähköposti, tai salasana oli väärin", Toast.LENGTH_SHORT).show()
+                        }
+
                     } else {
                         Toast.makeText(this, "Salasana ei ole tarpeeksi vahva", Toast.LENGTH_SHORT).show()
                     }
@@ -103,4 +112,14 @@ class MainActivity : ComponentActivity() {
         val specialCharacters = setOf('!', '#', '?', '&', '%', '$', '€', '£', '@')
         return password.any { specialCharacters.contains(it) }
     }
+
+    private fun checkLogin(username:String, password: String): Boolean{
+        //katso onko databasesta username ja salasana oikeat, tätä pitää muuttaa sitten siten että se oikeasti
+        //katsoo sieltä databasesta nämä
+        if (username==username&&password==password){
+            return true
+        }
+        return false
+    }
+
 }
