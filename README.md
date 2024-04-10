@@ -21,15 +21,15 @@ Käyttöliittymät täytyy suunnitella etukäteen, tehkää tekniikalle soveltuv
 Testivaiheessa MySQL-tietokanta riittää olla omalla paikallisella koneella.
 
 ## Tiimit
-1. Aaro, Arttu, Lassi
-   - HTML+PHP
-2. Eino, Waltteri, Okko
-   - Windows Forms
-3. Roope, Jimi, Alexi
-   - WPF
-4. Aava, Luka, Riku
-   - Android
-5. Aapo, Konsta
-    - Python
-6. Aleksei, Ruslan
-   - Blazor
+- HTML, PHP
+   - Aaro, Arttu, Lassi
+- Windows Forms
+   - Eino, Waltteri, Okko
+- WPF
+   - Roope, Jimi, Alexi
+-Android
+   - Aava, Luka, Riku
+- Python
+   - Aapo, Konsta
+- Blazor
+   - Aleksei, Ruslan
