@@ -2,11 +2,13 @@
 
 class Movie
 { 
+    private $actors_arr = array();
+
     public string $name;
     public string $director;
     public int $year;
     public int $lenght;
-    public $actors = array();
+    public string $actors_str;
 
     function __construct($name, $lenght, $year)
     {
@@ -19,7 +21,8 @@ class Movie
     {
         try
         {
-            array_push($this->actors, $actor_name);
+            array_push($this->actors_arr, $actor_name);
+            $this->actors_str = implode(", ", $this->actors_arr);
         }
         catch(Exception $exception)
         {
