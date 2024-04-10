@@ -13,10 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST')
 if (isset($_POST)) // Varmista että POST requesti ei ole NULL
 {
     $name = $_POST['name'];
-    $length = $_POST['length'];
+    $director = $_POST['director'];
     $year = $_POST['year'];
+    $length = $_POST['length'];
+    $genre = $_POST['genre'];
+    $main_actor = $_POST['main_actor'];
+    $rating = $_POST['rating'];
 
-    $movie = new Movie($name, $length, $year);
+    $movie = new Movie($name, $director, $year, $length, $genre, $main_actor, $rating);
     $database = new Database();
     
     if(!$database->connect()) // Yhditsää tietokantaan Kutsumalla connect() funktiota, jos yhteys epäonnistuu, scipti pysähtyy.

@@ -2,32 +2,22 @@
 
 class Movie
 { 
-    private $actors_arr = array();
-
     public string $name;
     public string $director;
     public int $year;
     public int $lenght;
-    public string $actors_str;
+    public string $genre;
+    public string $main_actor;
+    public int $rating;
 
-    function __construct($name, $lenght, $year)
+    function __construct($name, $director, $year, $lenght, $genre, $main_actor, $rating)
     {
         $this->name = $name;
+        $this->director = $director;
+        $this->year = $year;
         $this->lenght = $lenght;
-        $this->year= $year;
-    }
-
-    public function add_actor($actor_name)
-    {
-        try
-        {
-            array_push($this->actors_arr, $actor_name);
-            $this->actors_str = implode(", ", $this->actors_arr); // Tekee actors arraysta yhden stringin, pitäisi helpottaa tietokantaan laittamista.
-        }
-        catch(Exception $exception)
-        {
-            return false;
-        }
-        return true;
+        $this->genre = $genre;
+        $this->main_actor = $main_actor;
+        $this->rating = $rating;
     }
 }

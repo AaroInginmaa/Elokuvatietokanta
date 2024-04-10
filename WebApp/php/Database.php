@@ -1,14 +1,12 @@
 <?php
 
-define('DB_HOSTNAME', 'localhost');
-define('DB_USERNAME', 'root'); // Muista vaihtaa oikeiksi
-define('DB_PASSWORD', ''); // Muista vaihtaa oikeiksi
-define('DB_DATABASE', 'elokuvatietokanta');
+require_once("config.php"); // Tietokannan tiedot
 
 class Database
 {
     public $connection;
 
+    // Tekee yhteyden mysql tietokantaan
     public function connect()
     {
         $this->connection = @new mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE); // @ Merkki poistaa turhat varoitukset.
@@ -21,14 +19,16 @@ class Database
         return true;
     }
 
+    // Sulkee yhteyden tietokantaan
     public function close()
     {
         mysqli_close($this->connection);
     }
 
+    // Tekee uuden elokuvan tietokantaan ())
     public function insert_movie(Movie $movie)
     {
-        $sql = "INSERT INTO elokuvatietokanta.elokuvat (Nimi, Pituus, Julkaistu) VALUES ('$movie->name', $movie->lenght, $movie->year)";
+        $sql = "INSERT INTO elokuvatietokanta.elokuvat (elokuva_id, nimi, ohjaaja, julkaisuvuosi, kesto, genre, paa_nayttelija, arvostelu) VALUES ('NULL', '$movie->name', '$movie->director', $movie->year, $movie->lenght, '$movie->genre', '$movie->main_actor', $movie->rating)";
 
         if ($this->connection->query($sql) === TRUE)
         {
