@@ -3,16 +3,15 @@
 require_once('Database.php');
 require_once('Movie.php');
 
-// Validate request method, incase it isn't POST stop the script.
+// Varmista, että request on POST, jos ei ole, scripti pysähtyy.
 if ($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     echo "Incorrect request method.";
     die();
 }
 
-if (isset($_POST)) // Make sure POST has a value and is not NULL
+if (isset($_POST)) // Varmista että POST requesti ei ole NULL
 {
-    // Get the values from POST request made by a html form
     $name = $_POST['name'];
     $length = $_POST['length'];
     $year = $_POST['year'];
@@ -20,13 +19,13 @@ if (isset($_POST)) // Make sure POST has a value and is not NULL
     $movie = new Movie($name, $length, $year);
     $database = new Database();
     
-    if(!$database->connect()) // Call the connect() fucntion to connect to a database. If connection fails, script stops executing.
+    if(!$database->connect()) // Yhditsää tietokantaan Kutsumalla connect() funktiota, jos yhteys epäonnistuu, scipti pysähtyy.
     {
         echo "Database connection failed.<br>";
         die();
     }    
 
-    if(!$database->insert_movie($movie)) // Tries to insert a new record to datbase, if it fails connection closes and script stops executing.
+    if(!$database->insert_movie($movie)) // Yrittää tehdä uuden elokuvan tietokantaan, jos epäonnistuu, scipti pysähtyy.
     {
         echo "Failed to insert new record.<br>";
         $database->close();
@@ -35,7 +34,7 @@ if (isset($_POST)) // Make sure POST has a value and is not NULL
 
     echo "New record created succesfully";
 
-    $database->close(); // Close the datbase connection
+    $database->close(); // Sulkee tietokantayhteyden
 } 
 else
 {
