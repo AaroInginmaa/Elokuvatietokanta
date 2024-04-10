@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Elokuvatietokanta</title>
 </head>
 <body>
+    <h1>Elokuvatietokanta</h1>
+    
+    <form action="php/post_handler.php" method="POST">
+        <label for="name">Elokuvan nimi</label>
+        <br>
+        <input type="text" name="name">
+        <br>
+        <label for="lenght">Elokuvan Pituus minuutteina</label>
+        <br>
+        <input type="text" name="length">
+        <br>
+        <label for="year">Elokuvan Julkaisuvuosi</label>
+        <br>
+        <input type="text" name="year">
+        <br>
+        <input type="submit">
+    </form>
     
 </body>
-</html>
+</html> 
