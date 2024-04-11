@@ -3,58 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elokuvatietokanta</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Elokuvatietokanta</h1>
-    <h2>Elokuva</h2>
-    <form action="php/post_handler.php" method="POST">
-        <label for="name">Elokuvan nimi</label>
-        <br>
-        <input type="text" id="name" name="name" autocomplete="off">
-        <br>
-        <label for="director">Elokuvan Ohjaaja</label>
-        <br>
-        <input type="text" id="director" name="director" autocomplete="off">
-        <br>
-        <label for="year">Elokuvan Julkaisuvuosi</label>
-        <br>
-        <input type="text" id="year" name="year" autocomplete="off">
-        <br>
-        <label for="length">Elokuvan kesto</label>
-        <br>
-        <input type="text" id="length" name="length" autocomplete="off">
-        <br>
-        <label for="genre">Elokuvan genre</label>
-        <br>
-        <input type="text" id="genre" name="genre" autocomplete="off">
-        <br>
-        <label for="main_actor">Elokuvan päänäyttelijä</label>
-        <br>
-        <input type="text" id="main_actor" name="main_actor" autocomplete="off">
-        <br>
-        <label for="rating">Elokuvan arvostelu 1-10</label>
-        <br>
-        <input type="text" id="rating" name="rating" autocomplete="off">
-        <br>
-        <input type="submit">
-    </form>
-    <br>
-    <h2>Rekisteröidy</h2>
-    <form action="php/register_user.php" method="POST">
-        <label for="name">Käyttäjän nimi</label>
-        <br>
-        <input type="text" id="name" name="name" autocomplete="off">
-        <br>
-        <label for="email">Sähkoposti</label>
-        <br>
-        <input type="text" id="email" name="email" autocomplete="off">
-        <br>
-        <label for="password">Salasana</label>
-        <br>
-        <input type="password" id="password" name="password" autocomplete="off">
-        <br>
-        <input type="submit">
+    <h1>Lisää elokuva</h1>
+    <form action="post_handler.php">
+        <label for="moviename">Elokuvan nimi:</label>
+        <input type="text" id="moviename" name="moviename"><br><br>
+        <label for="director">Ohjaaja:</label>
+        <input type="text" id="director" name="director"><br><br>
+        <label for="year">Ilmestymisvuosi:</label>
+        <input type="number" id="year" name="year" min="1888" max="2050"><br><br>
+        <label for="length">Kesto minuutteina:</label>
+        <input type="number" id="length" name="length" min="1" max="300"><br><br>
+        <label for="genre">Genre(t):</label>
+        <input type="text" id="genre" name="genre"><br><br>
+        <label for="actors">Näyttelijät:</label>
+        <input type="text" id="actors" name="actors"><br><br>
+        <label for="rating">Arvostelu:</label>
+        <input type="number" step="0.1" id="rating" name="length" min="1" max="10"><br><br>
+        <input type="submit" value="Submit">
     </form>
 </body>
-</html> 
+</html>
