@@ -135,14 +135,45 @@ def RegisterPage():
         
         
         #täs pitäs tarkistaa onko sil nimel tai sähköpostil jo käyttäjää
+        checkExistingUsers()
         
         
-        saveToDataBase()
+        
+        
     
     
     
     def checkExistingUsers():
-        pass
+        
+        db = mysql.connector.connect(host="localhost",user="root",database="elokuvatietokanta")
+        mycursor = db.cursor()
+        
+        username = nameEntryContent
+        email=emailEntryContent
+        mycursor.execute('SELECT nimi FROM kayttajat WHERE nimi = %(username)s', { 'username' : username })
+        checkUsername = mycursor.fetchall()
+        isTakenname=False
+        for row in checkUsername:
+            if(row[0]==username):
+                isTakenname=True
+            
+        
+        mycursor.execute('SELECT sahkoposti FROM kayttajat WHERE sahkoposti = %(username)s', { 'username' : email })
+        checkEmail=mycursor.fetchall()
+        isTakenemail=False
+        for row in checkEmail:
+            if(row[0]==email):
+                isTakenemail=True
+        
+
+        if isTakenemail == False and isTakenname==False:
+            print('Username and email do not exist')
+            saveToDataBase()
+        else:
+            print('sähköposti tai käyttäjä on jo käytetty')
+        
+        
+        
      
     def saveToDataBase():
         db = mysql.connector.connect(host="localhost",user="root",database="elokuvatietokanta")
@@ -221,7 +252,7 @@ def MainWindow():
     mycursor = mydb.cursor()
     
     def Lisataan_Dataa(val):
-        # Funktio jolle annetaan nimi, pituus ja julkaisu ja se heittää ne data basee 
+        # Functio jolle annetaan nimi, pituus ja julkaisu ja se heittää ne data basee 
         # ja jos tulee error ilmoittaa siitä käyttäjälle
         if val[0] != "" and val[1] and val[2]:
             try:
