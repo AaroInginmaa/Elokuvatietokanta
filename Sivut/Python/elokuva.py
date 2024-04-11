@@ -278,7 +278,7 @@ def MainWindow():
         # ja jos tulee error ilmoittaa siitä käyttäjälle
         if val[0] != "" and val[1] and val[2] and val[3] and val[4] and val[5] and val[6]:
             try:
-                sql = "INSERT INTO elokuvat (nimi, ohjaaja, julkaisuvuosi, kesto, genre, paa_nayttelija, arvostelu) VALUES (%s, %s, %s)"
+                sql = "INSERT INTO elokuvat (nimi, ohjaaja, julkaisuvuosi, kesto, genre, paa_nayttelija, arvostelu) VALUES (%s, %s, %s, %s, %s, %s, %s)"
                 mycursor.execute(sql, val)
                 mydb.commit()
                 print(mycursor.rowcount, "record(s) inserted.")
