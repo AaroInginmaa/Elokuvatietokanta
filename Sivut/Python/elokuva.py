@@ -62,22 +62,25 @@ def LogInPage():
         backButton_LoginPage.place(relx=.5,rely=.8,anchor=CENTER)
     
     def clickLogin():
-        
         nameOrEmailEntryContent = nameOrEmailTextEntry_LogInPage.get()
-        passwordEntryContent=passwordTextEntry_LogInPage.get()
+        passwordEntryContent = passwordTextEntry_LogInPage.get()
         
-        print(f"Content of name email: {nameOrEmailEntryContent}")
-        print(f"Content of password: {passwordEntryContent}")
+        db = mysql.connector.connect(host="localhost", user="root", database="elokuvatietokanta")
+        cursor = db.cursor()
+
+        sql = "SELECT * FROM kayttajat WHERE (nimi = %s OR sahkoposti = %s) AND salasana = %s"
+        cursor.execute(sql, (nameOrEmailEntryContent, nameOrEmailEntryContent, passwordEntryContent))
+        user = cursor.fetchone()
+
+        if user:
+            messagebox.showinfo("Login Successful", "Welcome!")
+            MainWindow()
+        else:
+            messagebox.showerror("Login Error", "Invalid credentials. Please try again.")
+
+        cursor.close()
+        db.close()
         
-        
-        #täs pitäs vielä tarkistaa että onko oikee käyttäjä / salasana
-        
-        
-        #vaihtaa main windowii
-        root.state('zoomed')
-        root.title('ElokuvaTietokanta')
-        root.resizable(width=True, height=True)
-        MainWindow()
         
     def clickBack():
         listOfContents = [nameOrEmailText_LogInPage, passwordText_LogInPage, nameOrEmailTextEntry_LogInPage, passwordTextEntry_LogInPage, loginButton_LoginPage,backButton_LoginPage]
@@ -137,12 +140,6 @@ def RegisterPage():
         #täs pitäs tarkistaa onko sil nimel tai sähköpostil jo käyttäjää
         checkExistingUsers()
         
-        
-        
-        
-    
-    
-    
     def checkExistingUsers():
         
         db = mysql.connector.connect(host="localhost",user="root",database="elokuvatietokanta")
@@ -168,6 +165,7 @@ def RegisterPage():
 
         if isTakenemail == False and isTakenname==False:
             print('Username and email do not exist')
+            messagebox.showinfo("Registration Successful", "User registered successfully!")
             saveToDataBase()
         else:
             print('sähköposti tai käyttäjä on jo käytetty')
@@ -256,7 +254,7 @@ def MainWindow():
         # ja jos tulee error ilmoittaa siitä käyttäjälle
         if val[0] != "" and val[1] and val[2]:
             try:
-                sql = "INSERT INTO elokuvat (nimi, kesto, julkaisuvuosi) VALUES (%s, %s, %s)"
+                sql = "INSERT INTO elokuvat (nimi, ohjaaja, julkaisuvuosi, kesto, genre, paa_nayttelija, arvostelu) VALUES (%s, %s, %s)"
                 mycursor.execute(sql, val)
                 mydb.commit()
                 print(mycursor.rowcount, "record(s) inserted.")
@@ -264,7 +262,7 @@ def MainWindow():
                 print("Sisältää jo kyseisen asian")
                 messagebox.showerror("Error", "Some records were not inserted due to duplicates.")        
         else:
-            print(f"Jotain on vituillaan seuraavissa\n{val[0]}\n{val[1]}\n{val[2]}")
+            print(f"Jotain on vikana seuraavissa\n{val[0]}\n{val[1]}\n{val[2]}")
     def Haetaan_Dataa(): 
         # Tarkistetaan dropdown menun value
         if combo.get()[-1:] == "V":
@@ -313,10 +311,6 @@ def MainWindow():
     # Luodaan dropdown menu jolla valitaan lajittelu järjestys
 
     contents()
-
-
-
-
 
 #Window
 root = tk.Tk()
