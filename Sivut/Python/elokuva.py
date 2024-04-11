@@ -218,29 +218,53 @@ def MainWindow():
         scrollbar.config(command=listbox.yview) 
 
         # Hae data nappi luonti
-        hae_button = ttk.Button(text="Hae Data", command=lambda: Lista()).place(x=70, y=90)
+        hae_button = ttk.Button(text="Hae Data", command=lambda: Lista()).place(x=70, y=45)
 
         # Lisaa nimi label ja input box
-        lisaa_nimi_label =ttk.Label(text="Elokuvan nimi").place(x=70,y=130)
+        lisaa_nimi_label =ttk.Label(text="Elokuvan Nimi").place(x=70,y=100)
         lisaa_nimi = ttk.Entry(width=30)
-        lisaa_nimi.place(x=70,y=150)
-
-        # Lisaa pituus label ja input box
-        lisaa_pituus_label =ttk.Label(text="Elokuvan Pituus").place(x=70,y=175)
-        lisaa_pituus = ttk.Entry(width=30)
-        lisaa_pituus.place(x=70,y=195)
-
+        lisaa_nimi.place(x=70,y=120)
+        
+        # Lisaa ohjaaja label ja input box
+        lisaa_ohjaaja_label =ttk.Label(text="Elokuvan Ohjaaja").place(x=70,y=145)
+        lisaa_ohjaaja = ttk.Entry(width=30)
+        lisaa_ohjaaja.place(x=70,y=165)
+        
         # Lisaa Julkaisu label ja input box
-        lisaa_julkaisu_label =ttk.Label(text="Elokuvan Julkaisu").place(x=70,y=220)
+        lisaa_julkaisu_label =ttk.Label(text="Elokuvan Julkaisu").place(x=70,y=190)
         lisaa_julkaisu = ttk.Entry(width=30)
-        lisaa_julkaisu.place(x=70,y=240)
+        lisaa_julkaisu.place(x=70,y=210)
+        
+        # Lisaa pituus label ja input box
+        lisaa_pituus_label =ttk.Label(text="Elokuvan Pituus").place(x=70,y=235)
+        lisaa_pituus = ttk.Entry(width=30)
+        lisaa_pituus.place(x=70,y=255)
+        
+        # Lisaa genre label ja input box
+        lisaa_genre_label =ttk.Label(text="Elokuvan Genre").place(x=70,y=280)
+        lisaa_genre = ttk.Entry(width=30)
+        lisaa_genre.place(x=70,y=300)
+        
+        # Lisaa nayttelija label ja input box
+        lisaa_nayttelija_label =ttk.Label(text="Elokuvan Päänäyttelijä").place(x=70,y=325)
+        lisaa_nayttelija = ttk.Entry(width=30)
+        lisaa_nayttelija.place(x=70,y=345)
+        
+        # Lisaa arvostelu label ja input box
+        lisaa_arvostelu_label =ttk.Label(text="Elokuvan Arvostelu").place(x=70,y=370)
+        lisaa_arvostelu = ttk.Entry(width=30)
+        lisaa_arvostelu.place(x=70,y=390)
+
+        
+
+        
 
 
-        lisaa_button = ttk.Button(text="Lisää Data", command=lambda: Lisataan_Dataa((str(lisaa_nimi.get()),lisaa_pituus.get(),str(lisaa_julkaisu.get()))))
-        lisaa_button.place(x=70, y=265)
+        lisaa_button = ttk.Button(text="Lisää Data", command=lambda: Lisataan_Dataa((str(lisaa_nimi.get()),lisaa_ohjaaja.get(),str(lisaa_julkaisu.get()),str(lisaa_pituus.get()),lisaa_genre.get(),lisaa_nayttelija.get(),str(lisaa_arvostelu.get()))))
+        lisaa_button.place(x=70, y=420)
 
-        poista_button = ttk.Button(text="Poista Data", command=lambda: Poistetaan_Dataa((str(lisaa_nimi.get()),lisaa_pituus.get(),str(lisaa_julkaisu.get()))))
-        poista_button.place(x=170, y=265)
+        poista_button = ttk.Button(text="Poista Data", command=lambda: Poistetaan_Dataa((str(lisaa_nimi.get()),lisaa_ohjaaja.get(),str(lisaa_julkaisu.get()),str(lisaa_pituus.get()),lisaa_genre.get(),lisaa_nayttelija.get(),str(lisaa_arvostelu.get()))))
+        poista_button.place(x=170, y=420)
     mydb = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -252,7 +276,7 @@ def MainWindow():
     def Lisataan_Dataa(val):
         # Functio jolle annetaan nimi, pituus ja julkaisu ja se heittää ne data basee 
         # ja jos tulee error ilmoittaa siitä käyttäjälle
-        if val[0] != "" and val[1] and val[2]:
+        if val[0] != "" and val[1] and val[2] and val[3] and val[4] and val[5] and val[6]:
             try:
                 sql = "INSERT INTO elokuvat (nimi, ohjaaja, julkaisuvuosi, kesto, genre, paa_nayttelija, arvostelu) VALUES (%s, %s, %s)"
                 mycursor.execute(sql, val)
