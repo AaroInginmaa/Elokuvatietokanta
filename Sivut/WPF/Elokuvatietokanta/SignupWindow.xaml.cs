@@ -26,16 +26,20 @@ namespace Elokuvatietokanta
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
+
             //Määritetään yhteys tietokantaan !!Varmista, että on oikeat tiedot!!
             string connStr = "server=localhost;user=root;database=elokuvatietokanta;port=3306;password=";
             MySqlConnection conn = new MySqlConnection(connStr);
             //Yrittää avata yhteyden tietokantaan
+            string Pword = Password.Text;
+            string User = Username.Text;
+            string email = Email.Text;
             bool ValidPassword = false;
             try
             {
                 conn.Open();
                 //Katsotaan tehtävän annonmukaiseksi salasana
-                if(Password.Text.Length >= 6 & Password.Text.Any(char.IsUpper) & Password.Text.Any(ch => ! char.IsLetterOrDigit(ch)))
+                if(Pword.Length >= 6 & Pword.Any(char.IsUpper) & Pword.Any(ch => ! char.IsLetterOrDigit(ch)))
                 {
                     ValidPassword = true;
                 }
@@ -44,8 +48,7 @@ namespace Elokuvatietokanta
                 if (ValidPassword == true)
                 {
                     //SQL lauseke, joka vie tiedot tietokantaan oikeista laatikoista
-                    string sql = "INSERT INTO usertable (username, email, password) " +
-                        "VALUES ('" + Username.Text + "' , '" + Email.Text + "' , '" + Password.Text + "');";
+                    string sql = $"INSERT INTO usertable (username, email, password) VALUES ('{User}' , '{email} ' , '{Pword}')";
                     MySqlCommand cmd = new MySqlCommand(sql, conn);
                     //Varmistetaan, että SQL lauseke teki jotain
                     int a = cmd.ExecuteNonQuery();
@@ -53,6 +56,10 @@ namespace Elokuvatietokanta
                     {
                         //Jos SQL lauseke onnistui näytetään messagebox käyttäjälle
                         MessageBox.Show("User created successfully");
+                        //Jos kirjautuminen onnistuu, viedään käyttäjä elokuvan lisäys näkymään (MainWindow)
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
+                        Close();
                     }
                 }
                 else if(Password.Text != PasswordAgain.Text)
