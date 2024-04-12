@@ -1,0 +1,22 @@
+﻿<Window x:Class="Elokuvatietokanta.Elokuvat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Elokuvatietokanta"
+        mc:Ignorable="d"
+        Title="Elokuvat" Height="450" Width="800">
+    <Viewbox>
+        <Grid Margin="10,0,0,0">
+
+            <DataGrid Name="SQLdataGrid" HorizontalAlignment="Left" Width="780" Height="200" Margin="0,10,0,10" 
+             ScrollViewer.CanContentScroll="True" 
+             ScrollViewer.VerticalScrollBarVisibility="Visible"
+             ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
+            <Label x:Name="Nimi_Label" Content="Poistettavan elokuvan nimi" Margin="276,0,350,-79" VerticalAlignment="Bottom"/>
+            <TextBox x:Name="EloPoisto" HorizontalAlignment="Left" Height="41" Margin="430,0,0,-87" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="200"/>
+            <Button Content="Poista" HorizontalAlignment="Left" Margin="680,0,0,-87" VerticalAlignment="Bottom" Height="41" Width="81" Click="KillMovie"/>
+            <Button Content="Takaisin" HorizontalAlignment="Left" Margin="10,0,0,-87" VerticalAlignment="Bottom" Height="41" Width="81" Click="GoBack"/>
+        </Grid>
+    </Viewbox>
+</Window>

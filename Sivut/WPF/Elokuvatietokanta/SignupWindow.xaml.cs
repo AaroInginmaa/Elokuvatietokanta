@@ -1,0 +1,93 @@
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace Elokuvatietokanta
+{
+    //!! Sähköposti seuraavaksi !!
+    public partial class SignupWindow : Window
+    {
+        public SignupWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            //Määritetään yhteys tietokantaan !!Varmista, että on oikeat tiedot!!
+            string connStr = "server=localhost;user=root;database=elokuvatietokanta;port=3306;password=";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            //Yrittää avata yhteyden tietokantaan
+            bool ValidPassword = false;
+            try
+            {
+                conn.Open();
+                //Katsotaan tehtävän annonmukaiseksi salasana
+                if(Password.Text.Length >= 6 & Password.Text.Any(char.IsUpper) & Password.Text.Any(ch => ! char.IsLetterOrDigit(ch)))
+                {
+                    ValidPassword = true;
+                }
+
+                //Suoritetaan, kun salasana on halutunlainen
+                if (ValidPassword == true)
+                {
+                    //SQL lauseke, joka vie tiedot tietokantaan oikeista laatikoista
+                    string sql = "INSERT INTO usertable (username, email, password) " +
+                        "VALUES ('" + Username.Text + "' , '" + Email.Text + "' , '" + Password.Text + "');";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    //Varmistetaan, että SQL lauseke teki jotain
+                    int a = cmd.ExecuteNonQuery();
+                    if (a > 0)
+                    {
+                        //Jos SQL lauseke onnistui näytetään messagebox käyttäjälle
+                        MessageBox.Show("User created successfully");
+                    }
+                }
+                else if(Password.Text != PasswordAgain.Text)
+                {
+                    //Jos salasanat eivät ole sama
+                    MessageBox.Show("Passwords do not match");
+                }
+                else
+                {
+                    //Jos Signup ei ole oikein
+                    MessageBox.Show("Invalid signup information");
+                }
+            }
+            //Jos yhteys tai SQL lauseke epäonnistuu
+            catch (Exception ex)
+            {
+                //Jos käyttäjä tai sähköposti on jo tietokannassa näytetään käyttäjälle messagebox
+                if (ex.Message.ToLower().Contains("duplicate entry"))
+                {
+                    MessageBox.Show("User with this name or email already exists");
+                }
+                //Kaikissa muissa epäonnistumisissa tulee käyttäjälle näkyviin messagebox, jossa lukee errorin syy
+                else
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+            conn.Close();
+        }
+
+        private void ToLogin(object sender, RoutedEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            Close();
+        }
+    }
+}
