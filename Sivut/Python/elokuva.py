@@ -3,24 +3,26 @@ from tkinter import *
 import mysql.connector
 from tkinter import ttk
 from tkinter import messagebox
+import re
+import datetime
 
 
 def loginRegisterPage():
     
     def contents():
         global registerButton,loginButton
+        root.title("Elokuvatietokanta")
+        root.geometry("500x500")
         
-        #Buttons
         registerButton = tk.Button(text="Register",command=clickRegister)
         loginButton = tk.Button(text="Log In",command=clickLogin)
         
-        #Placements
         registerButton.place(relx=.5,rely=.40,anchor=CENTER)
         loginButton.place(relx=.5,rely=.60,anchor=CENTER)
     
     def clickRegister():
         listOfContents = [registerButton,loginButton]
-        root.title("Register Page")
+        root.title("Rekisteröityminen")
         root.geometry("500x500")
         for i in listOfContents:
             i.destroy()
@@ -28,8 +30,8 @@ def loginRegisterPage():
     
     def clickLogin():
         listOfContents = [registerButton,loginButton]
-        root.title("Log In")
-        root.geometry("350x450")
+        root.title("Kirjautuminen")
+        root.geometry("500x500")
         for i in listOfContents:
             i.destroy()
             
@@ -42,16 +44,16 @@ def LogInPage():
         global nameOrEmailText_LogInPage, passwordText_LogInPage, nameOrEmailTextEntry_LogInPage, passwordTextEntry_LogInPage, loginButton_LoginPage,backButton_LoginPage
         
         #Texts
-        nameOrEmailText_LogInPage = tk.Label(text="Name/Email")
-        passwordText_LogInPage = tk.Label(text="Password")
+        nameOrEmailText_LogInPage = tk.Label(text="Nimi/Sähköposti")
+        passwordText_LogInPage = tk.Label(text="Salasana")
         
         #Entrys
         nameOrEmailTextEntry_LogInPage = tk.Entry()
         passwordTextEntry_LogInPage = tk.Entry()
         
         #Buttons
-        loginButton_LoginPage = tk.Button(text="Log In",command=clickLogin)
-        backButton_LoginPage = tk.Button(text="Back",command=clickBack)
+        loginButton_LoginPage = tk.Button(text="Kirjaudu",command=clickLogin)
+        backButton_LoginPage = tk.Button(text="Palaa",command=clickBack)
         
         #Placements
         nameOrEmailText_LogInPage.place(relx=.5,rely=.1,anchor=CENTER)
@@ -62,9 +64,15 @@ def LogInPage():
         backButton_LoginPage.place(relx=.5,rely=.8,anchor=CENTER)
     
     def clickLogin():
+        # otetaan valuet input fieldeistä
         nameOrEmailEntryContent = nameOrEmailTextEntry_LogInPage.get()
         passwordEntryContent = passwordTextEntry_LogInPage.get()
-        
+
+        # varmistetaan ettei ne oo tyhjiä
+        if not nameOrEmailEntryContent or not passwordEntryContent:
+            messagebox.showerror("Tyhjät kentät", "Täytä Nimi/Sähköposti ja Salasana kentät.")
+            return
+
         db = mysql.connector.connect(host="localhost", user="root", database="elokuvatietokanta")
         cursor = db.cursor()
 
@@ -73,18 +81,17 @@ def LogInPage():
         user = cursor.fetchone()
 
         if user:
-            messagebox.showinfo("Login Successful", "Welcome!")
+            messagebox.showinfo("Kirjautuminen onnistui", "Tervetuloa!")
             MainWindow()
         else:
-            messagebox.showerror("Login Error", "Invalid credentials. Please try again.")
+            messagebox.showerror("Virhe kirjautumisessa", "Virheelliset kirjautumistiedot. Yritä uudelleen.")
 
         cursor.close()
         db.close()
-        
-        
+               
     def clickBack():
         listOfContents = [nameOrEmailText_LogInPage, passwordText_LogInPage, nameOrEmailTextEntry_LogInPage, passwordTextEntry_LogInPage, loginButton_LoginPage,backButton_LoginPage]
-        root.title("Select an option")
+        root.title("Valitse")
         root.geometry("300x150")
         for i in listOfContents:
             i.destroy()  
@@ -99,9 +106,9 @@ def RegisterPage():
         global nameTextEntry_RegisterPage,emailTextEntry_RegisterPage,passwordTextEntry_RegisterPage,nameText_RegisterPage,emailText_RegisterPage,passwordText_RegisterPage,registerButton_RegisterPage,backButton_RegisterPage
         
         #Texts
-        nameText_RegisterPage = tk.Label(text="Name")
-        emailText_RegisterPage = tk.Label(text="Email")
-        passwordText_RegisterPage = tk.Label(text="Password")
+        nameText_RegisterPage = tk.Label(text="Nimi")
+        emailText_RegisterPage = tk.Label(text="Sähköposti")
+        passwordText_RegisterPage = tk.Label(text="Salasana")
     
         #Entrys
         nameTextEntry_RegisterPage = tk.Entry()
@@ -109,8 +116,8 @@ def RegisterPage():
         passwordTextEntry_RegisterPage = tk.Entry()
         
         #Buttons
-        registerButton_RegisterPage = tk.Button(text="Register", command=clickRegister,)
-        backButton_RegisterPage = tk.Button(text="Back",command=clickBack)
+        registerButton_RegisterPage = tk.Button(text="Rekisteröidy", command=clickRegister,)
+        backButton_RegisterPage = tk.Button(text="Palaa",command=clickBack)
 
         #Placements
         nameText_RegisterPage.place(relx=.5, rely=.15, anchor=CENTER)
@@ -126,18 +133,25 @@ def RegisterPage():
         
         global nameEntryContent,emailEntryContent,passwordEntryContent
         
-        #Take inputs from Entryboxes
+        # otetaan input fieldien arvot
         nameEntryContent = nameTextEntry_RegisterPage.get()
         emailEntryContent = emailTextEntry_RegisterPage.get()
         passwordEntryContent = passwordTextEntry_RegisterPage.get()
     
-        #Print the inputs
-        print(f"Content of nameTextEntry:{nameEntryContent}" )
-        print(f"Content of emailTextEntry:{emailEntryContent}")
-        print(f"Content of passwordTextEntry:{ passwordEntryContent}")
+        # käyttäjänimen tarkistus
+        if len(nameEntryContent) < 4 or len(nameEntryContent) > 20:
+            messagebox.showerror("Virheellinen käyttäjänimi", "Nimen täytyy olla 4 - 20 kirjainta.")
+            return
         
-        
-        #täs pitäs tarkistaa onko sil nimel tai sähköpostil jo käyttäjää
+        # kutsutaan sähköpostin formatin tarkistus
+        if not validate_email(emailEntryContent):
+            messagebox.showerror("Virheellinen sähköposti", "Syötä kelvollinen sähköposti.")
+            return
+        # kutsutaan salasanan tarkistus
+        if not validate_password(passwordEntryContent):
+            messagebox.showerror("Virheellinen salasana", "Salasanan täytyy olla vähintään 6 kirjaiminen, sisältää vähintään yksi isokirjain, ja yksi erikoismerkki (!#&%$€£@?).")
+            return
+    
         checkExistingUsers()
         
     def checkExistingUsers():
@@ -153,7 +167,6 @@ def RegisterPage():
         for row in checkUsername:
             if(row[0]==username):
                 isTakenname=True
-            
         
         mycursor.execute('SELECT sahkoposti FROM kayttajat WHERE sahkoposti = %(username)s', { 'username' : email })
         checkEmail=mycursor.fetchall()
@@ -164,15 +177,37 @@ def RegisterPage():
         
 
         if isTakenemail == False and isTakenname==False:
-            print('Username and email do not exist')
-            messagebox.showinfo("Registration Successful", "User registered successfully!")
+            print('Käyttäjänimi ja sähköposti ovat käytettävissä')
+            messagebox.showinfo("Rekisteröityminen onnistoi", "Käyttäjä rekisteröity onnistuneesti!")
             saveToDataBase()
+            MainWindow()
         else:
-            print('sähköposti tai käyttäjä on jo käytetty')
+            print('Sähköposti tai käyttäjänimi on jo käytössä')
         
+    # sähköpostin formatin tarkistus
+    def validate_email(email):
+        # Format, jolla tarkistetaan emailin kelvollisuus
+        pattern = r'^[\w\.-]+@[\w\.-]+\.\w{2,}$'
         
+        # re.match() tarkistaa onko format oikea
+        if re.match(pattern, email):
+            return True
+        else:
+            return False
+    
+    # salasanan tarkistus
+    def validate_password(password):
+        if len(password) < 6:
+            return False
         
-     
+        has_uppercase = any(char.isupper() for char in password)
+        has_special = any(char in "!#&%$€£@?" for char in password)
+        
+        if not has_uppercase or not has_special:
+            return False
+        
+        return True
+    
     def saveToDataBase():
         db = mysql.connector.connect(host="localhost",user="root",database="elokuvatietokanta")
         cursor = db.cursor()
@@ -185,7 +220,7 @@ def RegisterPage():
         
     def clickBack():
         listOfContents = [ nameTextEntry_RegisterPage,emailTextEntry_RegisterPage,passwordTextEntry_RegisterPage,nameText_RegisterPage,emailText_RegisterPage,passwordText_RegisterPage,registerButton_RegisterPage,backButton_RegisterPage]
-        root.title("Select an option")
+        root.title("Valitse")
         root.geometry("300x150")
          
         for i in listOfContents:
@@ -195,8 +230,15 @@ def RegisterPage():
              
     contents()
 
-
 def MainWindow():
+    
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="",
+    database="elokuvatietokanta"
+    )
+    mycursor = mydb.cursor()
     
     def contents():
         global combo, listbox
@@ -218,75 +260,83 @@ def MainWindow():
         scrollbar.config(command=listbox.yview) 
 
         # Hae data nappi luonti
-        hae_button = ttk.Button(text="Hae Data", command=lambda: Lista()).place(x=70, y=45)
+        hae_button = ttk.Button(text="Hae Elokuva", command=lambda: Lista()).place(x=70, y=45)
 
         # Lisaa nimi label ja input box
-        lisaa_nimi_label =ttk.Label(text="Elokuvan Nimi").place(x=70,y=100)
+        lisaa_nimi_label =ttk.Label(text="Nimi").place(x=70,y=100)
         lisaa_nimi = ttk.Entry(width=30)
         lisaa_nimi.place(x=70,y=120)
         
         # Lisaa ohjaaja label ja input box
-        lisaa_ohjaaja_label =ttk.Label(text="Elokuvan Ohjaaja").place(x=70,y=145)
+        lisaa_ohjaaja_label =ttk.Label(text="Ohjaaja").place(x=70,y=145)
         lisaa_ohjaaja = ttk.Entry(width=30)
         lisaa_ohjaaja.place(x=70,y=165)
         
         # Lisaa Julkaisu label ja input box
-        lisaa_julkaisu_label =ttk.Label(text="Elokuvan Julkaisu").place(x=70,y=190)
+        lisaa_julkaisu_label =ttk.Label(text="Julkaisuvuosi").place(x=70,y=190)
         lisaa_julkaisu = ttk.Entry(width=30)
         lisaa_julkaisu.place(x=70,y=210)
         
         # Lisaa pituus label ja input box
-        lisaa_pituus_label =ttk.Label(text="Elokuvan Pituus").place(x=70,y=235)
+        lisaa_pituus_label =ttk.Label(text="Pituus").place(x=70,y=235)
         lisaa_pituus = ttk.Entry(width=30)
         lisaa_pituus.place(x=70,y=255)
         
         # Lisaa genre label ja input box
-        lisaa_genre_label =ttk.Label(text="Elokuvan Genre").place(x=70,y=280)
+        lisaa_genre_label =ttk.Label(text="Genre").place(x=70,y=280)
         lisaa_genre = ttk.Entry(width=30)
         lisaa_genre.place(x=70,y=300)
         
         # Lisaa nayttelija label ja input box
-        lisaa_nayttelija_label =ttk.Label(text="Elokuvan Päänäyttelijä").place(x=70,y=325)
+        lisaa_nayttelija_label =ttk.Label(text="Päänäyttelijä").place(x=70,y=325)
         lisaa_nayttelija = ttk.Entry(width=30)
         lisaa_nayttelija.place(x=70,y=345)
         
         # Lisaa arvostelu label ja input box
-        lisaa_arvostelu_label =ttk.Label(text="Elokuvan Arvostelu").place(x=70,y=370)
+        lisaa_arvostelu_label =ttk.Label(text="Arvostelu").place(x=70,y=370)
         lisaa_arvostelu = ttk.Entry(width=30)
         lisaa_arvostelu.place(x=70,y=390)
-
-        
-
-        
-
-
-        lisaa_button = ttk.Button(text="Lisää Data", command=lambda: Lisataan_Dataa((str(lisaa_nimi.get()),lisaa_ohjaaja.get(),str(lisaa_julkaisu.get()),str(lisaa_pituus.get()),lisaa_genre.get(),lisaa_nayttelija.get(),str(lisaa_arvostelu.get()))))
+        lisaa_button = ttk.Button(text="Lisää elokuva", command=lambda: Lisataan_Dataa((str(lisaa_nimi.get()),lisaa_ohjaaja.get(),str(lisaa_julkaisu.get()),str(lisaa_pituus.get()),lisaa_genre.get(),lisaa_nayttelija.get(),str(lisaa_arvostelu.get()))))
         lisaa_button.place(x=70, y=420)
 
-        poista_button = ttk.Button(text="Poista Data", command=lambda: Poistetaan_Dataa((str(lisaa_nimi.get()),lisaa_ohjaaja.get(),str(lisaa_julkaisu.get()),str(lisaa_pituus.get()),lisaa_genre.get(),lisaa_nayttelija.get(),str(lisaa_arvostelu.get()))))
+        poista_button = ttk.Button(text="Poista elokuva", command=lambda: Poistetaan_Dataa((str(lisaa_nimi.get()),lisaa_ohjaaja.get(),str(lisaa_julkaisu.get()),str(lisaa_pituus.get()),lisaa_genre.get(),lisaa_nayttelija.get(),str(lisaa_arvostelu.get()))))
         poista_button.place(x=170, y=420)
-    mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="elokuvatietokanta"
-    )
-    mycursor = mydb.cursor()
-    
+        
     def Lisataan_Dataa(val):
-        # Functio jolle annetaan nimi, pituus ja julkaisu ja se heittää ne data basee 
+        nimi, ohjaaja, julkaisuvuosi, kesto, genre, paa_nayttelija, arvostelu = val
+    
+    # Validate the publication year
+        if not validate_publication_year(julkaisuvuosi):
+            messagebox.showerror("Virheellinen julkaisuvuosi", "Syötä kelvollinen julkaisuvuosi.")
+            return
+        # Funktio jolle annetaan nimi, pituus ja julkaisu ja se heittää ne databasee 
         # ja jos tulee error ilmoittaa siitä käyttäjälle
-        if val[0] != "" and val[1] and val[2] and val[3] and val[4] and val[5] and val[6]:
+        if all(val) and validate_publication_year(julkaisuvuosi):
             try:
                 sql = "INSERT INTO elokuvat (nimi, ohjaaja, julkaisuvuosi, kesto, genre, paa_nayttelija, arvostelu) VALUES (%s, %s, %s, %s, %s, %s, %s)"
                 mycursor.execute(sql, val)
                 mydb.commit()
-                print(mycursor.rowcount, "record(s) inserted.")
+                print(mycursor.rowcount, " elokuva syötetty.")
             except mysql.connector.errors.IntegrityError as e:
-                print("Sisältää jo kyseisen asian")
-                messagebox.showerror("Error", "Some records were not inserted due to duplicates.")        
+                print("Elokuva on jo tietokannassa")
+                messagebox.showerror("Virhe!", "Some records were not inserted due to duplicates in the database.")        
         else:
             print(f"Jotain on vikana seuraavissa\n{val[0]}\n{val[1]}\n{val[2]}")
+            
+            
+    def validate_publication_year(year):
+        try:
+            year = int(year)
+            current_year = datetime.datetime.now().year
+            # järkevä julkaisuvuosi
+            if 1888 <= year <= current_year:
+                return True
+            else:
+                return False
+        except ValueError:
+            return False
+    
+    
     def Haetaan_Dataa(): 
         # Tarkistetaan dropdown menun value
         if combo.get()[-1:] == "V":
@@ -314,13 +364,13 @@ def MainWindow():
             sql = f" DELETE FROM elokuvat WHERE {val}"
             mycursor.execute(sql)
             mydb.commit()
-            print(mycursor.rowcount, "record(s) inserted.")
+            print(mycursor.rowcount, " elokuva poistettu.")
         except mysql.connector.errors.IntegrityError as e:
-            print("Sisältää jo kyseisen asian")
-            messagebox.showerror("Error", "Some records were not inserted due to duplicates.")
+            print("Ei ole olemassa")
+            messagebox.showerror("Virhe", "Elokuvaa ei ole olemassa.")
 
     def dropdown_opened():
-        print("The drop-down has been opened!")
+        print("Drop-down menu on avattu!")
         print(f"{combo.get()}")
         
     def Lista():
@@ -338,7 +388,7 @@ def MainWindow():
 
 #Window
 root = tk.Tk()
-root.title("Select an option")
+root.title("Valitse")
 root.geometry("300x150")
 root.resizable(width=False, height=False)
 root.attributes('-topmost', True)
