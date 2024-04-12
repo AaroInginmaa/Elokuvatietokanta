@@ -260,7 +260,7 @@ def MainWindow():
         scrollbar.config(command=listbox.yview) 
 
         # Hae data nappi luonti
-        hae_button = ttk.Button(text="Hae Elokuva", command=lambda: Lista()).place(x=70, y=45)
+        hae_button = ttk.Button(text="Elokuvalista", command=lambda: Lista()).place(x=70, y=45)
 
         # Lisaa nimi label ja input box
         lisaa_nimi_label =ttk.Label(text="Nimi").place(x=70,y=100)
