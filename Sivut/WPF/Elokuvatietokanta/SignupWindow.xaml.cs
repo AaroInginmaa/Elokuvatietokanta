@@ -31,7 +31,7 @@ namespace Elokuvatietokanta
             string connStr = "server=localhost;user=root;database=elokuvatietokanta;port=3306;password=";
             MySqlConnection conn = new MySqlConnection(connStr);
             //Yrittää avata yhteyden tietokantaan
-            string Pword = Password.Text;
+            string Pword = passWordBox.Password.ToString();
             string User = Username.Text;
             string email = Email.Text;
             bool ValidPassword = false;
@@ -62,7 +62,7 @@ namespace Elokuvatietokanta
                         Close();
                     }
                 }
-                else if(Password.Text != PasswordAgain.Text)
+                else if(Pword != PasswordAgain.Password.ToString())
                 {
                     //Jos salasanat eivät ole sama
                     MessageBox.Show("Passwords do not match");

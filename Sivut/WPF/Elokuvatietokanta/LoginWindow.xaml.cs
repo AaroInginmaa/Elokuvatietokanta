@@ -21,6 +21,7 @@ namespace Elokuvatietokanta
     /// </summary>
     public partial class LoginWindow : Window
     {
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -28,6 +29,8 @@ namespace Elokuvatietokanta
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
+            string UserOrEmail = UsernameOrEmail.Text;
+            string Pword = passWordBox.Password.ToString();
             //Määritetään yhteys tietokantaan !!Varmista, että on oikeat tiedot!!
             string connStr = "server=localhost;user=root;database=elokuvatietokanta;port=3306;password=";
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -38,8 +41,7 @@ namespace Elokuvatietokanta
 
                 //SQL lauseke, joka vie tiedot tietokantaan oikeista laatikoista
                 //Tällä katsotaan onko login tiedot oikein, ei pitäisi päästää ketään tunnuksetonta tai väärillä tunnuksilla sisään 
-                string sql = "SELECT * FROM usertable WHERE username = '" + UsernameOrEmail.Text + "' and password = " +
-                    "'" + Password.Text + "'or email = '" + UsernameOrEmail.Text + "' and password = '" + Password.Text +"';";
+                string sql = $"SELECT * FROM usertable WHERE username = '{UserOrEmail}' and password = '{Pword}'or email = '{ UserOrEmail}' and password = '{Pword}';";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 var reader = cmd.ExecuteReader();
                 //Varmistetaan, että SQL lauseke teki jotain
