@@ -361,7 +361,7 @@ def MainWindow():
     def Poistetaan_Dataa(val):
         # Poistaminen ole tehty
         try:
-            sql = f" DELETE FROM elokuvat WHERE {val}"
+            sql = f'DELETE FROM elokuvat WHERE nimi="{val[0]}" and ohjaaja="{val[1]}"'
             mycursor.execute(sql)
             mydb.commit()
             print(mycursor.rowcount, " elokuva poistettu.")
