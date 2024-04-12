@@ -1,27 +1,16 @@
 ﻿using System;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FromsElokuvaTK
 {
     public partial class KirjauduForm : Form
     {
-        private MySqlConnection connection;
-        private MySqlCommand command;
+        Database database = new Database("localhost", "root", "", "elokuvatietokanta");
 
         public KirjauduForm()
         {
             InitializeComponent();
-            InitializeDatabaseConnection();
-        }
-
-        private void InitializeDatabaseConnection()
-        {
-            string connectionString = "datasource=localhost;port=3306;username=/**/;password=/**/;database=elokuvatietokanta"; //Vaihtakaa tähän ne oikeat login credentiaalit
-            connection = new MySqlConnection(connectionString);
         }
 
         private void KirjauduForm_Load(object sender, EventArgs e)
@@ -37,38 +26,32 @@ namespace FromsElokuvaTK
             user_password = txt_password.Text;
 
             //TIETOJEN HAKEMINEN
-            try
+            if(!database.Connect())
             {
-                connection.Open();
-                string query = $"SELECT COUNT(*) FROM users WHERE Käyttäjänimi = '{username}' AND Salasana = '{user_password}'";
-                command = new MySqlCommand(query, connection);
-                int count = Convert.ToInt32(command.ExecuteScalar());
-
-                if (count == 1)
-                {
-                    //seuraava page
-                    Menuform Menuform = new Menuform();
-                    Menuform.Show();
-                    this.Hide();
-                }
-
-                else
-                {
-                    MessageBox.Show("Vääriä kirjautumis tietoja", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txt_username.Clear();
-                    txt_password.Clear();
-
-                    //to focus username
-                    txt_username.Focus();
-                }
+                MessageBox.Show("Tietokantaan yhdistäminen epäonnistui.", "Virhe!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            catch
+
+            int resultCount = database.Select($"SELECT COUNT(*) FROM elokuvatietokanta.kayttajat WHERE nimi = '{username}' AND salasana = '{user_password}'");
+            
+            database.Close();
+
+            if (resultCount == 1)
             {
-                MessageBox.Show("Virhe");
+                //seuraava page
+                MainForm Menuform = new MainForm();
+                Menuform.Show();
+                this.Hide();
             }
-            finally
+
+            else
             {
-                connection.Close();
+                MessageBox.Show("Vääriä kirjautumis tietoja", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txt_username.Clear();
+                txt_password.Clear();
+
+                //to focus username
+                txt_username.Focus();
             }
         }
 
@@ -100,7 +83,7 @@ namespace FromsElokuvaTK
             res = MessageBox.Show("Haluatko mennä takaisin", "Takaisin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
-                Form1 f1 = new Form1();
+                StartForm f1 = new StartForm();
                 this.Hide();
                 f1.Show();
             }

@@ -3,53 +3,31 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FromsElokuvaTK
 {
-    public partial class LuoKTForm : Form
+    public partial class Rekisterointi : Form
     {
-        private MySqlConnection connection;
-        private MySqlCommand command;
 
-        public LuoKTForm()
+        Database database = new Database("localhost", "root", "", "elokuvatietokanta");
+
+        public Rekisterointi()
         {
             InitializeComponent();
-            InitializeDatabaseConnection();
-        }
-
-        private void InitializeDatabaseConnection()
-        {
-            string connectionString = "datasource=localhost;port=3306;username=/**/;password=/**/;database=elokuvatietokanta"; //Vaihtakaa tähän ne oikeat login credentiaalit
-            connection = new MySqlConnection(connectionString);
         }
 
         private void SubmitData(string username, string email, string password)
         {
-            try
+            if (!database.Connect())
             {
-                connection.Open();
-
-                string query = "INSERT INTO users (Käyttäjänimi, sposti, Salasana) VALUES (@Username, @Email, @Password)";
-
-                command = new MySqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Username", username);
-                command.Parameters.AddWithValue("@Email", email);
-                command.Parameters.AddWithValue("@Password", password);
-
-                int rowsAffected = command.ExecuteNonQuery();
-                Console.WriteLine($"Rows Inserted: {rowsAffected}");
-
-                MessageBox.Show("User data inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tietokantaan yhdistäminen epäonnistui.", "Virhe!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                connection.Close();
-            }
+
+            int rowsAffected = database.Insert($"INSERT INTO elokuvatietokanta.kayttajat (kayttaja_id, nimi, sahkoposti, salasana) VALUES ('NULL', '{username}', '{email}', '{password}')");
+            
+            Console.WriteLine($"Rows Inserted: {rowsAffected}");
+            MessageBox.Show("User data inserted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -100,24 +78,21 @@ namespace FromsElokuvaTK
 
             return (hasLower && hasUpper && hasDigit && hasSpecialChar && n >= 6);
         }
+
         private bool ValidateUsername(string username)
         {
-            try
+            if(!database.Connect())
             {
-                connection.Open();
-                string query = $"SELECT COUNT(*) FROM users WHERE Käyttäjänimi = '{username}'";
-                command = new MySqlCommand(query, connection);
-                int count = Convert.ToInt32(command.ExecuteScalar());
-
-                if (count > 0)
-                {
-                    MessageBox.Show("Käyttäjänimi on jo käytössä.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
+                MessageBox.Show("Tietokantaan yhdistäminen epäonnistui.", "Virhe!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-            finally
+
+            int resultCount = database.Select($"SELECT COUNT(*) FROM elokuvatietokanta.kayttajat WHERE nimi = '{username}'");
+
+            if (resultCount > 0)
             {
-                connection.Close();
+                MessageBox.Show("Käyttäjänimi on jo käytössä.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
             return true;
@@ -125,22 +100,18 @@ namespace FromsElokuvaTK
 
         private bool ValidateEmail(string email)
         {
-            try
+            if (!database.Connect())
             {
-                connection.Open();
-                string query = $"Select COUNT(*) From users where sposti = ' {email}'";
-                command = new MySqlCommand(query, connection);
-                int count = Convert.ToInt32(command.ExecuteScalar());
-
-                if (count > 0)
-                {
-                    MessageBox.Show("Käyttäjänimi on jo käytössä.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
+                MessageBox.Show("Tietokantaan yhdistäminen epäonnistui.", "Virhe!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-            finally
+
+            int resultCount = database.Select($"Select COUNT(*) From elokuvatietokanta.kayttajat where sahkoposti = '{email}'");
+
+            if (resultCount > 0)
             {
-                connection.Close();
+                MessageBox.Show("Käyttäjänimi on jo käytössä.", "Virhe", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
             return true;
@@ -161,7 +132,7 @@ namespace FromsElokuvaTK
             DialogResult res = MessageBox.Show("Haluatko mennä takaisin", "Takaisin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (res == DialogResult.Yes)
             {
-                Form1 f1 = new Form1();
+                StartForm f1 = new StartForm();
                 f1.Show();
                 this.Hide();
             }

@@ -122,17 +122,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Database.cs" />
+    <Compile Include="InsertForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="InsertForm.Designer.cs">
+      <DependentUpon>InsertForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LuoKTForm.cs">
+    <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LuoKTForm.Designer.cs">
-      <DependentUpon>LuoKTForm.cs</DependentUpon>
+    <Compile Include="StartForm.Designer.cs">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rekisterointi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rekisterointi.Designer.cs">
+      <DependentUpon>Rekisterointi.cs</DependentUpon>
     </Compile>
     <Compile Include="KirjauduForm.cs">
       <SubType>Form</SubType>
@@ -140,25 +147,28 @@
     <Compile Include="KirjauduForm.Designer.cs">
       <DependentUpon>KirjauduForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Menuform.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menuform.Designer.cs">
-      <DependentUpon>Menuform.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="InsertForm.resx">
+      <DependentUpon>InsertForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LuoKTForm.resx">
-      <DependentUpon>LuoKTForm.cs</DependentUpon>
+    <EmbeddedResource Include="StartForm.resx">
+      <DependentUpon>StartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rekisterointi.resx">
+      <DependentUpon>Rekisterointi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KirjauduForm.resx">
       <DependentUpon>KirjauduForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menuform.resx">
-      <DependentUpon>Menuform.cs</DependentUpon>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

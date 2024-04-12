@@ -1,6 +1,6 @@
 ﻿namespace FromsElokuvaTK
 {
-    partial class LuoKTForm
+    partial class Rekisterointi
     {
         /// <summary>
         /// Required designer variable.
