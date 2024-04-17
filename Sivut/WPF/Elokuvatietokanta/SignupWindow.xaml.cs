@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using FromsElokuvaTK;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,8 @@ namespace Elokuvatietokanta
     //!! Sähköposti seuraavaksi !!
     public partial class SignupWindow : Window
     {
+
+        Database database = new Database("localhost", "root", "", "elokuvatietokanta");
         public SignupWindow()
         {
             InitializeComponent();
@@ -28,8 +31,6 @@ namespace Elokuvatietokanta
         {
 
             //Määritetään yhteys tietokantaan !!Varmista, että on oikeat tiedot!!
-            string connStr = "server=localhost;user=root;database=elokuvatietokanta;port=3306;password=";
-            MySqlConnection conn = new MySqlConnection(connStr);
             //Yrittää avata yhteyden tietokantaan
             string Pword = passWordBox.Password.ToString();
             string User = Username.Text;
@@ -37,7 +38,7 @@ namespace Elokuvatietokanta
             bool ValidPassword = false;
             try
             {
-                conn.Open();
+                database.Connect();
                 //Katsotaan tehtävän annonmukaiseksi salasana
                 if(Pword.Length >= 6 & Pword.Any(char.IsUpper) & Pword.Any(ch => ! char.IsLetterOrDigit(ch)))
                 {
@@ -48,11 +49,8 @@ namespace Elokuvatietokanta
                 if (ValidPassword == true)
                 {
                     //SQL lauseke, joka vie tiedot tietokantaan oikeista laatikoista
-                    string sql = $"INSERT INTO usertable (username, email, password) VALUES ('{User}' , '{email} ' , '{Pword}')";
-                    MySqlCommand cmd = new MySqlCommand(sql, conn);
-                    //Varmistetaan, että SQL lauseke teki jotain
-                    int a = cmd.ExecuteNonQuery();
-                    if (a > 0)
+                    int sql = database.Insert($"INSERT INTO usertable (username, email, password) VALUES ('{User}' , '{email} ' , '{Pword}')");
+                    if (sql > 0)
                     {
                         //Jos SQL lauseke onnistui näytetään messagebox käyttäjälle
                         MessageBox.Show("User created successfully");
@@ -87,7 +85,7 @@ namespace Elokuvatietokanta
                     MessageBox.Show(ex.ToString());
                 }
             }
-            conn.Close();
+            database.Close();
         }
 
         private void ToLogin(object sender, RoutedEventArgs e)

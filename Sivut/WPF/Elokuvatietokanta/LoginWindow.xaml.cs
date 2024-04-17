@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using FromsElokuvaTK;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -21,7 +22,7 @@ namespace Elokuvatietokanta
     /// </summary>
     public partial class LoginWindow : Window
     {
-
+        Database database = new Database("localhost", "╰(*°▽°*)╯AAROINGINMAATEETÄÄSERVERCONNECTIONLOPPUUPWEASE☆*: .｡. o(≧▽≦)o .｡.:*☆", "", "moviedb");    
         public LoginWindow()
         {
             InitializeComponent();
@@ -31,21 +32,18 @@ namespace Elokuvatietokanta
         {
             string UserOrEmail = UsernameOrEmail.Text;
             string Pword = passWordBox.Password.ToString();
-            //Määritetään yhteys tietokantaan !!Varmista, että on oikeat tiedot!!
-            string connStr = "server=localhost;user=root;database=elokuvatietokanta;port=3306;password=";
-            MySqlConnection conn = new MySqlConnection(connStr);
+
             //Yrittää avata yhteyden tietokantaan
             try
             {
-                conn.Open();
+                database.Connect();
 
                 //SQL lauseke, joka vie tiedot tietokantaan oikeista laatikoista
                 //Tällä katsotaan onko login tiedot oikein, ei pitäisi päästää ketään tunnuksetonta tai väärillä tunnuksilla sisään 
-                string sql = $"SELECT * FROM usertable WHERE username = '{UserOrEmail}' and password = '{Pword}'or email = '{ UserOrEmail}' and password = '{Pword}';";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                var reader = cmd.ExecuteReader();
+                int sql = database.Insert($"SELECT * FROM usertable WHERE username = '{UserOrEmail}' and password = '{Pword}'or email = '{ UserOrEmail}' and password = '{Pword}';");
+                
                 //Varmistetaan, että SQL lauseke teki jotain
-                if (reader.HasRows)
+                if (sql < 0)
                 {
                     //Jos kirjautuminen onnistuu, viedään käyttäjä elokuvan lisäys näkymään (MainWindow)
                     MainWindow mainWindow = new MainWindow();
@@ -64,7 +62,7 @@ namespace Elokuvatietokanta
                 //Error viesti käyttäjälle
                 MessageBox.Show(ex.ToString());
             }
-            conn.Close();
+            database.Close();
         }
 
         //Vie SignUpWindow näkymään
