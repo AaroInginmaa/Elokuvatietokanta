@@ -36,20 +36,28 @@ namespace Elokuvatietokanta
             try
             {
                 conn.Open();
+                if (string.IsNullOrWhiteSpace(EloNimi.Text))
+                {
+                    MessageBox.Show("et laittanut elokuviin mitään, merkitse edes elokuvan nimi.");
+                }
+                else
+                {
 
-                //SQL lauseke, joka vie tiedot tietokantaan oikeista laatikoista
-                string sql = "INSERT INTO elokuvat (Nimi, Pituus, Julkaistu, Genre, Päänäyttelijät, Ohjaaja, Arvio) " +
+                    //SQL lauseke, joka vie tiedot tietokantaan oikeista laatikoista
+                    string sql = "INSERT INTO elokuvat (Nimi, Pituus, Julkaistu, Genre, Päänäyttelijät, Ohjaaja, Arvio) " +
                     "VALUES ('" + EloNimi.Text + "' , '" + EloPituus.Text + "' , '" + EloJulkaistu.Text + "' , '" + EloGenre.Text +
                     "' , '" + EloPäänäyttelijät.Text + "' , '" + EloOhjaaja.Text + "' , '" + EloArvio.Text + "');";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                //Varmistetaan, että SQL lauseke teki jotain
-                int a = cmd.ExecuteNonQuery();
-                if (a > 0)
-                {
-                    //Jos SQL lauseke onnistui näytetään messagebox käyttäjälle
-                    MessageBox.Show("Inserted to database successfully \n");
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    //Varmistetaan, että SQL lauseke teki jotain
+                    int a = cmd.ExecuteNonQuery();
+                    if (a > 0)
+                    {
+                        //Jos SQL lauseke onnistui näytetään messagebox käyttäjälle
+                        MessageBox.Show("Inserted to database successfully \n");
+                    }
                 }
             }
+
             //Jos yhteys tai SQL lauseke epäonnistuu
             catch (Exception ex)
             {
@@ -75,3 +83,4 @@ namespace Elokuvatietokanta
         }
     }
 }
+
