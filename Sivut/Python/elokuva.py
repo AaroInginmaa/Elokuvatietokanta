@@ -215,7 +215,7 @@ def mainWindow():
         listbox.config(yscrollcommand=scrollbar.set)    
         scrollbar.config(command=listbox.yview) 
 
-        searchButton = ttk.Button(text="Elokuvalista", command=movieList).place(x=70, y=45)
+        searchButton = ttk.Button(text="Elokuvalista", command=showMovieList).place(x=70, y=45)
 
         nameLabel = ttk.Label(text="Nimi").place(x=70, y=100)
         nameAdd = ttk.Entry(width=30)
@@ -229,7 +229,7 @@ def mainWindow():
         publishAdd = ttk.Entry(width=30)
         publishAdd.place(x=70, y=210)
         
-        lenghtLabel = ttk.Label(text="Pituus").place(x=70, y=235)
+        lenghtLabel = ttk.Label(text="Pituus (Minuutteina)").place(x=70, y=235)
         lenghtAdd = ttk.Entry(width=30)
         lenghtAdd.place(x=70, y=255)
         
@@ -241,7 +241,7 @@ def mainWindow():
         actorAdd = ttk.Entry(width=30)
         actorAdd.place(x=70, y=345)
         
-        reviewLabel = ttk.Label(text="Arvostelu").place(x=70, y=370)
+        reviewLabel = ttk.Label(text="Arvostelu (0-10)").place(x=70, y=370)
         reviewAdd = ttk.Entry(width=30)
         reviewAdd.place(x=70, y=390)
         
@@ -255,12 +255,12 @@ def mainWindow():
         publish = val[2]
     
         if not validateYear(publish):
-            messagebox.showerror("Virheellinen publish", "Syötä kelvollinen publish.")
+            messagebox.showerror("Virheellinen julkaisuvuosi", "Syötä kelvollinen julkaisuvuosi.")
             return
         
         if all(val) and validateYear(publish):
             try:
-                sql = "INSERT INTO elokuvat (nimi, ohjaaja, publish, kesto, genre, paa_nayttelija, arvostelu) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+                sql = "INSERT INTO elokuvat (nimi, ohjaaja, julkaisuvuosi, kesto, genre, paa_nayttelija, arvostelu) VALUES (%s, %s, %s, %s, %s, %s, %s)"
                 mycursor.execute(sql, val)
                 mydb.commit()
                 print(mycursor.rowcount, " elokuva lisätty.")
@@ -279,30 +279,38 @@ def mainWindow():
         except ValueError:
             return False
     
-    def movieList():
-        listbox.delete(0, END)
-        tiedot = searchData()
-        for row in tiedot:
-            values = f"{row[0]:<45} {row[1]:<4} {row[2]}"
-            listbox.insert(END, values) 
+    def movieListWindow(movie_data):
+        movie_list_window = tk.Toplevel()
+        movie_list_window.title("Elokuvalista")
+        
+        listbox = Listbox(movie_list_window, width=150, height=50)
+        scrollbar = Scrollbar(movie_list_window, orient=VERTICAL, command=listbox.yview)
+        scrollbar.pack(side=RIGHT, fill=Y)
+        listbox.pack(side=LEFT, fill=BOTH, expand=True)
+        listbox.config(yscrollcommand=scrollbar.set)
+
+        for movie in movie_data:
+            movie_info = f"\nNimi: {movie[1]}   Ohjaaja: {movie[2]}   Julkaisuvuosi: {movie[3]}   Kesto: {movie[4]}min   Genre: {movie[5]}   Päänäyttelijä: {movie[6]}   Arvostelu: {movie[7]}★"
+            listbox.insert(END, movie_info)
     
-    def searchData(): 
-        if combo.get()[-1:] == "V":
+    def showMovieList():
+        order = ""
+        if combo.get().endswith("V"):
             order = f" ORDER BY {combo.get()[:-2]} DESC"
-        elif combo.get()[-1:] == "^":
+        elif combo.get().endswith("^"):
             order = f" ORDER BY {combo.get()[:-2]} ASC"
-        else:
-            order = ""
+
         mycursor.execute(f"SELECT * FROM elokuvat{order}")
         myresult = mycursor.fetchall()
-        return myresult
-    
+
+        movieListWindow(myresult)
+        
     def deleteData(val):
         try:
-            sql = f'DELETE FROM elokuvat WHERE nimi="{val[0]}" and ohjaaja="{val[1]}" and publish="{val[2]}" and kesto="{val[3]}" and genre="{val[4]}" and paa_nayttelija="{val[5]}" and arvostelu="{val[6]}"'
+            sql = f'DELETE FROM elokuvat WHERE nimi="{val[0]}" and ohjaaja="{val[1]}" and julkaisuvuosi="{val[2]}" and kesto="{val[3]}" and genre="{val[4]}" and paa_nayttelija="{val[5]}" and arvostelu="{val[6]}"'
             mycursor.execute(sql)
             mydb.commit()
-            print(mycursor.rowcount, " record(s) deleted")
+            print(mycursor.rowcount, " elokuva poistettu")
         except mysql.connector.errors.IntegrityError as e:
             print("Elokuva ei ole tietokannassa")
             messagebox.showerror("Virhe!", "Elokuva ei ole tietokannassa.")
@@ -312,6 +320,7 @@ def mainWindow():
 root = tk.Tk()
 root.title("Valitse")
 root.geometry("300x150")
+root.resizable(False, False)
 
 loginRegisterPage()
 
