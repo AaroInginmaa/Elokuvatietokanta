@@ -302,7 +302,7 @@ def MainWindow():
     
     # Lisää elokuvan tiedot tietokantaan
     def Lisataan_Dataa(val):
-        julkaisuvuosi = val
+        julkaisuvuosi = val[2]
     
         # Tarkistetaan julkaisuvuosi
         if not validate_publication_year(julkaisuvuosi):
