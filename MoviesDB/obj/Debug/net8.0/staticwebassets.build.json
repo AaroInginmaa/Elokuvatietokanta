@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yT0/q1WgmTtCmg3Tko/A6hhRQk8gKP7ruYaoK3pmxcg=",
+  "Hash": "HTjERnjhIbpxDFMEpmKMZ+ZbIkMpOttpLQvHPx3aW8Q=",
   "Source": "MoviesDB",
   "BasePath": "_content/MoviesDB",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "MoviesDB\\wwwroot",
       "Source": "MoviesDB",
-      "ContentRoot": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\",
+      "ContentRoot": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\",
       "BasePath": "_content/MoviesDB",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\bundle\\MoviesDB.styles.css",
+      "Identity": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\bundle\\MoviesDB.styles.css",
       "SourceId": "MoviesDB",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/MoviesDB",
       "RelativePath": "MoviesDB.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\bundle\\MoviesDB.styles.css"
+      "OriginalItemSpec": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\bundle\\MoviesDB.styles.css"
     },
     {
-      "Identity": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MoviesDB.bundle.scp.css",
+      "Identity": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MoviesDB.bundle.scp.css",
       "SourceId": "MoviesDB",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/MoviesDB",
       "RelativePath": "MoviesDB.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MoviesDB.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MoviesDB.bundle.scp.css"
     },
     {
-      "Identity": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\app.css",
+      "Identity": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\app.css",
       "SourceId": "MoviesDB",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\",
+      "ContentRoot": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\",
       "BasePath": "_content/MoviesDB",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "MoviesDB",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\",
+      "ContentRoot": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\",
       "BasePath": "_content/MoviesDB",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "MoviesDB",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\",
+      "ContentRoot": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\",
       "BasePath": "_content/MoviesDB",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\favicon.png",
+      "Identity": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\favicon.png",
       "SourceId": "MoviesDB",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\",
+      "ContentRoot": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\",
       "BasePath": "_content/MoviesDB",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

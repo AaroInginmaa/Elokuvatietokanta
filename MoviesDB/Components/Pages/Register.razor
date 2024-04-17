@@ -1,0 +1,51 @@
+﻿@page "/register"
+@using Models
+@inject NavigationManager NavigationManager
+
+<PageTitle>Register</PageTitle>
+
+<h3>Register</h3>
+
+<EditForm Model="@_user" FormName="registeruser" OnSubmit="HandleSubmit">
+    <form>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <InputText id="name" @bind-Value="_user.Name" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            <InputText id="Password" @bind-Value="_user.Password1" Type="password" class="form-control" />
+        </div>
+        
+        <div class="mb-3">
+            <label for="Password" class="form-label">Confirm Password</label>
+            <InputText id="Password" @bind-Value="_user.Password2" Type="password" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <InputText id="Email" @bind-Value="_user.Email" class="form-control" />
+        </div>
+           
+
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</EditForm>
+@code {
+    [SupplyParameterFromForm]
+    private User _user { get; set; } = new(string.Empty);
+
+    private Database _database = new Database();
+
+    private void HandleSubmit()
+    {
+        // Varmistetaan että käyttäjän tiedot on toimivat
+        if (_user.Name != string.Empty && _user.Password1 == _user.Password2)
+        {
+
+        }
+        NavigationManager.NavigateTo("/profile");
+    }
+    
+}

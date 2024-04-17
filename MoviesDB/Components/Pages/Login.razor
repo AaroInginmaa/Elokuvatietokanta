@@ -1,0 +1,40 @@
+﻿@page "/login"
+@using Models
+@inject NavigationManager NavigationManager
+
+<PageTitle>Login</PageTitle>
+
+<h3>Login</h3>
+
+<EditForm Model="@_user" FormName="loginuser" OnSubmit="HandleSubmit">
+    <form>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <InputText id="name" @bind-Value="_user.Name" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            <InputText id="Password" @bind-Value="_user.Password1" Type="password" class="form-control" />
+        </div>    
+
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</EditForm>
+@code {
+    [SupplyParameterFromForm]
+    private User _user { get; set; } = new(string.Empty);
+
+    private Database _database = new Database();
+
+    private void HandleSubmit()
+    {
+        // Varmistetaan että string on oikea asia ja saman nimistä elokuvaa ei ole jo olemassa
+        if (_user.Name != string.Empty)
+        {
+
+        }
+        NavigationManager.NavigateTo("/profile");
+    }
+    
+}

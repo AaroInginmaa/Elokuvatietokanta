@@ -1786,19 +1786,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pixel\\.nuget\\packages\\": {}
+    "C:\\Users\\aapo.lahti\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj",
+      "projectUniqueName": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj",
       "projectName": "MoviesDB",
-      "projectPath": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj",
-      "packagesPath": "C:\\Users\\pixel\\.nuget\\packages\\",
-      "outputPath": "D:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\obj\\",
+      "projectPath": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj",
+      "packagesPath": "C:\\Users\\aapo.lahti\\.nuget\\packages\\",
+      "outputPath": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\pixel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aapo.lahti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1853,7 +1858,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

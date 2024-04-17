@@ -9,30 +9,30 @@
 <EditForm Model="@_movie" FormName="editMovie" OnSubmit="HandleSubmit">
     <form>
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
-            <InputText id="title" @bind-Value="_movie.Title" class="form-control" />
+            <label for="nimi" class="form-label">Nimi</label>
+            <InputText id="nimi" @bind-Value="_movie.Nimi" class="form-control" />
         </div>
 
         <div class="mb-3">
-            <label for="director" class="form-label">Director</label>
-            <InputText id="director" @bind-Value="_movie.Director" class="form-control" />
+            <label for="ohjaaja" class="form-label">Ohjaaja</label>
+            <InputText id="ohjaaja" @bind-Value="_movie.Ohjaaja" class="form-control" />
         </div>
 
         <div class="mb-3">
-            <label for="releaseYear" class="form-label">Release Year</label>
-            <InputNumber id="releaseYear" @bind-Value="_movie.ReleaseYear" class="form-control" />
+            <label for="julkaistu" class="form-label">Julkaistu</label>
+            <InputNumber id="julkaistu" @bind-Value="_movie.Julkaistu" class="form-control" />
         </div>
 
         <div class="mb-3">
-            <label for="length" class="form-label">Length</label>
-            <InputNumber id="length" @bind-Value="_movie.Length" class="form-control" />
-            <div class="form-text">Movie's length in minutes</div>
+            <label for="length" class="form-label">Pituus</label>
+            <InputNumber id="pituus" @bind-Value="_movie.Pituus" class="form-control" />
+            <div class="form-text">Pituus minutes</div>
         </div>
 
         <div class="mb-3">
-            <label for="rating" class="form-label">Rating</label>
-            <InputNumber id="rating" @bind-Value="_movie.Rating" class="form-control" />
-            <div class="form-text">Movie's rating on IMDB</div>
+            <label for="rating" class="form-label">Arvio</label>
+            <InputNumber id="arvio" @bind-Value="_movie.Arvio" class="form-control" />
+            <div class="form-text">Arvio IMDB</div>
         </div>
 
         <div class="mb-3">
@@ -40,12 +40,12 @@
             <InputText id="genre" @bind-Value="_movie.Genre" class="form-control" />
             <div class="form-text">Movie's genre</div>
         </div>
-
         <div class="mb-3">
-            <label for="image" class="form-label">Image Link</label>
-            <InputText id="image" @bind-Value="_movie.Image" class="form-control" />
-            <div class="form-text">Enter image's link. We recommend to copy images from IMDB</div>
+            <label for="päänäyttelijät" class="form-label">Päänäyttelijät</label>
+            <InputText id="päänäyttelijät" @bind-Value="_movie.Päänäyttelijät" class="form-control" />
+            <div class="form-text">Movie's genre</div>
         </div>
+
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -59,9 +59,11 @@
 
     private void HandleSubmit()
     {
-        if (_movie.Title != string.Empty)
-            _database.InsertMovie(_movie);
-
+        // Varmistetaan että string on oikea asia ja saman nimistä elokuvaa ei ole jo olemassa
+        if (_movie.Nimi != string.Empty && _database.CheckMovies(_movie) == false)
+        { 
+            // _database.InsertMovie(_movie);
+        }
         NavigationManager.NavigateTo("/movies");
     }
 }
