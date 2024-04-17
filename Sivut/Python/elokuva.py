@@ -96,7 +96,7 @@ def registerPage():
         
         registerNameLabel = tk.Label(text="Nimi")
         registerEmailLabel = tk.Label(text="Sähköposti")
-        registerEmailLabel = tk.Label(text="Salasana")
+        registerPasswordLabel = tk.Label(text="Salasana")
         registerName = tk.Entry()
         registerEmail = tk.Entry()
         registerPWord = tk.Entry()
@@ -107,7 +107,7 @@ def registerPage():
         registerName.place(relx=.5, rely=.20, anchor=CENTER)
         registerEmailLabel.place(relx=.5, rely=.25, anchor=CENTER)
         registerEmail.place(relx=.5, rely=.30, anchor=CENTER)
-        registerEmailLabel.place(relx=.5, rely=.35, anchor=CENTER)
+        registerPasswordLabel.place(relx=.5, rely=.35, anchor=CENTER)
         registerPWord.place(relx=.5, rely=.40, anchor=CENTER)
         registerButton.place(relx=.5, rely=.50, anchor=CENTER)
         backButton.place(relx=.5, rely=.8, anchor=CENTER)
