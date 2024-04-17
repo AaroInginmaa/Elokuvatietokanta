@@ -360,7 +360,7 @@ def MainWindow():
     # Poistaa elokuvan tiedot tietokannasta
     def Poistetaan_Dataa(val):
         try:
-            sql = f'DELETE FROM elokuvat WHERE nimi="{val[0]}" and ohjaaja="{val[1]}" and julkaisuvuosi="{val[2]}" and kesto="{val[3]}" and genre="{val[4]}" and paa_nayttelija="{val(5)}" and arvostelu="{val[6]}"'
+            sql = f'DELETE FROM elokuvat WHERE nimi="{val[0]}" and ohjaaja="{val[1]}" and julkaisuvuosi="{val[2]}" and kesto="{val[3]}" and genre="{val[4]}" and paa_nayttelija="{val[5]}" and arvostelu="{val[6]}"'
             mycursor.execute(sql)
             mydb.commit()
             print(mycursor.rowcount, " record(s) deleted")
