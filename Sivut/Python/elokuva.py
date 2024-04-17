@@ -139,33 +139,33 @@ def RegisterPage():
         nameEntryContent = nameTextEntry_RegisterPage.get()
         emailEntryContent = emailTextEntry_RegisterPage.get()
         passwordEntryContent = passwordTextEntry_RegisterPage.get()
-    
+
         # Tarkistetaan käyttäjänimi
         if len(nameEntryContent) < 4 or len(nameEntryContent) > 20:
             messagebox.showerror("Virheellinen käyttäjänimi", "Nimen täytyy olla 4 - 20 kirjainta.")
             return
-        
+
         # Tarkistetaan sähköpostin muoto
         if not validate_email(emailEntryContent):
             messagebox.showerror("Virheellinen sähköposti", "Syötä kelvollinen sähköposti.")
             return
-        
+
         # Tarkistetaan salasanan muoto
         if not validate_password(passwordEntryContent):
             messagebox.showerror("Virheellinen salasana", "Salasanan täytyy olla vähintään 6 merkkiä pitkä, sisältää vähintään yhden ison kirjaimen, ja yhden erikoismerkin (!#&%$€£@?).")
             return
-    
+
         # Tarkistetaan onko käyttäjänimi tai sähköposti jo käytössä
         checkExistingUsers()
-        
+
     # Tarkistaa onko käyttäjänimi tai sähköposti jo käytössä tietokannassa
     def checkExistingUsers():
         db = mysql.connector.connect(host="localhost", user="root", database="elokuvatietokanta")
         cursor = db.cursor()
-        
+
         username = nameEntryContent
         email = emailEntryContent
-        
+
         # Tarkistetaan käyttäjänimi
         cursor.execute('SELECT nimi FROM kayttajat WHERE nimi = %(username)s', {'username': username})
         checkUsername = cursor.fetchall()
@@ -173,7 +173,7 @@ def RegisterPage():
         for row in checkUsername:
             if(row[0] == username):
                 isTakenname = True
-        
+
         # Tarkistetaan sähköposti
         cursor.execute('SELECT sahkoposti FROM kayttajat WHERE sahkoposti = %(email)s', {'email': email})
         checkEmail = cursor.fetchall()
@@ -181,7 +181,7 @@ def RegisterPage():
         for row in checkEmail:
             if(row[0] == email):
                 isTakenemail = True
-        
+
         # Jos käyttäjänimi ja sähköposti ovat vapaana, rekisteröidään käyttäjä
         if not isTakenemail and not isTakenname:
             messagebox.showinfo("Rekisteröityminen onnistui", "Käyttäjä rekisteröity onnistuneesti!")
@@ -189,7 +189,7 @@ def RegisterPage():
             MainWindow()
         else:
             messagebox.showerror("Virheellinen käyttäjänimi tai sähköposti", "Käyttäjänimi tai sähköposti on jo käytössä.")
-        
+
     # Tarkistaa sähköpostin muodon
     def validate_email(email):
         pattern = r'^[\w\.-]+@[\w\.-]+\.\w{2,}$'
@@ -197,7 +197,7 @@ def RegisterPage():
             return True
         else:
             return False
-    
+
     # Tarkistaa salasanan muodon
     def validate_password(password):
         if len(password) < 6:
@@ -207,7 +207,7 @@ def RegisterPage():
         if not has_uppercase or not has_special:
             return False
         return True
-    
+
     # Tallentaa rekisteröityneen käyttäjän tiedot tietokantaan
     def saveToDataBase():
         db = mysql.connector.connect(host="localhost", user="root", database="elokuvatietokanta")
@@ -217,7 +217,7 @@ def RegisterPage():
         cursor.execute(sql, values)
         db.commit()
         db.close()
-        
+
     # Käsittelee palaa-painikkeen klikkauksen
     def clickBack():
         listOfContents = [nameTextEntry_RegisterPage, emailTextEntry_RegisterPage, passwordTextEntry_RegisterPage, nameText_RegisterPage, emailText_RegisterPage, passwordText_RegisterPage, registerButton_RegisterPage, backButton_RegisterPage]
@@ -226,7 +226,7 @@ def RegisterPage():
         for i in listOfContents:
             i.destroy()
         loginRegisterPage()
-             
+
     # Kutsutaan sisäistä funktiota käyttöliittymän luomiseksi
     contents()
 
