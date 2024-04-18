@@ -1,85 +1,124 @@
 ﻿using MoviesDB.Models;
 using MySql.Data.MySqlClient;
+using System.Data;
+using System.Reflection.PortableExecutable;
 
-public class Database
+namespace MoviesDB
 {
-    private readonly string _connectionString;
-
-    public Database(string connectionString)
+    public class Database
     {
-        _connectionString = connectionString;
-    }
+        private readonly string _host;
+        private readonly string _database;
+        private readonly string _user;
+        private readonly string _password;
+        private readonly int _port;
 
-    public List<Movie> GetAllMovies()
-    {
-        List<Movie> movies = new List<Movie>();
+        private MySqlConnection _connection;
 
-        using (var connection = new MySqlConnection(_connectionString))
+        public Database()
         {
-            connection.Open();
-            string query = "SELECT * FROM elokuvat;";
-            using (var command = new MySqlCommand(query, connection))
-            {
-                using (var reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        movies.Add(new Movie
-                        {
-                            IdElokuvat = Convert.ToInt32(reader["idElokuvat"]),
-                            Nimi = reader["Nimi"].ToString(),
-                            Ohjaaja = reader["Ohjaaja"].ToString(),
-                            Julkaistu = Convert.ToInt32(reader["Julkaistu"]),
-                            Pituus = Convert.ToInt32(reader["Pituus"]),
-                            Arvio = reader["Arvio"].ToString(),
-                            Genre = reader["Genre"].ToString(),
-                            Päänäyttelijät = reader["Päänäyttelijät"].ToString()
-                        });
-                    }
-                }
-            }
+            _host = "10.146.4.49";
+            _database = "moviedb";
+            _user = "app";
+            _password = "databaseApp!";
+            _port = 3306;
+
+            string connectionQuery = $"Server={_host};Port={_port};Database={_database};Uid={_user};Pwd={_password};";
+
+            _connection = new MySqlConnection(connectionQuery);
         }
 
-        return movies;
-    }
-
-    public void InsertMovie(Movie movie)
-    {
-        using (var connection = new MySqlConnection(_connectionString))
+        public List<Movie> GetAllMovies()
         {
-            connection.Open();
-            string query = "INSERT INTO elokuvat (Nimi, Ohjaaja, Julkaistu, Pituus, Arvio, Genre, Päänäyttelijät) " +
-                           "VALUES (@Nimi, @Ohjaaja, @Julkaistu, @Pituus, @Arvio, @Genre, @Päänäyttelijät);";
+            List<Movie> movies = new List<Movie>();
 
-            using (var command = new MySqlCommand(query, connection))
+            string query = "SELECT * FROM moviedb.elokuvat;";
+
+            OpenConnection();
+            MySqlCommand mySqlCommand = new(query, _connection);
+
+            MySqlDataAdapter mySqlDataAdapter = new(mySqlCommand);
+
+            DataTable DataTable = new();
+
+            mySqlDataAdapter.Fill(DataTable);
+            CloseConnection();
+
+            foreach (DataRow dataRow in DataTable.Rows)
             {
-                command.Parameters.AddWithValue("@Nimi", movie.Nimi);
-                command.Parameters.AddWithValue("@Ohjaaja", movie.Ohjaaja);
-                command.Parameters.AddWithValue("@Julkaistu", movie.Julkaistu);
-                command.Parameters.AddWithValue("@Pituus", movie.Pituus);
-                command.Parameters.AddWithValue("@Arvio", movie.Arvio);
-                command.Parameters.AddWithValue("@Genre", movie.Genre);
-                command.Parameters.AddWithValue("@Päänäyttelijät", movie.Päänäyttelijät);
-
-                command.ExecuteNonQuery();
+                movies.Add(new Movie
+                    (
+                    Convert.ToString(dataRow["Nimi"]),
+                    Convert.ToInt32(dataRow["idElokuvat"]),
+                    Convert.ToString(dataRow["Ohjaaja"]),
+                    Convert.ToInt32(dataRow["Julkaistu"]),
+                    Convert.ToInt32(dataRow["Pituus"]),
+                    Convert.ToString(dataRow["Arvio"]),
+                    Convert.ToString(dataRow["Genre"]),
+                    Convert.ToString(dataRow["Päänäyttelijät"])
+                    ));
             }
+
+            return movies;
         }
-    }
 
-    public bool CheckMovies(Movie movie)
-    {
-        using (var connection = new MySqlConnection(_connectionString))
+        public void InsertMovie(Movie movie)
         {
-            connection.Open();
-            string query = "SELECT * FROM elokuvat WHERE Nimi = @Nimi;";
-            using (var command = new MySqlCommand(query, connection))
-            {
-                command.Parameters.AddWithValue("@Nimi", movie.Nimi);
-                using (var reader = command.ExecuteReader())
-                {
-                    return reader.HasRows;
-                }
-            }
+            string query = $"INSERT INTO moviedb.elokuvat VALUES (" +
+                $"{movie.IdElokuvat}," +
+                $"\"{movie.Nimi}\"," +
+                $"\"{movie.Ohjaaja}\"," +
+                $"{movie.Julkaistu}," +
+                $"{movie.Pituus}," +
+                $"{movie.Arvio}," +
+                $"\"{movie.Genre}\"," +
+                $"\"{movie.Päänäyttelijät}\"" +
+                $");";
+            /*
+             int IdElokuvat
+        string Nimi
+        string Ohjaaja
+        int Julkaistu
+        int Pituus
+        string Arvio
+        string Genre
+        string Päänäyttelijät
+             
+             */
+            OpenConnection();
+
+            MySqlCommand mySqlCommand = new(query, _connection);
+            MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+
+            CloseConnection();
+        }
+        public bool CheckMovies(Movie movie)
+        {
+            string query = $"SELECT * FROM movies WHERE title = '{movie.Nimi}'";
+
+            OpenConnection();
+
+            MySqlCommand mySqlCommand = new MySqlCommand(query, _connection);
+            MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+
+            bool movieExists = mySqlDataReader.HasRows;
+
+            mySqlDataReader.Close(); // Close the reader
+
+            CloseConnection();
+
+            return movieExists;
+        }
+
+
+        private void OpenConnection()
+        {
+            _connection.Open();
+        }
+
+        private void CloseConnection()
+        {
+            _connection.Close();
         }
     }
 }

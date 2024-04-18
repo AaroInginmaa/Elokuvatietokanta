@@ -24,14 +24,14 @@
         </div>
 
         <div class="mb-3">
-            <label for="pituus" class="form-label">Pituus</label>
+            <label for="length" class="form-label">Pituus</label>
             <InputNumber id="pituus" @bind-Value="_movie.Pituus" class="form-control" />
             <div class="form-text">Pituus minutes</div>
         </div>
 
         <div class="mb-3">
-            <label for="arvio" class="form-label">Arvio</label>
-            <InputText id="arvio" @bind-Value="_movie.Arvio" class="form-control" />
+            <label for="rating" class="form-label">Arvio</label>
+            <InputNumber id="arvio" @bind-Value="_movie.Arvio" class="form-control" />
             <div class="form-text">Arvio IMDB</div>
         </div>
 
@@ -40,35 +40,30 @@
             <InputText id="genre" @bind-Value="_movie.Genre" class="form-control" />
             <div class="form-text">Movie's genre</div>
         </div>
-
         <div class="mb-3">
             <label for="päänäyttelijät" class="form-label">Päänäyttelijät</label>
             <InputText id="päänäyttelijät" @bind-Value="_movie.Päänäyttelijät" class="form-control" />
-            <div class="form-text">Movie's lead actors</div>
+            <div class="form-text">Movie's genre</div>
         </div>
+
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </EditForm>
 
 @code {
-    private Movie _movie { get; set; } = new Movie("");
+    [SupplyParameterFromForm]
+    private Movie _movie { get; set; } = new(string.Empty);
 
-    private Database _database;
+    private Database _database = new Database();
 
-    protected override void OnInitialized()
+    private void HandleSubmit()
     {
-        // Initialize Database with your connection string
-        _database = new Database("Server=10.146.4.49;Port=3306;Database=moviedb;Uid=app;Pwd=databaseApp!;");
-    }
-
-    private async Task HandleSubmit()
-    {
-        if (!string.IsNullOrEmpty(_movie.Nimi) && !_database.CheckMovies(_movie))
-        {
-            _database.InsertMovie(_movie);
+        // Varmistetaan että string on oikea asia ja saman nimistä elokuvaa ei ole jo olemassa
+        if (_movie.Nimi != string.Empty && _database.CheckMovies(_movie) == false)
+        { 
+            // _database.InsertMovie(_movie);
         }
         NavigationManager.NavigateTo("/movies");
     }
 }
-

@@ -3,30 +3,6 @@
   "WorkspaceRootPath": "C:\\Kouluhommat\\Elokuvatietokanta\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\models\\moviesummary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\models\\moviesummary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\components\\pages\\editmovie.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\editmovie.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -37,6 +13,34 @@
     {
       "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\components\\pages\\profile.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\profile.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\models\\moviesummary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\models\\moviesummary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\components\\pages\\movies.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\movies.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\components\\pages\\editmovie.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\editmovie.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\kouluhommat\\elokuvatietokanta\\moviesdb\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,102 +50,115 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MovieSummary.cs",
-              "DocumentMoniker": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Models\\MovieSummary.cs",
-              "RelativeDocumentMoniker": "MoviesDB\\Models\\MovieSummary.cs",
-              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Models\\MovieSummary.cs",
-              "RelativeToolTip": "MoviesDB\\Models\\MovieSummary.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-18T06:03:07.404Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Movie.cs",
               "DocumentMoniker": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Models\\Movie.cs",
               "RelativeDocumentMoniker": "MoviesDB\\Models\\Movie.cs",
-              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Models\\Movie.cs",
-              "RelativeToolTip": "MoviesDB\\Models\\Movie.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAUwCwAAAAFAAAA",
+              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Models\\Movie.cs*",
+              "RelativeToolTip": "MoviesDB\\Models\\Movie.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-12T05:21:31.334Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
+              "Title": "Movies.razor",
+              "DocumentMoniker": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Movies.razor",
+              "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\Movies.razor",
+              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Movies.razor*",
+              "RelativeToolTip": "MoviesDB\\Components\\Pages\\Movies.razor*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-18T06:56:26.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MovieSummary.cs",
+              "DocumentMoniker": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Models\\MovieSummary.cs",
+              "RelativeDocumentMoniker": "MoviesDB\\Models\\MovieSummary.cs",
+              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Models\\MovieSummary.cs",
+              "RelativeToolTip": "MoviesDB\\Models\\MovieSummary.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T06:03:07.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Login.razor",
               "DocumentMoniker": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Login.razor",
               "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\Login.razor",
-              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Login.razor",
-              "RelativeToolTip": "MoviesDB\\Components\\Pages\\Login.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAOAAAA",
+              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Login.razor*",
+              "RelativeToolTip": "MoviesDB\\Components\\Pages\\Login.razor*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-12T06:01:40.69Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Register.razor",
               "DocumentMoniker": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Register.razor",
               "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\Register.razor",
-              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Register.razor",
-              "RelativeToolTip": "MoviesDB\\Components\\Pages\\Register.razor",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAADMAAAAAAAAA",
+              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Register.razor*",
+              "RelativeToolTip": "MoviesDB\\Components\\Pages\\Register.razor*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-12T06:01:29.323Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "Database.cs",
               "DocumentMoniker": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Database.cs",
               "RelativeDocumentMoniker": "MoviesDB\\Database.cs",
-              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Database.cs",
-              "RelativeToolTip": "MoviesDB\\Database.cs",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAkwHwAAAAAAAAA",
+              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Database.cs*",
+              "RelativeToolTip": "MoviesDB\\Database.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAE4AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-11T06:21:00.852Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "Profile.razor",
               "DocumentMoniker": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Profile.razor",
               "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\Profile.razor",
-              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Profile.razor",
-              "RelativeToolTip": "MoviesDB\\Components\\Pages\\Profile.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAASAAAA",
+              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Profile.razor*",
+              "RelativeToolTip": "MoviesDB\\Components\\Pages\\Profile.razor*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-11T09:10:11.245Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "EditMovie.razor",
               "DocumentMoniker": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\EditMovie.razor",
               "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\EditMovie.razor",
-              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\EditMovie.razor",
-              "RelativeToolTip": "MoviesDB\\Components\\Pages\\EditMovie.razor",
-              "ViewState": "AQIAABkAAAAAAAAAAAAqwDsAAAAFAAAA",
+              "ToolTip": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\EditMovie.razor*",
+              "RelativeToolTip": "MoviesDB\\Components\\Pages\\EditMovie.razor*",
+              "ViewState": "AQIAABkAAAAAAAAAAAAwwEAAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-11T07:30:48.691Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "MoviesDB\\Properties\\launchSettings.json",
@@ -154,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\Program.cs",
               "RelativeDocumentMoniker": "MoviesDB\\Program.cs",
