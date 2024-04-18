@@ -15,7 +15,7 @@ namespace FromsElokuvaTK
         private void MainForm_Load(object sender, EventArgs e)
         {
             GetData();
-        }
+        }   
 
         public bool GetData()
         {
