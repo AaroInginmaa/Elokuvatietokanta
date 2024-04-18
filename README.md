@@ -24,39 +24,14 @@ Testivaiheessa MySQL-tietokanta riittää olla omalla paikallisella koneella.
 > [!NOTE]
 > Muista varmistaa [aikataulusta](https://docs.google.com/spreadsheets/d/1NEqnXOf7Z1ryIY_puHlkVnVfvkVt-kew2BHigMRRhkQ/edit#gid=0) tiimisi tekniikka.
 - Windows Forms
-   - Aaro, Arttu, Lassi
-- WPF
-   - Eino, Waltteri, Okko
-- Android
-   - Roope, Jimi, Alexi
-- Python
-   - Aava, Luka, Riku
-- Blazor
-   - Aapo, Konsta
-- HTML, PHP
    - Aleksei, Ruslan
-
-## MySql Tietokanta
-```sql
-CREATE DATABASE elokuvatietokanta;
-
-CREATE TABLE elokuvatietokanta.elokuvat (
-	elokuva_id int NOT NULL AUTO_INCREMENT,
-	nimi varchar(50) NOT NULL,
-	ohjaaja varchar(50),
-	julkaisuvuosi int NOT NULL,
-	kesto int NOT NULL,
-	genre varchar(50) NOT NULL,
-	paa_nayttelija varchar(50),
-	arvostelu float,
-	PRIMARY KEY(elokuva_id)
-);
-
-CREATE TABLE elokuvatietokanta.kayttajat (
-	kayttaja_id int NOT NULL AUTO_INCREMENT,
-	nimi varchar(50) NOT NULL,
-	sahkoposti varchar(50) NOT NULL,
-	salasana varchar(50) NOT NULL,
-	PRIMARY KEY(kayttaja_id)
-);
-```
+- WPF
+   - Aaro, Arttu, Lassi
+- Android
+   - Waltteri, Okko, Eino
+- Python
+   - Roope, Jimi, Alexi
+- Blazor
+   - Luka, Aava, Riku
+- HTML, PHP
+   - Aapo, Konsta
