@@ -1,4 +1,7 @@
+
+*.class
 *.iml
+*.lock
 /local.properties
 /.idea/caches
 /.idea/libraries
@@ -12,4 +15,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-.lock
+
