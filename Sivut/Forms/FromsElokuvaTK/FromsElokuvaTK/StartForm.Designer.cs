@@ -37,10 +37,10 @@
             this.SignUpBTN.BackColor = System.Drawing.Color.BlueViolet;
             this.SignUpBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.SignUpBTN.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.SignUpBTN.Location = new System.Drawing.Point(214, 161);
+            this.SignUpBTN.Location = new System.Drawing.Point(12, 176);
             this.SignUpBTN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SignUpBTN.Name = "SignUpBTN";
-            this.SignUpBTN.Size = new System.Drawing.Size(165, 84);
+            this.SignUpBTN.Size = new System.Drawing.Size(308, 84);
             this.SignUpBTN.TabIndex = 3;
             this.SignUpBTN.Text = "Luo käyttäjä";
             this.SignUpBTN.UseVisualStyleBackColor = false;
@@ -51,10 +51,10 @@
             this.LoginBTN.BackColor = System.Drawing.Color.BlueViolet;
             this.LoginBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.LoginBTN.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LoginBTN.Location = new System.Drawing.Point(477, 161);
+            this.LoginBTN.Location = new System.Drawing.Point(12, 88);
             this.LoginBTN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoginBTN.Name = "LoginBTN";
-            this.LoginBTN.Size = new System.Drawing.Size(165, 84);
+            this.LoginBTN.Size = new System.Drawing.Size(308, 84);
             this.LoginBTN.TabIndex = 4;
             this.LoginBTN.Text = "Kirjaudu";
             this.LoginBTN.UseVisualStyleBackColor = false;
@@ -64,7 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 477);
+            this.ClientSize = new System.Drawing.Size(332, 353);
             this.Controls.Add(this.LoginBTN);
             this.Controls.Add(this.SignUpBTN);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
