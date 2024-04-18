@@ -290,7 +290,7 @@ def mainWindow():
         listbox.config(yscrollcommand=scrollbar.set)
 
         for movie in movie_data:
-            movie_info = f"\nNimi: {movie[1]}   Ohjaaja: {movie[2]}   Julkaisuvuosi: {movie[3]}   Kesto: {movie[4]}min   Genre: {movie[5]}   Päänäyttelijä: {movie[6]}   Arvostelu: {movie[7]}★"
+            movie_info = f"\nNimi: {movie[1]}    Ohjaaja: {movie[2]}    Julkaisuvuosi: {movie[3]}    Kesto: {movie[4]}min    Genre: {movie[5]}    Päänäyttelijä: {movie[6]}    Arvostelu: {movie[7]}★"
             listbox.insert(END, movie_info)
     
     def showMovieList():
