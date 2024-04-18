@@ -15,7 +15,7 @@
 
         <div class="mb-3">
             <label for="Password" class="form-label">Password</label>
-            <InputText id="Password" @bind-Value="_user.Password1" Type="password" class="form-control" />
+            <InputText id="Password" @bind-Value="_user.Password" Type="password" class="form-control" />
         </div>    
 
         <button type="submit" class="btn btn-primary">Login</button>
@@ -29,12 +29,10 @@
 
     private void HandleSubmit()
     {
-        // Varmistetaan että string on oikea asia ja saman nimistä elokuvaa ei ole jo olemassa
         if (_user.Name != string.Empty)
         {
 
         }
-        NavigationManager.NavigateTo("/profile");
+        NavigationManager.NavigateTo("/editmovie");
     }
-    
 }

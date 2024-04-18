@@ -1,4 +1,4 @@
-﻿namespace MoviesDB.Models
+﻿    namespace MoviesDB.Models
 {
     public class Movie
     {
@@ -13,7 +13,6 @@
             Genre = genre;
             Päänäyttelijät = päänäyttelijät;
         }
-
         public int IdElokuvat { get; private set; }
         public string Nimi { get; set; }
         public string Ohjaaja { get; set; }
@@ -26,19 +25,19 @@
 
     public class User
         {
-            public User(string name, int id = 0, string password1 = "", string password2 = "", string email = "")
+            public User(string name, int id = 0, string password = "", string confirmPassword = "", string email = "")
             {
                 Name = name;
                 Id = id;
-                Password1 = password1;
-                Password2 = password2;
+                Password = password;
+                ConfirmPassword = confirmPassword;
                 Email = email;
             }
 
             public int Id { get; set; }
             public string Name { get; set; }
-            public string Password1 { get; set; }
-            public string Password2 { get; set; }
+            public string Password { get; set; }
+            public string ConfirmPassword { get; set; }
             public string Email { get; set; }
         }
 

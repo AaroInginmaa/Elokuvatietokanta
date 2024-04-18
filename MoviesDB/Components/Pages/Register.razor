@@ -6,46 +6,60 @@
 
 <h3>Register</h3>
 
-<EditForm Model="@_user" FormName="registeruser" OnSubmit="HandleSubmit">
-    <form>
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <InputText id="name" @bind-Value="_user.Name" class="form-control" />
-        </div>
+<EditForm Model="_user" OnSubmit="HandleSubmit" FormName="registerForm">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <InputText id="name" @bind-Value="_user.Name" class="form-control" />
+    </div>
 
-        <div class="mb-3">
-            <label for="Password" class="form-label">Password</label>
-            <InputText id="Password" @bind-Value="_user.Password1" Type="password" class="form-control" />
-        </div>
-        
-        <div class="mb-3">
-            <label for="Password" class="form-label">Confirm Password</label>
-            <InputText id="Password" @bind-Value="_user.Password2" Type="password" class="form-control" />
-        </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <InputText id="password" @bind-Value="_user.Password" Type="password" class="form-control" />
+    </div>
 
-        <div class="mb-3">
-            <label for="Email" class="form-label">Email</label>
-            <InputText id="Email" @bind-Value="_user.Email" class="form-control" />
-        </div>
-           
+    <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <InputText id="confirmPassword" @bind-Value="_user.ConfirmPassword" Type="password" class="form-control" />
+    </div>
 
-        <button type="submit" class="btn btn-primary">Register</button>
-    </form>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <InputText id="email" @bind-Value="_user.Email" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Register</button>
 </EditForm>
+
 @code {
     [SupplyParameterFromForm]
     private User _user { get; set; } = new(string.Empty);
 
     private Database _database = new Database();
 
+    private string _errorMessage = "";
+
     private void HandleSubmit()
     {
-        // Varmistetaan että käyttäjän tiedot on toimivat
-        if (_user.Name != string.Empty && _user.Password1 == _user.Password2)
+        if (!string.IsNullOrWhiteSpace(_user.Name) &&
+            !string.IsNullOrWhiteSpace(_user.Email) &&
+            !string.IsNullOrWhiteSpace(_user.Password) &&
+            _user.Password == _user.ConfirmPassword)
         {
+            bool userExists = _database.CheckUser(_user);
 
+            if (!userExists)
+            {
+                _database.InsertUser(_user);
+                NavigationManager.NavigateTo("/editmovie");
+            }
+            else
+            {
+                _errorMessage = "User already exists. Please use a different email or username.";
+            }
         }
-        NavigationManager.NavigateTo("/profile");
+        else
+        {
+            _errorMessage = "Please fill in all fields correctly.";
+        }
     }
-    
 }

@@ -101,7 +101,28 @@ namespace MoviesDB
 
             return movieExists;
         }
+        public void InsertUser(User user)
+        {
+            string query = $"INSERT INTO usertable (username, email, password) VALUES (" +
+                $"\"{user.Name}\"," +
+                $"\"{user.Email}\"," +
+                $"\"{user.Password}\"" +
+                $");";
 
+            OpenConnection();
+
+            MySqlCommand mySqlCommand = new MySqlCommand(query, _connection);
+            mySqlCommand.ExecuteNonQuery();
+
+            CloseConnection();
+        }
+
+        public bool CheckUser(User user)
+        {
+            bool userExists = false;
+
+            return userExists;
+        }
 
 
 
