@@ -62,7 +62,7 @@
         // Varmistetaan että string on oikea asia ja saman nimistä elokuvaa ei ole jo olemassa
         if (_movie.Nimi != string.Empty && _database.CheckMovies(_movie) == false)
         { 
-            // _database.InsertMovie(_movie);
+            _database.InsertMovie(_movie);
         }
         NavigationManager.NavigateTo("/movies");
     }

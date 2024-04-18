@@ -1,7 +1,6 @@
 ﻿using MoviesDB.Models;
 using MySql.Data.MySqlClient;
 using System.Data;
-using System.Reflection.PortableExecutable;
 
 namespace MoviesDB
 {
@@ -32,40 +31,41 @@ namespace MoviesDB
         {
             List<Movie> movies = new List<Movie>();
 
-            string query = "SELECT * FROM moviedb.elokuvat;";
+            string query = "SELECT * FROM movies;";
 
             OpenConnection();
-            MySqlCommand mySqlCommand = new(query, _connection);
+            MySqlCommand mySqlCommand = new MySqlCommand(query, _connection);
 
-            MySqlDataAdapter mySqlDataAdapter = new(mySqlCommand);
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
 
-            DataTable DataTable = new();
+            DataTable dataTable = new DataTable();
 
-            mySqlDataAdapter.Fill(DataTable);
+            mySqlDataAdapter.Fill(dataTable);
             CloseConnection();
 
-            foreach (DataRow dataRow in DataTable.Rows)
+            foreach (DataRow dataRow in dataTable.Rows)
             {
-                movies.Add(new Movie
-                    (
-                    Convert.ToString(dataRow["Nimi"]),
-                    Convert.ToInt32(dataRow["idElokuvat"]),
-                    Convert.ToString(dataRow["Ohjaaja"]),
-                    Convert.ToInt32(dataRow["Julkaistu"]),
-                    Convert.ToInt32(dataRow["Pituus"]),
-                    Convert.ToString(dataRow["Arvio"]),
-                    Convert.ToString(dataRow["Genre"]),
-                    Convert.ToString(dataRow["Päänäyttelijät"])
-                    ));
+                Movie movie = new Movie(
+                    Convert.ToString(dataRow["Name"]),
+                    Convert.ToInt32(dataRow["idMovies"]),
+                    Convert.ToString(dataRow["Director"]),
+                    Convert.ToInt32(dataRow["ReleaseYear"]),
+                    Convert.ToInt32(dataRow["Length"]),
+                    Convert.ToDouble(dataRow["Rating"]),
+                    Convert.ToString(dataRow["Genres"]),
+                    Convert.ToString(dataRow["MainActors"])
+                );
+
+                movies.Add(movie);
             }
 
             return movies;
         }
 
+
         public void InsertMovie(Movie movie)
         {
-            string query = $"INSERT INTO moviedb.elokuvat VALUES (" +
-                $"{movie.IdElokuvat}," +
+            string query = $"INSERT INTO movies (Name, Director, ReleaseYear, Length, Rating, Genres, MainActors) VALUES (" +
                 $"\"{movie.Nimi}\"," +
                 $"\"{movie.Ohjaaja}\"," +
                 $"{movie.Julkaistu}," +
@@ -74,41 +74,35 @@ namespace MoviesDB
                 $"\"{movie.Genre}\"," +
                 $"\"{movie.Päänäyttelijät}\"" +
                 $");";
-            /*
-             int IdElokuvat
-        string Nimi
-        string Ohjaaja
-        int Julkaistu
-        int Pituus
-        string Arvio
-        string Genre
-        string Päänäyttelijät
-             
-             */
-            OpenConnection();
-
-            MySqlCommand mySqlCommand = new(query, _connection);
-            MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
-
-            CloseConnection();
-        }
-        public bool CheckMovies(Movie movie)
-        {
-            string query = $"SELECT * FROM movies WHERE title = '{movie.Nimi}'";
 
             OpenConnection();
 
             MySqlCommand mySqlCommand = new MySqlCommand(query, _connection);
+            mySqlCommand.ExecuteNonQuery();
+
+            CloseConnection();
+        }
+
+        public bool CheckMovies(Movie movie)
+        {
+            string query = "SELECT * FROM movies WHERE Name = @MovieName";
+
+            OpenConnection();
+
+            MySqlCommand mySqlCommand = new MySqlCommand(query, _connection);
+            mySqlCommand.Parameters.AddWithValue("@MovieName", movie.Nimi);
+
             MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
 
             bool movieExists = mySqlDataReader.HasRows;
 
-            mySqlDataReader.Close(); // Close the reader
-
+            mySqlDataReader.Close();
             CloseConnection();
 
             return movieExists;
         }
+
+
 
 
         private void OpenConnection()
