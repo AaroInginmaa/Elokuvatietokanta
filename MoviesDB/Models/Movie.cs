@@ -14,6 +14,7 @@
             Päänäyttelijät = päänäyttelijät;
         }
 
+        // Properties
         public int IdElokuvat { get; private set; }
         public string Nimi { get; set; }
         public string Ohjaaja { get; set; }
@@ -22,8 +23,8 @@
         public string Arvio { get; set; }
         public string Genre { get; set; }
         public string Päänäyttelijät { get; set; }
-
     }
+
 
     public class User
     {
