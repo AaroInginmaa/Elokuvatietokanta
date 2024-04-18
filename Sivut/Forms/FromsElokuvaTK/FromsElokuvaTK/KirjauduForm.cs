@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace FromsElokuvaTK
 {
@@ -47,8 +46,7 @@ namespace FromsElokuvaTK
             else
             {
                 MessageBox.Show("Vääriä kirjautumis tietoja", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txt_username.Clear();
-                txt_password.Clear();
+                ClearFields();
 
                 //to focus username
                 txt_username.Focus();
@@ -57,8 +55,7 @@ namespace FromsElokuvaTK
 
         private void button_clear_Click(object sender, EventArgs e)
         {
-            txt_username.Clear();
-            txt_password.Clear();
+            ClearFields();
 
             txt_username.Focus();
         }
@@ -91,7 +88,12 @@ namespace FromsElokuvaTK
             {
                 this.Show();
             }
-                
+        }
+
+        private void ClearFields()
+        {
+            txt_password.Clear();
+            txt_username.Clear();
         }
     }
 }
