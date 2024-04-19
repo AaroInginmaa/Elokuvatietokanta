@@ -9,59 +9,59 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MoviesDB
 build_property.RootNamespace = MoviesDB
-build_property.ProjectDir = C:\xampp\htdocs\elokuva\Elokuvatietokanta\MoviesDB\
+build_property.ProjectDir = C:\Kouluhommat\Elokuvatietokanta\MoviesDB\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\xampp\htdocs\elokuva\Elokuvatietokanta\MoviesDB
+build_property.MSBuildProjectDirectory = C:\Kouluhommat\Elokuvatietokanta\MoviesDB
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/xampp/htdocs/elokuva/Elokuvatietokanta/MoviesDB/Components/App.razor]
+[C:/Kouluhommat/Elokuvatietokanta/MoviesDB/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/elokuva/Elokuvatietokanta/MoviesDB/Components/Pages/EditMovie.razor]
+[C:/Kouluhommat/Elokuvatietokanta/MoviesDB/Components/Pages/EditMovie.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0TW92aWUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/elokuva/Elokuvatietokanta/MoviesDB/Components/Pages/Error.razor]
+[C:/Kouluhommat/Elokuvatietokanta/MoviesDB/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/elokuva/Elokuvatietokanta/MoviesDB/Components/Pages/Home.razor]
+[C:/Kouluhommat/Elokuvatietokanta/MoviesDB/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/elokuva/Elokuvatietokanta/MoviesDB/Components/Pages/Login.razor]
+[C:/Kouluhommat/Elokuvatietokanta/MoviesDB/Components/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xMb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/elokuva/Elokuvatietokanta/MoviesDB/Components/Pages/Movies.razor]
+[C:/Kouluhommat/Elokuvatietokanta/MoviesDB/Components/Pages/Movies.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb3ZpZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/elokuva/Elokuvatietokanta/MoviesDB/Components/Pages/Profile.razor]
+[C:/Kouluhommat/Elokuvatietokanta/MoviesDB/Components/Pages/Profile.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQcm9maWxlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/elokuva/Elokuvatietokanta/MoviesDB/Components/Pages/Register.razor]
+[C:/Kouluhommat/Elokuvatietokanta/MoviesDB/Components/Pages/Register.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWdpc3Rlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/elokuva/Elokuvatietokanta/MoviesDB/Components/Routes.razor]
+[C:/Kouluhommat/Elokuvatietokanta/MoviesDB/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/elokuva/Elokuvatietokanta/MoviesDB/Components/_Imports.razor]
+[C:/Kouluhommat/Elokuvatietokanta/MoviesDB/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/xampp/htdocs/elokuva/Elokuvatietokanta/MoviesDB/Components/Layout/MainLayout.razor]
+[C:/Kouluhommat/Elokuvatietokanta/MoviesDB/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-s2q13cyoq6
 
-[C:/xampp/htdocs/elokuva/Elokuvatietokanta/MoviesDB/Components/Layout/NavMenu.razor]
+[C:/Kouluhommat/Elokuvatietokanta/MoviesDB/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-5itnjn4v2c

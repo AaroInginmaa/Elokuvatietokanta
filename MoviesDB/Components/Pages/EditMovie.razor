@@ -56,15 +56,29 @@
 @code {
     [SupplyParameterFromForm]
     private Movie _movie { get; set; } = new(string.Empty);
-
+    private bool IncorrectInput { get; set; }
     private Database _database = new Database();
 
     private void HandleSubmit()
     {
-        if (_movie.Nimi != string.Empty && _database.CheckMovies(_movie) == false)
+        if (_movie.Nimi != string.Empty && _movie.Ohjaaja != string.Empty && _movie.Julkaistu >= 1888 && _movie.Pituus > 0 && _movie.Genre != string.Empty && _movie.Päänäyttelijät != string.Empty &&_database.CheckMovies(_movie) == false)
         { 
             _database.InsertMovie(_movie);
+            NavigationManager.NavigateTo("/movies");
         }
-        NavigationManager.NavigateTo("/movies");
+        else
+        {
+            IncorrectInput = true;
+        }
+        
     }
+}
+
+@if (IncorrectInput)
+{
+    <br />
+    <div class="alert alert-danger fade-in" role="alert">
+        Fill in the fields correctly.
+    </div>
+
 }
