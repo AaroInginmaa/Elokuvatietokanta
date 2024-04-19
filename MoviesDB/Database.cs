@@ -103,18 +103,6 @@ namespace MoviesDB
         }
         public void InsertUser(User user)
         {
-            //long userWow;
-            //using (MySqlCommand sqlCommand = new MySqlCommand("SELECT COUNT(*) from usertable where username like @username OR email like @email", _connection))
-            //{
-            //    _connection.Open();
-            //    sqlCommand.Parameters.AddWithValue("@username", user.Name);
-            //    sqlCommand.Parameters.AddWithValue("@email", user.Email);
-            //    long userCount = (long)sqlCommand.ExecuteScalar();
-            //    userWow = userCount;
-            //    CloseConnection();
-            //}
-
-            
                 string query = $"INSERT INTO usertable (username, email, password) VALUES (" +
                 $"\"{user.Name}\"," +
                 $"\"{user.Email}\"," +
@@ -125,21 +113,12 @@ namespace MoviesDB
 
                 MySqlCommand mySqlCommand = new MySqlCommand(query, _connection);
                 mySqlCommand.ExecuteNonQuery();
-
                 CloseConnection();
-            
-
-
-            
         }
 
         public bool CheckUserExistence(User user)
         {
-            {
-
             bool userExists;
-
-
             long userWow;
             using (MySqlCommand sqlCommand = new MySqlCommand("SELECT COUNT(*) from usertable where username like @username OR email like @email", _connection))
             {
@@ -160,8 +139,7 @@ namespace MoviesDB
                 userExists = true;
             }
 
-                return userExists;
-            }
+            return userExists;
         }
 
         private void OpenConnection()
