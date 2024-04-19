@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\components\\pages\\movies.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\movies.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\components\\pages\\editmovie.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\editmovie.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\components\\pages\\profile.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\profile.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -23,20 +27,16 @@
       "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\components\\pages\\editmovie.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\editmovie.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\models\\moviesummary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\models\\moviesummary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\models\\movie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\components\\pages\\profile.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\profile.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\components\\pages\\movies.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\movies.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,11 +46,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Movie.cs",
               "DocumentMoniker": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Models\\Movie.cs",
               "RelativeDocumentMoniker": "MoviesDB\\Models\\Movie.cs",
@@ -63,13 +63,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "Movies.razor",
               "DocumentMoniker": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Movies.razor",
               "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\Movies.razor",
               "ToolTip": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Movies.razor",
               "RelativeToolTip": "MoviesDB\\Components\\Pages\\Movies.razor",
-              "ViewState": "AQIAACEAAAAAAAAAAAAAADMAAAAUAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAADMAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-18T06:56:26.826Z",
               "EditorCaption": ""
@@ -84,11 +84,12 @@
               "RelativeToolTip": "MoviesDB\\Models\\MovieSummary.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-18T06:03:07.404Z"
+              "WhenOpened": "2024-04-18T06:03:07.404Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Login.razor",
               "DocumentMoniker": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Login.razor",
               "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\Login.razor",
@@ -101,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Register.razor",
               "DocumentMoniker": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Register.razor",
               "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\Register.razor",
@@ -114,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Database.cs",
               "DocumentMoniker": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Database.cs",
               "RelativeDocumentMoniker": "MoviesDB\\Database.cs",
@@ -127,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "Profile.razor",
               "DocumentMoniker": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Profile.razor",
               "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\Profile.razor",
@@ -135,11 +136,12 @@
               "RelativeToolTip": "MoviesDB\\Components\\Pages\\Profile.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-11T09:10:11.245Z"
+              "WhenOpened": "2024-04-11T09:10:11.245Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "EditMovie.razor",
               "DocumentMoniker": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\EditMovie.razor",
               "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\EditMovie.razor",
@@ -147,11 +149,12 @@
               "RelativeToolTip": "MoviesDB\\Components\\Pages\\EditMovie.razor",
               "ViewState": "AQIAADAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-11T07:30:48.691Z"
+              "WhenOpened": "2024-04-11T07:30:48.691Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Program.cs",
               "RelativeDocumentMoniker": "MoviesDB\\Program.cs",
@@ -159,7 +162,8 @@
               "RelativeToolTip": "MoviesDB\\Program.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAAACUAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-11T06:20:54.423Z"
+              "WhenOpened": "2024-04-11T06:20:54.423Z",
+              "EditorCaption": ""
             }
           ]
         }

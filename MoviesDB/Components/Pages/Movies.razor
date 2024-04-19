@@ -46,9 +46,6 @@ else
 
 @code
 {
-
-
-
     Moviess moviess;
 
     private MovieSummary _movieSummary = new MovieSummary();
@@ -74,26 +71,13 @@ else
 
             _connection = new MySqlConnection(connectionQuery);
         }
-
-
-
-
     }
-
-
-
-
-
-    
-
         void Remove(Movie movie)
         {
             Console.WriteLine($"Remove item: {movie}");
             DeleteMovie(movie);
 
         }
-
-
         public void DeleteMovie(Movie movie)
         {
 
