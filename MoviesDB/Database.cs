@@ -103,24 +103,66 @@ namespace MoviesDB
         }
         public void InsertUser(User user)
         {
-            string query = $"INSERT INTO usertable (username, email, password) VALUES (" +
+            //long userWow;
+            //using (MySqlCommand sqlCommand = new MySqlCommand("SELECT COUNT(*) from usertable where username like @username OR email like @email", _connection))
+            //{
+            //    _connection.Open();
+            //    sqlCommand.Parameters.AddWithValue("@username", user.Name);
+            //    sqlCommand.Parameters.AddWithValue("@email", user.Email);
+            //    long userCount = (long)sqlCommand.ExecuteScalar();
+            //    userWow = userCount;
+            //    CloseConnection();
+            //}
+
+            
+                string query = $"INSERT INTO usertable (username, email, password) VALUES (" +
                 $"\"{user.Name}\"," +
                 $"\"{user.Email}\"," +
                 $"\"{user.Password}\"" +
                 $");";
 
-            OpenConnection();
+                OpenConnection();
 
-            MySqlCommand mySqlCommand = new MySqlCommand(query, _connection);
-            mySqlCommand.ExecuteNonQuery();
+                MySqlCommand mySqlCommand = new MySqlCommand(query, _connection);
+                mySqlCommand.ExecuteNonQuery();
 
-            CloseConnection();
+                CloseConnection();
+            
+
+
+            
         }
 
         public bool CheckUserExistence(User user)
         {
+<<<<<<< Updated upstream
             {
                 string query = "SELECT * FROM usertable WHERE username = @UserName";
+=======
+            bool userExists;
+
+
+            long userWow;
+            using (MySqlCommand sqlCommand = new MySqlCommand("SELECT COUNT(*) from usertable where username like @username OR email like @email", _connection))
+            {
+                _connection.Open();
+                sqlCommand.Parameters.AddWithValue("@username", user.Name);
+                sqlCommand.Parameters.AddWithValue("@email", user.Email);
+                long userCount = (long)sqlCommand.ExecuteScalar();
+                userWow = userCount;
+                CloseConnection();
+            }
+
+            if (userWow == 0)
+            {
+                userExists = false;
+            }
+            else
+            {
+                userExists = true;
+            }
+
+>>>>>>> Stashed changes
 
                 OpenConnection();
 
