@@ -2,31 +2,32 @@
 using System;
 using System.Data;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace FromsElokuvaTK
 {
     internal class Database
     {
-        private string hostname;
-        private string username;
-        private string password;
-        private string database;
+        private string _Hostname;
+        private string _Username;
+        private string _Password;
+        private string _Database;
 
         public MySqlConnection connection;
 
         public Database(string hostname, string username, string password, string database)
         {
-            this.hostname = hostname;
-            this.username = username;
-            this.password = password;
-            this.database = database;
+            _Hostname = hostname;
+            _Username = username;
+            _Password = password;
+            _Database = database;
         }
 
         public bool Connect()
         {
             try
             {
-                string connectionString = $"server={hostname};uid={username};pwd={password};database={database}";
+                string connectionString = $"server={_Hostname};uid={_Username};pwd={_Password};database={_Database}";
                 connection = new MySqlConnection(connectionString);
                 connection.Open();
 
@@ -43,7 +44,8 @@ namespace FromsElokuvaTK
             connection.Close();
         }
 
-        public int Select(string query)
+        // Queryt mitkä ei muuttaa/lisää tietoja kuten SELECT
+        public int NonDestructiveQuery(string query)
         {
             MySqlCommand command = new MySqlCommand(query, connection);
             int count = Convert.ToInt32(command.ExecuteScalar());
@@ -51,7 +53,8 @@ namespace FromsElokuvaTK
             return count;
         }
 
-        public int Insert(string query)
+        // Queryt mitkä muuttaa/lisää tietoja kuten INSERT ja DELETE
+        public int DestructiveQuery(string query)
         {
             MySqlCommand command = new MySqlCommand(query, connection);
             int rowsAffected = command.ExecuteNonQuery();
@@ -59,15 +62,18 @@ namespace FromsElokuvaTK
             return rowsAffected;
         }
 
-        /*public void FillDataSet(DataGridView dgw)
+        public void FillDataGrid(DataGrid dg)
         {
-            string query = "SELECT * FROM elokuvatietokanta.elokuvat;";
-            MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
-            DataSet dataSet = new DataSet();
+            string sql = "SELECT idMovies as id, Name, Length, ReleaseYear, Genres, MainActors, Director, Rating FROM movies";
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            cmd.ExecuteNonQuery();
+            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
+            DataTable dataTable = new DataTable("movies");
+            dataAdapter.Fill(dataTable);
+            dg.ItemsSource = dataTable.DefaultView;
+            dataAdapter.Update(dataTable);
 
-            adapter.Fill(dataSet);
-            dgw.DataSource = dataSet.Tables[0];
-        }*/
+        }
     }
 }
 
