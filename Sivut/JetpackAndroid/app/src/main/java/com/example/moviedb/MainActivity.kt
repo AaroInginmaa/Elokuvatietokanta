@@ -1,6 +1,7 @@
 package com.example.moviedb
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -21,62 +22,94 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Set the content of the activity using Jetpack Compose
         setContent {
+            // Pass the current context to the MovieDBApp composable function
             MovieDBApp(LocalContext.current)
         }
     }
 }
 
+// Main entry point of the application, controls the login and signup screens
 @Composable
 fun MovieDBApp(context: Context) {
     var isLoginScreen by remember { mutableStateOf(true) }
+    var isSignedIn by remember { mutableStateOf(false) }
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
 
     Surface {
-        if (isLoginScreen) {
-            LoginScreen(
-                onLoginButtonClick = { username, password ->
-                    // Handle login logic here
-                    if (username.isNotEmpty() && password.isNotEmpty()) {
-                        // Perform login action
-                        Toast.makeText(context, "Performing login for $username",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } else {
-                        Toast.makeText(context, "Please fill in all fields",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+        if (isSignedIn) {
+            MainScreen(
+                onAddMovieClick = {
+                    Toast.makeText(context, "Add Movie clicked", Toast.LENGTH_SHORT).show()
                 },
-                onSignUpButtonClick = { isLoginScreen = false }
+                onViewMoviesClick = {
+                    Toast.makeText(context, "View Movie clicked", Toast.LENGTH_SHORT).show()
+                }
             )
         } else {
-            SignUpScreen(
-                onContinueButtonClick = { username, password, email ->
-                    // Handle signup logic here
-                    if (username.isNotEmpty() && password.isNotEmpty() && email.isNotEmpty()) {
-                        // Perform signup action
-                        Toast.makeText(
-                            context,
-                            "Performing sign up for $username with $email",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } else {
-                        Toast.makeText(
-                            context,
-                            "Please fill in all fields",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                },
-                onLoginButtonClick = { isLoginScreen = true }
-            )
+            // Näytä joko login screen tai signup
+            if (isLoginScreen) {
+                LoginScreen(
+                    onLoginButtonClick = { username, password ->
+                        // Handle login button click
+                        if (username.isNotEmpty() && password.isNotEmpty()) {
+                            // Perform login action (e.g., authenticate user)
+                            Toast.makeText(context, "Performing login for $username", Toast.LENGTH_SHORT).show()
+                            isSignedIn = true
+                        } else {
+                            Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                        }
+                    },
+                    onSignUpButtonClick = { isLoginScreen = false } // Switch to SignUpScreen
+                )
+            } else {
+                SignUpScreen(
+                    onContinueButtonClick = { username, password, email ->
+                        // Handle continue button click on SignUpScreen
+                        if (username.isNotEmpty() && password.isNotEmpty() && email.isNotEmpty()) {
+                            // Tähän tulis
+                            Toast.makeText(context, "Performing sign up for $username with $email", Toast.LENGTH_SHORT).show()
+                            isSignedIn = true
+                        } else {
+                            Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                        }
+                    },
+                    onLoginButtonClick = { isLoginScreen = true } // Switch back to LoginScreen
+                )
+            }
+        }
+    }
+}
+@Composable
+fun MainScreen(
+    onAddMovieClick: () -> Unit,
+    onViewMoviesClick: () -> Unit
+) {
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Welcome to MovieDB")
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Button(onClick = { onAddMovieClick() }) {
+            Text("Add Movie")
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Button(onClick = { onViewMoviesClick() }) {
+            Text("View Movies")
         }
     }
 }
 
+// Composable function for the Login screen UI
 @Composable
 fun LoginScreen(
     onLoginButtonClick: (String, String) -> Unit,
@@ -125,6 +158,7 @@ fun LoginScreen(
     }
 }
 
+// Composable function for the SignUp screen UI
 @Composable
 fun SignUpScreen(
     onContinueButtonClick: (String, String, String) -> Unit,
@@ -178,12 +212,7 @@ fun SignUpScreen(
         Spacer(modifier = Modifier.height(8.dp))
 
         Button(onClick = { onLoginButtonClick() }) {
-            Text("Back to Login")
+            Text("Back to Login") //Takasin alkuun
         }
     }
-}
-
-@Composable
-fun AddOrSearchMovie(){
-
 }
