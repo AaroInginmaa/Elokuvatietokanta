@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\register.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|solutionrelative:moviesdb\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{61A420B5-EA51-4310-8F5F-2F24DF855358}|MoviesDB\\MoviesDB.csproj|c:\\xampp\\htdocs\\elokuva\\elokuvatietokanta\\moviesdb\\components\\pages\\editmovie.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -46,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
@@ -86,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Login.razor",
               "DocumentMoniker": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Login.razor",
               "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\Login.razor",
@@ -99,26 +99,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Register.razor",
               "DocumentMoniker": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Register.razor",
               "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\Register.razor",
               "ToolTip": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Register.razor",
               "RelativeToolTip": "MoviesDB\\Components\\Pages\\Register.razor",
-              "ViewState": "AQIAAAYAAAAAAAAAAIAwwC4AAABCAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowDwAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-04-12T06:01:29.323Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Database.cs",
               "DocumentMoniker": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Database.cs",
               "RelativeDocumentMoniker": "MoviesDB\\Database.cs",
               "ToolTip": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Database.cs",
               "RelativeToolTip": "MoviesDB\\Database.cs",
-              "ViewState": "AQIAAIEAAAAAAAAAAADwv5UAAACFAAAA",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAkwFkAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-11T06:21:00.852Z",
               "EditorCaption": ""

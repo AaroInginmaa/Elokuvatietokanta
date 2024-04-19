@@ -35,26 +35,34 @@
     private User _user { get; set; } = new(string.Empty);
     public bool UserAlreadyExists { get; set; }
     public bool FillAllAlert { get; set; }
+    public bool PasswordMatchNot { get; set; }
     private Database _database = new Database();
 
     private void HandleSubmit()
     {
         if (!string.IsNullOrWhiteSpace(_user.Name) &&
             !string.IsNullOrWhiteSpace(_user.Email) &&
-            !string.IsNullOrWhiteSpace(_user.Password) &&
-            _user.Password == _user.ConfirmPassword)
+            !string.IsNullOrWhiteSpace(_user.Password)
+            )
         {
             bool userExists = _database.CheckUserExistence(_user);
 
-            if (!userExists)
+            if (_user.Password == _user.ConfirmPassword)
             {
-                _database.InsertUser(_user);
-                NavigationManager.NavigateTo("/editmovie");
+                if (!userExists)
+                {
+                    _database.InsertUser(_user);
+                    NavigationManager.NavigateTo("/editmovie");
+                }
+                else
+                {
+                    UserAlreadyExists = true;
+                }
             }
             else
             {
-                UserAlreadyExists = true;
-            }
+                PasswordMatchNot = true;
+            } 
         }
         else
         {
@@ -68,6 +76,14 @@
     <br />
     <div class="alert alert-danger fade-in" role="alert">
         User already exists.
+    </div>
+}
+
+@if (PasswordMatchNot)
+{
+    <br />
+    <div class="alert alert-danger fade-in" role="alert">
+        Passwords do not match.
     </div>
 }
 
