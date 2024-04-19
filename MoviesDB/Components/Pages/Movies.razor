@@ -35,7 +35,16 @@ else
                     <td><strong>@movie.Arvio</strong></td>
                     <td><strong>@movie.Genre</strong></td>
                     <td><strong>@movie.Päänäyttelijät</strong></td>
-                    <td><button @onclick="@(() => DeleteMovie(movie))">Remove</button></td>
+                    <td>
+                        <EditForm FormName="Delete" OnSubmit="DeleteMovie(movie)">
+                            <form>
+                                <div>
+                                    <br />
+                                    <button type="submit" class="btn btn-primary">Delete</button>
+                                </div>
+                            </form>
+                        </EditForm>
+                    </td>
                     
                 </tr>
                 
@@ -72,12 +81,7 @@ else
             _connection = new MySqlConnection(connectionQuery);
         }
     }
-        void Remove(Movie movie)
-        {
-            Console.WriteLine($"Remove item: {movie}");
-            DeleteMovie(movie);
-
-        }
+        
         public void DeleteMovie(Movie movie)
         {
 
