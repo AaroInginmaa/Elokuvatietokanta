@@ -70,8 +70,7 @@
               "RelativeToolTip": "MoviesDB\\Components\\Pages\\Movies.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-18T06:56:26.826Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-18T06:56:26.826Z"
             },
             {
               "$type": "Document",
@@ -83,8 +82,7 @@
               "RelativeToolTip": "MoviesDB\\Models\\MovieSummary.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-18T06:03:07.404Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-18T06:03:07.404Z"
             },
             {
               "$type": "Document",
@@ -96,8 +94,7 @@
               "RelativeToolTip": "MoviesDB\\Components\\Pages\\Login.razor",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-12T06:01:40.69Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T06:01:40.69Z"
             },
             {
               "$type": "Document",
@@ -107,14 +104,9 @@
               "RelativeDocumentMoniker": "MoviesDB\\Components\\Pages\\Register.razor",
               "ToolTip": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Components\\Pages\\Register.razor",
               "RelativeToolTip": "MoviesDB\\Components\\Pages\\Register.razor",
-<<<<<<< Updated upstream
               "ViewState": "AQIAAAYAAAAAAAAAAIAwwC4AAABCAAAA",
-=======
-              "ViewState": "AQIAAAYAAAAAAAAAAIAwwC8AAAAoAAAA",
->>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-12T06:01:29.323Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T06:01:29.323Z"
             },
             {
               "$type": "Document",
@@ -122,13 +114,9 @@
               "Title": "Database.cs",
               "DocumentMoniker": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Database.cs",
               "RelativeDocumentMoniker": "MoviesDB\\Database.cs",
-              "ToolTip": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Database.cs",
-              "RelativeToolTip": "MoviesDB\\Database.cs",
-<<<<<<< Updated upstream
-              "ViewState": "AQIAAHYAAAAAAAAAAAAgwIIAAAAAAAAA",
-=======
-              "ViewState": "AQIAAH0AAAAAAAAAAAAgwJ0AAAAiAAAA",
->>>>>>> Stashed changes
+              "ToolTip": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\Database.cs*",
+              "RelativeToolTip": "MoviesDB\\Database.cs*",
+              "ViewState": "AQIAAH8AAAAAAAAAAAAgwIkAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-11T06:21:00.852Z",
               "EditorCaption": ""
@@ -155,8 +143,7 @@
               "RelativeToolTip": "MoviesDB\\Components\\Pages\\EditMovie.razor",
               "ViewState": "AQIAADAAAAAAAAAAAAAAAAAAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-04-11T07:30:48.691Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T07:30:48.691Z"
             },
             {
               "$type": "Document",
@@ -168,8 +155,7 @@
               "RelativeToolTip": "MoviesDB\\Program.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAAACUAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-11T06:20:54.423Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T06:20:54.423Z"
             }
           ]
         }

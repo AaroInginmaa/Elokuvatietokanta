@@ -135,10 +135,8 @@ namespace MoviesDB
 
         public bool CheckUserExistence(User user)
         {
-<<<<<<< Updated upstream
             {
-                string query = "SELECT * FROM usertable WHERE username = @UserName";
-=======
+
             bool userExists;
 
 
@@ -161,20 +159,6 @@ namespace MoviesDB
             {
                 userExists = true;
             }
-
->>>>>>> Stashed changes
-
-                OpenConnection();
-
-                MySqlCommand mySqlCommand = new MySqlCommand(query, _connection);
-                mySqlCommand.Parameters.AddWithValue("@UserName", user.Name);
-
-                MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
-
-                bool userExists = mySqlDataReader.HasRows;
-
-                mySqlDataReader.Close();
-                CloseConnection();
 
                 return userExists;
             }
