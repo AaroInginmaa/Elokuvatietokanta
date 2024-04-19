@@ -117,14 +117,26 @@ namespace MoviesDB
             CloseConnection();
         }
 
-        public bool CheckUser(User user)
+        public bool CheckUserExistence(User user)
         {
-            bool userExists = false;
+            {
+                string query = "SELECT * FROM usertable WHERE username = @UserName";
 
-            return userExists;
+                OpenConnection();
+
+                MySqlCommand mySqlCommand = new MySqlCommand(query, _connection);
+                mySqlCommand.Parameters.AddWithValue("@UserName", user.Name);
+
+                MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+
+                bool userExists = mySqlDataReader.HasRows;
+
+                mySqlDataReader.Close();
+                CloseConnection();
+
+                return userExists;
+            }
         }
-
-
 
         private void OpenConnection()
         {
