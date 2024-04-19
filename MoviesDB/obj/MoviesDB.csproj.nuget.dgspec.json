@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj": {}
+    "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj": {}
   },
   "projects": {
-    "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj": {
+    "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj",
+        "projectUniqueName": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj",
         "projectName": "MoviesDB",
-        "projectPath": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj",
-        "packagesPath": "C:\\Users\\aavas\\.nuget\\packages\\",
-        "outputPath": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\obj\\",
+        "projectPath": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj",
+        "packagesPath": "C:\\Users\\Luka Kinnunen\\.nuget\\packages\\",
+        "outputPath": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\aavas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Luka Kinnunen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -69,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

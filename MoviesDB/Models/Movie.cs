@@ -2,7 +2,7 @@
 {
     public class Movie
     {
-        public Movie(string nimi, int idElokuvat = 0, string ohjaaja = "", int julkaistu = 0, int pituus = 0, double arvio = 0.0, string genre = "", string päänäyttelijät = "")
+        public Movie(string nimi = "", int idElokuvat = 0, string ohjaaja = "", int julkaistu = 0, int pituus = 0, double arvio = 0.0, string genre = "", string päänäyttelijät = "")
         {
             Nimi = nimi;
             IdElokuvat = idElokuvat;
