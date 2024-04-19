@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using FromsElokuvaTK;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,26 +23,19 @@ namespace Elokuvatietokanta
     /// </summary>
     public partial class Elokuvat : Window
     {
+        Database database = new Database("10.146.4.49", "dbuser", "Nakkikastike123!", "moviedb");
+
         public Elokuvat()
         {
             InitializeComponent();
 
-            string connStr = "server=localhost;user=root;database=elokuvatietokanta;port=3306;password=";
-            MySqlConnection conn = new MySqlConnection(connStr);
             try
             {
-                conn.Open();
-                string sql = "SELECT Nimi, Pituus, Julkaistu, Genre, Päänäyttelijät, Ohjaaja, Arvio FROM elokuvat";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.ExecuteNonQuery();
+                database.Connect();
 
-                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
-                DataTable dataTable = new DataTable("elokuvat");
-                dataAdapter.Fill(dataTable);
-                SQLdataGrid.ItemsSource = dataTable.DefaultView;
-                dataAdapter.Update(dataTable);
+                database.FillDataGrid(SQLdataGrid);
 
-                conn.Close();
+                //database.Close();
             }
             catch (Exception ex) 
             { 
@@ -51,39 +45,67 @@ namespace Elokuvatietokanta
 
         private void KillMovie(object sender, RoutedEventArgs e)
         {
-            string connStr = "server=localhost;user=root;database=elokuvatietokanta;port=3306;password=";
-            MySqlConnection conn = new MySqlConnection(connStr);
             try
             {
-                conn.Open();
-                string sql2 = "DELETE FROM elokuvat WHERE Nimi = '" + EloPoisto.Text + "';";
-                MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
-                cmd2.ExecuteNonQuery();
+                DataRowView dataRow = (DataRowView)SQLdataGrid.SelectedItem;
+                int movieId = (int)dataRow.Row.ItemArray[0];
+                string movieName = (string)dataRow.Row.ItemArray[1];
+                //database.Connect();
+
+                MessageBoxResult mbr = MessageBox.Show($"Are you sure you want to delete {movieName}", "Deletion", MessageBoxButton.YesNo, MessageBoxImage.Information);
+                if (mbr == MessageBoxResult.Yes)
+                {
+
+                    database.DestructiveQuery($"DELETE FROM moviedb.movies WHERE idMovies = {movieId}");
+                }
+                else
+                {
+                    return;
+                }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
-            string sql = "SELECT Nimi, Pituus, Julkaistu, Genre, Päänäyttelijät, Ohjaaja, Arvio FROM elokuvat";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            cmd.ExecuteNonQuery();
-
-            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
-            DataTable dataTable = new DataTable("elokuvat");
-            dataAdapter.Fill(dataTable);
-            SQLdataGrid.ItemsSource = dataTable.DefaultView;
-            dataAdapter.Update(dataTable);
-
-            conn.Close();
+            database.FillDataGrid(SQLdataGrid);
+            //database.Close();
+            BtnDelete.IsEnabled = false;
         }
 
-        private void GoBack(object sender, RoutedEventArgs e)
+        private void ToLogin(object sender, RoutedEventArgs e)
         {
-            MainWindow mainwindow = new MainWindow();
-            mainwindow.Show();
+            database.Close();
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
             Close();
+        }
+
+        private void ToMain(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+        }
+
+        private void SQLdataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SQLdataGrid.SelectedIndex != -1)
+            {
+                BtnDelete.IsEnabled = true;
+            }
+            else
+            {
+                BtnDelete.IsEnabled = false;
+            }
+        }
+
+        private void Refresh(object sender, RoutedEventArgs e)
+        {
+            //database.Connect();
+            database.FillDataGrid(SQLdataGrid);
+            return;
         }
     }
 }
