@@ -142,6 +142,35 @@ namespace MoviesDB
             return userExists;
         }
 
+        public bool CheckUserPassword(User user)
+        {
+            string username = user.Name;
+            bool passCorr;
+
+            using (MySqlCommand sqlCommand = new MySqlCommand("SELECT usertable.password from usertable WHERE username='"+username+"'", _connection))
+            {
+                _connection.Open();
+                
+                string pass = (string)sqlCommand.ExecuteScalar();
+                
+                CloseConnection();
+
+                if (pass == user.Password)
+                {
+                    passCorr = true;
+                }
+
+                else
+                {
+                    passCorr = false;
+                }
+
+            }
+
+            return passCorr;
+
+        }
+
         private void OpenConnection()
         {
             _connection.Open();

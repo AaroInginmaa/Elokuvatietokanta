@@ -36,8 +36,9 @@
            !string.IsNullOrWhiteSpace(_user.Password))
         {
             bool userExists = _database.CheckUserExistence(_user);
+            bool passCorr = _database.CheckUserPassword(_user);
 
-            if (userExists)
+            if (userExists&&passCorr)
             {
                 NavigationManager.NavigateTo("/editmovie");
             }
@@ -57,7 +58,7 @@
 {
     <br />
     <div class="alert alert-danger fade-in" role="alert">
-        User doesn't exist.
+        User doesn't exist or the password is incorrect.
     </div>
 }   
 
