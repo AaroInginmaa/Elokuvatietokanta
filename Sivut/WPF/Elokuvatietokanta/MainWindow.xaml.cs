@@ -7,7 +7,7 @@ namespace Elokuvatietokanta
 {
     public partial class MainWindow : Window
     {
-        Database database = new Database("localhost", "root", "", "elokuvatietokanta");
+        Database database = new Database("10.146.4.49", "app", "databaseApp!", "moviedb");
 
         public MainWindow()
         {
@@ -24,7 +24,7 @@ namespace Elokuvatietokanta
 
             string movieName = EloNimi.Text;
 
-            int resultCount = database.Select($"SELECT COUNT(*) FROM elokuvat WHERE Nimi = '{movieName}'");
+            int resultCount = database.NonDestructiveQuery($"SELECT COUNT(*) FROM movies WHERE Name = '{movieName}'");
 
             if (resultCount == 0)
             {
@@ -32,15 +32,16 @@ namespace Elokuvatietokanta
                 {
                     database.Connect();
 
-                    string sql = $"INSERT INTO elokuvat (Nimi, Pituus, Julkaistu, Genre, Päänäyttelijät, Ohjaaja, Arvio) " +
+                    string sql = $"INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating) " +
                         $"VALUES ('{EloNimi.Text}', '{EloPituus.Text}', '{EloJulkaistu.Text}', '{EloGenre.Text}', " +
                         $"'{EloPäänäyttelijät.Text}', '{EloOhjaaja.Text}', '{EloArvio.Text}')";
 
-                    int rowsAffected = database.Insert(sql);
+                    int rowsAffected = database.DestructiveQuery(sql);
 
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Movie inserted successfully!");
+                        Close();
                     }
                     else
                     {
@@ -61,11 +62,8 @@ namespace Elokuvatietokanta
             database.Close();
         }
 
-        private void ToDelete(object sender, RoutedEventArgs e)
+        private void Close(object sender, RoutedEventArgs e)
         {
-            
-            Elokuvat elokuvat = new Elokuvat();
-            elokuvat.Show();
             this.Close();
         }
     }

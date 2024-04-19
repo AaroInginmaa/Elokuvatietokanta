@@ -22,7 +22,7 @@ namespace Elokuvatietokanta
     /// </summary>
     public partial class LoginWindow : Window
     {
-        Database database = new Database("localhost", "╰(*°▽°*)╯AAROINGINMAATEETÄÄSERVERCONNECTIONLOPPUUPWEASE☆*: .｡. o(≧▽≦)o .｡.:*☆", "", "moviedb");    
+        Database database = new Database("10.146.4.49", "app", "databaseApp!", "moviedb");
         public LoginWindow()
         {
             InitializeComponent();
@@ -40,14 +40,14 @@ namespace Elokuvatietokanta
 
                 //SQL lauseke, joka vie tiedot tietokantaan oikeista laatikoista
                 //Tällä katsotaan onko login tiedot oikein, ei pitäisi päästää ketään tunnuksetonta tai väärillä tunnuksilla sisään 
-                int sql = database.Insert($"SELECT * FROM usertable WHERE username = '{UserOrEmail}' and password = '{Pword}'or email = '{ UserOrEmail}' and password = '{Pword}';");
+                int sql = database.DestructiveQuery($"SELECT * FROM usertable WHERE username = '{UserOrEmail}' and password = '{Pword}'or email = '{ UserOrEmail}' and password = '{Pword}';");
                 
                 //Varmistetaan, että SQL lauseke teki jotain
                 if (sql < 0)
                 {
                     //Jos kirjautuminen onnistuu, viedään käyttäjä elokuvan lisäys näkymään (MainWindow)
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
+                    Elokuvat elokuvat = new Elokuvat();
+                    elokuvat.Show();
                     Close();
                 }
                 else

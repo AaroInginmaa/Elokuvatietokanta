@@ -21,7 +21,7 @@ namespace Elokuvatietokanta
     public partial class SignupWindow : Window
     {
 
-        Database database = new Database("localhost", "root", "", "elokuvatietokanta");
+        Database database = new Database("10.146.4.49", "app", "databaseApp!", "moviedb");
         public SignupWindow()
         {
             InitializeComponent();
@@ -49,7 +49,7 @@ namespace Elokuvatietokanta
                 if (ValidPassword == true)
                 {
                     //SQL lauseke, joka vie tiedot tietokantaan oikeista laatikoista
-                    int sql = database.Insert($"INSERT INTO usertable (username, email, password) VALUES ('{User}' , '{email} ' , '{Pword}')");
+                    int sql = database.DestructiveQuery($"INSERT INTO usertable (username, email, password) VALUES ('{User}' , '{email} ' , '{Pword}')");
                     if (sql > 0)
                     {
                         //Jos SQL lauseke onnistui näytetään messagebox käyttäjälle
