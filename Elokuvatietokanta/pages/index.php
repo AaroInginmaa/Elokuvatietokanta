@@ -54,7 +54,8 @@
             <th scope="col">Vuosi</th>
             <th scope="col">Kesto</th>
             <th scope="col">Genre</th>
-            <th scope="col">Paa nayttelija</th>
+            <th scope="col">Päänäyttelijä
+            </th>
             <th scope="col">Arvostelu</th>
           </tr>
         </thead>

@@ -2,7 +2,7 @@
 
 require_once('Database.php');
 
-$query = "SELECT * FROM elokuvatietokanta.elokuvat;";
+$query = "SELECT * FROM moviedb.movies;";
 $database = new Database();
     
 if(!$database->connect()) {
@@ -12,14 +12,14 @@ if(!$database->connect()) {
 
     if ($result = $database->connection->query($query)) {
         while ($row = $result->fetch_assoc()) {
-            $id = $row["elokuva_id"];
-            $name = $row["nimi"];
-            $director = $row["ohjaaja"];
-            $release_year = $row["julkaisuvuosi"];
-            $length = $row["kesto"]; 
-            $genre = $row["genre"]; 
-            $star = $row["paa_nayttelija"]; 
-            $rating = $row["arvostelu"]; 
+            $id = $row["idMovies"];
+            $name = $row["Name"];
+            $director = $row["Director"];
+            $release_year = $row["ReleaseYear"];
+            $length = $row["Length"]; 
+            $genre = $row["Genres"]; 
+            $star = $row["MainActors"]; 
+            $rating = $row["Rating"]; 
 
             echo '<tr> 
                       <td>'.$id.'</td> 

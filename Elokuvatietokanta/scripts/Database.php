@@ -28,7 +28,7 @@ class Database
     // Tekee uuden elokuvan tietokantaan)
     public function insert_movie(Movie $movie)
     {
-        $sql = "INSERT INTO elokuvatietokanta.elokuvat (elokuva_id, nimi, ohjaaja, julkaisuvuosi, kesto, genre, paa_nayttelija, arvostelu) VALUES (0, '$movie->name', '$movie->director', $movie->year, $movie->lenght, '$movie->genre', '$movie->main_actor', $movie->rating)";
+        $sql = "INSERT INTO moviedb.movies (idMovies, Name, Director, ReleaseYear, Length, Genres, MainActors, Rating) VALUES (0, '$movie->name', '$movie->director', $movie->year, $movie->length, '$movie->genre', '$movie->main_actor', $movie->rating)";
 
         if ($this->connection->query($sql) === TRUE)
         {
@@ -43,7 +43,7 @@ class Database
 
     public function insert_user(User $user)
     {
-        $sql = "INSERT INTO elokuvatietokanta.kayttajat (kayttaja_id, nimi, sahkoposti, salasana) VALUES (0, '$user->name', '$user->email', '$user->password')";
+        $sql = "INSERT INTO moviedb.usertable (idUser, username, email, password) VALUES (0, '$user->name', '$user->email', '$user->password')";
 
         if ($this->connection->query($sql) === TRUE)
         {

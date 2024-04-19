@@ -1,7 +1,7 @@
 <?php
 
 // Muista vaihtaa oikeiksi
-define('DB_HOSTNAME', 'localhost');
-define('DB_USERNAME', 'admin');
-define('DB_PASSWORD', 'admin');
-define('DB_DATABASE', 'elokuvatietokanta');
+define('DB_HOSTNAME', '10.146.4.49');
+define('DB_USERNAME', 'app');
+define('DB_PASSWORD', 'databaseApp!');
+define('DB_DATABASE', 'moviedb');
