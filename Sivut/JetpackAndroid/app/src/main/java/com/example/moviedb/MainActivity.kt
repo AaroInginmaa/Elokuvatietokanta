@@ -1,5 +1,6 @@
 package com.example.moviedb
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -21,13 +22,13 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MovieDBApp()
+            MovieDBApp(LocalContext.current)
         }
     }
 }
 
 @Composable
-fun MovieDBApp() {
+fun MovieDBApp(context: Context) {
     var isLoginScreen by remember { mutableStateOf(true) }
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -38,16 +39,16 @@ fun MovieDBApp() {
             LoginScreen(
                 onLoginButtonClick = { username, password ->
                     // Handle login logic here
-                    /*if (username.isNotEmpty() && password.isNotEmpty()) {
+                    if (username.isNotEmpty() && password.isNotEmpty()) {
                         // Perform login action
-                        Toast.makeText(LocalContext.current, "Performing login for $username",
+                        Toast.makeText(context, "Performing login for $username",
                             Toast.LENGTH_SHORT
                         ).show()
                     } else {
-                        Toast.makeText(LocalContext.current, "Please fill in all fields",
+                        Toast.makeText(context, "Please fill in all fields",
                             Toast.LENGTH_SHORT
                         ).show()
-                    }*/
+                    }
                 },
                 onSignUpButtonClick = { isLoginScreen = false }
             )
@@ -55,20 +56,20 @@ fun MovieDBApp() {
             SignUpScreen(
                 onContinueButtonClick = { username, password, email ->
                     // Handle signup logic here
-                    /*if (username.isNotEmpty() && password.isNotEmpty() && email.isNotEmpty()) {
+                    if (username.isNotEmpty() && password.isNotEmpty() && email.isNotEmpty()) {
                         // Perform signup action
                         Toast.makeText(
-                            LocalContext.current,
+                            context,
                             "Performing sign up for $username with $email",
                             Toast.LENGTH_SHORT
                         ).show()
                     } else {
                         Toast.makeText(
-                            LocalContext.current,
+                            context,
                             "Please fill in all fields",
                             Toast.LENGTH_SHORT
                         ).show()
-                    }*/
+                    }
                 },
                 onLoginButtonClick = { isLoginScreen = true }
             )
@@ -180,4 +181,9 @@ fun SignUpScreen(
             Text("Back to Login")
         }
     }
+}
+
+@Composable
+fun AddOrSearchMovie(){
+
 }
