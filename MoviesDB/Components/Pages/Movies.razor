@@ -1,5 +1,6 @@
 ﻿@page "/movies"
 @using Models
+@using MySql.Data.MySqlClient;
 
 <PageTitle>Movies</PageTitle>
 
@@ -20,6 +21,7 @@ else
             <th>Arvio</th>
             <th>Genre</th>
             <th>Päänäyttelijät</th>
+            <th></th>
         </thead>
 
         <tbody>
@@ -33,7 +35,10 @@ else
                     <td><strong>@movie.Arvio</strong></td>
                     <td><strong>@movie.Genre</strong></td>
                     <td><strong>@movie.Päänäyttelijät</strong></td>
+                    <td><button @onclick="@(() => DeleteMovie(movie))">Remove</button></td>
+                    
                 </tr>
+                
             }
         </tbody>
     </table>
@@ -41,5 +46,81 @@ else
 
 @code
 {
+
+
+
+    Moviess moviess;
+
     private MovieSummary _movieSummary = new MovieSummary();
+
+    public class Moviess
+    {
+        public readonly string _host;
+        public readonly string _database;
+        public readonly string _user;
+        public readonly string _password;
+        public readonly int _port;
+        public MySqlConnection _connection;
+
+        public Moviess()
+        {
+            _host = "10.146.4.49";
+            _database = "moviedb";
+            _user = "app";
+            _password = "databaseApp!";
+            _port = 3306;
+
+            string connectionQuery = $"Server={_host};Port={_port};Database={_database};Uid={_user};Pwd={_password};";
+
+            _connection = new MySqlConnection(connectionQuery);
+        }
+
+
+
+
+    }
+
+
+
+
+
+    
+
+        void Remove(Movie movie)
+        {
+            Console.WriteLine($"Remove item: {movie}");
+            DeleteMovie(movie);
+
+        }
+
+
+        public void DeleteMovie(Movie movie)
+        {
+
+            string query = $"DELETE FROM movies WHERE Name='" + movie.Nimi + "' AND ReleaseYear='" + movie.Julkaistu + "';";
+            
+
+            OpenConnection();
+
+            MySqlCommand mySqlCommand = new MySqlCommand(query, moviess._connection);
+            mySqlCommand.ExecuteNonQuery();
+
+            CloseConnection();
+        Console.WriteLine($"Remove item: {movie}");
+        }
+
+
+        private void OpenConnection()
+        {
+            moviess._connection.Open();
+        }
+
+        private void CloseConnection()
+        {
+            moviess._connection.Close();
+        }
+    
+    
+    
+
 }
