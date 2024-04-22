@@ -1,7 +1,6 @@
 package com.example.moviedb
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -22,33 +21,43 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Set the content of the activity using Jetpack Compose
         setContent {
-            // Pass the current context to the MovieDBApp composable function
             MovieDBApp(LocalContext.current)
         }
     }
 }
 
-// Main entry point of the application, controls the login and signup screens
+//Tässä on pääruudun logiikka
 @Composable
 fun MovieDBApp(context: Context) {
     var isLoginScreen by remember { mutableStateOf(true) }
     var isSignedIn by remember { mutableStateOf(false) }
+    var Addmovie by remember { mutableStateOf(false) }
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
 
     Surface {
         if (isSignedIn) {
-            MainScreen(
-                onAddMovieClick = {
-                    Toast.makeText(context, "Add Movie clicked", Toast.LENGTH_SHORT).show()
-                },
-                onViewMoviesClick = {
-                    Toast.makeText(context, "View Movie clicked", Toast.LENGTH_SHORT).show()
-                }
-            )
+            if (Addmovie) {
+                // Show AddMovieScreen
+                AddMovieScreen(
+                    context = context,
+                    onAddMovieButtonClick = { name, releaseDate, length, genre, director, rate, mainActors ->
+                        // Handle adding the movie
+                        Toast.makeText(context, "Adding Movie: $name", Toast.LENGTH_SHORT).show()
+                    },
+                    onBackButtonClick = { Addmovie = false } // Takasin Addmovie ruudusta
+                )
+            } else {
+                // Show MainScreen
+                MainScreen(
+                    onAddMovieClick = { Addmovie = true },
+                    onViewMoviesClick = {
+                        Toast.makeText(context, "View Movie clicked", Toast.LENGTH_SHORT).show()
+                    }
+                )
+            }
         } else {
             // Näytä joko login screen tai signup
             if (isLoginScreen) {
@@ -70,19 +79,19 @@ fun MovieDBApp(context: Context) {
                     onContinueButtonClick = { username, password, email ->
                         // Handle continue button click on SignUpScreen
                         if (username.isNotEmpty() && password.isNotEmpty() && email.isNotEmpty()) {
-                            // Tähän tulis
+
                             Toast.makeText(context, "Performing sign up for $username with $email", Toast.LENGTH_SHORT).show()
                             isSignedIn = true
                         } else {
                             Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT).show()
                         }
                     },
-                    onLoginButtonClick = { isLoginScreen = true } // Switch back to LoginScreen
-                )
+                    onLoginButtonClick = { isLoginScreen = true })// Switch back to LoginScreen
             }
         }
     }
 }
+
 @Composable
 fun MainScreen(
     onAddMovieClick: () -> Unit,
@@ -109,7 +118,7 @@ fun MainScreen(
     }
 }
 
-// Composable function for the Login screen UI
+
 @Composable
 fun LoginScreen(
     onLoginButtonClick: (String, String) -> Unit,
@@ -158,7 +167,6 @@ fun LoginScreen(
     }
 }
 
-// Composable function for the SignUp screen UI
 @Composable
 fun SignUpScreen(
     onContinueButtonClick: (String, String, String) -> Unit,
@@ -212,7 +220,121 @@ fun SignUpScreen(
         Spacer(modifier = Modifier.height(8.dp))
 
         Button(onClick = { onLoginButtonClick() }) {
-            Text("Back to Login") //Takasin alkuun
+            Text("Back to Login")
         }
     }
 }
+
+@Composable
+fun AddMovieScreen(
+    context: Context,
+    onAddMovieButtonClick: (String, String, String, String, String, String, String) -> Unit,
+    onBackButtonClick: () -> Unit
+) {
+    var name by remember { mutableStateOf("") }
+    var releaseDate by remember { mutableStateOf("") }
+    var length by remember { mutableStateOf("") }
+    var genre by remember { mutableStateOf("") }
+    var director by remember { mutableStateOf("") }
+    var mainActors by remember { mutableStateOf("") }
+    var rate by remember { mutableStateOf("") }
+
+
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Add a Movie")
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        TextField(
+            value = name,
+            onValueChange = { name = it },
+            label = { Text("Movie Name") },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        TextField(
+            value = releaseDate,
+            onValueChange = { releaseDate = it },
+            label = { Text("Year of Release") },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        TextField(
+            value = length,
+            onValueChange = { length = it },
+            label = { Text("Length (min)") },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        TextField(
+            value = genre,
+            onValueChange = { genre = it },
+            label = { Text("Genre") },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        TextField(
+            value = director,
+            onValueChange = { director = it },
+            label = { Text("Director") },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+        TextField(
+            value = mainActors,
+            onValueChange = { mainActors = it },
+            label = { Text("Main Actors") },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        TextField(
+            value = rate,
+            onValueChange = { rate = it },
+            label = { Text("Rate") },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Row(
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Button(onClick = { onBackButtonClick() }) {
+                Text("Back")
+            }
+
+            Button(onClick = {
+                // Validate input fields
+                if (name.isNotBlank() && releaseDate.isNotBlank() && length.isNotBlank() &&
+                    genre.isNotBlank() && director.isNotBlank() && rate.isNotBlank() &&
+                    mainActors.isNotBlank()
+                ) {
+                    // Lähettää tiedot eteenpäin
+                    onAddMovieButtonClick(name, releaseDate, length, genre, director, rate, mainActors)
+                } else {
+                    Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                }
+            }) {
+                Text("Add Movie")
+            }
+        }
+    }
+}
+/*HUOM! TÄSSÄ KAIKKI MENEE STRING MUUTTUJINA EIKÄ INTTINÄ ESIM: JULKAISU VUOSI.*/
