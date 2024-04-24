@@ -47,51 +47,47 @@ fun MovieDBApp(context: Context) {
                         // Handle adding the movie
                         Toast.makeText(context, "Adding Movie: $name", Toast.LENGTH_SHORT).show()
                     },
-                    onBackButtonClick = { Addmovie = false } // Takasin Addmovie ruudusta
+                    onBackButtonClick = { Addmovie = false }
                 )
             } else {
                 // Show MainScreen
                 MainScreen(
                     onAddMovieClick = { Addmovie = true },
                     onViewMoviesClick = {
-                        Toast.makeText(context, "View Movie clicked", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "View Movies clicked", Toast.LENGTH_SHORT).show()
                     }
                 )
             }
         } else {
-            // Näytä joko login screen tai signup
             if (isLoginScreen) {
                 LoginScreen(
-                    onLoginButtonClick = { username, password ->
-                        // Handle login button click
-                        if (username.isNotEmpty() && password.isNotEmpty()) {
-                            // Perform login action (e.g., authenticate user)
-                            Toast.makeText(context, "Performing login for $username", Toast.LENGTH_SHORT).show()
+                    onLoginButtonClick = { user, pass ->
+                        if (user.isNotEmpty() && pass.isNotEmpty()) {
+                            Toast.makeText(context, "Performing login for $user", Toast.LENGTH_SHORT).show()
                             isSignedIn = true
                         } else {
                             Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT).show()
                         }
                     },
-                    onSignUpButtonClick = { isLoginScreen = false } // Switch to SignUpScreen
+                    onSignUpButtonClick = { isLoginScreen = false }
                 )
             } else {
                 SignUpScreen(
-                    onContinueButtonClick = { username, password, email ->
-                        // Handle continue button click on SignUpScreen
-                        if (username.isNotEmpty() && password.isNotEmpty() && email.isNotEmpty()) {
-
-                            Toast.makeText(context, "Performing sign up for $username with $email", Toast.LENGTH_SHORT).show()
+                    context = context,
+                    onContinueButtonClick = { user, pass, mail ->
+                        if (user.isNotEmpty() && pass.isNotEmpty() && mail.isNotEmpty()) {
+                            Toast.makeText(context, "Performing sign up for $user with $mail", Toast.LENGTH_SHORT).show()
                             isSignedIn = true
                         } else {
                             Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT).show()
                         }
                     },
-                    onLoginButtonClick = { isLoginScreen = true })// Switch back to LoginScreen
+                    onLoginButtonClick = { isLoginScreen = true }
+                )
             }
         }
     }
 }
-
 @Composable
 fun MainScreen(
     onAddMovieClick: () -> Unit,
@@ -169,6 +165,7 @@ fun LoginScreen(
 
 @Composable
 fun SignUpScreen(
+    context: Context,
     onContinueButtonClick: (String, String, String) -> Unit,
     onLoginButtonClick: () -> Unit
 ) {
@@ -213,7 +210,17 @@ fun SignUpScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        Button(onClick = { onContinueButtonClick(username, password, email) }) {
+        Button(onClick = {
+            if (username.isNotBlank() && password.isNotBlank() && email.isNotBlank()) {
+                if (isPasswordValid(password)) {
+                    onContinueButtonClick(username, password, email)
+                } else {
+                    Toast.makeText(context, "Password is not strong enough", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            }
+        }) {
             Text("Continue")
         }
 
@@ -336,5 +343,20 @@ fun AddMovieScreen(
             }
         }
     }
+}
+
+//onko password tarpeeksi vahva
+private fun isPasswordValid(password: String): Boolean {
+    if (password.length < 6) {
+        return false
+    }
+
+    val containsUpperCase = password.any { it.isUpperCase() }
+    if (!containsUpperCase) {
+        return false
+    }
+
+    val specialCharacters = setOf('!', '#', '?', '&', '%', '$', '€', '£', '@')
+    return password.any { specialCharacters.contains(it) }
 }
 /*HUOM! TÄSSÄ KAIKKI MENEE STRING MUUTTUJINA EIKÄ INTTINÄ ESIM: JULKAISU VUOSI.*/
