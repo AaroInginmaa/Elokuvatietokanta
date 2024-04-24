@@ -45,18 +45,26 @@ namespace MoviesDB
 
             foreach (DataRow dataRow in dataTable.Rows)
             {
-                Movie movie = new Movie(
-                    Convert.ToString(dataRow["Name"]),
-                    Convert.ToInt32(dataRow["idMovies"]),
-                    Convert.ToString(dataRow["Director"]),
-                    Convert.ToInt32(dataRow["ReleaseYear"]),
-                    Convert.ToInt32(dataRow["Length"]),
-                    Convert.ToDouble(dataRow["Rating"]),
-                    Convert.ToString(dataRow["Genres"]),
-                    Convert.ToString(dataRow["MainActors"])
-                );
+                try
+                {
+                    Movie movie = new Movie(
+                        Convert.ToString(dataRow["Name"]),
+                        Convert.ToInt32(dataRow["idMovies"]),
+                        Convert.ToString(dataRow["Director"]),
+                        Convert.ToInt32(dataRow["ReleaseYear"]),
+                        Convert.ToInt32(dataRow["Length"]),
+                        Convert.ToDouble(dataRow["Rating"]),
+                        Convert.ToString(dataRow["Genres"]),
+                        Convert.ToString(dataRow["MainActors"])
+                    );
 
-                movies.Add(movie);
+                    movies.Add(movie);
+                }
+                catch (FormatException ex)
+                {
+                    // Log or handle the exception appropriately
+                    Console.WriteLine($"Error converting DataRow to Movie: {ex.Message}");
+                }
             }
 
             return movies;
