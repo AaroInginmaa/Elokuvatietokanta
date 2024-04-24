@@ -36,13 +36,8 @@ else
                     <td><strong>@movie.Genre</strong></td>
                     <td><strong>@movie.Päänäyttelijät</strong></td>
                     <td>
-                        <EditForm FormName="Delete" OnSubmit="DeleteMovie(movie)">
-                            <form>
-                                <div>
-                                    <br />
-                                    <button type="submit" class="btn btn-primary">Delete</button>
-                                </div>
-                            </form>
+                        <EditForm Model="new Movie()" OnSubmit="() => DeleteMovie(movie)">
+                            <button type="submit" class="btn btn-primary">Delete</button>
                         </EditForm>
                     </td>
                     
@@ -53,9 +48,13 @@ else
     </table>
 }
 
+
+
 @code
 {
-    Moviess moviess;
+
+    //The POST request does not specify which form is being submitted. To fix this, ensure <form> elements have a @formname attribute with any unique value, or pass a FormName parameter if using <EditForm>.
+    Moviess moviess = new Moviess();
 
     private MovieSummary _movieSummary = new MovieSummary();
 
