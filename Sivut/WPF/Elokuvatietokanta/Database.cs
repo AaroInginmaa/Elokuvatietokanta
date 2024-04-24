@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace FromsElokuvaTK
@@ -48,9 +47,10 @@ namespace FromsElokuvaTK
         public int NonDestructiveQuery(string query)
         {
             MySqlCommand command = new MySqlCommand(query, connection);
-            int count = Convert.ToInt32(command.ExecuteScalar());
+            int firstRow = Convert.ToInt32(command.ExecuteScalar());
 
-            return count;
+            // Käytä queryssä SELECT COUNT(*) FROM... saadaksesi rivien määrän
+            return firstRow;
         }
 
         // Queryt mitkä muuttaa/lisää tietoja kuten INSERT ja DELETE
@@ -67,8 +67,10 @@ namespace FromsElokuvaTK
             string sql = "SELECT idMovies as id, Name, Length, ReleaseYear, Genres, MainActors, Director, Rating FROM movies";
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.ExecuteNonQuery();
+
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
             DataTable dataTable = new DataTable("movies");
+
             dataAdapter.Fill(dataTable);
             dg.ItemsSource = dataTable.DefaultView;
             dataAdapter.Update(dataTable);

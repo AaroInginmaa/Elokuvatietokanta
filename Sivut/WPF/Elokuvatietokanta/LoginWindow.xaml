@@ -5,20 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Elokuvatietokanta"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="600" Width="1000">
-    <Viewbox>
-        <Grid Width="761" Height="370">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="610*"/>
-                <ColumnDefinition Width="151*"/>
-            </Grid.ColumnDefinitions>
-            <TextBox x:Name="UsernameOrEmail" HorizontalAlignment="Left" Height="33" Margin="322,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234"/>
-            <PasswordBox x:Name="passWordBox" HorizontalAlignment="Left" Height="33" Margin="322,0,0,0"  VerticalAlignment="Center" Width="234" />
-            <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Height="79" Margin="333,281,0,0" VerticalAlignment="Top" Width="212" Click="Submit_Click" FontSize="18"/>
-            <Label x:Name="Username_or_email_Label" Content="Username or email" HorizontalAlignment="Left" Height="43" Margin="158,59,0,0" VerticalAlignment="Top" Width="159" FontSize="18"/>
-            <Label x:Name="Password_Label" Content="Password" HorizontalAlignment="Left" Height="34" Margin="232,0,0,0" VerticalAlignment="Center" Width="85" FontSize="18"/>
-            <Button x:Name="Sign_Up" Content="Sign Up" HorizontalAlignment="Left" Margin="32,10,0,0" VerticalAlignment="Top" Height="50" Width="109" Click="Sign_Up_Click" FontSize="18" RenderTransformOrigin="1.374,0.756" Grid.Column="1"/>
+        Title="LoginWindow" Height="300" Width="325">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="UsernameOrEmail" HorizontalAlignment="Left" Height="33" Margin="10,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234"/>
+        <PasswordBox x:Name="passWordBox" HorizontalAlignment="Left" Height="33" Margin="10,112,0,0"  VerticalAlignment="Top" Width="234" />
+        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Height="50" VerticalAlignment="Bottom" Width="100" Click="Submit_Click" FontSize="18" Grid.Row="1" Margin="5,0,0,5"/>
+        <Label x:Name="Username_or_email_Label" Content="Username or email" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" FontSize="18"/>
+        <Label x:Name="Password_Label" Content="Password" HorizontalAlignment="Left" Height="35" Margin="10,78,0,0" VerticalAlignment="Top" Width="85" FontSize="18"/>
+        <Button x:Name="Sign_Up" Content="Sign Up" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="100" Click="Sign_Up_Click" FontSize="18" RenderTransformOrigin="1.374,0.756" Grid.Row="1" Margin="110,0,0,5"/>
 
-        </Grid>
-    </Viewbox>
+    </Grid>
 </Window>

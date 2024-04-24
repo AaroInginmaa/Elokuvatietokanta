@@ -1,20 +1,8 @@
 ﻿using FromsElokuvaTK;
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Elokuvatietokanta
 {
@@ -78,15 +66,13 @@ namespace Elokuvatietokanta
         private void ToLogin(object sender, RoutedEventArgs e)
         {
             database.Close();
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();
+            Windows.LoadLogin();
             Close();
         }
 
         private void ToMain(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            Windows.LoadMain();
         }
 
         private void SQLdataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -103,7 +89,6 @@ namespace Elokuvatietokanta
 
         private void Refresh(object sender, RoutedEventArgs e)
         {
-            //database.Connect();
             database.FillDataGrid(SQLdataGrid);
             return;
         }

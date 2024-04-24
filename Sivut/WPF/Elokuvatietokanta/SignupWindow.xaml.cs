@@ -1,19 +1,7 @@
 ﻿using FromsElokuvaTK;
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Elokuvatietokanta
 {
@@ -36,17 +24,15 @@ namespace Elokuvatietokanta
             string User = Username.Text;
             string email = Email.Text;
             bool ValidPassword = false;
+            
             try
             {
                 database.Connect();
-                //Katsotaan tehtävän annonmukaiseksi salasana
-                if(Pword.Length >= 6 & Pword.Any(char.IsUpper) & Pword.Any(ch => ! char.IsLetterOrDigit(ch)))
-                {
-                    ValidPassword = true;
-                }
+
+                ValidPassword = ValidatePassword(Pword);
 
                 //Suoritetaan, kun salasana on halutunlainen
-                if (ValidPassword == true)
+                if (ValidPassword)
                 {
                     //SQL lauseke, joka vie tiedot tietokantaan oikeista laatikoista
                     int sql = database.DestructiveQuery($"INSERT INTO usertable (username, email, password) VALUES ('{User}' , '{email} ' , '{Pword}')");
@@ -88,11 +74,25 @@ namespace Elokuvatietokanta
             database.Close();
         }
 
-        private void ToLogin(object sender, RoutedEventArgs e)
+        private void ToMovies(object sender, RoutedEventArgs e)
         {
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();
+            Windows.LoadMovies();
             Close();
+        }
+
+        private bool ValidatePassword(string password)
+        {
+            // Regexiä salasanan varmistamiseen
+            var hasNumber = new Regex(@"[0-9]+");
+            var hasUpperChar = new Regex(@"[A-Z]+");
+            var hasMinimum8Chars = new Regex(@".{6,}");
+
+            //Katsotaan tehtävän annonmukaiseksi salasana
+            if (hasNumber.IsMatch(password) && hasUpperChar.IsMatch(password) && hasMinimum8Chars.IsMatch(password))
+            {
+                return true;
+            }
+            else return false;
         }
     }
 }
