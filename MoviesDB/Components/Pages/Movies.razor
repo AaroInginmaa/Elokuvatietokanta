@@ -12,6 +12,7 @@
 }
 else
 {
+    
     <table class="table table-striped table-bordered table-hover mt-5">
         <thead class="table-dark">
             <th>Title</th>
@@ -27,6 +28,7 @@ else
         <tbody>
             @foreach (Movie movie in _movieSummary.GetMovies())
             {
+                var editContext = new EditContext(movie);
                 <tr>
                     <td><h3>@movie.Nimi </h3></td>
                     <td><strong>@movie.Ohjaaja</strong></td>
@@ -36,7 +38,7 @@ else
                     <td><strong>@movie.Genre</strong></td>
                     <td><strong>@movie.Päänäyttelijät</strong></td>
                     <td>
-                        <EditForm Model="new Movie()" OnSubmit="() => DeleteMovie(movie)">
+                        <EditForm EditContext="editContext" FormName="@($"DeleteForm_{@movie.IdElokuvat}")" OnSubmit="() => DeleteMovie(movie)">
                             <button type="submit" class="btn btn-primary">Delete</button>
                         </EditForm>
                     </td>
@@ -71,8 +73,8 @@ else
         {
             _host = "10.146.4.49";
             _database = "moviedb";
-            _user = "app";
-            _password = "databaseApp!";
+            _user = "dbuser";
+            _password = "Nakkikastike123!";
             _port = 3306;
 
             string connectionQuery = $"Server={_host};Port={_port};Database={_database};Uid={_user};Pwd={_password};";
