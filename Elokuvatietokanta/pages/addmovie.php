@@ -20,7 +20,7 @@
             <br>
             <label for="year">Elokuvan Julkaisuvuosi</label>
             <br>
-            <input type="text" id="year" name="year" autocomplete="off">
+            <input type="text" id="year" name="year" autocomplete="off" min="1800" max="2024">
             <br>
             <label for="length">Elokuvan kesto</label>
             <br>
@@ -30,7 +30,7 @@
             <br>
             <input type="text" id="genre" name="genre" autocomplete="off">
             <br>
-            <label for="main_actor">Elokuvan paanayttelija</label>
+            <label for="main_actor">Elokuvan päänäyttelijä</label>
             <br>
             <input type="text" id="main_actor" name="main_actor" autocomplete="off">
             <br>
