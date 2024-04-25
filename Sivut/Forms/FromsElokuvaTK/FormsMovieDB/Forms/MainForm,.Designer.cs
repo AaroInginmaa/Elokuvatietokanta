@@ -48,7 +48,7 @@
             this._sideNavigationPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this._sideNavigationPanel.Location = new System.Drawing.Point(0, 0);
             this._sideNavigationPanel.Name = "_sideNavigationPanel";
-            this._sideNavigationPanel.Size = new System.Drawing.Size(267, 1041);
+            this._sideNavigationPanel.Size = new System.Drawing.Size(267, 1024);
             this._sideNavigationPanel.TabIndex = 0;
             // 
             // _panel1
@@ -58,7 +58,7 @@
             this._panel1.Location = new System.Drawing.Point(0, 168);
             this._panel1.Name = "_panel1";
             this._panel1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this._panel1.Size = new System.Drawing.Size(267, 873);
+            this._panel1.Size = new System.Drawing.Size(267, 856);
             this._panel1.TabIndex = 2;
             // 
             // _menuButton
@@ -112,22 +112,21 @@
             this._parentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this._parentPanel.Location = new System.Drawing.Point(267, 0);
             this._parentPanel.Name = "_parentPanel";
-            this._parentPanel.Size = new System.Drawing.Size(1637, 1041);
+            this._parentPanel.Size = new System.Drawing.Size(1631, 1024);
             this._parentPanel.TabIndex = 2;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(252)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.ClientSize = new System.Drawing.Size(1898, 1024);
             this.Controls.Add(this._parentPanel);
             this.Controls.Add(this._sideNavigationPanel);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "MainForm";
             this.Text = "MoviesDB";
