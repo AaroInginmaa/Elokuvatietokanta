@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f54662a-c337-4663-8410-1a0386f5614d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/AndroidV2/.gradle/8.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Sivut/AndroidV2/.gradle/8.4/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/AndroidV2/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Sivut/AndroidV2/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/AndroidV2/.gradle/8.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Sivut/AndroidV2/.gradle/8.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/AndroidV2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Sivut/AndroidV2/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/AndroidV2/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/Sivut/AndroidV2/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/AndroidV2/app/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Sivut/AndroidV2/app/.idea/gradle.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +60,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "AndroidV2",
-    "last_opened_file_path": "C:/Users/Eino.Taimisto/Elokuvatietokanta/Sivut/AndroidV2",
+    "last_opened_file_path": "C:/Users/aaro.inginmaa/Documents/GitHub/Elokuvatietokanta/Sivut/AndroidV2",
     "project.structure.last.edited": "Variables",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.0",
