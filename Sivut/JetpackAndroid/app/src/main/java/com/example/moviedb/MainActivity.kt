@@ -40,17 +40,15 @@ fun MovieDBApp(context: Context) {
     Surface {
         if (isSignedIn) {
             if (Addmovie) {
-                // Show AddMovieScreen
+
                 AddMovieScreen(
                     context = context,
                     onAddMovieButtonClick = { name, releaseDate, length, genre, director, rate, mainActors ->
-                        // Handle adding the movie
                         Toast.makeText(context, "Adding Movie: $name", Toast.LENGTH_SHORT).show()
                     },
                     onBackButtonClick = { Addmovie = false }
                 )
             } else {
-                // Show MainScreen
                 MainScreen(
                     onAddMovieClick = { Addmovie = true },
                     onViewMoviesClick = {
@@ -63,7 +61,7 @@ fun MovieDBApp(context: Context) {
                 LoginScreen(
                     onLoginButtonClick = { user, pass ->
                         if (user.isNotEmpty() && pass.isNotEmpty()) {
-                            Toast.makeText(context, "Performing login for $user", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Welcome back $user", Toast.LENGTH_SHORT).show()
                             isSignedIn = true
                         } else {
                             Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT).show()
@@ -76,7 +74,7 @@ fun MovieDBApp(context: Context) {
                     context = context,
                     onContinueButtonClick = { user, pass, mail ->
                         if (user.isNotEmpty() && pass.isNotEmpty() && mail.isNotEmpty()) {
-                            Toast.makeText(context, "Performing sign up for $user with $mail", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Nice to meet you $user", Toast.LENGTH_SHORT).show()
                             isSignedIn = true
                         } else {
                             Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT).show()
@@ -328,7 +326,7 @@ fun AddMovieScreen(
             }
 
             Button(onClick = {
-                // Validate input fields
+                //Tarkistaa, että kaikki on täytetty
                 if (name.isNotBlank() && releaseDate.isNotBlank() && length.isNotBlank() &&
                     genre.isNotBlank() && director.isNotBlank() && rate.isNotBlank() &&
                     mainActors.isNotBlank()
@@ -344,6 +342,7 @@ fun AddMovieScreen(
         }
     }
 }
+//HUOM! TÄSSÄ KAIKKI MENEE STRING MUUTTUJINA EIKÄ INTTINÄ ESIM: JULKAISU VUOSI.
 
 //onko password tarpeeksi vahva
 private fun isPasswordValid(password: String): Boolean {
@@ -359,4 +358,3 @@ private fun isPasswordValid(password: String): Boolean {
     val specialCharacters = setOf('!', '#', '?', '&', '%', '$', '€', '£', '@')
     return password.any { specialCharacters.contains(it) }
 }
-/*HUOM! TÄSSÄ KAIKKI MENEE STRING MUUTTUJINA EIKÄ INTTINÄ ESIM: JULKAISU VUOSI.*/
