@@ -3,32 +3,33 @@ using System;
 using System.Data;
 using System.Windows.Controls;
 
-namespace FromsElokuvaTK
+namespace Elokuvatietokanta.Classes
 {
     internal class Database
     {
-        private string _Hostname;
-        private string _Username;
-        private string _Password;
-        private string _Database;
+        private readonly string Host;
+        private readonly string Username;
+        private readonly string Password;
+        private readonly string DatabaseName;
 
-        public MySqlConnection connection;
+        private readonly MySqlConnection _connection;
 
-        public Database(string hostname, string username, string password, string database)
+        public Database()
         {
-            _Hostname = hostname;
-            _Username = username;
-            _Password = password;
-            _Database = database;
+            Host = "10.146.4.49";
+            Username = "dbuser";
+            Password = "Nakkikastike123!";
+            DatabaseName = "moviedb";
+
+            string connectionString = $"server={Host};uid={Username};pwd={Password};database={DatabaseName}";
+            _connection = new MySqlConnection(connectionString);
         }
 
         public bool Connect()
         {
             try
             {
-                string connectionString = $"server={_Hostname};uid={_Username};pwd={_Password};database={_Database}";
-                connection = new MySqlConnection(connectionString);
-                connection.Open();
+                _connection.Open();
 
                 return true;
             }
@@ -40,13 +41,13 @@ namespace FromsElokuvaTK
 
         public void Close()
         {
-            connection.Close();
+            _connection.Close();
         }
 
         // Queryt mitkä ei muuttaa/lisää tietoja kuten SELECT
         public int NonDestructiveQuery(string query)
         {
-            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlCommand command = new MySqlCommand(query, _connection);
             int firstRow = Convert.ToInt32(command.ExecuteScalar());
 
             // Käytä queryssä SELECT COUNT(*) FROM... saadaksesi rivien määrän
@@ -56,7 +57,7 @@ namespace FromsElokuvaTK
         // Queryt mitkä muuttaa/lisää tietoja kuten INSERT ja DELETE
         public int DestructiveQuery(string query)
         {
-            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlCommand command = new MySqlCommand(query, _connection);
             int rowsAffected = command.ExecuteNonQuery();
 
             return rowsAffected;
@@ -65,7 +66,7 @@ namespace FromsElokuvaTK
         public void FillDataGrid(DataGrid dg)
         {
             string sql = "SELECT idMovies as id, Name, Length, ReleaseYear, Genres, MainActors, Director, Rating FROM movies";
-            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            MySqlCommand cmd = new MySqlCommand(sql, _connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);

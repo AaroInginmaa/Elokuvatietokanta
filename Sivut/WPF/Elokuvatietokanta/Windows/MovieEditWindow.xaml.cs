@@ -1,21 +1,21 @@
-﻿using FromsElokuvaTK;
+﻿using Elokuvatietokanta.Classes;
 using System;
 using System.Windows;
 
 namespace Elokuvatietokanta
 {
-    public partial class MainWindow : Window
+    public partial class MovieEditWindow : Window
     {
-        Database database = new Database("10.146.4.49", "app", "databaseApp!", "moviedb");
+        private readonly Database _database = new Database();
 
-        public MainWindow()
+        public MovieEditWindow()
         {
             InitializeComponent();
         }
 
         private void OnSubmit(object sender, RoutedEventArgs e)
         {
-            if (!database.Connect())
+            if (!_database.Connect())
             {
                 MessageBox.Show("Tietokantaan yhdistäminen epäonnistui.", "Virhe!");
                 return;
@@ -23,7 +23,7 @@ namespace Elokuvatietokanta
 
             string movieName = EloNimi.Text;
 
-            int resultCount = database.NonDestructiveQuery($"SELECT COUNT(*) FROM movies WHERE Name = '{movieName}'");
+            int resultCount = _database.NonDestructiveQuery($"SELECT COUNT(*) FROM movies WHERE Name = '{movieName}'");
 
             if (resultCount != 0)
             {
@@ -37,7 +37,7 @@ namespace Elokuvatietokanta
                     $"VALUES ('{EloNimi.Text}', '{EloPituus.Text}', '{EloJulkaistu.Text}', '{EloGenre.Text}', " +
                     $"'{EloPäänäyttelijät.Text}', '{EloOhjaaja.Text}', '{EloArvio.Text}')";
 
-                int rowsAffected = database.DestructiveQuery(sql);
+                int rowsAffected = _database.DestructiveQuery(sql);
 
                 if (rowsAffected > 0)
                 {
@@ -50,7 +50,7 @@ namespace Elokuvatietokanta
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            database.Close();
+            _database.Close();
         }
 
 

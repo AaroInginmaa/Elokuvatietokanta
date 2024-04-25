@@ -1,4 +1,4 @@
-﻿using FromsElokuvaTK;
+﻿using Elokuvatietokanta.Classes;
 using System;
 using System.Windows;
 
@@ -10,7 +10,8 @@ namespace Elokuvatietokanta
     /// </summary>
     public partial class LoginWindow : Window
     {
-        Database database = new Database("10.146.4.49", "app", "databaseApp!", "moviedb");
+        Database database = new Database();
+
         public LoginWindow()
         {
             InitializeComponent();
@@ -28,14 +29,13 @@ namespace Elokuvatietokanta
 
                 //SQL lauseke, joka vie tiedot tietokantaan oikeista laatikoista
                 //Tällä katsotaan onko login tiedot oikein, ei pitäisi päästää ketään tunnuksetonta tai väärillä tunnuksilla sisään 
-                int sql = database.NonDestructiveQuery($"SELECT COUNT(*) FROM usertable WHERE username = '{UserOrEmail}' AND password = '{Pword}' OR email = '{ UserOrEmail}' AND password = '{Pword}';");
-         
+                int sql = database.NonDestructiveQuery($"SELECT COUNT(*) FROM usertable WHERE username = '{UserOrEmail}' AND password = '{Pword}' OR email = '{UserOrEmail}' AND password = '{Pword}';");
+
                 //Varmistetaan, että SQL lauseke teki jotain
                 if (sql == 1)
                 {
                     //Jos kirjautuminen onnistuu, viedään käyttäjä elokuvan lisäys näkymään (MainWindow)
-                    Windows.LoadMovies();
-                    Close();
+                    WindowLoader.LoadWindow(new MoviesView());
                 }
                 else
                 {
@@ -52,11 +52,9 @@ namespace Elokuvatietokanta
             database.Close();
         }
 
-        //Vie SignUpWindow näkymään
         private void Sign_Up_Click(object sender, RoutedEventArgs e)
         {
-            Windows.LoadSignUp();
-            Close();
+            WindowLoader.LoadWindow(new SignupWindow());
         }
     }
 }
