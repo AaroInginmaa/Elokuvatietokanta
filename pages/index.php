@@ -48,7 +48,7 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">Id</th>
+            <th scope="col"></th>
             <th scope="col">Nimi</th>
             <th scope="col">Ohjaaja</th>
             <th scope="col">Vuosi</th>
