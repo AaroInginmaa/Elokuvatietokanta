@@ -8,22 +8,22 @@
         Title="MovieEditWindow" Height="500" Width="400">
     <Viewbox Margin="10,0,10,10">
         <Grid RenderTransformOrigin="-5,0" Height="476" Width="382">
-            <Button Content="Submit" Margin="10,416,272,10" Height="50" Width="100" Click="OnSubmit"/>
-            <Button Content="Go back" Margin="272,416,10,10" Height="50" Width="100" Click="Close"/>
-            <TextBox x:Name="EloNimi" HorizontalAlignment="Left" Height="16" Margin="8,36,0,0" Text="" Width="176" VerticalAlignment="Top"/>
-            <TextBox x:Name="EloPituus" HorizontalAlignment="Left" Height="16" Margin="8,83,0,0" Text="" Width="176" VerticalAlignment="Top"/>
-            <TextBox x:Name="EloGenre" HorizontalAlignment="Left" Height="16" Margin="10,142,0,0" TextWrapping="Wrap" Text="" Width="176" VerticalAlignment="Top"/>
-            <TextBox x:Name="EloJulkaistu" HorizontalAlignment="Left" Height="16" Margin="200,36,0,0" Text="" Width="176" VerticalAlignment="Top"/>
-            <TextBox x:Name="EloPäänäyttelijät" HorizontalAlignment="Left" Height="16" Margin="200,83,0,0" Text="" Width="176" VerticalAlignment="Top"/>
-            <TextBox x:Name="EloOhjaaja" HorizontalAlignment="Left" Height="16" Margin="200,142,0,0" Text="" Width="176" VerticalAlignment="Top"/>
-            <TextBox x:Name="EloArvio" HorizontalAlignment="Left" Height="16" Margin="8,185,0,0" Text="" Width="109" VerticalAlignment="Top"/>
-            <Label x:Name="Nimi_Label" Content="Elokuvan nimi" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" Width="96" VerticalAlignment="Top"/>
-            <Label x:Name="Pituus_Label" Content="Elokuvan pituus (min)" HorizontalAlignment="Left" Height="26" Margin="8,57,0,0" Width="135" VerticalAlignment="Top"/>
-            <Label x:Name="Genre_Label" Content="Elokuvan genre" HorizontalAlignment="Left" Height="26" Margin="8,109,0,0" Width="100" RenderTransformOrigin="0.23,0.295" VerticalAlignment="Top"/>
-            <Label x:Name="Julkaistu_Label" Content="Elokuvan julkaisuvuosi" HorizontalAlignment="Left" Height="26" Margin="200,10,0,0" Width="148" RenderTransformOrigin="0.23,0.295" VerticalAlignment="Top"/>
-            <Label x:Name="Päänäyttelijät_Label" Content="Päänäyttelijät" HorizontalAlignment="Left" Height="26" Margin="200,57,0,0" Width="89" RenderTransformOrigin="0.435,1.089" VerticalAlignment="Top"/>
-            <Label x:Name="Ohjaaja_Label" Content="Ohjaaja" HorizontalAlignment="Left" Height="26" Margin="200,116,0,0" Width="61" RenderTransformOrigin="0.838,0.542" VerticalAlignment="Top"/>
-            <Label x:Name="Arvio_Label" Content="Arvio elokuvasta" HorizontalAlignment="Left" Height="26" Margin="8,159,0,0" Width="106" RenderTransformOrigin="0.23,0.295" VerticalAlignment="Top"/>
+            <Button x:Name="_submitButton" Content="Submit" Margin="10,416,272,10" Height="50" Width="100" Click="OnSubmit"/>
+            <Button x:Name="_returnButton" Content="Return" Margin="272,416,10,10" Height="50" Width="100" Click="OnReturn"/>
+            <TextBox x:Name="_movieNameInputField" HorizontalAlignment="Left" Height="16" Margin="8,36,0,0" Text="" Width="176" VerticalAlignment="Top"/>
+            <TextBox x:Name="_movieLengthInputField" HorizontalAlignment="Left" Height="16" Margin="8,83,0,0" Text="" Width="176" VerticalAlignment="Top"/>
+            <TextBox x:Name="_movieGenreInputField" HorizontalAlignment="Left" Height="16" Margin="10,142,0,0" TextWrapping="Wrap" Text="" Width="176" VerticalAlignment="Top"/>
+            <TextBox x:Name="_movieReleaseYearInputField" HorizontalAlignment="Left" Height="16" Margin="200,36,0,0" Text="" Width="176" VerticalAlignment="Top"/>
+            <TextBox x:Name="_movieStartInputField" HorizontalAlignment="Left" Height="16" Margin="200,83,0,0" Text="" Width="176" VerticalAlignment="Top"/>
+            <TextBox x:Name="_movieDirectorInputField" HorizontalAlignment="Left" Height="16" Margin="200,142,0,0" Text="" Width="176" VerticalAlignment="Top"/>
+            <TextBox x:Name="_movieRatingInputField" HorizontalAlignment="Left" Height="16" Margin="8,185,0,0" Text="" Width="109" VerticalAlignment="Top"/>
+            <Label x:Name="_movieNameLabel" Content="Elokuvan nimi" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" Width="96" VerticalAlignment="Top"/>
+            <Label x:Name="_movieLengthLabel" Content="Elokuvan pituus (min)" HorizontalAlignment="Left" Height="26" Margin="8,57,0,0" Width="135" VerticalAlignment="Top"/>
+            <Label x:Name="_movieGenreLabel" Content="Elokuvan genre" HorizontalAlignment="Left" Height="26" Margin="8,109,0,0" Width="100" RenderTransformOrigin="0.23,0.295" VerticalAlignment="Top"/>
+            <Label x:Name="_movieReleaseYearLabel" Content="Elokuvan julkaisuvuosi" HorizontalAlignment="Left" Height="26" Margin="200,10,0,0" Width="148" RenderTransformOrigin="0.23,0.295" VerticalAlignment="Top"/>
+            <Label x:Name="_movieStarsLabel" Content="Päänäyttelijät" HorizontalAlignment="Left" Height="26" Margin="200,57,0,0" Width="89" RenderTransformOrigin="0.435,1.089" VerticalAlignment="Top"/>
+            <Label x:Name="_movieDirectorLabel" Content="Ohjaaja" HorizontalAlignment="Left" Height="26" Margin="200,116,0,0" Width="61" RenderTransformOrigin="0.838,0.542" VerticalAlignment="Top"/>
+            <Label x:Name="_movieRatingLabel" Content="Arvio elokuvasta" HorizontalAlignment="Left" Height="26" Margin="8,159,0,0" Width="106" RenderTransformOrigin="0.23,0.295" VerticalAlignment="Top"/>
         </Grid>
     </Viewbox>
 </Window>

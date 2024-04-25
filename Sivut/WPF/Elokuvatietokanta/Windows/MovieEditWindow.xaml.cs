@@ -7,6 +7,7 @@ namespace Elokuvatietokanta
     public partial class MovieEditWindow : Window
     {
         private readonly Database _database = new Database();
+        private readonly WindowLoader _windowLoader = WindowLoader.GetInstance();
 
         public MovieEditWindow()
         {
@@ -21,7 +22,7 @@ namespace Elokuvatietokanta
                 return;
             }
 
-            string movieName = EloNimi.Text;
+            string movieName = _movieNameInputField.Text;
 
             int resultCount = _database.NonDestructiveQuery($"SELECT COUNT(*) FROM movies WHERE Name = '{movieName}'");
 
@@ -33,30 +34,38 @@ namespace Elokuvatietokanta
 
             try
             {
-                string sql = $"INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating) " +
-                    $"VALUES ('{EloNimi.Text}', '{EloPituus.Text}', '{EloJulkaistu.Text}', '{EloGenre.Text}', " +
-                    $"'{EloPäänäyttelijät.Text}', '{EloOhjaaja.Text}', '{EloArvio.Text}')";
+                string sqlQuery = $"INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating)" +
+                    $"VALUES ('{_movieNameInputField.Text}'," +
+                    $"'{_movieLengthInputField.Text}'," +
+                    $"'{_movieReleaseYearInputField.Text}'," +
+                    $"'{_movieGenreInputField.Text}'," +
+                    $"'{_movieStartInputField.Text}'," +
+                    $"'{_movieDirectorInputField.Text}'," +
+                    $"'{_movieRatingInputField.Text}')";
 
-                int rowsAffected = _database.DestructiveQuery(sql);
+                int rowsAffected = _database.DestructiveQuery(sqlQuery);
 
                 if (rowsAffected > 0)
                 {
                     MessageBox.Show("Movie inserted successfully!");
                     Close();
                 }
-                else MessageBox.Show("Failed to insert movie.");
+                else
+                {
+                    MessageBox.Show("Failed to insert movie.");
+                }
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: " + exception.Message);
             }
+
             _database.Close();
         }
 
-
-        private void Close(object sender, RoutedEventArgs e)
+        private void OnReturn(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            _windowLoader.LoadWindow(new MoviesView());
         }
     }
 }

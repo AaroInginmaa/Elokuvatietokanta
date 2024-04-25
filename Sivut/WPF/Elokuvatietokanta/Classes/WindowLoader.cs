@@ -2,13 +2,31 @@
 
 namespace Elokuvatietokanta.Classes
 {
-    internal static class WindowLoader
+    sealed class WindowLoader
     {
-        private static Window? _currentActiveWindow;
+        private static WindowLoader? _instance;
+        private static readonly object _lock = new object();
+        private Window? _currentActiveWindow;
 
-        public static void LoadWindow(Window window)
+        private WindowLoader() { }
+
+        public static WindowLoader GetInstance()
+        {
+            if (_instance == null)
+            {
+                lock (_lock)
+                {
+                    _instance = new WindowLoader();
+                }
+            }
+
+            return _instance;
+        }
+
+        public void LoadWindow(Window window)
         {
             _currentActiveWindow?.Close();
+
             _currentActiveWindow = window;
             window.Show();
         }

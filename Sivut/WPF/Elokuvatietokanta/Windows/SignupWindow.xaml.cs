@@ -8,6 +8,7 @@ namespace Elokuvatietokanta
     public partial class SignupWindow : Window
     {
         private readonly Database Database = new Database();
+        private readonly WindowLoader _windowLoader = WindowLoader.GetInstance();
 
         public SignupWindow()
         {
@@ -60,7 +61,7 @@ namespace Elokuvatietokanta
 
         public void RedirectToMoviesWindow(object sender, RoutedEventArgs e)
         {
-            WindowLoader.LoadWindow(new MovieEditWindow());
+            _windowLoader.LoadWindow(new MovieEditWindow());
         }
 
         private bool ValidPassword(string password)

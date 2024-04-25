@@ -9,6 +9,7 @@ namespace Elokuvatietokanta
     public partial class MoviesView : Window
     {
         private readonly Database _database = new Database();
+        private readonly WindowLoader _windowLoader = WindowLoader.GetInstance();
 
         public MoviesView()
         {
@@ -62,13 +63,12 @@ namespace Elokuvatietokanta
         private void OpenLoadWindow(object sender, RoutedEventArgs e)
         {
             _database.Close();
-            WindowLoader.LoadWindow(new LoginWindow());
-            Close();
+            _windowLoader.LoadWindow(new LoginWindow());
         }
 
         private void OpenMainWindow(object sender, RoutedEventArgs e)
         {
-            WindowLoader.LoadWindow(new MovieEditWindow());
+            _windowLoader.LoadWindow(new MovieEditWindow());
         }
 
         private void OnSQLDataGridSelectionChanged(object sender, SelectionChangedEventArgs e)
