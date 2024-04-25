@@ -36,7 +36,11 @@
     public bool UserAlreadyExists { get; set; }
     public bool FillAllAlert { get; set; }
     public bool PasswordMatchNot { get; set; }
+    public bool IncorrectName { get; set; }
+    public bool IncorrectEmail { get; set; }
+    public bool IncorrectPassword { get; set; }
     private Database _database = new Database();
+    private Check _Check = new Check();
 
     private void HandleSubmit()
     {
@@ -47,7 +51,7 @@
         {
             bool userExists = _database.CheckUserExistence(_user);
 
-            if (_user.Password == _user.ConfirmPassword)
+            if (_Check.CheckPassword(_user) == true && _user.Password == _user.ConfirmPassword)
             {
                 if (!userExists)
                 {
@@ -62,7 +66,7 @@
             else
             {
                 PasswordMatchNot = true;
-            } 
+            }
         }
         else
         {
@@ -92,5 +96,29 @@
     <br />
     <div class="alert alert-danger fade-in" role="alert">
         Please fill in all the fields.
+    </div>
+}
+
+@if (IncorrectPassword)
+{
+    <br />
+    <div class="alert alert-danger fade-in" role="alert">
+        The password must have atleast 6 characters, 1 uppercase letter and 1 special character.
+    </div>
+}
+
+@if (IncorrectEmail)
+{
+    <br />
+    <div class="alert alert-danger fade-in" role="alert">
+        The email is incorrect.
+    </div>
+}
+
+@if (IncorrectName)
+{
+    <br />
+    <div class="alert alert-danger fade-in" role="alert">
+        The username.
     </div>
 }

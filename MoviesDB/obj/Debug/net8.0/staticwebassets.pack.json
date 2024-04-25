@@ -1,23 +1,23 @@
 {
   "Files": [
     {
-      "Id": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MoviesDB.bundle.scp.css",
+      "Id": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MoviesDB.bundle.scp.css",
       "PackagePath": "staticwebassets\\MoviesDB.bundle.scp.css"
     },
     {
-      "Id": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\wwwroot\\app.css",
+      "Id": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\xampp\\htdocs\\elokuva\\Elokuvatietokanta\\MoviesDB\\wwwroot\\favicon.png",
+      "Id": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
