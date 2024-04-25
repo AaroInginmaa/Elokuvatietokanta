@@ -14,12 +14,12 @@
             <RowDefinition Height="56*"/>
             <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="UsernameOrEmail" HorizontalAlignment="Left" Height="33" Margin="10,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234"/>
-        <PasswordBox x:Name="passWordBox" HorizontalAlignment="Left" Height="33" Margin="10,112,0,0"  VerticalAlignment="Top" Width="234" />
-        <Button x:Name="LoginButton" Content="Login" HorizontalAlignment="Left" Height="50" VerticalAlignment="Bottom" Width="100" Click="Submit_Click" FontSize="18" Grid.Row="1" Margin="5,0,0,5"/>
-        <Label x:Name="Username_or_email_Label" Content="Username or email" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" FontSize="18"/>
-        <Label x:Name="Password_Label" Content="Password" HorizontalAlignment="Left" Height="35" Margin="10,78,0,0" VerticalAlignment="Top" Width="85" FontSize="18"/>
-        <Button x:Name="Sign_Up" Content="Sign Up" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="100" Click="Sign_Up_Click" FontSize="18" RenderTransformOrigin="1.374,0.756" Grid.Row="1" Margin="110,0,0,5"/>
+        <TextBox x:Name="_loginInputField" HorizontalAlignment="Left" Height="33" Margin="10,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234"/>
+        <PasswordBox x:Name="_passwordInputField" HorizontalAlignment="Left" Height="33" Margin="10,112,0,0"  VerticalAlignment="Top" Width="234" />
+        <Button x:Name="_loginButton" Content="Login" HorizontalAlignment="Left" Height="50" VerticalAlignment="Bottom" Width="100" Click="OnSubmitClick" FontSize="18" Grid.Row="1" Margin="5,0,0,5"/>
+        <Label x:Name="_loginLabel" Content="Username or email" HorizontalAlignment="Left" Height="35" Margin="10,10,0,0" VerticalAlignment="Top" Width="160" FontSize="18"/>
+        <Label x:Name="_passwordLabel" Content="Password" HorizontalAlignment="Left" Height="35" Margin="10,78,0,0" VerticalAlignment="Top" Width="85" FontSize="18"/>
+        <Button x:Name="_signUpButton" Content="Sign Up" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="50" Width="100" Click="OnSignUpClick" FontSize="18" RenderTransformOrigin="1.374,0.756" Grid.Row="1" Margin="110,0,0,5"/>
 
     </Grid>
 </Window>

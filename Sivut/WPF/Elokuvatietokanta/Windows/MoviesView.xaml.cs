@@ -19,9 +19,7 @@ namespace Elokuvatietokanta
             {
                 _database.Connect();
 
-                _database.FillDataGrid(SQLdataGrid);
-
-                //database.Close();
+                _database.FillDataGrid(_sqlDataGrid);
             }
             catch (Exception ex)
             {
@@ -33,10 +31,10 @@ namespace Elokuvatietokanta
         {
             try
             {
-                DataRowView dataRow = (DataRowView)SQLdataGrid.SelectedItem;
+                DataRowView dataRow = (DataRowView)_sqlDataGrid.SelectedItem;
 
                 int movieId = Convert.ToInt32(dataRow.Row.ItemArray[0]);
-                string movieName = Convert.ToString(dataRow.Row.ItemArray[1]);
+                string movieName = dataRow.Row.ItemArray.ToString();
 
                 MessageBoxResult messageBoxResult = MessageBox.Show($"Are you sure you want to delete {movieName}", "Deletion", MessageBoxButton.YesNo, MessageBoxImage.Information);
 
@@ -56,8 +54,8 @@ namespace Elokuvatietokanta
                 return;
             }
 
-            _database.FillDataGrid(SQLdataGrid);
-            BtnDelete.IsEnabled = false;
+            _database.FillDataGrid(_sqlDataGrid);
+            _deleteMovieButton.IsEnabled = false;
         }
 
         private void OpenLoadWindow(object sender, RoutedEventArgs e)
@@ -73,19 +71,19 @@ namespace Elokuvatietokanta
 
         private void OnSQLDataGridSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (SQLdataGrid.SelectedIndex != -1)
+            if (_sqlDataGrid.SelectedIndex != -1)
             {
-                BtnDelete.IsEnabled = true;
+                _deleteMovieButton.IsEnabled = true;
             }
             else
             {
-                BtnDelete.IsEnabled = false;
+                _deleteMovieButton.IsEnabled = false;
             }
         }
 
         private void Refresh(object sender, RoutedEventArgs e)
         {
-            _database.FillDataGrid(SQLdataGrid);
+            _database.FillDataGrid(_sqlDataGrid);
             return;
         }
     }

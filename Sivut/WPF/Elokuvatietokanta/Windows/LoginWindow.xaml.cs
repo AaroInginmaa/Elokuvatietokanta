@@ -15,42 +15,35 @@ namespace Elokuvatietokanta
             InitializeComponent();
         }
 
-        private void Submit_Click(object sender, RoutedEventArgs e)
+        private void OnSubmitClick(object sender, RoutedEventArgs e)
         {
-            string UserOrEmail = UsernameOrEmail.Text;
-            string Pword = passWordBox.Password.ToString();
+            string login = _loginInputField.Text;
+            string password = _passwordInputField.Password.ToString();
 
-            //Yrittää avata yhteyden tietokantaan
             try
             {
                 _database.Connect();
 
-                //SQL lauseke, joka vie tiedot tietokantaan oikeista laatikoista
-                //Tällä katsotaan onko login tiedot oikein, ei pitäisi päästää ketään tunnuksetonta tai väärillä tunnuksilla sisään 
-                int sql = _database.NonDestructiveQuery($"SELECT COUNT(*) FROM usertable WHERE username = '{UserOrEmail}' AND password = '{Pword}' OR email = '{UserOrEmail}' AND password = '{Pword}';");
+                int sqlQueryResult = _database.NonDestructiveQuery($"SELECT COUNT(*) FROM usertable WHERE username = '{login}' AND password = '{password}' OR email = '{login}' AND password = '{password}';");
 
-                //Varmistetaan, että SQL lauseke teki jotain
-                if (sql == 1)
+                if (sqlQueryResult == 1)
                 {
-                    //Jos kirjautuminen onnistuu, viedään käyttäjä elokuvan lisäys näkymään (MainWindow)
                     _windowLoader.LoadWindow(new MoviesView());
                 }
                 else
                 {
-                    //Jos login on väärin
                     MessageBox.Show("Login is incorrect or user doesn't exist");
                 }
             }
-            //Jos yhteys tai SQL lauseke epäonnistuu
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                //Error viesti käyttäjälle
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(exception.ToString());
             }
+
             _database.Close();
         }
 
-        private void Sign_Up_Click(object sender, RoutedEventArgs e)
+        private void OnSignUpClick(object sender, RoutedEventArgs e)
         {
             _windowLoader.LoadWindow(new SignupWindow());
         }
