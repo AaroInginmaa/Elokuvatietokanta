@@ -401,17 +401,23 @@ def mainWindow():
         except ValueError:
             return False
     
-    def movieListWindow(movie_data):
-        movie_list_window = tk.Toplevel()
+    def showMovieList():
+        movie_list_window = tk.Toplevel(root)
         movie_list_window.title("Elokuvalista")
         
-        listbox = Listbox(movie_list_window, width=150, height=50)
-        scrollbar = Scrollbar(movie_list_window, orient=VERTICAL, command=listbox.yview)
+        my_canvas = Canvas(movie_list_window)
+        my_canvas.pack(side=LEFT, fill=BOTH, expand=1)
+        
+        scrollbar = Scrollbar(movie_list_window, orient=VERTICAL, command=my_canvas.yview)
         scrollbar.pack(side=RIGHT, fill=Y)
-        listbox.pack(side=LEFT, fill=BOTH, expand=True)
-        listbox.config(yscrollcommand=scrollbar.set)
-    
-    def showMovieList():
+
+        
+        my_canvas.configure(yscrollcommand=scrollbar.set)
+        my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion=my_canvas.bbox("all")))
+
+        second_frame = Frame(my_canvas)
+        my_canvas.create_window((0, 0), window=second_frame, anchor="nw")
+
         order = ""
         if combo.get().endswith("V"):
             order = f" ORDER BY {combo.get()[:-2]} DESC"
@@ -421,21 +427,20 @@ def mainWindow():
         mycursor.execute(f"SELECT * FROM movies{order}")
         myresult = mycursor.fetchall()
 
-        movie_list_window = tk.Toplevel(root)
-        movie_list_window.title("Elokuvalista")
-
         for idx, movie in enumerate(myresult, start=1):
-            movie_frame = ttk.LabelFrame(movie_list_window, text=f"Elokuva {idx}", width=500)
+            movie_frame = ttk.LabelFrame(second_frame, text=f"Elokuva {idx}", width=500)
             movie_frame.pack(fill="x", padx=10, pady=5, anchor="w")
 
             movie_info = f"Nimi: {movie[1]}\nPituus: {movie[2]}\nJulkaistu: {movie[3]}\nGenre: {movie[4]}\nPäänäyttelijät: {movie[5]}\nOhjaaja: {movie[6]}\nArvio: {movie[7]}"
             movie_label = ttk.Label(movie_frame, text=movie_info, wraplength=400, justify="left")
             movie_label.pack(padx=10, pady=5, anchor="w")
+
         
     def searchMovieList(val):
         search = val
         mycursor.execute(f"SELECT * FROM movies WHERE Name LIKE '%{search}%'")
         searchResult = mycursor.fetchall()
+        
         
         movie_list_window = tk.Toplevel(root)
         movie_list_window.title("Elokuvalista")
