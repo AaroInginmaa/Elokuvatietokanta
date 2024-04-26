@@ -5,17 +5,33 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
+
 
 class MainActivity : ComponentActivity() {
 
@@ -33,6 +49,7 @@ fun MovieDBApp(context: Context) {
     var isLoginScreen by remember { mutableStateOf(true) }
     var isSignedIn by remember { mutableStateOf(false) }
     var Addmovie by remember { mutableStateOf(false) }
+    var ViewMovie by remember { mutableStateOf(false) }
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -48,10 +65,13 @@ fun MovieDBApp(context: Context) {
                     },
                     onBackButtonClick = { Addmovie = false }
                 )
+            } else if (ViewMovie) {
+                ViewMoviesScreen()
             } else {
                 MainScreen(
                     onAddMovieClick = { Addmovie = true },
                     onViewMoviesClick = {
+                        ViewMovie = true
                         Toast.makeText(context, "View Movies clicked", Toast.LENGTH_SHORT).show()
                     }
                 )
@@ -342,6 +362,70 @@ fun AddMovieScreen(
         }
     }
 }
+
+@Composable
+fun ViewMoviesScreen() {
+    val db = Database()
+    val con = db.CreateConnection()
+
+    val arr = db.GetData(con)
+
+    LazyColumn {
+        itemsIndexed(arr) {index, _ ->
+            Card (
+                modifier = Modifier.padding(8.dp),
+            ) {
+                Column (
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .fillMaxWidth(),
+                    horizontalAlignment = Alignment.Start,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    AsyncImage(
+                        arr[index][8], null,
+                        modifier = Modifier
+
+                    )
+
+                    Text(
+                        text = "ID: " + arr[index][0].toString()
+                    )
+
+                    Text(
+                        text = "NAME: " + arr[index][1].toString()
+                    )
+
+                    Text(
+                        text = "LENGTH: " + arr[index][2].toString()
+                    )
+
+                    Text(
+                        text = "RELEASE YEAR: " + arr[index][3].toString()
+                    )
+
+                    Text(
+                        text = "GENRES: " + arr[index][4].toString()
+                    )
+
+                    Text(
+                        text = "MAIN ACTORS: " + arr[index][5].toString()
+                    )
+
+                    Text(
+                        text = "DIRECTOR: " + arr[index][6].toString()
+                    )
+
+                    Text(
+                        text = "RATING: " + arr[index][7].toString()
+                    )
+
+                }
+            }
+        }
+    }
+}
+
 //HUOM! TÄSSÄ KAIKKI MENEE STRING MUUTTUJINA EIKÄ INTTINÄ ESIM: JULKAISU VUOSI.
 
 //onko password tarpeeksi vahva
