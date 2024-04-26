@@ -1,5 +1,16 @@
+<?php
+session_start();
+
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+    $profileButton = '<a class="nav-link active me-3" aria-current="page" href="/elokuvatietokanta/pages/profile.php">Profile</a>';
+} else {
+    $profileButton = '<a class="nav-link active me-3" aria-current="page" href="/elokuvatietokanta/pages/login.php">Login</a>
+                     <a class="nav-link active me-3" aria-current="page" href="/elokuvatietokanta/pages/register.php">Register</a>';
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,15 +41,10 @@
           </ul>
         </li>
       </ul>
-      <li class="nav-item d-flex p-3">
-          <a class="nav-link active" aria-current="page" href="/elokuvatietokanta/pages/login.php">Login</a>
-      </li>
-      <li class="nav-item d-flex p-3">
-          <a class="nav-link active" aria-current="page" href="/elokuvatietokanta/pages/register.php">Register</a>
-      </li>
+      <?php echo $profileButton; ?>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Elokuvan nimi" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Hae</button>
       </form>
     </div>
   </div>
@@ -54,8 +60,7 @@
             <th scope="col">Vuosi</th>
             <th scope="col">Kesto</th>
             <th scope="col">Genre</th>
-            <th scope="col">Päänäyttelijä
-            </th>
+            <th scope="col">Päänäyttelijä</th>
             <th scope="col">Arvostelu</th>
           </tr>
         </thead>
@@ -65,8 +70,8 @@
           </tr>
         </tbody>
     </table>
-  </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
-</html> 
+</html>

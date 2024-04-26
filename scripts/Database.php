@@ -1,58 +1,74 @@
 <?php
 
-require_once("config.php"); // Tietokannan tiedot
+require_once("config.php");
+require_once("User.php");
 
 class Database
 {
     public $connection;
 
-    // Tekee yhteyden mysql tietokantaan
     public function connect()
     {
-        $this->connection = @new mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE); // @ Merkki poistaa turhat varoitukset.
+        $this->connection = @new mysqli(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-        if ($this->connection->connect_error)
-        {
+        if ($this->connection->connect_error) {
             return false;
         }
         
         return true;
     }
 
-    // Sulkee yhteyden tietokantaan
     public function close()
     {
         mysqli_close($this->connection);
     }
 
-    // Tekee uuden elokuvan tietokantaan)
-    public function insert_movie(Movie $movie)
+    public function insert_movie($name, $director, $year, $length, $genre, $main_actor, $rating)
     {
-        $sql = "INSERT INTO moviedb.movies (idMovies, Name, Director, ReleaseYear, Length, Genres, MainActors, Rating) VALUES (0, '$movie->name', '$movie->director', $movie->year, $movie->length, '$movie->genre', '$movie->main_actor', $movie->rating)";
+        $name = $this->connection->real_escape_string($name);
+        $director = $this->connection->real_escape_string($director);
+        $genre = $this->connection->real_escape_string($genre);
+        $main_actor = $this->connection->real_escape_string($main_actor);
+        $rating = (int)$this->connection->real_escape_string($rating);
 
-        if ($this->connection->query($sql) === TRUE)
-        {
+        $sql = "INSERT INTO movies (name, director, year, length, genre, main_actor, rating) 
+                VALUES ('$name', '$director', '$year', '$length', '$genre', '$main_actor', '$rating')";
+
+        if ($this->connection->query($sql) === TRUE) {
             return true;
+        } else {
+            echo $this->connection->error . "<br>";
+            return false;
         }
-        else
-        {
+    }
+    public function insert_user(User $user)
+    {
+        $username = $this->connection->real_escape_string($user->username);
+        $email = $this->connection->real_escape_string($user->email);
+        $password = $this->connection->real_escape_string($user->password);
+
+        $sql = "INSERT INTO usertable (username, email, password) VALUES ('$username', '$email', '$password')";
+
+        if ($this->connection->query($sql) === TRUE) {
+            return true;
+        } else {
             echo $this->connection->error . "<br>";
             return false;
         }
     }
 
-    public function insert_user(User $user)
+    public function get_User($identifier)
     {
-        $sql = "INSERT INTO moviedb.usertable (idUser, username, email, password) VALUES (0, '$user->name', '$user->email', '$user->password')";
+        $identifier = $this->connection->real_escape_string($identifier);
+        $sql = "SELECT * FROM usertable WHERE email = '$identifier' OR username = '$identifier'";
+        $result = $this->connection->query($sql);
 
-        if ($this->connection->query($sql) === TRUE)
-        {
-            return true;
-        }
-        else
-        {
-            echo $this->connection->error . "<br>";
-            return false;
+        if ($result && $result->num_rows > 0) {
+            $user_data = $result->fetch_assoc();
+            return new User($user_data['username'], $user_data['email'], $user_data['password']);
+        } else {
+            return null;
         }
     }
 }
+?>

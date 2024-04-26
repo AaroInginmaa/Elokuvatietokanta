@@ -2,14 +2,20 @@
 
 class User
 {
-    public string $name;
-    public string $email;
-    public string $password;
+    public $username;
+    public $email;
+    public $password;
 
-    function __construct($name, $email, $password)
+    public function __construct($username, $email, $password)
     {
-        $this->name = $name;
+        $this->username = $username;
         $this->email = $email;
         $this->password = $password;
     }
+
+    public function verifyPassword($password)
+    {
+        return $password === $this->password;
+    }
 }
+?>

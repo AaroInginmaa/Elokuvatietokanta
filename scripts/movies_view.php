@@ -26,7 +26,6 @@ if(!$database->connect()) {
 
             echo '<tr> 
                       <td><img src="'.$image.'" alt="" width="200" height="200"></td>
-                      <td>'.$id.'</td> 
                       <td>'.$name.'</td> 
                       <td>'.$director.'</td> 
                       <td>'.$release_year.'</td> 

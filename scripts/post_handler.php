@@ -3,13 +3,11 @@
 require_once('Database.php');
 require_once('Movie.php');
 
-// Varmista, että request on POST, jos ei ole, scripti pysähtyy.
 if ($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     echo "Incorrect request method.";
     die();
 }
-// Tarkastus ehdot vuodelle, pituudelle ja arvostelulle
 $validationRules = array(
     'year' => array(
         'filter' => FILTER_VALIDATE_INT,
@@ -40,17 +38,14 @@ $database = new Database();
 if (!$database->connect()) {
     echo "Database connection failed.<br>";
 } else {
-    // Execute the query
     $result = $database->connection->query($query);
 
-    // Check if any rows were found
     if ($result->num_rows > 0 || (in_array(false, $inputData, true))) {
-        // Movie name already exists in the database
         header("Location:/elokuvatietokanta/pages/addmovie.php");
         die();
     }
 }
-if (isset($_POST)) // Varmista että POST requesti ei ole NULL
+if (isset($_POST))
 {
     $name = $_POST['name'];
     $director = $_POST['director'];
@@ -62,13 +57,13 @@ if (isset($_POST)) // Varmista että POST requesti ei ole NULL
     $movie = new Movie($name, $director, $year, $length, $genre, $main_actor, $rating);
     $database = new Database();
     
-    if(!$database->connect()) // Yhditsää tietokantaan Kutsumalla connect() funktiota, jos yhteys epäonnistuu, scipti pysähtyy.
+    if(!$database->connect())
     {
         echo "Database connection failed.<br>";
         die();
     }    
 
-    if(!$database->insert_movie($movie)) // Yrittää tehdä uuden elokuvan tietokantaan, jos epäonnistuu, scipti pysähtyy.
+    if(!$database->insert_movie($movie, $name, $director, $year, $length, $genre, $main_actor, $rating))
     {
         echo "Failed to insert new record.<br>";
         $database->close();
@@ -77,7 +72,7 @@ if (isset($_POST)) // Varmista että POST requesti ei ole NULL
 
     header("Location:/elokuvatietokanta/pages/index.php");
 
-    $database->close(); // Sulkee tietokantayhteyden
+    $database->close();
 } 
 else
 {

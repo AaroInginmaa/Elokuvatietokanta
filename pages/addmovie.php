@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
 <body>
     <div>
         <h2>Elokuva</h2>
-        <form action="/elokuvatietokanta/scripts/post_handler.php" method="POST">
+        <form action="post_handler.php" method="POST">
             <label for="name">Elokuvan nimi</label>
             <br>
             <input type="text" id="name" name="name" autocomplete="off">
@@ -39,7 +39,7 @@
             <input type="text" id="rating" name="rating" autocomplete="off">
             <br>
             <br>
-            <input class="btn btn-primary" type="submit">
+            <input class="btn btn-primary" value="Lisää elokuva" type="submit">
         </form>
     </div>
 </body>
