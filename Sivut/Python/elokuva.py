@@ -128,6 +128,8 @@ def registerPage():
         registerPWord.place(relx=.5, rely=.40, anchor=CENTER)
         registerButton.place(relx=.5, rely=.50, anchor=CENTER)
         backButton.place(relx=.5, rely=.8, anchor=CENTER)
+        
+        showHide()
     
     def showHide():
         if onOff.get() == False:
@@ -135,6 +137,8 @@ def registerPage():
         else:
             registerPWord.configure(show="")
     
+
+
     def clickRegister():
         global nameCheck, emailCheck, pWordCheck
         
