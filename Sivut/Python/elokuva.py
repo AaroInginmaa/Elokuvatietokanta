@@ -358,8 +358,9 @@ def mainWindow():
             return False
     
     def validateGenre(Genre):
+        res = bool(re.match('[a-zA-Z\s]+$', Genre))
         try:
-            if Genre.isalpha() == True:
+            if res == True:
                 return True
             else:
                 return False
@@ -367,8 +368,9 @@ def mainWindow():
             return False
         
     def validateActor(Actor):
+        res = bool(re.match('[a-zA-Z\s]+$', Actor))
         try:
-            if Actor.isalpha() == True:
+            if res == True:
                 return True
             else:
                 return False
@@ -376,8 +378,9 @@ def mainWindow():
             return False
         
     def validateDirector(Director):
+        res = bool(re.match('[a-zA-Z\s]+$', Director))
         try:
-            if Director.isalpha() == True:
+            if res == True:
                 return True
             else:
                 return False
