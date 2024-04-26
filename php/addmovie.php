@@ -38,6 +38,10 @@
             <br>
             <input type="text" id="rating" name="rating" autocomplete="off">
             <br>
+            <label for="image">Linkki kuvaan</label>
+            <br>
+            <input type="text" id="image" name="image" autocomplete="off">
+            <br>
             <br>
             <input class="btn btn-primary" value="Lisää elokuva" type="submit">
         </form>

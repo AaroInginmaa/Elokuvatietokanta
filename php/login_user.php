@@ -47,7 +47,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $_SESSION['username'] = $user->username;
     $_SESSION['email'] = $user->email;
 
-    header("Location: /elokuvatietokanta/pages/index.php");
+    header("Location: /elokuvatietokanta/php/index.php");
     exit();
 } else {
     echo "<p style='color: red;'>Email or password is missing.</p>";
@@ -58,7 +58,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 function redirect(){
     echo "<script>
         setTimeout(function() {
-            window.location.href = '/elokuvatietokanta/pages/login.php';
+            window.location.href = '/elokuvatietokanta/php/login.php';
         }, 2000);
       </script>";
 }

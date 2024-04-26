@@ -23,16 +23,17 @@ class Database
         mysqli_close($this->connection);
     }
 
-    public function insert_movie($name, $director, $year, $length, $genre, $main_actor, $rating)
+    public function insert_movie($name, $length, $year, $genre, $main_actor, $director, $rating, $image)
     {
         $name = $this->connection->real_escape_string($name);
         $director = $this->connection->real_escape_string($director);
         $genre = $this->connection->real_escape_string($genre);
         $main_actor = $this->connection->real_escape_string($main_actor);
         $rating = (int)$this->connection->real_escape_string($rating);
+        $image = (int)$this->connection->real_escape_string($image);
 
-        $sql = "INSERT INTO movies (name, director, year, length, genre, main_actor, rating) 
-                VALUES ('$name', '$director', '$year', '$length', '$genre', '$main_actor', '$rating')";
+        $sql = "INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating, Image)
+                VALUES ('$name', '$length', '$year', '$genre', '$main_actor', '$director', '$rating', '$image')";
 
         if ($this->connection->query($sql) === TRUE) {
             return true;

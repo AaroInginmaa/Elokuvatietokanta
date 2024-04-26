@@ -2,10 +2,10 @@
 session_start();
 
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    $profileButton = '<a class="nav-link active me-3" aria-current="page" href="/elokuvatietokanta/pages/profile.php">Profile</a>';
+    $profileButton = '<a class="nav-link active me-3" aria-current="page" href="/elokuvatietokanta/php/profile.php">Profile</a>';
 } else {
-    $profileButton = '<a class="nav-link active me-3" aria-current="page" href="/elokuvatietokanta/pages/login.php">Login</a>
-                     <a class="nav-link active me-3" aria-current="page" href="/elokuvatietokanta/pages/register.php">Register</a>';
+    $profileButton = '<a class="nav-link active me-3" aria-current="page" href="/elokuvatietokanta/php/login.php">Login</a>
+                     <a class="nav-link active me-3" aria-current="page" href="/elokuvatietokanta/php/register.php">Register</a>';
 }
 ?>
 
@@ -20,14 +20,14 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 <body>
 <nav class="navbar navbar-light navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/elokuvatietokanta/pages/index.php"><strong>Elokuvatietokanta</strong></a>
+    <a class="navbar-brand" href="/elokuvatietokanta/php/index.php"><strong>Elokuvatietokanta</strong></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/elokuvatietokanta/pages/addmovie.php">Add Movie</a>
+          <a class="nav-link active" aria-current="page" href="/elokuvatietokanta/php/addmovie.php">Add Movie</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,7 +66,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         </thead>
         <tbody>
           <tr>
-            <?php require_once("C:/xampp/htdocs/elokuvatietokanta/scripts/movies_view.php") ?>
+            <?php require_once("C:/xampp/htdocs/elokuvatietokanta/php/movies_view.php") ?>
           </tr>
         </tbody>
     </table>
