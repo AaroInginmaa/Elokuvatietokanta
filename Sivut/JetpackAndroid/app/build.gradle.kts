@@ -65,7 +65,7 @@ dependencies {
     * kopioi tiedosto mysql-connector-j-8.3.0.jar -> c:/joku/helppo/paikka/
     * ja laita alla olevaksi tiedosto sijainniksi se mihin kopioit .jar tiedoston
     */
-    implementation(files("C:\\java\\mysql-connector.jar"))
+    implementation(files("C:/java/mysql-connector.jar"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
