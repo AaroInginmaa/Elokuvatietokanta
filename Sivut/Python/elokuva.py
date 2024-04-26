@@ -77,7 +77,7 @@ def logInPage():
             messagebox.showerror("Tyhjät kentät", "Täytä Nimi/Sähköposti ja Salasana kentät.")
             return
 
-        db = mysql.connector.connect(host="10.146.4.49", user="app", password="databaseApp!" , database="moviedb")
+        db = mysql.connector.connect(host="mc.koudata.fi", user="app", password="databaseApp!" , database="moviedb")
         cursor = db.cursor()
 
         sql = "SELECT * FROM usertable WHERE (username = %s OR email = %s) AND password = %s"
@@ -106,7 +106,7 @@ def logInPage():
 def registerPage():
     
     def contents():
-        global registerName, registerEmail, registerPWord, registerNameLabel, registerEmailLabel, registerPasswordLabel, registerButton, backButton
+        global registerName, registerEmail, registerPWord, registerNameLabel, registerEmailLabel, registerPasswordLabel, registerButton, backButton, checkBoxHideShow, onOff
         
         registerNameLabel = tk.Label(text="Nimi")
         registerEmailLabel = tk.Label(text="Sähköposti")
@@ -116,15 +116,24 @@ def registerPage():
         registerPWord = tk.Entry()
         registerButton = tk.Button(text="Rekisteröidy", command=clickRegister)
         backButton = tk.Button(text="Palaa", command=clickBack)
-
+        onOff = BooleanVar(value=False)
+        checkBoxHideShow = tk.Checkbutton(text='Näytä salasana', variable=onOff, onvalue=True, offvalue=False, command=showHide)
+        
         registerNameLabel.place(relx=.5, rely=.15, anchor=CENTER)
         registerName.place(relx=.5, rely=.20, anchor=CENTER)
         registerEmailLabel.place(relx=.5, rely=.25, anchor=CENTER)
         registerEmail.place(relx=.5, rely=.30, anchor=CENTER)
         registerPasswordLabel.place(relx=.5, rely=.35, anchor=CENTER)
+        checkBoxHideShow.place(relx=.8, rely=.40, anchor=CENTER)
         registerPWord.place(relx=.5, rely=.40, anchor=CENTER)
         registerButton.place(relx=.5, rely=.50, anchor=CENTER)
         backButton.place(relx=.5, rely=.8, anchor=CENTER)
+    
+    def showHide():
+        if onOff.get() == False:
+            registerPWord.configure(show="*")
+        else:
+            registerPWord.configure(show="")
     
     def clickRegister():
         global nameCheck, emailCheck, pWordCheck
@@ -148,7 +157,7 @@ def registerPage():
         checkExistingUsers()
 
     def checkExistingUsers():
-        db = mysql.connector.connect(host="10.146.4.49", user="app", password="databaseApp!" , database="moviedb")
+        db = mysql.connector.connect(host="mc.koudata.fi", user="app", password="databaseApp!" , database="moviedb")
         cursor = db.cursor()
         
         
@@ -193,7 +202,7 @@ def registerPage():
         return True
 
     def saveToDataBase():
-        db = mysql.connector.connect(host="10.146.4.49", user="app", password="databaseApp!" , database="moviedb")
+        db = mysql.connector.connect(host="mc.koudata.fi", user="app", password="databaseApp!" , database="moviedb")
         cursor = db.cursor()
         sql = "INSERT INTO usertable (username, email, password) VALUES (%s, %s, %s)"
         values = (nameCheck, emailCheck, pWordCheck)
@@ -213,7 +222,7 @@ def registerPage():
 
 def mainWindow():
     
-    mydb = mysql.connector.connect(host="10.146.4.49", user="app", password="databaseApp!" , database="moviedb")
+    mydb = mysql.connector.connect(host="mc.koudata.fi", user="app", password="databaseApp!" , database="moviedb")
     mycursor = mydb.cursor()
     
     def contents():
