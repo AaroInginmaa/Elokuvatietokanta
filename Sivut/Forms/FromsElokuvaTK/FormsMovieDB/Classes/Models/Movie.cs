@@ -1,68 +1,63 @@
-﻿namespace FormsMovieDB
+﻿using System.Xml.Linq;
+
+namespace FormsMovieDB
 {
     public class Movie
     {
         public Movie(
-            string title,
-            string director = null,
-            int releaseYear = 0,
-            string description = null,
-            string trailerLink = null,
+            string name= null,
             int length = 0,
-            string genre = null,
-            string star = null,
+            int releaseYear = 0,
+            string genres = null,
+            string mainActors = null,
+            string director = null,
             double rating = 0,
-            string imageUrl = null)
+            string image = null)
         {
             Id = 0;
-            Title = title;
-            Director = director;
-            Description = description;
-            TrailerLink = trailerLink;
-            ReleaseYear = releaseYear;
+            Name = name;
             Length = length;
-            Genre = genre;
-            Star = star;
+            ReleaseYear = releaseYear;
+            Genres = genres;
+            MainActors = mainActors;
+            Director = director;
             Rating = rating;
-            ImageUrl = imageUrl;
+            Image = image;
+            
         }
 
         public Movie(
-            int id,
-            string title,
-            string director = null,
-            int releaseYear = 0,
-            string description = null,
-            string trailerLink = null,
+            int id = 0,
+            string name = null,
             int length = 0,
-            string genre = null,
-            string star = null,
+            int releaseYear = 0,
+            string genres = null,
+            string mainActors = null,
+            string director = null,
             double rating = 0,
-            string imageUrl = null)
+            string image = null)
         {
-            Id = id;
-            Title = title;
-            Director = director;
-            Description = description;
-            TrailerLink = trailerLink;
-            ReleaseYear = releaseYear;
+            Id = 0;
+            Name = name;
             Length = length;
-            Genre = genre;
-            Star = star;
+            ReleaseYear = releaseYear;
+            Genres = genres;
+            MainActors = mainActors;
+            Director = director;
             Rating = rating;
-            ImageUrl = imageUrl;
+            Image = image;
+
         }
 
         public int Id { get; private set; }
-        public string Title { get; private set; }
-        public string Director { get; private set; }
-        public string Description { get; private set; }
-        public string TrailerLink { get; private set; }
-        public int ReleaseYear { get; private set; }
+        public string Name { get; private set; }
         public int Length { get; private set; }
-        public string Genre { get; private set; }
-        public string Star { get; private set; }
+        public int ReleaseYear { get; private set; }
+        public string Genres { get; private set; }
+        public string MainActors { get; private set; }
+        public string Director { get; private set; }
         public double Rating { get; private set; }
-        public string ImageUrl { get; private set; }
+        public string Image { get; private set; }
+        
     }
 }

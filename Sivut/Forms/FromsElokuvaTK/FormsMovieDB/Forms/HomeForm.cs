@@ -45,14 +45,14 @@ namespace FormsMovieDB
             pictureBox.Location = new Point(12, 10);
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
 
-            if (movie.ImageUrl != null)
-                pictureBox.Load(movie.ImageUrl);
+            if (movie.Image != null)
+                pictureBox.Load(movie.Image);
 
             pictureBox.Tag = movie.Id;
 
             Label lableTitle = new Label();
             lableTitle.Name = string.Format("LabelMovieName{0}", movie.Id);
-            lableTitle.Text = movie.Title;
+            lableTitle.Text = movie.Name;
             lableTitle.Location = new Point(12, 165);
             lableTitle.ForeColor = Color.Black;
             lableTitle.Font = new Font(this.Font.FontFamily, 9.5f, FontStyle.Regular);

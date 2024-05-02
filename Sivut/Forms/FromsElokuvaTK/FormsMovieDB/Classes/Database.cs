@@ -33,10 +33,10 @@ namespace FormsMovieDB
 
         private void Initialize()
         {
-            _host = "localhost";
-            _database = "movies_db";
-            _user = "admin";
-            _passsword = "admin";
+            _host = "10.146.4.49";
+            _database = "moviedb";
+            _user = "dbuser";
+            _passsword = "Nakkikastike123!";
             _port = "3306";
 
             string connectionCommand = $"Server={_host}; Port={_port}; Database={_database}; Uid={_user}; Pwd={_passsword};";
@@ -46,7 +46,7 @@ namespace FormsMovieDB
 
         public List<Movie> SelectMovies()
         {
-            string selectQuery = "SELECT * FROM movies_db.movies;";
+            string selectQuery = "SELECT * FROM moviedb.movies;";
 
             List<Movie> movies = new List<Movie>();
 
@@ -63,17 +63,15 @@ namespace FormsMovieDB
             foreach (DataRow dataRow in dataTable.Rows)
             {
                 Movie movie = new Movie(
-                    Convert.ToInt32(dataRow["movie_id"]),
-                    Convert.ToString(dataRow["title"]),
-                    Convert.ToString(dataRow["director"]),
-                    Convert.ToInt32(dataRow["release_year"]),
-                    Convert.ToString(dataRow["description"]),
-                    Convert.ToString(dataRow["trailer_link"]),
-                    Convert.ToInt32(dataRow["length"]),
-                    Convert.ToString(dataRow["genre"]),
-                    Convert.ToString(dataRow["star"]),
-                    Convert.ToDouble(dataRow["rating"]),
-                    Convert.ToString(dataRow["picture_link"]));
+                    Convert.ToInt32(dataRow["idmovies"]),
+                    Convert.ToString(dataRow["Name"]),
+                    Convert.ToInt32(dataRow["Length"]),
+                    Convert.ToInt32(dataRow["ReleaseYear"]),
+                    Convert.ToString(dataRow["Genres"]),
+                    Convert.ToString(dataRow["MainActors"]),
+                    Convert.ToString(dataRow["Director"]),
+                    Convert.ToInt32(dataRow["Rating"]),
+                    Convert.ToString(dataRow["Image"]));
 
                 movies.Add(movie);
             }
@@ -83,16 +81,15 @@ namespace FormsMovieDB
 
         public void InsertMovie(Movie movie)
         {
-            string insertQuery = $"INSERT INTO movies_db.movies (name, director, release_year, description, trailer_link, length, genre, star, rating) VALUES (" +
-                $"\"{movie.Title}\"," +
-                $"\"{movie.Director}\"," +
+            string insertQuery = $"INSERT INTO moviedb.movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating, Image) VALUES (" +
+                $"\"{movie.Name}\"," +
+                $"\"{movie.Length}\"," +
                 $"{movie.ReleaseYear}," +
-                $"{movie.Description}," +
-                $"{movie.TrailerLink}," +
-                $"{movie.Length}," +
-                $"{movie.Genre}," +
-                $"\"{movie.Star}\"," +
-                $"\"{movie.Rating}\"" +
+                $"{movie.Genres}," +
+                $"{movie.MainActors}," +
+                $"{movie.Director}," +
+                $"{movie.Rating}," +
+                $"\"{movie.Image}\"," +
                 $");";
 
             OpenConnection();
@@ -105,19 +102,16 @@ namespace FormsMovieDB
 
         public void RegisterUser(User user)
         {
-            string insertQuery = $"INSERT INTO movies_db.users (user_id, name, email, password) VALUES (0, \"{user.Username}\", \"{user.Email}\", \"{user.Password}\")";
-
+            string insertQuery = $"INSERT INTO moviedb.usertable (idUser, username, email, password) VALUES (0, \"{user.Username}\", \"{user.Email}\", \"{user.Password}\")";
             OpenConnection();
-
             MySqlCommand mySqlCommand = new MySqlCommand(insertQuery, _connection);
             mySqlCommand.ExecuteNonQuery();
-
             CloseConnection();
         }
 
         public void LoginUser(string login, string password)
         {
-            string selectQuery = $"SELECT * FROM movies_db.users WHERE (name = '{login}' OR email = '{login}') AND password = '{password}';\r\n";
+            string selectQuery = $"SELECT * FROM moviedb.usertable WHERE (username = '{login}' OR email = '{login}') AND password = '{password}';\r\n";
 
             OpenConnection();
             MySqlCommand mySqlCommand = new MySqlCommand(selectQuery, _connection);
@@ -135,8 +129,8 @@ namespace FormsMovieDB
             DataRow userDataRow = dataTable.Rows[0];
 
             User user = new User(
-                Convert.ToInt32(userDataRow["user_id"]),
-                Convert.ToString(userDataRow["name"]),
+                Convert.ToInt32(userDataRow["idUser"]),
+                Convert.ToString(userDataRow["username"]),
                 Convert.ToString(userDataRow["email"]),
                 DecryptWatchList(userDataRow["watchlist"].ToString()));
 
@@ -145,7 +139,7 @@ namespace FormsMovieDB
 
         public bool LoginIsAvailable(string username, string email)
         {
-            string selectQuery = $"SELECT * FROM movies_db.users WHERE (name = \"{username}\" OR email = \"{email}\");";
+            string selectQuery = $"SELECT * FROM moviedb.usertable WHERE (name = \"{username}\" OR email = \"{email}\");";
 
             OpenConnection();
             MySqlCommand mySqlCommand = new MySqlCommand(selectQuery, _connection);
@@ -165,7 +159,7 @@ namespace FormsMovieDB
 
         public void UpdateUserWatchList()
         {
-            string insertQuery = $"INSERT INTO movies_db.users WHERE user_id = {Client.LoggedUser.Id} (watchlist) VALUES (\"{EncryptUserWatchList()}\")";
+            string insertQuery = $"INSERT INTO moviedb.usertable WHERE idUser = {Client.LoggedUser.Id} (watchlist) VALUES (\"{EncryptUserWatchList()}\")";
 
             OpenConnection();
 
@@ -206,7 +200,7 @@ namespace FormsMovieDB
 
         public Movie SelectMovieById(int id)
         {
-            string selectQuery = $"SELECT * FROM movies_db.movies WHERE movie_id = '{id}'";
+            string selectQuery = $"SELECT * FROM moviedb.movies WHERE idMovies = '{id}'";
 
             OpenConnection();
             MySqlCommand mySqlCommand = new MySqlCommand(selectQuery, _connection);
@@ -224,17 +218,15 @@ namespace FormsMovieDB
             DataRow movieDataRow = dataTable.Rows[0];
 
             Movie movie = new Movie(
-                Convert.ToInt32(movieDataRow["movie_id"]),
-                Convert.ToString(movieDataRow["title"]),
-                Convert.ToString(movieDataRow["director"]),
-                Convert.ToInt32(movieDataRow["release_year"]),
-                Convert.ToString(movieDataRow["description"]),
-                Convert.ToString(movieDataRow["trailer_link"]),
-                Convert.ToInt32(movieDataRow["length"]),
-                Convert.ToString(movieDataRow["genre"]),
-                Convert.ToString(movieDataRow["star"]),
-                Convert.ToDouble(movieDataRow["rating"]),
-                Convert.ToString(movieDataRow["picture_link"]));
+                Convert.ToInt32(movieDataRow["idMovies"]),
+                Convert.ToString(movieDataRow["Name"]),
+                Convert.ToInt32(movieDataRow["Length"]),
+                Convert.ToInt32(movieDataRow["ReleaseYear"]),
+                Convert.ToString(movieDataRow["Genres"]),
+                Convert.ToString(movieDataRow["MainActors"]),
+                Convert.ToString(movieDataRow["Director"]),
+                Convert.ToDouble(movieDataRow["Rating"]),
+                Convert.ToString(movieDataRow["Image"]));
 
             return movie;
         }

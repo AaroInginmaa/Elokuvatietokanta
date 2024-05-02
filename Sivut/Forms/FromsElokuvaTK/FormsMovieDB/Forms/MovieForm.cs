@@ -26,19 +26,17 @@ namespace FormsMovieDB
                 "</body>" +
                 "</html>";
 
-            _movieTrailerBrowser.DocumentText = string.Format(embedHTML, _movie.TrailerLink);
-
-            _title.Text = _movie.Title;
+            _title.Text = _movie.Name;
             _rating.Text = _movie.Rating.ToString();
 
-            _picture.Load(_movie.ImageUrl);
+            _picture.Load(_movie.Image);
             _picture.BackgroundImageLayout = ImageLayout.Zoom;
 
             _releaseYear.Text = _movie.ReleaseYear.ToString();
             _director.Text = _movie.Director.ToString();
-            _genre.Text = _movie.Genre.ToString();
+            _genre.Text = _movie.Genres.ToString();
             _length.Text = $"{_movie.Length} minutes";
-            _description.Text = _movie.Description.ToString();
+            
         }
 	}
 }
