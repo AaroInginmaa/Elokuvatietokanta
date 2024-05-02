@@ -27,8 +27,6 @@ namespace FormsMovieDB
 
             Client = Client.Instance();
 
-            if (Client.LoggedUser != null)
-                Client.LoggedUser.WatchListUpdated += UpdateUserWatchList;
         }
 
         private void Initialize()
@@ -132,14 +130,14 @@ namespace FormsMovieDB
                 Convert.ToInt32(userDataRow["idUser"]),
                 Convert.ToString(userDataRow["username"]),
                 Convert.ToString(userDataRow["email"]),
-                DecryptWatchList(userDataRow["watchlist"].ToString()));
+                Convert.ToString(userDataRow["password"]));
 
             Client.LogInUser(user);
         }
 
         public bool LoginIsAvailable(string username, string email)
         {
-            string selectQuery = $"SELECT * FROM moviedb.usertable WHERE (name = \"{username}\" OR email = \"{email}\");";
+            string selectQuery = $"SELECT * FROM moviedb.usertable WHERE (username = \"{username}\" OR email = \"{email}\");";
 
             OpenConnection();
             MySqlCommand mySqlCommand = new MySqlCommand(selectQuery, _connection);
@@ -155,47 +153,6 @@ namespace FormsMovieDB
                 return true;
             else
                 return false;
-        }
-
-        public void UpdateUserWatchList()
-        {
-            string insertQuery = $"INSERT INTO moviedb.usertable WHERE idUser = {Client.LoggedUser.Id} (watchlist) VALUES (\"{EncryptUserWatchList()}\")";
-
-            OpenConnection();
-
-            MySqlCommand mySqlCommand = new MySqlCommand(insertQuery, _connection);
-            mySqlCommand.ExecuteNonQuery();
-
-            CloseConnection();
-        }
-
-        private string EncryptUserWatchList()
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-
-            foreach (Movie movie in Client.LoggedUser.WatchList)
-            {
-                stringBuilder.Append($"{movie.Id}$");
-            }
-
-            return stringBuilder.ToString();
-        }
-
-        private List<Movie> DecryptWatchList(string watchListString)
-        {
-            if (watchListString == string.Empty)
-                return new List<Movie>();
-
-            List<Movie> movies = new List<Movie>();
-
-            string[] movieIds = watchListString.Split('$');
-
-            foreach (string movieId in movieIds)
-            {
-                movies.Add(SelectMovieById(Convert.ToInt32(movieId)));
-            }
-
-            return movies;
         }
 
         public Movie SelectMovieById(int id)

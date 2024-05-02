@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieForm));
-            this.AddToWatchListButton = new System.Windows.Forms.Button();
             this.InfoPanel = new System.Windows.Forms.Panel();
+            this._mainactors = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this._length = new System.Windows.Forms.Label();
             this.LenghtLable = new System.Windows.Forms.Label();
             this._director = new System.Windows.Forms.Label();
@@ -45,26 +46,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this._title = new System.Windows.Forms.Label();
             this._picture = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this._mainactors = new System.Windows.Forms.Label();
             this.InfoPanel.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._picture)).BeginInit();
             this.SuspendLayout();
-            // 
-            // AddToWatchListButton
-            // 
-            this.AddToWatchListButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(213)))), ((int)(((byte)(0)))));
-            this.AddToWatchListButton.FlatAppearance.BorderSize = 0;
-            this.AddToWatchListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddToWatchListButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddToWatchListButton.Location = new System.Drawing.Point(1144, 789);
-            this.AddToWatchListButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.AddToWatchListButton.Name = "AddToWatchListButton";
-            this.AddToWatchListButton.Size = new System.Drawing.Size(292, 64);
-            this.AddToWatchListButton.TabIndex = 3;
-            this.AddToWatchListButton.Text = "Add to Watchlist";
-            this.AddToWatchListButton.UseVisualStyleBackColor = false;
             // 
             // InfoPanel
             // 
@@ -82,10 +67,36 @@
             this.InfoPanel.Controls.Add(this.label1);
             this.InfoPanel.Controls.Add(this._releaseYear);
             this.InfoPanel.Location = new System.Drawing.Point(450, 106);
-            this.InfoPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.InfoPanel.Margin = new System.Windows.Forms.Padding(4);
             this.InfoPanel.Name = "InfoPanel";
             this.InfoPanel.Size = new System.Drawing.Size(1013, 583);
             this.InfoPanel.TabIndex = 7;
+            // 
+            // _mainactors
+            // 
+            this._mainactors.AutoSize = true;
+            this._mainactors.BackColor = System.Drawing.Color.Transparent;
+            this._mainactors.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._mainactors.ForeColor = System.Drawing.Color.Black;
+            this._mainactors.Location = new System.Drawing.Point(133, 185);
+            this._mainactors.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this._mainactors.Name = "_mainactors";
+            this._mainactors.Size = new System.Drawing.Size(222, 25);
+            this._mainactors.TabIndex = 16;
+            this._mainactors.Text = "Actors here, Acotrs here";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(-2, 185);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 25);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Main Actors :";
             // 
             // _length
             // 
@@ -204,12 +215,11 @@
             this.BottomPanel.Controls.Add(this._rating);
             this.BottomPanel.Controls.Add(this.label2);
             this.BottomPanel.Controls.Add(this.InfoPanel);
-            this.BottomPanel.Controls.Add(this.AddToWatchListButton);
             this.BottomPanel.Controls.Add(this._title);
             this.BottomPanel.Controls.Add(this._picture);
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BottomPanel.Location = new System.Drawing.Point(0, 0);
-            this.BottomPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BottomPanel.Margin = new System.Windows.Forms.Padding(4);
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Size = new System.Drawing.Size(1476, 1100);
             this.BottomPanel.TabIndex = 0;
@@ -251,38 +261,12 @@
             // 
             this._picture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this._picture.Location = new System.Drawing.Point(22, 106);
-            this._picture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this._picture.Margin = new System.Windows.Forms.Padding(4);
             this._picture.Name = "_picture";
             this._picture.Size = new System.Drawing.Size(420, 632);
             this._picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this._picture.TabIndex = 0;
             this._picture.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(-2, 185);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 25);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Main Actors :";
-            // 
-            // _mainactors
-            // 
-            this._mainactors.AutoSize = true;
-            this._mainactors.BackColor = System.Drawing.Color.Transparent;
-            this._mainactors.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._mainactors.ForeColor = System.Drawing.Color.Black;
-            this._mainactors.Location = new System.Drawing.Point(133, 185);
-            this._mainactors.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this._mainactors.Name = "_mainactors";
-            this._mainactors.Size = new System.Drawing.Size(222, 25);
-            this._mainactors.TabIndex = 16;
-            this._mainactors.Text = "Actors here, Acotrs here";
             // 
             // MovieForm
             // 
@@ -292,7 +276,7 @@
             this.Controls.Add(this.BottomPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MovieForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MovieForm";
@@ -307,8 +291,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button AddToWatchListButton;
         private System.Windows.Forms.Panel InfoPanel;
         private System.Windows.Forms.Label _genre;
         private System.Windows.Forms.Label GenreLable;

@@ -1,4 +1,7 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Drawing;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace FormsMovieDB.Classes
 {
@@ -52,6 +55,15 @@ namespace FormsMovieDB.Classes
             string regex = @"^[\w.-]+@[\w.-]+.\w{2,}$";
             if (!Regex.IsMatch(input, regex, RegexOptions.IgnoreCase))
             {
+                PopupNotifier popup = new PopupNotifier();
+                popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+                popup.HeaderHeight = 20;
+                popup.BodyColor = Color.Red;
+                popup.ShowCloseButton = false;
+                popup.TitleColor = Color.White;
+                popup.TitleText = "Error";
+                popup.ContentText = "Incorrect email";
+                popup.Popup();
                 return false;
             }
 
