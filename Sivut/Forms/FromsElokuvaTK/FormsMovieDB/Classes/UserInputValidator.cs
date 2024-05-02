@@ -1,4 +1,6 @@
-﻿namespace FormsMovieDB.Classes
+﻿using System.Text.RegularExpressions;
+
+namespace FormsMovieDB.Classes
 {
     sealed class UserInputValidator
     {
@@ -47,8 +49,11 @@
             if (input.Length >= _maxEmailLength)
                 return false;
 
-            if (input.Contains("@") == false && input.Contains(".") == false)
+            string regex = @"^[\w.-]+@[\w.-]+.\w{2,}$";
+            if (!Regex.IsMatch(input, regex, RegexOptions.IgnoreCase))
+            {
                 return false;
+            }
 
             return true;
         }
