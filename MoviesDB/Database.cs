@@ -16,7 +16,7 @@ namespace MoviesDB
 
         public Database()
         {
-            _host = "10.146.4.49";
+            _host = "mc.koudata.fi";
             _database = "moviedb";
             _user = "app";
             _password = "databaseApp!";
@@ -55,7 +55,8 @@ namespace MoviesDB
                         Convert.ToInt32(dataRow["Length"]),
                         Convert.ToDouble(dataRow["Rating"]),
                         Convert.ToString(dataRow["Genres"]),
-                        Convert.ToString(dataRow["MainActors"])
+                        Convert.ToString(dataRow["MainActors"]),
+                        Convert.ToString(dataRow["Image"])
                     );
 
                     movies.Add(movie);
@@ -73,21 +74,24 @@ namespace MoviesDB
 
         public void InsertMovie(Movie movie)
         {
-            string query = $"INSERT INTO movies (Name, Director, ReleaseYear, Length, Rating, Genres, MainActors) VALUES (" +
+            double rounded = Math.Round(movie.Arvio, 1);
+            string Arvio = rounded.ToString().Replace(',','.');
+
+            string query = $"INSERT INTO movies (Name, Director, ReleaseYear, Length, Rating, Genres, MainActors, Image) VALUES (" +
                 $"\"{movie.Nimi}\"," +
                 $"\"{movie.Ohjaaja}\"," +
                 $"{movie.Julkaistu}," +
                 $"{movie.Pituus}," +
-                $"{movie.Arvio}," +
+                $"\"{Arvio}\"," +
                 $"\"{movie.Genre}\"," +
-                $"\"{movie.Päänäyttelijät}\"" +
+                $"\"{movie.Päänäyttelijät}\"," +
+                $"\"{movie.Image}\"" +
                 $");";
 
             OpenConnection();
 
             MySqlCommand mySqlCommand = new MySqlCommand(query, _connection);
             mySqlCommand.ExecuteNonQuery();
-
             CloseConnection();
         }
 

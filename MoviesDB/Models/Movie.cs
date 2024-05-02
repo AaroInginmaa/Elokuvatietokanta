@@ -2,18 +2,21 @@
 {
     public class Movie
     {
-        public Movie(string nimi = "", int idElokuvat = 0, string ohjaaja = "", int julkaistu = 0, int pituus = 0, double arvio = 0.0, string genre = "", string päänäyttelijät = "")
+        public Movie(string nimi = "", int idElokuvat = 0, string ohjaaja = "", int julkaistu = 0, int pituus = 0, double arvio = 0.0, string genre = "", string päänäyttelijät = "", string image = "")
         {
             Nimi = nimi;
             IdElokuvat = idElokuvat;
             Ohjaaja = ohjaaja;
             Julkaistu = julkaistu;
             Pituus = pituus;
-            Arvio = arvio;
+            Arvio = Math.Round(arvio, 1);
             Genre = genre;
             Päänäyttelijät = päänäyttelijät;
+            Image = image;
+
         }
         public int IdElokuvat { get; private set; }
+
         public string Nimi { get; set; }
         public string Ohjaaja { get; set; }
         public int Julkaistu { get; set; }
@@ -21,6 +24,7 @@
         public double Arvio { get; set; }
         public string Genre { get; set; }
         public string Päänäyttelijät { get; set; }
+        public string Image { get; set; }
     }
 
     public class User

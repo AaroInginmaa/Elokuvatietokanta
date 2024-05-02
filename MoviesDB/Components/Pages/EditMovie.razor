@@ -21,7 +21,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="julkaistu" class="form-label">Julkaistu</label>
+            <label for="julkaistu" class="form-label">Julkaistu (1888 jälkeen)</label>
             <InputNumber id="julkaistu" @bind-Value="_movie.Julkaistu" class="form-control" />
             <div class="form-text">Release year</div>
         </div>
@@ -48,6 +48,11 @@
             <InputText id="päänäyttelijät" @bind-Value="_movie.Päänäyttelijät" class="form-control" />
             <div class="form-text">Main actors</div>
         </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Linkki kuvaan</label>
+            <InputText id="image" @bind-Value="_movie.Image" class="form-control" />
+            <div class="form-text">Enter image's link. *Not required</div>
+        </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -57,14 +62,22 @@
     [SupplyParameterFromForm]
     private Movie _movie { get; set; } = new(string.Empty);
     private bool IncorrectInput { get; set; }
+    private bool IncorrectArvio { get; set; }
     private Database _database = new Database();
 
     private void HandleSubmit()
     {
         if (_movie.Nimi != string.Empty && _movie.Ohjaaja != string.Empty && _movie.Julkaistu >= 1888 && _movie.Pituus > 0 && _movie.Genre != string.Empty && _movie.Päänäyttelijät != string.Empty &&_database.CheckMovies(_movie) == false)
-        { 
-            _database.InsertMovie(_movie);
-            NavigationManager.NavigateTo("/movies");
+        {
+            if (0 <= _movie.Arvio && _movie.Arvio <= 10)
+            {
+                _database.InsertMovie(_movie);
+                NavigationManager.NavigateTo("/movies");
+            }
+            else
+            {
+                IncorrectArvio = true;
+            }
         }
         else
         {
@@ -79,6 +92,14 @@
     <br />
     <div class="alert alert-danger fade-in" role="alert">
         Fill in the fields correctly.
+    </div>
+
+}
+@if (IncorrectArvio)
+{
+    <br />
+    <div class="alert alert-danger fade-in" role="alert">
+        Please give rating between 0  - 10.
     </div>
 
 }

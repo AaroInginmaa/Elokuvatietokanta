@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj": {}
+    "C:\\Users\\Eino.Taimisto\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj": {}
   },
   "projects": {
-    "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj": {
+    "C:\\Users\\Eino.Taimisto\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj",
+        "projectUniqueName": "C:\\Users\\Eino.Taimisto\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj",
         "projectName": "MoviesDB",
-        "projectPath": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj",
-        "packagesPath": "C:\\Users\\Luka Kinnunen\\.nuget\\packages\\",
-        "outputPath": "C:\\Kouluhommat\\Elokuvatietokanta\\MoviesDB\\obj\\",
+        "projectPath": "C:\\Users\\Eino.Taimisto\\Elokuvatietokanta\\MoviesDB\\MoviesDB.csproj",
+        "packagesPath": "C:\\Users\\Eino.Taimisto\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Eino.Taimisto\\Elokuvatietokanta\\MoviesDB\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Luka Kinnunen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Eino.Taimisto\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

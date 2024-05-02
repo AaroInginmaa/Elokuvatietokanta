@@ -34,6 +34,7 @@
     [SupplyParameterFromForm]
     private User _user { get; set; } = new(string.Empty);
     public bool UserAlreadyExists { get; set; }
+    public bool EmailIsTaken { get; set; }
     public bool FillAllAlert { get; set; }
     public bool PasswordMatchNot { get; set; }
     public bool IncorrectName { get; set; }
@@ -50,6 +51,7 @@
             )
         {
             bool userExists = _database.CheckUserExistence(_user);
+            bool passCorr = _database.CheckUserPassword(_user);
 
             if (_Check.CheckPassword(_user) == true && _user.Password == _user.ConfirmPassword)
             {
@@ -58,10 +60,14 @@
                     _database.InsertUser(_user);
                     NavigationManager.NavigateTo("/editmovie");
                 }
-                else
+                else if (userExists)
                 {
                     UserAlreadyExists = true;
                 }
+            }
+            else if (!passCorr)
+            {
+                IncorrectPassword = true;
             }
             else
             {
@@ -79,7 +85,7 @@
 {
     <br />
     <div class="alert alert-danger fade-in" role="alert">
-        User already exists.
+        User already exists or email is taken.
     </div>
 }
 
