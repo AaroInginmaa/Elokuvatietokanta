@@ -47,8 +47,8 @@ def logInPage():
     def contents():
         global loginNameLabel, loginPWordLabel, loginName, loginPWord, checkBoxHideShow, loginButton, backButton, onOff
         
-        loginNameLabel = tk.Label(text="name/Sähköposti")
-        loginPWordLabel = tk.Label(text="password")
+        loginNameLabel = tk.Label(text="Nimi/Sähköposti")
+        loginPWordLabel = tk.Label(text="Salasana")
         loginName = tk.Entry()
         loginPWord = tk.Entry()
         loginPWord.configure(show="*")
@@ -79,7 +79,7 @@ def logInPage():
         pWordCheck = loginPWord.get()
 
         if not nameEntry or not pWordCheck:
-            messagebox.showerror("Tyhjät kentät", "Täytä name/Sähköposti ja password kentät.")
+            messagebox.showerror("Tyhjät kentät", "Täytä Nimi/Sähköposti ja password kentät.")
             return
 
         db = mysql.connector.connect(host="mc.koudata.fi", user="app", password="databaseApp!" , database="moviedb")
@@ -113,7 +113,7 @@ def registerPage():
     def contents():
         global registerName, registerEmail, registerPWord, registerNameLabel, registerEmailLabel, registerPasswordLabel, registerButton, backButton, checkBoxHideShow, onOff
         
-        registerNameLabel = tk.Label(text="name")
+        registerNameLabel = tk.Label(text="Nimi")
         registerEmailLabel = tk.Label(text="Sähköposti")
         registerPasswordLabel = tk.Label(text="password")
         registerName = tk.Entry()
@@ -237,7 +237,7 @@ def mainWindow():
     def contents():
         global combo, listbox
         
-        combo = ttk.Combobox(values=["name ↑", "Pituus ↑", "Julkaistu ↑", "name ↓", "Pituus ↓", "Julkaistu ↓"])
+        combo = ttk.Combobox(values=["Nimi ↑", "Pituus ↑", "Julkaistu ↑", "Nimi ↓", "Pituus ↓", "Julkaistu ↓"])
         combo.place(x=50, y=50)
         
         monospaced_font = ("Courier", 12)
