@@ -1,6 +1,11 @@
-import tkinter as tk
+import tkinter as tk # pip install tk
+
+# pip install mysql.connector
+# Jos saat errorin  Authentication plugin 'caching_sha2_password' is not supported
+# Asenna mysql-connector ja mysql-connector-python pip:llä
+import mysql.connector 
+
 from tkinter import *
-import mysql.connector
 from tkinter import ttk
 from tkinter import messagebox
 import re
@@ -41,8 +46,8 @@ def logInPage():
     def contents():
         global loginNameLabel, loginPWordLabel, loginName, loginPWord, loginButton, backButton
         
-        loginNameLabel = tk.Label(text="Nimi/Sähköposti")
-        loginPWordLabel = tk.Label(text="Salasana")
+        loginNameLabel = tk.Label(text="name/Sähköposti")
+        loginPWordLabel = tk.Label(text="password")
         loginName = tk.Entry()
         loginPWord = tk.Entry()
         loginButton = tk.Button(text="Kirjaudu", command=clickLogin)
@@ -60,13 +65,13 @@ def logInPage():
         pWordCheck = loginPWord.get()
 
         if not nameEntry or not pWordCheck:
-            messagebox.showerror("Tyhjät kentät", "Täytä Nimi/Sähköposti ja Salasana kentät.")
+            messagebox.showerror("Tyhjät kentät", "Täytä name/Sähköposti ja password kentät.")
             return
 
-        db = mysql.connector.connect(host="localhost", user="root", database="elokuvatietokanta")
+        db = mysql.connector.connect(host="mc.koudata.fi", user="dbuser", password="Nakkikastike123!", database="moviedb")
         cursor = db.cursor()
 
-        sql = "SELECT * FROM kayttajat WHERE (nimi = %s OR sahkoposti = %s) AND salasana = %s"
+        sql = "SELECT * FROM usertable WHERE (username = %s OR email = %s) AND password = %s"
         cursor.execute(sql, (nameEntry, nameEntry, pWordCheck))
         user = cursor.fetchone()
 
@@ -94,9 +99,9 @@ def registerPage():
     def contents():
         global registerName, registerEmail, registerPWord, registerNameLabel, registerEmailLabel, registerPasswordLabel, registerButton, backButton
         
-        registerNameLabel = tk.Label(text="Nimi")
+        registerNameLabel = tk.Label(text="name")
         registerEmailLabel = tk.Label(text="Sähköposti")
-        registerPasswordLabel = tk.Label(text="Salasana")
+        registerPasswordLabel = tk.Label(text="password")
         registerName = tk.Entry()
         registerEmail = tk.Entry()
         registerPWord = tk.Entry()
@@ -128,26 +133,26 @@ def registerPage():
             return
 
         if not validatePassword(pWordCheck):
-            messagebox.showerror("Virheellinen salasana", "Salasanan täytyy olla vähintään 6 merkkiä pitkä, sisältää vähintään yhden ison kirjaimen, ja yhden erikoismerkin (!#&%$€£@?).")
+            messagebox.showerror("Virheellinen password", "Salasanan täytyy olla vähintään 6 merkkiä pitkä, sisältää vähintään yhden ison kirjaimen, ja yhden erikoismerkin (!#&%$€£@?).")
             return
 
         checkExistingUsers()
 
     def checkExistingUsers():
-        db = mysql.connector.connect(host="localhost", user="root", database="elokuvatietokanta")
+        db = mysql.connector.connect(host="mc.koudata.fi", user="dbuser", password="Nakkikastike123!", database="moviedb")
         cursor = db.cursor()
 
         username = nameCheck
         email = emailCheck
 
-        cursor.execute('SELECT nimi FROM kayttajat WHERE nimi = %(username)s', {'username': username})
+        cursor.execute('SELECT name FROM usertable WHERE username = %(username)s', {'username': username})
         checkUsername = cursor.fetchall()
         isTakenname = False
         for row in checkUsername:
             if(row[0] == username):
                 isTakenname = True
 
-        cursor.execute('SELECT sahkoposti FROM kayttajat WHERE sahkoposti = %(email)s', {'email': email})
+        cursor.execute('SELECT email FROM usertable WHERE email = %(email)s', {'email': email})
         checkEmail = cursor.fetchall()
         isEmailTaken = False
         for row in checkEmail:
@@ -178,9 +183,9 @@ def registerPage():
         return True
 
     def saveToDataBase():
-        db = mysql.connector.connect(host="localhost", user="root", database="elokuvatietokanta")
+        db = mysql.connector.connect(host="mc.koudata.fi", user="dbuser", password="Nakkikastike123!", database="moviedb")
         cursor = db.cursor()
-        sql = "INSERT INTO kayttajat (nimi, sahkoposti, salasana) VALUES (%s, %s, %s)"
+        sql = "INSERT INTO usertable (username, email, password) VALUES (%s, %s, %s)"
         values = (nameCheck, emailCheck, pWordCheck)
         cursor.execute(sql, values)
         db.commit()
@@ -198,13 +203,13 @@ def registerPage():
 
 def mainWindow():
     
-    mydb = mysql.connector.connect(host="localhost", user="root", password="", database="elokuvatietokanta")
+    mydb = mysql.connector.connect(host="mc.koudata.fi", user="dbuser", password="Nakkikastike123!", database="moviedb")
     mycursor = mydb.cursor()
     
     def contents():
         global combo, listbox
         
-        combo = ttk.Combobox(values=["Nimi ↑", "Pituus ↑", "Julkaistu ↑", "Nimi ↓", "Pituus ↓", "Julkaistu ↓"])
+        combo = ttk.Combobox(values=["name ↑", "Pituus ↑", "Julkaistu ↑", "name ↓", "Pituus ↓", "Julkaistu ↓"])
         combo.place(x=50, y=50)
         
         monospaced_font = ("Courier", 12)
@@ -217,7 +222,7 @@ def mainWindow():
 
         searchButton = ttk.Button(text="Elokuvalista", command=showMovieList).place(x=70, y=45)
 
-        nameLabel = ttk.Label(text="Nimi").place(x=70, y=100)
+        nameLabel = ttk.Label(text="name").place(x=70, y=100)
         nameAdd = ttk.Entry(width=30)
         nameAdd.place(x=70, y=120)
         
@@ -260,7 +265,7 @@ def mainWindow():
         
         if all(val) and validateYear(publish):
             try:
-                sql = "INSERT INTO elokuvat (nimi, ohjaaja, julkaisuvuosi, kesto, genre, paa_nayttelija, arvostelu) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+                sql = "INSERT INTO movies (Name, Director, ReleaseYear, Lenght, Genres, MainActors, Rating) VALUES (%s, %s, %s, %s, %s, %s, %s)"
                 mycursor.execute(sql, val)
                 mydb.commit()
                 print(mycursor.rowcount, " elokuva lisätty.")
@@ -300,14 +305,14 @@ def mainWindow():
         elif combo.get().endswith("^"):
             order = f" ORDER BY {combo.get()[:-2]} ASC"
 
-        mycursor.execute(f"SELECT * FROM elokuvat{order}")
+        mycursor.execute(f"SELECT * FROM movies{order}")
         myresult = mycursor.fetchall()
 
         movieListWindow(myresult)
         
     def deleteData(val):
         try:
-            sql = f'DELETE FROM elokuvat WHERE nimi="{val[0]}" and ohjaaja="{val[1]}" and julkaisuvuosi="{val[2]}" and kesto="{val[3]}" and genre="{val[4]}" and paa_nayttelija="{val[5]}" and arvostelu="{val[6]}"'
+            sql = f'DELETE FROM movies WHERE name="{val[0]}" and ohjaaja="{val[1]}" and julkaisuvuosi="{val[2]}" and kesto="{val[3]}" and genre="{val[4]}" and paa_nayttelija="{val[5]}" and arvostelu="{val[6]}"'
             mycursor.execute(sql)
             mydb.commit()
             print(mycursor.rowcount, " elokuva poistettu")
