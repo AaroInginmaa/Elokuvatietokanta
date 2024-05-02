@@ -11,7 +11,7 @@ namespace FormsMovieDB
             string genres = null,
             string mainActors = null,
             string director = null,
-            double rating = 0,
+            decimal rating = 0,
             string image = null)
         {
             Id = 0;
@@ -34,7 +34,7 @@ namespace FormsMovieDB
             string genres = null,
             string mainActors = null,
             string director = null,
-            double rating = 0,
+            decimal rating = 0,
             string image = null)
         {
             Id = id;
@@ -56,7 +56,7 @@ namespace FormsMovieDB
         public string Genres { get; private set; }
         public string MainActors { get; private set; }
         public string Director { get; private set; }
-        public double Rating { get; private set; }
+        public decimal Rating { get; private set; }
         public string Image { get; private set; }
         
     }

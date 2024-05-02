@@ -226,7 +226,7 @@ namespace FormsMovieDB
                 Convert.ToString(movieDataRow["Genres"]),
                 Convert.ToString(movieDataRow["MainActors"]),
                 Convert.ToString(movieDataRow["Director"]),
-                Convert.ToDouble(movieDataRow["Rating"]),
+                Convert.ToDecimal(movieDataRow["Rating"]),
                 Convert.ToString(movieDataRow["Image"]));
 
             return movie;
