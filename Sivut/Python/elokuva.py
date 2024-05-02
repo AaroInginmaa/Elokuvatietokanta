@@ -10,6 +10,7 @@ from tkinter import ttk
 from tkinter import messagebox
 import re
 import datetime
+import decimal
 
 def loginRegisterPage():
     
@@ -44,21 +45,34 @@ def loginRegisterPage():
 
 def logInPage():
     def contents():
-        global loginNameLabel, loginPWordLabel, loginName, loginPWord, loginButton, backButton
+        global loginNameLabel, loginPWordLabel, loginName, loginPWord, checkBoxHideShow, loginButton, backButton, onOff
         
         loginNameLabel = tk.Label(text="name/Sähköposti")
         loginPWordLabel = tk.Label(text="password")
         loginName = tk.Entry()
         loginPWord = tk.Entry()
+        loginPWord.configure(show="*")
+        onOff = BooleanVar(value=False)
+        checkBoxHideShow = tk.Checkbutton(text='Näytä salasana', variable=onOff, onvalue=True, offvalue=False, command=showHide)
+
+            
         loginButton = tk.Button(text="Kirjaudu", command=clickLogin)
         backButton = tk.Button(text="Palaa", command=clickBack)
         
         loginNameLabel.place(relx=.5, rely=.1, anchor=CENTER)
         loginName.place(relx=.5, rely=.2, anchor=CENTER)
         loginPWordLabel.place(relx=.5, rely=.3, anchor=CENTER)
+        checkBoxHideShow.place(relx=.8, rely=.4, anchor=CENTER)
         loginPWord.place(relx=.5, rely=.4, anchor=CENTER)
         loginButton.place(relx=.5, rely=.5, anchor=CENTER)
         backButton.place(relx=.5, rely=.8, anchor=CENTER)
+    
+    def showHide():
+        if onOff.get() == False:
+            loginPWord.configure(show="*")
+        else:
+            loginPWord.configure(show="")
+    
     
     def clickLogin():
         nameEntry = loginName.get()
@@ -68,7 +82,7 @@ def logInPage():
             messagebox.showerror("Tyhjät kentät", "Täytä name/Sähköposti ja password kentät.")
             return
 
-        db = mysql.connector.connect(host="mc.koudata.fi", user="dbuser", password="Nakkikastike123!", database="moviedb")
+        db = mysql.connector.connect(host="mc.koudata.fi", user="app", password="databaseApp!" , database="moviedb")
         cursor = db.cursor()
 
         sql = "SELECT * FROM usertable WHERE (username = %s OR email = %s) AND password = %s"
@@ -85,7 +99,7 @@ def logInPage():
         db.close()
                
     def clickBack():
-        loginComponents = [loginNameLabel, loginPWordLabel, loginName, loginPWord, loginButton, backButton]
+        loginComponents = [loginNameLabel, loginPWordLabel, loginName, loginPWord, checkBoxHideShow, loginButton, backButton]
         root.title("Valitse")
         root.geometry("300x150")
         for i in loginComponents:
@@ -97,7 +111,7 @@ def logInPage():
 def registerPage():
     
     def contents():
-        global registerName, registerEmail, registerPWord, registerNameLabel, registerEmailLabel, registerPasswordLabel, registerButton, backButton
+        global registerName, registerEmail, registerPWord, registerNameLabel, registerEmailLabel, registerPasswordLabel, registerButton, backButton, checkBoxHideShow, onOff
         
         registerNameLabel = tk.Label(text="name")
         registerEmailLabel = tk.Label(text="Sähköposti")
@@ -107,16 +121,29 @@ def registerPage():
         registerPWord = tk.Entry()
         registerButton = tk.Button(text="Rekisteröidy", command=clickRegister)
         backButton = tk.Button(text="Palaa", command=clickBack)
-
+        onOff = BooleanVar(value=False)
+        checkBoxHideShow = tk.Checkbutton(text='Näytä salasana', variable=onOff, onvalue=True, offvalue=False, command=showHide)
+        
         registerNameLabel.place(relx=.5, rely=.15, anchor=CENTER)
         registerName.place(relx=.5, rely=.20, anchor=CENTER)
         registerEmailLabel.place(relx=.5, rely=.25, anchor=CENTER)
         registerEmail.place(relx=.5, rely=.30, anchor=CENTER)
         registerPasswordLabel.place(relx=.5, rely=.35, anchor=CENTER)
+        checkBoxHideShow.place(relx=.8, rely=.40, anchor=CENTER)
         registerPWord.place(relx=.5, rely=.40, anchor=CENTER)
         registerButton.place(relx=.5, rely=.50, anchor=CENTER)
         backButton.place(relx=.5, rely=.8, anchor=CENTER)
+        
+        showHide()
     
+    def showHide():
+        if onOff.get() == False:
+            registerPWord.configure(show="*")
+        else:
+            registerPWord.configure(show="")
+    
+
+
     def clickRegister():
         global nameCheck, emailCheck, pWordCheck
         
@@ -139,13 +166,14 @@ def registerPage():
         checkExistingUsers()
 
     def checkExistingUsers():
-        db = mysql.connector.connect(host="mc.koudata.fi", user="dbuser", password="Nakkikastike123!", database="moviedb")
+        db = mysql.connector.connect(host="mc.koudata.fi", user="app", password="databaseApp!" , database="moviedb")
         cursor = db.cursor()
-
+        
+        
         username = nameCheck
         email = emailCheck
 
-        cursor.execute('SELECT name FROM usertable WHERE username = %(username)s', {'username': username})
+        cursor.execute('SELECT username FROM usertable WHERE username = %(username)s', {'username': username})
         checkUsername = cursor.fetchall()
         isTakenname = False
         for row in checkUsername:
@@ -183,7 +211,7 @@ def registerPage():
         return True
 
     def saveToDataBase():
-        db = mysql.connector.connect(host="mc.koudata.fi", user="dbuser", password="Nakkikastike123!", database="moviedb")
+        db = mysql.connector.connect(host="mc.koudata.fi", user="app", password="databaseApp!" , database="moviedb")
         cursor = db.cursor()
         sql = "INSERT INTO usertable (username, email, password) VALUES (%s, %s, %s)"
         values = (nameCheck, emailCheck, pWordCheck)
@@ -203,7 +231,7 @@ def registerPage():
 
 def mainWindow():
     
-    mydb = mysql.connector.connect(host="mc.koudata.fi", user="dbuser", password="Nakkikastike123!", database="moviedb")
+    mydb = mysql.connector.connect(host="mc.koudata.fi", user="app", password="databaseApp!" , database="moviedb")
     mycursor = mydb.cursor()
     
     def contents():
@@ -220,33 +248,41 @@ def mainWindow():
         listbox.config(yscrollcommand=scrollbar.set)    
         scrollbar.config(command=listbox.yview) 
 
-        searchButton = ttk.Button(text="Elokuvalista", command=showMovieList).place(x=70, y=45)
+        movieListButton = ttk.Button(text="Elokuvalista", command=showMovieList)
+        movieListButton.place(x=70, y=45)
+        
+        searchMovie = ttk.Entry(width=30)
+        searchMovie.place(x=250, y=70)
+        
+        SearchMovieButton = ttk.Button(text="Hae elokuvaa", command=lambda: searchMovieList((str(searchMovie.get()))))
+        SearchMovieButton.place(x=250, y=45)
 
-        nameLabel = ttk.Label(text="name").place(x=70, y=100)
+        
+        nameLabel = ttk.Label(text="Nimi").place(x=70, y=100)
         nameAdd = ttk.Entry(width=30)
         nameAdd.place(x=70, y=120)
         
-        directorLabel = ttk.Label(text="Ohjaaja").place(x=70, y=145)
+        directorLabel = ttk.Label(text="Pituus").place(x=70, y=145)
         directorAdd = ttk.Entry(width=30)
         directorAdd.place(x=70, y=165)
         
-        publishLabel = ttk.Label(text="Julkaisuvuosi").place(x=70, y=190)
+        publishLabel = ttk.Label(text="Julkaistu").place(x=70, y=190)
         publishAdd = ttk.Entry(width=30)
         publishAdd.place(x=70, y=210)
         
-        lenghtLabel = ttk.Label(text="Pituus (Minuutteina)").place(x=70, y=235)
+        lenghtLabel = ttk.Label(text="Genre").place(x=70, y=235)
         lenghtAdd = ttk.Entry(width=30)
         lenghtAdd.place(x=70, y=255)
         
-        genreLabel = ttk.Label(text="Genre").place(x=70, y=280)
+        genreLabel = ttk.Label(text="Päänäyttelijät").place(x=70, y=280)
         genreAdd = ttk.Entry(width=30)
         genreAdd.place(x=70, y=300)
         
-        actorLabel = ttk.Label(text="Päänäyttelijä").place(x=70, y=325)
+        actorLabel = ttk.Label(text="Ohjaaja").place(x=70, y=325)
         actorAdd = ttk.Entry(width=30)
         actorAdd.place(x=70, y=345)
         
-        reviewLabel = ttk.Label(text="Arvostelu (0-10)").place(x=70, y=370)
+        reviewLabel = ttk.Label(text="Arvio (0-10)").place(x=70, y=370)
         reviewAdd = ttk.Entry(width=30)
         reviewAdd.place(x=70, y=390)
         
@@ -257,22 +293,68 @@ def mainWindow():
         deleteButton.place(x=170, y=420)
     
     def addData(val):
-        publish = val[2]
-    
-        if not validateYear(publish):
+        name = val[0]
+        length = val[1]
+        realeseYear = val[2]
+        genre = val[3]
+        actor = val[4]
+        director = val[5]
+        rating = val[6]
+        
+        if len(name) == 0:
+            messagebox.showerror("Virheellinen nimi", "Syötä kelvollinen nimi")
+            return
+            
+        if not validateLength(length):
+            messagebox.showerror("Virheellinen pituus", "Syötä kelvollinen pituus")
+            return
+        
+        if not validateYear(realeseYear):
             messagebox.showerror("Virheellinen julkaisuvuosi", "Syötä kelvollinen julkaisuvuosi.")
             return
         
-        if all(val) and validateYear(publish):
+        if not validateGenre(genre):
+            messagebox.showerror("Virheellinen genre", "Syötä kelvollinen genre")
+            return
+        
+        if not validateActor(actor):
+            messagebox.showerror("Virheellinen päänäyttelijä", "Syötä kelvollinen päänäyttelijä")
+            return
+        
+        if not validateDirector(director):
+            messagebox.showerror("Virheellinen ohjaaja", "Syötä kelvollinen ohjaaja")
+            return
+        
+        if (all(val) and validateYear(realeseYear) and validateLength(length) and validateGenre(genre)
+            and validateActor(actor) and validateDirector(director) and validateRating(rating)):
             try:
-                sql = "INSERT INTO movies (Name, Director, ReleaseYear, Lenght, Genres, MainActors, Rating) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-                mycursor.execute(sql, val)
-                mydb.commit()
-                print(mycursor.rowcount, " elokuva lisätty.")
+                CheckDuplicate = f"SELECT * FROM movies WHERE Name = '{name}' and ReleaseYear = '{realeseYear}'"
+                mycursor.execute(CheckDuplicate)
+                result = mycursor.fetchall()
+                if result:
+                    messagebox.showerror("Virhe!", "Elokuva on jo tietokannasaa")
+                elif not result:
+                    sql = "INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+                    mycursor.execute(sql, val)
+                    mydb.commit()
+                    print(mycursor.rowcount, " elokuva lisätty.")
+                else:
+                    messagebox.showerror("Virhe tapahtui lisätessä elokuvaa")
             except mysql.connector.errors.IntegrityError as e:
-                print("Elokuva on jo tietokannassa")
-                messagebox.showerror("Virhe!", "Elokuva on jo tietokannassa.")
+                print(e)
+                messagebox.showerror("Virhe!", e)
+        else:
+            messagebox.showerror("Virhe!", "Jokin tieto on väärin")
             
+    def validateLength(Length):
+        try:
+            if Length.isdigit() == True:
+                return True
+            else:
+                return False
+        except ValueError:
+            return False        
+    
     def validateYear(year):
         try:
             year = int(year)
@@ -284,21 +366,63 @@ def mainWindow():
         except ValueError:
             return False
     
-    def movieListWindow(movie_data):
-        movie_list_window = tk.Toplevel()
-        movie_list_window.title("Elokuvalista")
+    def validateGenre(Genre):
+        res = bool(re.match('[a-zA-Z\s]+$', Genre))
+        try:
+            if res == True:
+                return True
+            else:
+                return False
+        except ValueError:
+            return False
         
-        listbox = Listbox(movie_list_window, width=150, height=50)
-        scrollbar = Scrollbar(movie_list_window, orient=VERTICAL, command=listbox.yview)
-        scrollbar.pack(side=RIGHT, fill=Y)
-        listbox.pack(side=LEFT, fill=BOTH, expand=True)
-        listbox.config(yscrollcommand=scrollbar.set)
-
-        for movie in movie_data:
-            movie_info = f"\nNimi: {movie[1]}    Ohjaaja: {movie[2]}    Julkaisuvuosi: {movie[3]}    Kesto: {movie[4]}min    Genre: {movie[5]}    Päänäyttelijä: {movie[6]}    Arvostelu: {movie[7]}★"
-            listbox.insert(END, movie_info)
+    def validateActor(Actor):
+        res = bool(re.match('[a-zA-Z\s]+$', Actor))
+        try:
+            if res == True:
+                return True
+            else:
+                return False
+        except ValueError:
+            return False
+        
+    def validateDirector(Director):
+        res = bool(re.match('[a-zA-Z\s]+$', Director))
+        try:
+            if res == True:
+                return True
+            else:
+                return False
+        except ValueError:
+            return False
+        
+    def validateRating(Rating):
+        try:
+            Rating = float(Rating)
+            if 0 <= Rating <= 10:
+                return True
+            else:
+                return False
+        except ValueError:
+            return False
     
     def showMovieList():
+        movie_list_window = tk.Toplevel(root)
+        movie_list_window.title("Elokuvalista")
+        
+        my_canvas = Canvas(movie_list_window)
+        my_canvas.pack(side=LEFT, fill=BOTH, expand=1)
+        
+        scrollbar = Scrollbar(movie_list_window, orient=VERTICAL, command=my_canvas.yview)
+        scrollbar.pack(side=RIGHT, fill=Y)
+
+        
+        my_canvas.configure(yscrollcommand=scrollbar.set)
+        my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion=my_canvas.bbox("all")))
+
+        second_frame = Frame(my_canvas)
+        my_canvas.create_window((0, 0), window=second_frame, anchor="nw")
+
         order = ""
         if combo.get().endswith("V"):
             order = f" ORDER BY {combo.get()[:-2]} DESC"
@@ -308,11 +432,35 @@ def mainWindow():
         mycursor.execute(f"SELECT * FROM movies{order}")
         myresult = mycursor.fetchall()
 
-        movieListWindow(myresult)
+        for idx, movie in enumerate(myresult, start=1):
+            movie_frame = ttk.LabelFrame(second_frame, text=f"Elokuva {idx}", width=500)
+            movie_frame.pack(fill="x", padx=10, pady=5, anchor="w")
+
+            movie_info = f"Nimi: {movie[1]}\nPituus: {movie[2]}\nJulkaistu: {movie[3]}\nGenre: {movie[4]}\nPäänäyttelijät: {movie[5]}\nOhjaaja: {movie[6]}\nArvio: {movie[7]}"
+            movie_label = ttk.Label(movie_frame, text=movie_info, wraplength=400, justify="left")
+            movie_label.pack(padx=10, pady=5, anchor="w")
+
+        
+    def searchMovieList(val):
+        search = val
+        mycursor.execute(f"SELECT * FROM movies WHERE Name LIKE '%{search}%'")
+        searchResult = mycursor.fetchall()
+        
+        
+        movie_list_window = tk.Toplevel(root)
+        movie_list_window.title("Elokuvalista")
+
+        for idx, movie in enumerate(searchResult, start=1):
+            movie_frame = ttk.LabelFrame(movie_list_window, text=f"Elokuva {idx}", width=500)
+            movie_frame.pack(fill="x", padx=10, pady=5, anchor="w")
+
+            movie_info = f"Nimi: {movie[1]}\nPituus: {movie[2]}\nJulkaistu: {movie[3]}\nGenre: {movie[4]}\nPäänäyttelijät: {movie[5]}\nOhjaaja: {movie[6]}\nArvio: {movie[7]}"
+            movie_label = ttk.Label(movie_frame, text=movie_info, wraplength=400, justify="left")
+            movie_label.pack(padx=10, pady=5, anchor="w")
         
     def deleteData(val):
         try:
-            sql = f'DELETE FROM movies WHERE name="{val[0]}" and ohjaaja="{val[1]}" and julkaisuvuosi="{val[2]}" and kesto="{val[3]}" and genre="{val[4]}" and paa_nayttelija="{val[5]}" and arvostelu="{val[6]}"'
+            sql = f'DELETE FROM movies WHERE Name="{val[0]}"'
             mycursor.execute(sql)
             mydb.commit()
             print(mycursor.rowcount, " elokuva poistettu")
