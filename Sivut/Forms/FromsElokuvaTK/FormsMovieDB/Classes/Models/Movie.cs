@@ -37,7 +37,7 @@ namespace FormsMovieDB
             double rating = 0,
             string image = null)
         {
-            Id = 0;
+            Id = id;
             Name = name;
             Length = length;
             ReleaseYear = releaseYear;

@@ -200,10 +200,11 @@ namespace FormsMovieDB
 
         public Movie SelectMovieById(int id)
         {
-            string selectQuery = $"SELECT * FROM moviedb.movies WHERE idMovies = '{id}'";
+            string selectQuery = "SELECT * FROM moviedb.movies WHERE idMovies = @Id";
 
             OpenConnection();
             MySqlCommand mySqlCommand = new MySqlCommand(selectQuery, _connection);
+            mySqlCommand.Parameters.AddWithValue("@Id", id);
 
             MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
 
@@ -214,7 +215,7 @@ namespace FormsMovieDB
 
             if (dataTable.Rows.Count <= 0)
                 throw new Exception("Movie wasn't found");
-                
+
             DataRow movieDataRow = dataTable.Rows[0];
 
             Movie movie = new Movie(

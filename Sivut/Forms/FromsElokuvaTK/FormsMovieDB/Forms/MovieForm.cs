@@ -36,6 +36,7 @@ namespace FormsMovieDB
             _director.Text = _movie.Director.ToString();
             _genre.Text = _movie.Genres.ToString();
             _length.Text = $"{_movie.Length} minutes";
+            _mainactors.Text=_movie.MainActors.ToString();
             
         }
 	}
