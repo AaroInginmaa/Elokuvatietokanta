@@ -419,6 +419,16 @@ def mainWindow():
         
         my_canvas.configure(yscrollcommand=scrollbar.set)
         my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion=my_canvas.bbox("all")))
+        
+        def _on_mousewheel(event):
+            my_canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        def _bind_to_mousewheel(event):
+            my_canvas.bind_all("<MouseWheel>", _on_mousewheel)
+        def _unbind_from_mousewheel(event):
+            my_canvas.unbind_all("<MouseWheel>")
+            
+        my_canvas.bind('<Enter>', _bind_to_mousewheel)
+        my_canvas.bind('<Leave>', _unbind_from_mousewheel)
 
         second_frame = Frame(my_canvas)
         my_canvas.create_window((0, 0), window=second_frame, anchor="nw")
