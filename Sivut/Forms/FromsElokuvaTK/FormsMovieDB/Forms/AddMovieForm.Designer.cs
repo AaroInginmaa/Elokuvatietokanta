@@ -31,6 +31,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.ImageURL = new System.Windows.Forms.Label();
+            this.ImageURLText = new System.Windows.Forms.RichTextBox();
             this.MainActorsText = new System.Windows.Forms.Label();
             this.AddMovieButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.MovieNameLable = new System.Windows.Forms.Label();
             this.AddMovieLable = new System.Windows.Forms.Label();
             this.MovieTextBox = new System.Windows.Forms.RichTextBox();
-            this.ImageURL = new System.Windows.Forms.Label();
-            this.ImageURLText = new System.Windows.Forms.RichTextBox();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RatingNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LengthNumUpDown)).BeginInit();
@@ -104,6 +104,26 @@
             this.panel3.Size = new System.Drawing.Size(510, 795);
             this.panel3.TabIndex = 2;
             // 
+            // ImageURL
+            // 
+            this.ImageURL.AutoSize = true;
+            this.ImageURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImageURL.Location = new System.Drawing.Point(95, 402);
+            this.ImageURL.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ImageURL.Name = "ImageURL";
+            this.ImageURL.Size = new System.Drawing.Size(99, 22);
+            this.ImageURL.TabIndex = 30;
+            this.ImageURL.Text = "Image URL";
+            // 
+            // ImageURLText
+            // 
+            this.ImageURLText.Location = new System.Drawing.Point(99, 429);
+            this.ImageURLText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ImageURLText.Name = "ImageURLText";
+            this.ImageURLText.Size = new System.Drawing.Size(322, 35);
+            this.ImageURLText.TabIndex = 29;
+            this.ImageURLText.Text = "";
+            // 
             // MainActorsText
             // 
             this.MainActorsText.AutoSize = true;
@@ -129,6 +149,7 @@
             this.AddMovieButton.TabIndex = 23;
             this.AddMovieButton.Text = "Add movie";
             this.AddMovieButton.UseVisualStyleBackColor = false;
+            this.AddMovieButton.Click += new System.EventHandler(this.AddMovieButton_Click);
             // 
             // label7
             // 
@@ -321,26 +342,6 @@
             this.MovieTextBox.Size = new System.Drawing.Size(322, 33);
             this.MovieTextBox.TabIndex = 0;
             this.MovieTextBox.Text = "";
-            // 
-            // ImageURL
-            // 
-            this.ImageURL.AutoSize = true;
-            this.ImageURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImageURL.Location = new System.Drawing.Point(95, 402);
-            this.ImageURL.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ImageURL.Name = "ImageURL";
-            this.ImageURL.Size = new System.Drawing.Size(99, 22);
-            this.ImageURL.TabIndex = 30;
-            this.ImageURL.Text = "Image URL";
-            // 
-            // ImageURLText
-            // 
-            this.ImageURLText.Location = new System.Drawing.Point(99, 429);
-            this.ImageURLText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ImageURLText.Name = "ImageURLText";
-            this.ImageURLText.Size = new System.Drawing.Size(322, 35);
-            this.ImageURLText.TabIndex = 29;
-            this.ImageURLText.Text = "";
             // 
             // AddMovieForm
             // 

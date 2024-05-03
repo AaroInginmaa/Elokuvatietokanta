@@ -47,15 +47,15 @@
 
         }
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Length { get; set; }
-        public int ReleaseYear { get; set; }
-        public string Genres { get; set; }
-        public string MainActors { get; set; }
-        public string Director { get; set; }
-        public decimal Rating { get; set; }
-        public string Image { get; set; }
+        public int Id { get; private set; }
+        public string Name { get; private set; }
+        public int Length { get; private set; }
+        public int ReleaseYear { get; private set; }
+        public string Genres { get; private set; }
+        public string MainActors { get; private set; }
+        public string Director { get; private set; }
+        public decimal Rating { get; private set; }
+        public string Image { get; private set; }
 
     }
 }
