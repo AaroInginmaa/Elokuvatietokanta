@@ -29,8 +29,11 @@ namespace FormsMovieDB
             _title.Text = _movie.Name;
             _rating.Text = _movie.Rating.ToString();
 
-            _picture.Load(_movie.Image);
-            _picture.BackgroundImageLayout = ImageLayout.Zoom;
+            if(_movie.Image!=null && _movie.Image.Contains("."))
+            {
+                _picture.Load(_movie.Image);
+                _picture.BackgroundImageLayout = ImageLayout.Zoom;
+            }
 
             _releaseYear.Text = _movie.ReleaseYear.ToString();
             _director.Text = _movie.Director.ToString();
