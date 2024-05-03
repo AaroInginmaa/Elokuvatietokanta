@@ -121,7 +121,7 @@
             this.ImageURLText.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ImageURLText.Name = "ImageURLText";
             this.ImageURLText.Size = new System.Drawing.Size(322, 35);
-            this.ImageURLText.TabIndex = 29;
+            this.ImageURLText.TabIndex = 5;
             this.ImageURLText.Text = "";
             // 
             // MainActorsText
@@ -146,7 +146,7 @@
             this.AddMovieButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AddMovieButton.Name = "AddMovieButton";
             this.AddMovieButton.Size = new System.Drawing.Size(232, 58);
-            this.AddMovieButton.TabIndex = 23;
+            this.AddMovieButton.TabIndex = 8;
             this.AddMovieButton.Text = "Add movie";
             this.AddMovieButton.UseVisualStyleBackColor = false;
             this.AddMovieButton.Click += new System.EventHandler(this.AddMovieButton_Click);
@@ -168,7 +168,7 @@
             this.DirectorTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DirectorTextBox.Name = "DirectorTextBox";
             this.DirectorTextBox.Size = new System.Drawing.Size(322, 35);
-            this.DirectorTextBox.TabIndex = 16;
+            this.DirectorTextBox.TabIndex = 7;
             this.DirectorTextBox.Text = "";
             // 
             // label6
@@ -184,7 +184,7 @@
             this.MovieStarsTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MovieStarsTextBox.Name = "MovieStarsTextBox";
             this.MovieStarsTextBox.Size = new System.Drawing.Size(322, 35);
-            this.MovieStarsTextBox.TabIndex = 14;
+            this.MovieStarsTextBox.TabIndex = 6;
             this.MovieStarsTextBox.Text = "";
             // 
             // label5
@@ -210,7 +210,7 @@
             0});
             this.RatingNumUpDown.Name = "RatingNumUpDown";
             this.RatingNumUpDown.Size = new System.Drawing.Size(324, 26);
-            this.RatingNumUpDown.TabIndex = 12;
+            this.RatingNumUpDown.TabIndex = 1;
             this.RatingNumUpDown.Value = new decimal(new int[] {
             1,
             0,
@@ -251,7 +251,7 @@
             0});
             this.LengthNumUpDown.Name = "LengthNumUpDown";
             this.LengthNumUpDown.Size = new System.Drawing.Size(150, 26);
-            this.LengthNumUpDown.TabIndex = 7;
+            this.LengthNumUpDown.TabIndex = 2;
             this.LengthNumUpDown.Value = new decimal(new int[] {
             120,
             0,
@@ -296,7 +296,7 @@
             0});
             this.YearNumUpDown.Name = "YearNumUpDown";
             this.YearNumUpDown.Size = new System.Drawing.Size(165, 26);
-            this.YearNumUpDown.TabIndex = 4;
+            this.YearNumUpDown.TabIndex = 3;
             this.YearNumUpDown.Value = new decimal(new int[] {
             1900,
             0,
@@ -309,7 +309,7 @@
             this.GenreTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GenreTextBox.Name = "GenreTextBox";
             this.GenreTextBox.Size = new System.Drawing.Size(322, 35);
-            this.GenreTextBox.TabIndex = 3;
+            this.GenreTextBox.TabIndex = 4;
             this.GenreTextBox.Text = "";
             // 
             // MovieNameLable
