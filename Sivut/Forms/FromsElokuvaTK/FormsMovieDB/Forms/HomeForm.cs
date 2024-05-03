@@ -45,8 +45,17 @@ namespace FormsMovieDB
             pictureBox.Location = new Point(12, 10);
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
 
-            if (movie.Image != null && movie.Image.Length>5)
-                pictureBox.Load(movie.Image);
+            if (movie.Image != null && movie.Image.Length > 5)
+            {
+                try
+                {
+                    pictureBox.Load(movie.Image);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
 
             pictureBox.Tag = movie.Id;
 

@@ -66,10 +66,10 @@
             this.InfoPanel.Controls.Add(this.releaseYearLable);
             this.InfoPanel.Controls.Add(this.label1);
             this.InfoPanel.Controls.Add(this._releaseYear);
-            this.InfoPanel.Location = new System.Drawing.Point(450, 106);
+            this.InfoPanel.Location = new System.Drawing.Point(549, 155);
             this.InfoPanel.Margin = new System.Windows.Forms.Padding(4);
             this.InfoPanel.Name = "InfoPanel";
-            this.InfoPanel.Size = new System.Drawing.Size(1013, 583);
+            this.InfoPanel.Size = new System.Drawing.Size(764, 583);
             this.InfoPanel.TabIndex = 7;
             // 
             // _mainactors
@@ -228,7 +228,7 @@
             // 
             this._rating.AutoSize = true;
             this._rating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._rating.Location = new System.Drawing.Point(1208, 26);
+            this._rating.Location = new System.Drawing.Point(651, 26);
             this._rating.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this._rating.Name = "_rating";
             this._rating.Size = new System.Drawing.Size(166, 29);
@@ -239,7 +239,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1094, 24);
+            this.label2.Location = new System.Drawing.Point(555, 26);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 29);
