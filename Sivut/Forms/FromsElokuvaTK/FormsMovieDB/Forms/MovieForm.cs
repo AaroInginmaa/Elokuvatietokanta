@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace FormsMovieDB
 {
@@ -29,7 +28,7 @@ namespace FormsMovieDB
             _title.Text = _movie.Name;
             _rating.Text = _movie.Rating.ToString();
 
-            if(_movie.Image!=null && _movie.Image.Contains("."))
+            if(_movie.Image != null && _movie.Image.Contains("."))
             {
                 _picture.Load(_movie.Image);
                 _picture.BackgroundImageLayout = ImageLayout.Zoom;

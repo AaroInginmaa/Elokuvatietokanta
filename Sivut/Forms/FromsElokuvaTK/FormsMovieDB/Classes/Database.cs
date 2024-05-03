@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -31,10 +32,10 @@ namespace FormsMovieDB
 
         private void Initialize()
         {
-            _host = "10.146.4.49";
+            _host = "mc.koudata.fi";
             _database = "moviedb";
-            _user = "dbuser";
-            _passsword = "Nakkikastike123!";
+            _user = "app";
+            _passsword = "databaseApp!";
             _port = "3306";
 
             string connectionCommand = $"Server={_host}; Port={_port}; Database={_database}; Uid={_user}; Pwd={_passsword};";
@@ -44,7 +45,7 @@ namespace FormsMovieDB
 
         public List<Movie> SelectMovies()
         {
-            string selectQuery = "SELECT * FROM moviedb.movies;";
+            string selectQuery = "SELECT * FROM movies;";
 
             List<Movie> movies = new List<Movie>();
 
@@ -78,16 +79,17 @@ namespace FormsMovieDB
 
         public void InsertMovie(Movie movie)
         {
-            string insertQuery = $"INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating, Image) VALUES (" +
-                $"\"{movie.Name}\"," +
-                $"\"{movie.Length}\"," +
-                $"{movie.ReleaseYear}," +
-                $"{movie.Genres}," +
-                $"{movie.MainActors}," +
-                $"{movie.Director}," +
-                $"{movie.Rating}," +
-                $"\"{movie.Image}\"," +
-                $");";
+            string insertQuery = $"INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating, Image) " +
+                                 $"VALUES (" +
+                                 $"\"{movie.Name}\"," +
+                                 $"{movie.Length}," +
+                                 $"{movie.ReleaseYear}," +
+                                 $"\"{movie.Genres}\"," +
+                                 $"\"{movie.MainActors}\"," +
+                                 $"\"{movie.Director}\"," +
+                                 $"{movie.Rating}," +
+                                 $"\"{movie.Image}\"" +
+                                 $");";
 
             OpenConnection();
 
@@ -97,9 +99,10 @@ namespace FormsMovieDB
             CloseConnection();
         }
 
+
         public void RegisterUser(User user)
         {
-            string insertQuery = $"INSERT INTO moviedb.usertable (idUser, username, email, password) VALUES (0, \"{user.Username}\", \"{user.Email}\", \"{user.Password}\")";
+            string insertQuery = $"INSERT INTO usertable (idUser, username, email, password) VALUES (0, \"{user.Username}\", \"{user.Email}\", \"{user.Password}\")";
             OpenConnection();
             MySqlCommand mySqlCommand = new MySqlCommand(insertQuery, _connection);
             mySqlCommand.ExecuteNonQuery();
