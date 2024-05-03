@@ -27,11 +27,6 @@ namespace FormsMovieDB.Forms
             database.InsertMovie(newMovie);
 
             MessageBox.Show("Movie added successfully!");
-        }
-
-        private void AddMovieButton_OnClick(object sender, EventArgs e)
-        {
-
-        }
+        } 
     }
 }
