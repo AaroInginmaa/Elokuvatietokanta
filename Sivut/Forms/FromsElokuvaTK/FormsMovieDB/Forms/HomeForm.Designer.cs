@@ -39,16 +39,16 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 86);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 86);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1383, 792);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1269, 792);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Yellow;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(1222, 12);
+            this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(172, 42);
             this.button1.TabIndex = 2;

@@ -61,7 +61,7 @@ namespace FormsMovieDB
             foreach (DataRow dataRow in dataTable.Rows)
             {
                 Movie movie = new Movie(
-                    Convert.ToInt32(dataRow["idmovies"]),
+                    Convert.ToInt32(dataRow["idMovies"]),
                     Convert.ToString(dataRow["Name"]),
                     Convert.ToInt32(dataRow["Length"]),
                     Convert.ToInt32(dataRow["ReleaseYear"]),
@@ -70,7 +70,6 @@ namespace FormsMovieDB
                     Convert.ToString(dataRow["Director"]),
                     Convert.ToInt32(dataRow["Rating"]),
                     Convert.ToString(dataRow["Image"]));
-
                 movies.Add(movie);
             }
 
@@ -79,7 +78,7 @@ namespace FormsMovieDB
 
         public void InsertMovie(Movie movie)
         {
-            string insertQuery = $"INSERT INTO moviedb.movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating, Image) VALUES (" +
+            string insertQuery = $"INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating, Image) VALUES (" +
                 $"\"{movie.Name}\"," +
                 $"\"{movie.Length}\"," +
                 $"{movie.ReleaseYear}," +

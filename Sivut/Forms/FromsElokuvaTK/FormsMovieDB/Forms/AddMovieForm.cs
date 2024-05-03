@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FormsMovieDB.Forms
@@ -17,24 +10,23 @@ namespace FormsMovieDB.Forms
             InitializeComponent();
         }
 
-        private void richTextBox3_TextChanged(object sender, EventArgs e)
+        private void AddMovieButton_Click(object sender, EventArgs e)
         {
+            Movie newMovie = new Movie(
+                MovieTextBox.Text.ToString(),
+                Convert.ToInt32(LengthNumUpDown.Value),
+                Convert.ToInt32(YearNumUpDown.Value),
+                GenreTextBox.Text.ToString(),
+                MovieStarsTextBox.Text.ToString(),
+                DirectorTextBox.Text.ToString(),
+                Convert.ToDecimal(RatingNumUpDown.Value),
+                ImageURLText.Text.ToString()
+            );
 
-        }
+            Database database = new Database();
+            database.InsertMovie(newMovie);
 
-        private void richTextBox3_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
+            MessageBox.Show("Movie added successfully!");
         }
     }
 }

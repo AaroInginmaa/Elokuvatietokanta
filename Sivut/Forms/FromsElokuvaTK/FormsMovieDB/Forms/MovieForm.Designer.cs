@@ -81,9 +81,9 @@
             this._mainactors.Location = new System.Drawing.Point(133, 185);
             this._mainactors.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this._mainactors.Name = "_mainactors";
-            this._mainactors.Size = new System.Drawing.Size(222, 25);
+            this._mainactors.Size = new System.Drawing.Size(112, 25);
             this._mainactors.TabIndex = 16;
-            this._mainactors.Text = "Actors here, Acotrs here";
+            this._mainactors.Text = "Actors here";
             // 
             // label3
             // 
@@ -221,7 +221,7 @@
             this.BottomPanel.Location = new System.Drawing.Point(0, 0);
             this.BottomPanel.Margin = new System.Windows.Forms.Padding(4);
             this.BottomPanel.Name = "BottomPanel";
-            this.BottomPanel.Size = new System.Drawing.Size(1476, 1100);
+            this.BottomPanel.Size = new System.Drawing.Size(1500, 1200);
             this.BottomPanel.TabIndex = 0;
             // 
             // _rating
@@ -272,7 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1476, 1100);
+            this.ClientSize = new System.Drawing.Size(1500, 1200);
             this.Controls.Add(this.BottomPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
