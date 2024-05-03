@@ -367,7 +367,7 @@ def mainWindow():
             return False
     
     def validateGenre(Genre):
-        res = bool(re.match('[a-zA-Z\s]+$', Genre))
+        res = bool(re.match(r'[a-zA-Z\s]+$', Genre))
         try:
             if res == True:
                 return True
@@ -377,7 +377,7 @@ def mainWindow():
             return False
         
     def validateActor(Actor):
-        res = bool(re.match('[a-zA-Z\s]+$', Actor))
+        res = bool(re.match(r'[a-zA-Z\s]+$', Actor))
         try:
             if res == True:
                 return True
@@ -387,7 +387,7 @@ def mainWindow():
             return False
         
     def validateDirector(Director):
-        res = bool(re.match('[a-zA-Z\s]+$', Director))
+        res = bool(re.match(r'[a-zA-Z\s]+$', Director))
         try:
             if res == True:
                 return True
