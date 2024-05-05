@@ -1,5 +1,6 @@
 ﻿using Elokuvatietokanta.Classes;
 using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 
 namespace Elokuvatietokanta
@@ -30,11 +31,19 @@ namespace Elokuvatietokanta
             {
                 MessageBox.Show("There is a movie by this name already", "error");
                 return;
-            }
-
+            } 
             try
             {
-                string sqlQuery = $"INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating)" +
+                if (!string.IsNullOrWhiteSpace(_movieNameInputField.Text) && Regex.IsMatch(_movieNameInputField.Text, @"^[A-Za-z\s]+$") &&
+                !string.IsNullOrWhiteSpace(_movieStartInputField.Text) && Regex.IsMatch(_movieStartInputField.Text, @"^[A-Za-z\s]+$") &&
+                !string.IsNullOrWhiteSpace(_movieGenreInputField.Text) && Regex.IsMatch(_movieGenreInputField.Text, @"^[A-Za-z\s]+$") &&
+                !string.IsNullOrWhiteSpace(_movieReleaseYearInputField.Text) && Regex.IsMatch(_movieReleaseYearInputField.Text, @"^\d{4}$") &&
+                !string.IsNullOrWhiteSpace(_movieLengthInputField.Text) && Regex.IsMatch(_movieLengthInputField.Text, @"^\d+$") &&
+                !string.IsNullOrWhiteSpace(_movieDirectorInputField.Text) && Regex.IsMatch(_movieDirectorInputField.Text, @"^[A-Za-z\s]+$") &&
+                !string.IsNullOrWhiteSpace(_movieRatingInputField.Text))
+                {
+                     
+                    string sqlQuery = $"INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating)" +
                     $"VALUES ('{_movieNameInputField.Text}'," +
                     $"'{_movieLengthInputField.Text}'," +
                     $"'{_movieReleaseYearInputField.Text}'," +
@@ -43,29 +52,39 @@ namespace Elokuvatietokanta
                     $"'{_movieDirectorInputField.Text}'," +
                     $"'{_movieRatingInputField.Text}')";
 
-                int rowsAffected = _database.DestructiveQuery(sqlQuery);
+                    int rowsAffected = _database.DestructiveQuery(sqlQuery);
 
-                if (rowsAffected > 0)
-                {
-                    MessageBox.Show("Movie inserted successfully!");
-                    Close();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Movie inserted successfully!");
+                        Close();
+                        _windowLoader.LoadWindow(new MoviesView());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to insert movie.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Failed to insert movie.");
+                    MessageBox.Show("Data is not sufficient");
                 }
+
+
+
+
             }
             catch (Exception exception)
             {
                 MessageBox.Show("Error: " + exception.Message);
             }
-
-            _database.Close();
+            _database.Close();  
         }
 
         private void OnReturn(object sender, RoutedEventArgs e)
         {
             _windowLoader.LoadWindow(new MoviesView());
         }
+
     }
 }

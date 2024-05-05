@@ -16,7 +16,7 @@ namespace Elokuvatietokanta.Classes
 
         public Database()
         {
-            Host = "10.146.4.49";
+            Host = "mc.koudata.fi";
             Username = "dbuser";
             Password = "Nakkikastike123!";
             DatabaseName = "moviedb";
