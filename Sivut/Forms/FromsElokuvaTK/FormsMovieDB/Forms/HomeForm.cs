@@ -53,7 +53,7 @@ namespace FormsMovieDB
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine("Jotain meni väärin kuvan "+movie.Image+" kanssa. Virhe : "+e.Message);
                 }
             }
 
