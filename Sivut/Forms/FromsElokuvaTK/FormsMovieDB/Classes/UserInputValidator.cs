@@ -76,10 +76,23 @@ namespace FormsMovieDB.Classes
                 return false;
 
             if (string.IsNullOrWhiteSpace(input))
-                return false;
+            {
 
-            if (input.Length < _minPasswordLength)
+            }
+
+            if (input.Length < 8)
+            {
+                PopupNotifier popup = new PopupNotifier();
+                popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
+                popup.HeaderHeight = 20;
+                popup.BodyColor = Color.Red;
+                popup.ShowCloseButton = false;
+                popup.TitleColor = Color.White;
+                popup.TitleText = "Error";
+                popup.ContentText = "Password Must be " + 8 + " characters long";
+                popup.Popup();
                 return false;
+            }
 
             for (int i = 0; i < input.Length; i++)
             {
