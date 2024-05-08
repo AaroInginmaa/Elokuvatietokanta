@@ -3,7 +3,7 @@ import tkinter as tk # pip install tk
 # pip install mysql.connector
 # Jos saat errorin  Authentication plugin 'caching_sha2_password' is not supported
 # Asenna mysql-connector ja mysql-connector-python pip:llä
-import mysql.connector 
+#import mysql.connector
 
 from tkinter import *
 from tkinter import ttk
@@ -19,11 +19,11 @@ def loginRegisterPage():
         root.title("Elokuvatietokanta")
         root.geometry("500x500")
         
-        registerButton = tk.Button(text="Rekisteröidy", command=clickRegister)
-        loginButton = tk.Button(text="Kirjaudu", command=clickLogin)
+        registerButton = tk.Button(text="Rekisteröidy", command=clickRegister, bg='LightSteelBlue')
+        loginButton = tk.Button(text="Kirjaudu", command=clickLogin, bg='LightSteelBlue')
         
-        registerButton.place(relx=.5, rely=.40, anchor=CENTER)
-        loginButton.place(relx=.5, rely=.60, anchor=CENTER)
+        registerButton.place(relx=.5, rely=.45, anchor=CENTER)
+        loginButton.place(relx=.5, rely=.55, anchor=CENTER)
     
     def clickRegister():
         buttons = [registerButton, loginButton]
@@ -56,16 +56,16 @@ def logInPage():
         checkBoxHideShow = tk.Checkbutton(text='Näytä salasana', variable=onOff, onvalue=True, offvalue=False, command=showHide)
 
             
-        loginButton = tk.Button(text="Kirjaudu", command=clickLogin)
-        backButton = tk.Button(text="Palaa", command=clickBack)
+        loginButton = tk.Button(text="Kirjaudu", command=clickLogin, bg='LightSteelBlue')
+        backButton = tk.Button(text="Palaa", command=clickBack, bg='LightSteelBlue')
         
-        loginNameLabel.place(relx=.5, rely=.1, anchor=CENTER)
-        loginName.place(relx=.5, rely=.2, anchor=CENTER)
-        loginPWordLabel.place(relx=.5, rely=.3, anchor=CENTER)
-        checkBoxHideShow.place(relx=.8, rely=.4, anchor=CENTER)
-        loginPWord.place(relx=.5, rely=.4, anchor=CENTER)
-        loginButton.place(relx=.5, rely=.5, anchor=CENTER)
-        backButton.place(relx=.5, rely=.8, anchor=CENTER)
+        loginNameLabel.place(relx=.5, rely=.2, anchor=CENTER)
+        loginName.place(relx=.5, rely=.3, anchor=CENTER)
+        loginPWordLabel.place(relx=.5, rely=.4, anchor=CENTER)
+        checkBoxHideShow.place(relx=.8, rely=.5, anchor=CENTER)
+        loginPWord.place(relx=.5, rely=.5, anchor=CENTER)
+        loginButton.place(relx=.5, rely=.6, anchor=CENTER)
+        backButton.place(relx=.5, rely=.7, anchor=CENTER)
     
     def showHide():
         if onOff.get() == False:
@@ -79,7 +79,7 @@ def logInPage():
         pWordCheck = loginPWord.get()
 
         if not nameEntry or not pWordCheck:
-            messagebox.showerror("Tyhjät kentät", "Täytä Nimi/Sähköposti ja password kentät.")
+            messagebox.showerror("Tyhjät kentät", "Täytä Nimi/Sähköposti ja Salasana kentät.")
             return
 
         db = mysql.connector.connect(host="mc.koudata.fi", user="app", password="databaseApp!" , database="moviedb")
@@ -115,12 +115,12 @@ def registerPage():
         
         registerNameLabel = tk.Label(text="Nimi")
         registerEmailLabel = tk.Label(text="Sähköposti")
-        registerPasswordLabel = tk.Label(text="password")
+        registerPasswordLabel = tk.Label(text="Salasana")
         registerName = tk.Entry()
         registerEmail = tk.Entry()
         registerPWord = tk.Entry()
-        registerButton = tk.Button(text="Rekisteröidy", command=clickRegister)
-        backButton = tk.Button(text="Palaa", command=clickBack)
+        registerButton = tk.Button(text="Rekisteröidy", command=clickRegister, bg='LightSteelBlue')
+        backButton = tk.Button(text="Palaa", command=clickBack, bg='LightSteelBlue')
         onOff = BooleanVar(value=False)
         checkBoxHideShow = tk.Checkbutton(text='Näytä salasana', variable=onOff, onvalue=True, offvalue=False, command=showHide)
         
@@ -132,7 +132,7 @@ def registerPage():
         checkBoxHideShow.place(relx=.8, rely=.40, anchor=CENTER)
         registerPWord.place(relx=.5, rely=.40, anchor=CENTER)
         registerButton.place(relx=.5, rely=.50, anchor=CENTER)
-        backButton.place(relx=.5, rely=.8, anchor=CENTER)
+        backButton.place(relx=.5, rely=.60, anchor=CENTER)
         
         showHide()
     
@@ -220,7 +220,7 @@ def registerPage():
         db.close()
 
     def clickBack():
-        registerComponents = [registerName, registerEmail, registerPWord, registerNameLabel, registerEmailLabel, registerPasswordLabel, registerButton, backButton]
+        registerComponents = [registerName, registerEmail, registerPWord, registerNameLabel, registerEmailLabel, registerPasswordLabel, registerButton, backButton, checkBoxHideShow]
         root.title("Valitse")
         root.geometry("300x150")
         for i in registerComponents:
