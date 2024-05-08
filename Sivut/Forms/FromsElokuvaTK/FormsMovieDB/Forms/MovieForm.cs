@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace FormsMovieDB
 {
@@ -26,11 +27,23 @@ namespace FormsMovieDB
             _title.Text = _movie.Name;
             _rating.Text = _movie.Rating.ToString();
 
-            if(_movie.Image != null && _movie.Image.Contains("."))
+            
+
+
+            if (_movie.Image != null && _movie.Image.Length > 5)
             {
-                _picture.Load(_movie.Image);
-                _picture.BackgroundImageLayout = ImageLayout.Zoom;
+                try
+                {
+                    _picture.Load(_movie.Image);
+                }
+                catch (Exception ee)
+                {
+                    Console.WriteLine("Jotain meni väärin kuvan " + _movie.Image + " kanssa. Virhe : " + ee.Message);
+                }
             }
+
+
+
 
             _releaseYear.Text = _movie.ReleaseYear.ToString();
             _director.Text = _movie.Director.ToString();
