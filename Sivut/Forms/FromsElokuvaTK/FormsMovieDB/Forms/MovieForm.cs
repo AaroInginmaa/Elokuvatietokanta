@@ -26,10 +26,6 @@ namespace FormsMovieDB
 
             _title.Text = _movie.Name;
             _rating.Text = _movie.Rating.ToString();
-
-            
-
-
             if (_movie.Image != null && _movie.Image.Length > 5)
             {
                 try
@@ -41,16 +37,11 @@ namespace FormsMovieDB
                     Console.WriteLine("Jotain meni väärin kuvan " + _movie.Image + " kanssa. Virhe : " + ee.Message);
                 }
             }
-
-
-
-
             _releaseYear.Text = _movie.ReleaseYear.ToString();
             _director.Text = _movie.Director.ToString();
             _genre.Text = _movie.Genres.ToString();
             _length.Text = $"{_movie.Length} minutes";
             _mainactors.Text=_movie.MainActors.ToString();
-            
         }
 	}
 }
