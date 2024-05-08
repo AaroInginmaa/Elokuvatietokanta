@@ -8,12 +8,15 @@ namespace FormsMovieDB
     public partial class HomeForm : Form
     {
         public static event Action<Form> MovieButtonClicked;
-        private Database _database = new Database();
+        private MovieForm _movieForm;
+        private readonly Database _database = new Database();
+
         public HomeForm()
         {
             InitializeComponent();
         }
-        private void OnHomeFormLoad(object sender, EventArgs e)
+
+        public void OnHomeFormLoad(object sender, EventArgs e)
         {
             foreach (Movie movie in _database.SelectMovies())
             {
@@ -24,21 +27,26 @@ namespace FormsMovieDB
         {
             Panel panel = CreateMoviePanel(movie);
             flowLayoutPanel1.Controls.Add(panel);
+            
         }
         private Panel CreateMoviePanel(Movie movie)
         {
-            Panel panel = new Panel();
-            panel.Name = string.Format("PnlMovie{0}", movie.Id);
-            panel.BackColor = Color.White;
-            panel.Size = new Size(125, 205);
-            panel.Margin = new Padding(10);
-            panel.Tag = movie.Id;
+            Panel panel = new Panel
+            {
+                Name = string.Format("PnlMovie{0}", movie.Id),
+                BackColor = Color.White,
+                Size = new Size(125, 205),
+                Margin = new Padding(10),
+                Tag = movie.Id
+            };
 
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.Name = string.Format("MovieImage{0}", movie.Id);
-            pictureBox.Size = new Size(100, 148);
-            pictureBox.Location = new Point(12, 10);
-            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            PictureBox pictureBox = new PictureBox
+            {
+                Name = string.Format("MovieImage{0}", movie.Id),
+                Size = new Size(100, 148),
+                Location = new Point(12, 10),
+                SizeMode = PictureBoxSizeMode.Zoom
+            };
 
             if (movie.Image != null && movie.Image.Length > 5)
             {
@@ -53,22 +61,26 @@ namespace FormsMovieDB
             }
             pictureBox.Tag = movie.Id;
 
-            Label lableTitle = new Label();
-            lableTitle.Name = string.Format("LabelMovieName{0}", movie.Id);
-            lableTitle.Text = movie.Name;
-            lableTitle.Location = new Point(12, 165);
-            lableTitle.ForeColor = Color.Black;
-            lableTitle.Font = new Font(this.Font.FontFamily, 9.5f, FontStyle.Regular);
-            lableTitle.AutoSize = true;
-            lableTitle.Tag = movie.Id;
+            Label lableTitle = new Label
+            {
+                Name = string.Format("LabelMovieName{0}", movie.Id),
+                Text = movie.Name,
+                Location = new Point(12, 165),
+                ForeColor = Color.Black,
+                Font = new Font(this.Font.FontFamily, 9.5f, FontStyle.Regular),
+                AutoSize = true,
+                Tag = movie.Id
+            };
 
-            Label labelYear = new Label();
-            labelYear.Name = string.Format("LabelMovieYear{0}", movie.Id);
-            labelYear.Text = movie.ReleaseYear.ToString();
-            labelYear.Location = new Point(12, 185);
-            labelYear.ForeColor = Color.Gray;
-            labelYear.Font = new Font(this.Font.FontFamily, 9.5f, FontStyle.Regular);
-            labelYear.Tag = movie.Id;
+            Label labelYear = new Label
+            {
+                Name = string.Format("LabelMovieYear{0}", movie.Id),
+                Text = movie.ReleaseYear.ToString(),
+                Location = new Point(12, 185),
+                ForeColor = Color.Gray,
+                Font = new Font(this.Font.FontFamily, 9.5f, FontStyle.Regular),
+                Tag = movie.Id
+            };
 
             panel.Click += (sender, e) => OnMovieClicked((Panel)sender);
             pictureBox.Click += (sender, e) => OnMovieClicked((Panel)((PictureBox)sender).Parent);
@@ -90,7 +102,18 @@ namespace FormsMovieDB
 
         private void OnMovieClicked(Panel panel)
         {
-            MovieButtonClicked?.Invoke(new MovieForm(_database.SelectMovieById((int)panel.Tag)));
+            if (_movieForm == null)
+            {
+                _movieForm = new MovieForm(_database.SelectMovieById((int)panel.Tag));
+                _movieForm.FormClosed += (s, e) => _movieForm = null; // Reset the movie form reference when it's closed
+                _movieForm.Show();
+                MovieButtonClicked?.Invoke(_movieForm);
+            }
+            else
+            {
+                _movieForm.LoadMovieData();
+                _movieForm.Show();
+            }
         }
     }
 }

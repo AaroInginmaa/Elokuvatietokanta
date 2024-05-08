@@ -1,12 +1,13 @@
-﻿using System;
-using System.Windows.Forms;
-using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
+﻿using System.Windows.Forms;
+using System;
 
 namespace FormsMovieDB
 {
     public partial class MovieForm : Form
     {
-        private Movie _movie;
+        private readonly Movie _movie;
+        public static event Action<Form> ReturnButtonClicked;
+
         public MovieForm(Movie movie)
         {
             _movie = movie;
@@ -14,19 +15,24 @@ namespace FormsMovieDB
         }
         private void OnMovieFormLoad(object sender, EventArgs e)
         {
-            string embedHTML = "<html>" +
-                "<head>" +
-                "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\"/>" +
-                "</head>" +
-                "<body>" +
-                "<iframe width=\"620\" height=\"400\" src=\"{0}\"" +
-                "frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>" +
-                "</body>" +
-                "</html>";
+            LoadMovieData();
+        }
 
+        private void OnReturnButtonClick(object sender, EventArgs e)
+        {
+            // Hide the MovieForm
+            this.Hide();
+
+            // Invoke the ReturnButtonClicked event
+            ReturnButtonClicked?.Invoke(this);
+        }
+
+        public void LoadMovieData()
+        {
             _title.Text = _movie.Name;
             _rating.Text = _movie.Rating.ToString();
-            if (_movie.Image != null && _movie.Image.Length > 5)
+
+            if (_movie.Image != null && _movie.Image.Contains("."))
             {
                 try
                 {
@@ -41,7 +47,12 @@ namespace FormsMovieDB
             _director.Text = _movie.Director.ToString();
             _genre.Text = _movie.Genres.ToString();
             _length.Text = $"{_movie.Length} minutes";
-            _mainactors.Text=_movie.MainActors.ToString();
+            _mainactors.Text = _movie.MainActors.ToString();
         }
-	}
+
+        private void OnMovieFormShown(object sender, EventArgs e)
+        {
+            LoadMovieData();
+        }
+    }
 }

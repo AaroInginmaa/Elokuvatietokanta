@@ -1,6 +1,5 @@
 ﻿using System.Drawing;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 using Tulpep.NotificationWindow;
 
 namespace FormsMovieDB.Classes
@@ -10,8 +9,6 @@ namespace FormsMovieDB.Classes
         private char[] _forbiddenSymbols = new char[] { '\'', '\"' };
         private int _maxUsernameLength = 45;
         private int _maxEmailLength = 45;
-        private int _minPasswordLength = 6;
-        private int _maxPasswordLength = 45;
 
         public bool ValidInput(string input)
         {
@@ -47,14 +44,16 @@ namespace FormsMovieDB.Classes
             string regex = @"^[\w.-]+@[\w.-]+.\w{2,}$";
             if (!Regex.IsMatch(input, regex, RegexOptions.IgnoreCase))
             {
-                PopupNotifier popup = new PopupNotifier();
-                popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-                popup.HeaderHeight = 20;
-                popup.BodyColor = Color.Red;
-                popup.ShowCloseButton = false;
-                popup.TitleColor = Color.White;
-                popup.TitleText = "Error";
-                popup.ContentText = "Incorrect email";
+                PopupNotifier popup = new PopupNotifier
+                {
+                    ContentFont = new Font("Tahoma", 8F),
+                    HeaderHeight = 20,
+                    BodyColor = Color.Red,
+                    ShowCloseButton = false,
+                    TitleColor = Color.White,
+                    TitleText = "Error",
+                    ContentText = "Incorrect email"
+                };
                 popup.Popup();
                 return false;
             }
@@ -66,7 +65,7 @@ namespace FormsMovieDB.Classes
                 return false;
             if (string.IsNullOrWhiteSpace(input))
             {
-
+                return false;
             }
             if (input.Length < 8)
             {

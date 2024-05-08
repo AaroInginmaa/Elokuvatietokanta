@@ -22,42 +22,48 @@ namespace FormsMovieDB.Forms
                 RatingNumUpDown.Value == 0 ||
                 string.IsNullOrWhiteSpace(ImageURLText.Text))
             {
-                PopupNotifier popup = new PopupNotifier();
-                popup.ContentFont = new Font("Tahoma", 8F);
-                popup.HeaderHeight = 20;
-                popup.BodyColor = Color.Red;
-                popup.ShowCloseButton = false;
-                popup.TitleColor = Color.White;
-                popup.TitleText = "Error";
-                popup.ContentText = "Please fill out all the fields!";
+                PopupNotifier popup = new PopupNotifier
+                {
+                    ContentFont = new Font("Tahoma", 8F),
+                    HeaderHeight = 20,
+                    BodyColor = Color.Red,
+                    ShowCloseButton = false,
+                    TitleColor = Color.White,
+                    TitleText = "Error",
+                    ContentText = "Please fill out all the fields!"
+                };
                 popup.Popup();
                 return;
             }
 
-            if (!Uri.TryCreate(ImageURLText.Text, UriKind.Absolute, out Uri uriResult))
+            if (!Uri.TryCreate(ImageURLText.Text, UriKind.Absolute, out _))
             {
-                PopupNotifier popup = new PopupNotifier();
-                popup.ContentFont = new Font("Tahoma", 8F);
-                popup.HeaderHeight = 20;
-                popup.BodyColor = Color.Red;
-                popup.ShowCloseButton = false;
-                popup.TitleColor = Color.White;
-                popup.TitleText = "Error";
-                popup.ContentText = "Please enter a valid URL!";
+                PopupNotifier popup = new PopupNotifier
+                {
+                    ContentFont = new Font("Tahoma", 8F),
+                    HeaderHeight = 20,
+                    BodyColor = Color.Red,
+                    ShowCloseButton = false,
+                    TitleColor = Color.White,
+                    TitleText = "Error",
+                    ContentText = "Please enter a valid URL!"
+                };
                 popup.Popup();
                 return;
             }
             int enteredYear = Convert.ToInt32(YearNumUpDown.Value);
             if (enteredYear < 1888)
             {
-                PopupNotifier popup = new PopupNotifier();
-                popup.ContentFont = new Font("Tahoma", 8F);
-                popup.HeaderHeight = 20;
-                popup.BodyColor = Color.Red;
-                popup.ShowCloseButton = false;
-                popup.TitleColor = Color.White;
-                popup.TitleText = "Error";
-                popup.ContentText = "Year cannot be earlier than 1888!";
+                PopupNotifier popup = new PopupNotifier
+                {
+                    ContentFont = new Font("Tahoma", 8F),
+                    HeaderHeight = 20,
+                    BodyColor = Color.Red,
+                    ShowCloseButton = false,
+                    TitleColor = Color.White,
+                    TitleText = "Error",
+                    ContentText = "Year cannot be earlier than 1888!"
+                };
                 popup.Popup();
                 return;
             }
@@ -74,7 +80,8 @@ namespace FormsMovieDB.Forms
             );
             Database database = new Database();
             database.InsertMovie(movie);
-            MessageBox.Show("Movie added successfully!");
+            AddMovieForm form = new AddMovieForm();
+            form.Hide();
         }
     }
 }

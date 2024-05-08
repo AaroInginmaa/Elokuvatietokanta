@@ -29,10 +29,7 @@ namespace FormsMovieDB
         {
             if (childForm.Name != _currentChildForm?.Name)
             {
-                if (_currentChildForm != null)
-                {
-                    _currentChildForm.Close();
-                }
+                _currentChildForm?.Close();
 
                 childForm.TopLevel = false;
                 childForm.Dock = DockStyle.Fill;

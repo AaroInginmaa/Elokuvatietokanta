@@ -7,8 +7,10 @@ namespace FormsMovieDB
     public partial class RegisterForm : Form
     {
         public static event Action<Form> ReturnButtonClicked;
-        Database _database = new Database();
-        UserInputValidator _inputValidator = new UserInputValidator();
+
+        readonly Database _database = new Database();
+        readonly UserInputValidator _inputValidator = new UserInputValidator();
+
         public RegisterForm()
         {
             InitializeComponent();
@@ -20,7 +22,7 @@ namespace FormsMovieDB
             string password = _passwordInputField.Text;
             string rePassword = _rePasswordInputField.Text;
 
-            if (!_inputValidator.ValidUsername(username) || !_inputValidator.ValidEmail(email) || !_inputValidator.ValidPassword(password))
+           if (!_inputValidator.ValidUsername(username) || !_inputValidator.ValidEmail(email) || !_inputValidator.ValidPassword(password))
                 return;
             if (password != rePassword)
                 return;
@@ -31,7 +33,7 @@ namespace FormsMovieDB
             ReturnButtonClicked?.Invoke(new SignInForm());
         }
 
-        private void OnReturnButtonClick(object sender, System.EventArgs e)
+        private void OnReturnButtonClick(object sender, EventArgs e)
         {
             ReturnButtonClicked?.Invoke(new SignInForm());
         }

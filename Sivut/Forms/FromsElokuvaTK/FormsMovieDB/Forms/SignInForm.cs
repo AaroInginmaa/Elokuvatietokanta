@@ -10,8 +10,10 @@ namespace FormsMovieDB
         public static event Action<Form> CreateAccountButtonClicked;
         public static event Action<Form> SignInButtonClicked;
         private readonly Client Client = Client.Instance();
-        private Database _database = new Database();
-        private UserInputValidator _inputValidator = new UserInputValidator();
+
+        private readonly Database _database = new Database();
+        private readonly UserInputValidator _inputValidator = new UserInputValidator();
+
         public SignInForm()
         {
             InitializeComponent();

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace FormsMovieDB
+﻿namespace FormsMovieDB
 {
     sealed class User
     {

@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this._releaseYear = new System.Windows.Forms.Label();
             this.BottomPanel = new System.Windows.Forms.Panel();
+            this.ReturnButton = new System.Windows.Forms.Button();
             this._rating = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this._title = new System.Windows.Forms.Label();
@@ -193,7 +194,7 @@
             this.label1.Location = new System.Drawing.Point(14, 63);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 20);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 7;
             // 
             // _releaseYear
@@ -212,6 +213,7 @@
             // BottomPanel
             // 
             this.BottomPanel.BackColor = System.Drawing.Color.White;
+            this.BottomPanel.Controls.Add(this.ReturnButton);
             this.BottomPanel.Controls.Add(this._rating);
             this.BottomPanel.Controls.Add(this.label2);
             this.BottomPanel.Controls.Add(this.InfoPanel);
@@ -223,6 +225,19 @@
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Size = new System.Drawing.Size(1500, 1200);
             this.BottomPanel.TabIndex = 0;
+            this.BottomPanel.Click += new System.EventHandler(this.OnReturnButtonClick);
+            // 
+            // ReturnButton
+            // 
+            this.ReturnButton.BackColor = System.Drawing.Color.Yellow;
+            this.ReturnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReturnButton.Location = new System.Drawing.Point(1255, 26);
+            this.ReturnButton.Name = "ReturnButton";
+            this.ReturnButton.Size = new System.Drawing.Size(219, 49);
+            this.ReturnButton.TabIndex = 11;
+            this.ReturnButton.Text = "Back";
+            this.ReturnButton.UseVisualStyleBackColor = false;
+            this.ReturnButton.Click += new System.EventHandler(this.OnReturnButtonClick);
             // 
             // _rating
             // 
@@ -308,5 +323,6 @@
         private System.Windows.Forms.PictureBox _picture;
         private System.Windows.Forms.Label _mainactors;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button ReturnButton;
     }
 }

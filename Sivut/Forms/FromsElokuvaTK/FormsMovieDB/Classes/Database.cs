@@ -3,7 +3,6 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FormsMovieDB
@@ -11,8 +10,6 @@ namespace FormsMovieDB
     sealed class Database
     {
         private readonly Client Client;
-
-        public event Action<User> UserLoggedIn;
 
         private MySqlConnection _connection;
 
@@ -139,7 +136,7 @@ namespace FormsMovieDB
 
         public bool LoginIsAvailable(string username, string email)
         {
-            string selectQuery = $"SELECT * FROM moviedb.usertable WHERE (username = \"{username}\" OR email = \"{email}\");";
+            string selectQuery = $"SELECT * FROM usertable WHERE (username = \"{username}\" OR email = \"{email}\");";
 
             OpenConnection();
             MySqlCommand mySqlCommand = new MySqlCommand(selectQuery, _connection);
@@ -159,7 +156,7 @@ namespace FormsMovieDB
 
         public Movie SelectMovieById(int id)
         {
-            string selectQuery = "SELECT * FROM moviedb.movies WHERE idMovies = @Id";
+            string selectQuery = "SELECT * FROM movies WHERE idMovies = @Id";
 
             OpenConnection();
             MySqlCommand mySqlCommand = new MySqlCommand(selectQuery, _connection);
