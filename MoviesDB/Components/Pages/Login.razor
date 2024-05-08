@@ -3,6 +3,9 @@
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JsRuntime
 
+
+<Navbar _user="_user" />
+
 <PageTitle>Login</PageTitle>
 
 <h3>Login</h3>
@@ -40,6 +43,7 @@
 
             if (userExists&&passCorr)
             {
+                _user.IsLoggedIn = true;
                 NavigationManager.NavigateTo("/editmovie");
             }
             else
@@ -60,7 +64,7 @@
     <div class="alert alert-danger fade-in" role="alert">
         User doesn't exist or the password is incorrect.
     </div>
-}
+}   
 
 @if (FillAllAlert)
 {

@@ -36,9 +36,9 @@ namespace MoviesDB.Components
             bool isOK = false;
 
             if (_user.Password.Length >= 6 &&
-        _user.Password.Any(char.IsUpper) &&
-        !_user.Password.Contains("!#?&%$€£@") &&
-        _user.Password.Any(c => !char.IsLetterOrDigit(c)))
+            _user.Password.Any(char.IsUpper) &&
+            !_user.Password.Contains("!#?&%$€£@") &&
+            _user.Password.Any(c => !char.IsLetterOrDigit(c)))
             {
                 isOK = true;
             }
@@ -51,5 +51,15 @@ namespace MoviesDB.Components
 
             return Regex.IsMatch(_user.Email, regex, RegexOptions.IgnoreCase);
         }
+
+
+        public bool CheckLogin(User _user)
+        {
+            return (_user.IsLoggedIn);
+        }
     }
+
+
+
+    /**/
 }

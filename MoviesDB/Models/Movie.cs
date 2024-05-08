@@ -29,13 +29,14 @@
 
     public class User
         {
-            public User(string name, int id = 0, string password = "", string confirmPassword = "", string email = "")
+            public User(string name, int id = 0, string password = "", string confirmPassword = "", string email = "", bool loggedIn = false)
             {
                 Name = name;
                 Id = id;
                 Password = password;
                 ConfirmPassword = confirmPassword;
                 Email = email;
+                IsLoggedIn = loggedIn;
             }
 
             public int Id { get; set; }
@@ -43,6 +44,8 @@
             public string Password { get; set; }
             public string ConfirmPassword { get; set; }
             public string Email { get; set; }
-        }
+            public bool IsLoggedIn { get; set; } = false;
 
     }
+
+}
