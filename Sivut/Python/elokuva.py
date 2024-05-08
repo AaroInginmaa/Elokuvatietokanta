@@ -3,7 +3,7 @@ import tkinter as tk # pip install tk
 # pip install mysql.connector
 # Jos saat errorin  Authentication plugin 'caching_sha2_password' is not supported
 # Asenna mysql-connector ja mysql-connector-python pip:llä
-#import mysql.connector
+import mysql.connector
 
 from tkinter import *
 from tkinter import ttk
@@ -452,16 +452,44 @@ def mainWindow():
 
         
     def searchMovieList(val):
+        movie_list_window = tk.Toplevel(root)
+        movie_list_window.title("Elokuvalista")
+        
+        my_canvas = Canvas(movie_list_window)
+        my_canvas.pack(side=LEFT, fill=BOTH, expand=1)
+        
+        scrollbar = Scrollbar(movie_list_window, orient=VERTICAL, command=my_canvas.yview)
+        scrollbar.pack(side=RIGHT, fill=Y)
+
+        
+        my_canvas.configure(yscrollcommand=scrollbar.set)
+        my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion=my_canvas.bbox("all")))
+        
+        def _on_mousewheel(event):
+            my_canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+        def _bind_to_mousewheel(event):
+            my_canvas.bind_all("<MouseWheel>", _on_mousewheel)
+        def _unbind_from_mousewheel(event):
+            my_canvas.unbind_all("<MouseWheel>")
+            
+        my_canvas.bind('<Enter>', _bind_to_mousewheel)
+        my_canvas.bind('<Leave>', _unbind_from_mousewheel)
+
+        second_frame = Frame(my_canvas)
+        my_canvas.create_window((0, 0), window=second_frame, anchor="nw")
+
+        order = ""
+        if combo.get().endswith("V"):
+            order = f" ORDER BY {combo.get()[:-2]} DESC"
+        elif combo.get().endswith("^"):
+            order = f" ORDER BY {combo.get()[:-2]} ASC"
+
         search = val
         mycursor.execute(f"SELECT * FROM movies WHERE Name LIKE '%{search}%'")
         searchResult = mycursor.fetchall()
-        
-        
-        movie_list_window = tk.Toplevel(root)
-        movie_list_window.title("Elokuvalista")
 
         for idx, movie in enumerate(searchResult, start=1):
-            movie_frame = ttk.LabelFrame(movie_list_window, text=f"Elokuva {idx}", width=500)
+            movie_frame = ttk.LabelFrame(second_frame, text=f"Elokuva {idx}", width=500)
             movie_frame.pack(fill="x", padx=10, pady=5, anchor="w")
 
             movie_info = f"Nimi: {movie[1]}\nPituus: {movie[2]}\nJulkaistu: {movie[3]}\nGenre: {movie[4]}\nPäänäyttelijät: {movie[5]}\nOhjaaja: {movie[6]}\nArvio: {movie[7]}"
