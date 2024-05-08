@@ -34,11 +34,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.flowLayoutPanel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Controls.Add(this.vScrollBar1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 86);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1269, 792);
@@ -70,6 +73,13 @@
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(134, 32);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Location = new System.Drawing.Point(0, 0);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(26, 723);
+            this.vScrollBar1.TabIndex = 0;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -82,6 +92,7 @@
             this.Name = "HomeForm";
             this.Text = "con";
             this.Load += new System.EventHandler(this.OnHomeFormLoad);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -93,5 +104,6 @@
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-	}
+        private System.Windows.Forms.VScrollBar vScrollBar1;
+    }
 }
