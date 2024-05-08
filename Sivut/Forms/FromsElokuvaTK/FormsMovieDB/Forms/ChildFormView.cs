@@ -13,7 +13,6 @@ namespace FormsMovieDB
             this.ClientSize = new System.Drawing.Size(1478, 1144);
             this.Name = "ChildFormView";
             this.ResumeLayout(false);
-
         }
     }
 }

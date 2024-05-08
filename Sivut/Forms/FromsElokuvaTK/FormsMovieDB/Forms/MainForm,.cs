@@ -7,18 +7,14 @@ namespace FormsMovieDB
     public partial class MainForm : Form
     {
         private readonly Client Client = Client.Instance();
-
         private Form _currentChildForm;
-
         public MainForm()
         {
             InitializeComponent();
-
             SignInForm.CreateAccountButtonClicked += ShowChildForm;
             SignInForm.SignInButtonClicked += ShowChildForm;
             RegisterForm.ReturnButtonClicked += ShowChildForm;
             HomeForm.MovieButtonClicked += ShowChildForm;
-
             if (Client.UserLoggedIn() == false)
             {
                 ShowChildForm(new SignInForm());
@@ -48,7 +44,6 @@ namespace FormsMovieDB
                 childForm.Show();
             }
         }
-
         private void OnProfileButtonClick(object sender, EventArgs e)
         {
             if (Client.UserLoggedIn())
@@ -60,7 +55,6 @@ namespace FormsMovieDB
                 ShowChildForm(new SignInForm());
             }
         }
-
         private void OnMoviesButtonClick(object sender, EventArgs e)
         {
             ShowChildForm(new HomeForm());

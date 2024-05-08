@@ -11,7 +11,6 @@ namespace FormsMovieDB.Forms
         {
             InitializeComponent();
         }
-
         private void AddMovieButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(MovieTextBox.Text) ||
@@ -48,9 +47,7 @@ namespace FormsMovieDB.Forms
                 popup.Popup();
                 return;
             }
-
             int enteredYear = Convert.ToInt32(YearNumUpDown.Value);
-
             if (enteredYear < 1888)
             {
                 PopupNotifier popup = new PopupNotifier();
@@ -75,13 +72,9 @@ namespace FormsMovieDB.Forms
                 Convert.ToDecimal(RatingNumUpDown.Value),
                 ImageURLText.Text.ToString()
             );
-
             Database database = new Database();
             database.InsertMovie(movie);
-
             MessageBox.Show("Movie added successfully!");
         }
-
-
     }
 }

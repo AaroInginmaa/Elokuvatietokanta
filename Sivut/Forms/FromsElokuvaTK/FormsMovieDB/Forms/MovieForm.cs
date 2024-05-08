@@ -6,13 +6,11 @@ namespace FormsMovieDB
     public partial class MovieForm : Form
     {
         private Movie _movie;
-
         public MovieForm(Movie movie)
         {
             _movie = movie;
             InitializeComponent();
         }
-
         private void OnMovieFormLoad(object sender, EventArgs e)
         {
             string embedHTML = "<html>" +

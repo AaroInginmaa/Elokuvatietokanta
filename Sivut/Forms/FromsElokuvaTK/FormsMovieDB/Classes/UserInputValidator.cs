@@ -8,11 +8,8 @@ namespace FormsMovieDB.Classes
     sealed class UserInputValidator
     {
         private char[] _forbiddenSymbols = new char[] { '\'', '\"' };
-
         private int _maxUsernameLength = 45;
-
         private int _maxEmailLength = 45;
-
         private int _minPasswordLength = 6;
         private int _maxPasswordLength = 45;
 
@@ -29,10 +26,8 @@ namespace FormsMovieDB.Classes
                         return false;
                 }
             }
-
             return true;
         }
-
         public bool ValidUsername(string input)
         {
             if (ValidInput(input) == false)
@@ -43,15 +38,12 @@ namespace FormsMovieDB.Classes
 
             return true;
         }
-
         public bool ValidEmail(string input)
         {
             if (ValidInput(input) == false)
                 return false;
-
             if (input.Length >= _maxEmailLength)
                 return false;
-
             string regex = @"^[\w.-]+@[\w.-]+.\w{2,}$";
             if (!Regex.IsMatch(input, regex, RegexOptions.IgnoreCase))
             {
@@ -66,20 +58,16 @@ namespace FormsMovieDB.Classes
                 popup.Popup();
                 return false;
             }
-
             return true;
         }
-
         public bool ValidPassword(string input)
         {
             if (ValidInput(input) == false)
                 return false;
-
             if (string.IsNullOrWhiteSpace(input))
             {
 
             }
-
             if (input.Length < 8)
             {
                 PopupNotifier popup = new PopupNotifier();
@@ -93,7 +81,6 @@ namespace FormsMovieDB.Classes
                 popup.Popup();
                 return false;
             }
-
             for (int i = 0; i < input.Length; i++)
             {
                 if (char.IsUpper(input[i]))
@@ -101,7 +88,6 @@ namespace FormsMovieDB.Classes
                 else if (i == input.Length)
                     return false;
             }
-
             for (int i = 0; i < input.Length; i++)
             {
                 if (char.IsLower(input[i]))
@@ -109,7 +95,6 @@ namespace FormsMovieDB.Classes
                 else if (i == input.Length)
                     return false;
             }
-
             for (int i = 0; i < input.Length; i++)
             {
                 if (char.IsPunctuation(input[i]))
@@ -117,7 +102,6 @@ namespace FormsMovieDB.Classes
                 else if (i == input.Length)
                     return false;
             }
-
             return true;
         }
     }

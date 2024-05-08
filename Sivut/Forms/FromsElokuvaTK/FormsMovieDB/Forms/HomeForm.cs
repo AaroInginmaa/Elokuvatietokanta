@@ -8,14 +8,11 @@ namespace FormsMovieDB
     public partial class HomeForm : Form
     {
         public static event Action<Form> MovieButtonClicked;
-
         private Database _database = new Database();
-
         public HomeForm()
         {
             InitializeComponent();
         }
-
         private void OnHomeFormLoad(object sender, EventArgs e)
         {
             foreach (Movie movie in _database.SelectMovies())
@@ -23,13 +20,11 @@ namespace FormsMovieDB
                 DisplayMovie(movie);
             }
         }
-
         private void DisplayMovie(Movie movie)
         {
             Panel panel = CreateMoviePanel(movie);
             flowLayoutPanel1.Controls.Add(panel);
         }
-
         private Panel CreateMoviePanel(Movie movie)
         {
             Panel panel = new Panel();
@@ -56,7 +51,6 @@ namespace FormsMovieDB
                     Console.WriteLine("Jotain meni väärin kuvan "+movie.Image+" kanssa. Virhe : "+e.Message);
                 }
             }
-
             pictureBox.Tag = movie.Id;
 
             Label lableTitle = new Label();
@@ -77,11 +71,8 @@ namespace FormsMovieDB
             labelYear.Tag = movie.Id;
 
             panel.Click += (sender, e) => OnMovieClicked((Panel)sender);
-
             pictureBox.Click += (sender, e) => OnMovieClicked((Panel)((PictureBox)sender).Parent);
-
             lableTitle.Click += (sender, e) => OnMovieClicked((Panel)((Label)sender).Parent);
-
             labelYear.Click += (sender, e) => OnMovieClicked((Panel)((Label)sender).Parent);
 
             panel.Controls.Add(pictureBox);
@@ -94,7 +85,6 @@ namespace FormsMovieDB
         private void OnAddMovieButtonClick(object sender, EventArgs e)
         {
             AddMovieForm form = new AddMovieForm();
-
             form.ShowDialog();
         }
 
