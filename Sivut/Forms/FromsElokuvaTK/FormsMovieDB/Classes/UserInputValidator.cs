@@ -89,7 +89,7 @@ namespace FormsMovieDB.Classes
                 popup.ShowCloseButton = false;
                 popup.TitleColor = Color.White;
                 popup.TitleText = "Error";
-                popup.ContentText = "Password Must be " + 8 + " characters long";
+                popup.ContentText = "Password must be 8 characters long";
                 popup.Popup();
                 return false;
             }
