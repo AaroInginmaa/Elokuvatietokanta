@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Elokuvatietokanta"
-        mc:Ignorable="d" Width="1100" Height="500">
+        mc:Ignorable="d" Width="1117" Height="500">
     <Grid x:Name="_grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
