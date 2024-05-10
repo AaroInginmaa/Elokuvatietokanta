@@ -93,10 +93,7 @@ public class Database {
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                String movieGenresString = resultSet.getString("Genres");
-                String[] movieGenresArray = movieGenresString.split(", ");
-
-                for (String genre : movieGenresArray) {
+                for (String genre : getCategories()) {
                     if (movie.getGenres().contains(genre)) {
                         foundedGenres.add(genre);
                     }
