@@ -23,15 +23,15 @@ Testivaiheessa MySQL-tietokanta riittää olla omalla paikallisella koneella.
 ## Tiimit
 > [!NOTE]
 > Muista varmistaa [aikataulusta](https://docs.google.com/spreadsheets/d/1NEqnXOf7Z1ryIY_puHlkVnVfvkVt-kew2BHigMRRhkQ/edit#gid=0) tiimisi tekniikka.
-- WPF
-   - Aapo, Konsta
 - Android
-   - Aleksei, Ruslan
+   - Aapo, Konsta
 - Python
-   - Aaro, Arttu, Lassi
+   - Aleksei, Ruslan
 - Blazor
-   - Waltteri, Okko, Eino
+   - Aaro, Arttu, Lassi
 - HTML, PHP
-   - Roope, Jimi, Alexi
+   - Waltteri, Okko, Eino
 - Forms
+   - Roope, Jimi, Alexi
+- WPF
    - Luka, Aava, Riku
