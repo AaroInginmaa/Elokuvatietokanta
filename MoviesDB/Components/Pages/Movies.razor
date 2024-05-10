@@ -7,50 +7,59 @@
 
 <h1>Movies</h1>
 
-@if (_movieSummary.GetMovies().Count == 0)
+@if (Globals.isLoggedIn == true)
 {
-    <h3>Loading...</h3>
-}
-else if (Globals.isLoggedIn == true)
-{
-    
-    <table class="table table-striped table-bordered table-hover mt-5">
-        <thead class="table-dark">
-            <th>Kuva</th>
-            <th>Nimi</th>
-            <th>Ohjaaja</th>
-            <th>Julkaistu</th>
-            <th>Pituus</th>
-            <th>Arvio</th>
-            <th>Genre</th>
-            <th>Päänäyttelijät</th>
-            <th></th>
-        </thead>
-
-        <tbody>
-            @foreach (Movie movie in _movieSummary.GetMovies())
-            {
-                var editContext = new EditContext(movie);
+    if (_movieSummary.GetMovies().Count == 0)
+    {
+        <h3>Loading...</h3>
+    }
+    else
+    {
+        <table class="table table-striped table-bordered table-hover mt-5">
+            <thead class="table-dark">
                 <tr>
-                    <td><img class="" width="140" src="@movie.Image" /></td>
-                    <td><h3>@movie.Nimi </h3></td>
-                    <td><strong>@movie.Ohjaaja</strong></td>
-                    <td><strong>@movie.Julkaistu</strong></td>
-                    <td><strong>@movie.Pituus minutes</strong></td>
-                    <td><strong>@movie.Arvio</strong></td>
-                    <td><strong>@movie.Genre</strong></td>
-                    <td><strong>@movie.Päänäyttelijät</strong></td>
-                    <td>
-                        <EditForm EditContext="editContext" FormName="@($"DeleteForm_{@movie.IdElokuvat}")" OnSubmit="() => DeleteMovie(movie)">
-                            <button type="submit" class="btn btn-primary">Delete</button>
-                        </EditForm>
-                    </td>
-                    
+                    <th>Kuva</th>
+                    <th>Nimi</th>
+                    <th>Ohjaaja</th>
+                    <th>Julkaistu</th>
+                    <th>Pituus</th>
+                    <th>Arvio</th>
+                    <th>Genre</th>
+                    <th>Päänäyttelijät</th>
+                    <th></th>
                 </tr>
-                
-            }
-        </tbody>
-    </table>
+            </thead>
+    
+            <tbody>
+                @foreach (Movie movie in _movieSummary.GetMovies())
+                {
+                    var editContext = new EditContext(movie);
+                    <tr>
+                        <td><img class="" width="140" src="@movie.Image" /></td>
+                        <td><h3>@movie.Nimi </h3></td>
+                        <td><strong>@movie.Ohjaaja</strong></td>
+                        <td><strong>@movie.Julkaistu</strong></td>
+                        <td><strong>@movie.Pituus minutes</strong></td>
+                        <td><strong>@movie.Arvio</strong></td>
+                        <td><strong>@movie.Genre</strong></td>
+                        <td><strong>@movie.Päänäyttelijät</strong></td>
+                        <td>
+                            <EditForm EditContext="editContext" FormName="@($"DeleteForm_{@movie.IdElokuvat}")" OnSubmit="() => DeleteMovie(movie)">
+                                <button type="submit" class="btn btn-primary">Delete</button>
+                            </EditForm>
+                        </td>
+                        
+                    </tr>
+                    
+                }
+            </tbody>
+        </table>
+    }
+}
+else
+{
+    <hr/>
+    <h2>Must be logged in to view movies!</h2>
 }
 
 
