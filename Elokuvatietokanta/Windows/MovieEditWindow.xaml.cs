@@ -55,7 +55,6 @@ namespace Elokuvatietokanta
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Movie inserted successfully!");
-                        Close();
                         _windowLoader.LoadWindow(new MoviesView());
                     }
                     else
