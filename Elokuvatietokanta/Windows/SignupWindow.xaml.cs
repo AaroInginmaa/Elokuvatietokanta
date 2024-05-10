@@ -33,6 +33,7 @@ namespace Elokuvatietokanta
                     if (insertQueryResult > 0)
                     {
                         MessageBox.Show("User created successfully");
+                        _windowLoader.LoadWindow(new MovieEditWindow());
                     }
                 }
                 else if (password != rePassword)
@@ -57,7 +58,6 @@ namespace Elokuvatietokanta
             }
 
             Database.Close();
-            _windowLoader.LoadWindow(new MovieEditWindow());
         }
 
         private bool ValidPassword(string password)
