@@ -65,7 +65,7 @@ namespace Elokuvatietokanta.Classes
 
         public void FillDataGrid(DataGrid dg)
         {
-            string sql = "SELECT idMovies as id, Name, Length, ReleaseYear, Genres, MainActors, Director, Rating FROM movies";
+            string sql = "SELECT Name as Name, Length, ReleaseYear, Genres, MainActors, Director, Rating FROM movies";
             MySqlCommand cmd = new MySqlCommand(sql, _connection);
             cmd.ExecuteNonQuery();
 
