@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Elokuvatietokanta"
         mc:Ignorable="d"
         Title="SignupWindow" Height="375" Width="397">
-    <Grid Background="#CA857E" HorizontalAlignment="Center">
+    <Grid Background="#CA857E" HorizontalAlignment="Center" Width="377">
         <Grid.RowDefinitions>
             <RowDefinition Height="277*"/>
             <RowDefinition Height="79*"/>
@@ -19,11 +19,10 @@
             </PasswordBox.Style>
         </PasswordBox>
         <PasswordBox x:Name="_rePasswordInputField" HorizontalAlignment="Left" Height="28" Margin="107,233,0,0"  VerticalAlignment="Top" Width="192" RenderTransformOrigin="0.478,1.745"/>
-        <Button x:Name="_signUpButton" Content="Sign Up" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="192" Click="OnSubmitClick" Margin="5,275,0,0" Foreground="White" Background="#FFCA857E" BorderBrush="White" Grid.RowSpan="2"/>
+        <Button x:Name="_signUpButton" Content="Sign Up" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="192" Click="OnSubmitClick" Margin="55,266,0,0" Foreground="White" Background="#FFCA857E" BorderBrush="White" Grid.RowSpan="2"/>
         <Label x:Name="_usernameLabel" Content="Username" HorizontalAlignment="Left" Height="30" Margin="105,10,0,0" VerticalAlignment="Top" Width="63" Foreground="White"/>
         <Label x:Name="_emailLabel" Content="Email" HorizontalAlignment="Left" Height="30" Margin="104,75,0,0" VerticalAlignment="Top" Width="38" Foreground="White"/>
         <Label x:Name="_passwordLabel" Content="Password" HorizontalAlignment="Left" Height="30" Margin="105,140,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.601,-0.065" Width="60" Foreground="White"/>
         <Label x:Name="_rePasswordLabel" Content="Password again" HorizontalAlignment="Left" Height="30" Margin="105,203,0,0" VerticalAlignment="Top" Width="92" Foreground="White"/>
-        <Button x:Name="_loginButton" Content="Login" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="192" Click="RedirectToMoviesWindow" Margin="205,275,0,0" Background="#FFCA857E" BorderBrush="White" Foreground="White" Grid.RowSpan="2"/>
     </Grid>
 </Window>

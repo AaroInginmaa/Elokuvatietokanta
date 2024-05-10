@@ -57,10 +57,6 @@ namespace Elokuvatietokanta
             }
 
             Database.Close();
-        }
-
-        public void RedirectToMoviesWindow(object sender, RoutedEventArgs e)
-        {
             _windowLoader.LoadWindow(new MovieEditWindow());
         }
 
