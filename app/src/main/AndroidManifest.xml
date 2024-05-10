@@ -14,18 +14,6 @@
         android:theme="@style/Theme.EMDb"
         tools:ignore="DataExtractionRules">
         <activity
-            android:name=".activities.NoConnectionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.RecoverPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.DetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
@@ -34,9 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.LogInActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

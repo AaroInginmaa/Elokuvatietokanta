@@ -10,16 +10,6 @@
       </config>
     </shared>
     <layouts>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
-        <config>
-          <theme>@style/Theme.MovieApp</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_log_in.xml">
-        <config>
-          <theme>@style/Theme.MovieApp</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
         <config>
           <theme>@style/Theme.MovieApp</theme>
@@ -30,22 +20,7 @@
           <theme>@style/Theme.EMDb</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_recover_password.xml">
-        <config>
-          <theme>@style/Theme.MovieApp</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml">
-        <config>
-          <theme>@style/Theme.MovieApp</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_movie.xml">
-        <config>
-          <theme>@style/Theme.EMDb</theme>
-        </config>
-      </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml">
         <config>
           <theme>@style/Theme.EMDb</theme>
         </config>
@@ -117,81 +92,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4a7673b-572d-4c71-8ab2-5270d7ee1893" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/discord.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/kotlinc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/migrations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/proguard-rules.pro" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/androidTest/java/com/example/elokuvatietokanta/ExampleInstrumentedTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/java/com/example/elokuvatietokanta/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/java/com/example/elokuvatietokanta/ui/theme/Color.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/java/com/example/elokuvatietokanta/ui/theme/Theme.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/java/com/example/elokuvatietokanta/ui/theme/Type.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/layout/login_screen.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-anydpi/ic_launcher.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/values/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/test/java/com/example/elokuvatietokanta/ExampleUnitTest.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/gradle/libs.versions.toml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/Android/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/App.xaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/App.xaml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/Database.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/Elokuvat.xaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/Elokuvat.xaml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/Elokuvatietokanta.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/LoginWindow.xaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/LoginWindow.xaml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/MainWindow.xaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/MainWindow.xaml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/SignupWindow.xaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/SignupWindow.xaml.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/php/Database.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/php/Movie.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/php/post_handler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tietokanta.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -272,27 +174,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Android App.app.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "android-java",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "D:/GitHub/Android/Android_MovieApp/app/src/main/res/drawable",
-    "last_opened_file_path": "D:/GitHub/Eduko/Elokuvatietokanta",
-    "project.structure.last.edited": "Dependencies",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "two.files.diff.last.used.file": "D:/GitHub/Android/Android_MovieApp/app/src/main/res/layout/activity_detail.xml"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Android App.app.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;android-java&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;D:/GitHub/Android/Android_MovieApp/app/src/main/res/drawable&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GitHub/Eduko/Elokuvatietokanta&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;D:/GitHub/Android/Android_MovieApp/app/src/main/res/layout/activity_detail.xml&quot;
   }
-}]]></component>
+}</component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Properties" />
     <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
