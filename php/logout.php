@@ -5,6 +5,6 @@ $_SESSION = array();
 
 session_destroy();
 
-header("Location: /elokuvatietokanta/php/index.php");
+header("Location: /elokuvatietokanta/Elokuvatietokanta/php/index.php");
 exit();
 ?>

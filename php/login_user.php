@@ -58,7 +58,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 function redirect(){
     echo "<script>
         setTimeout(function() {
-            window.location.href = '/elokuvatietokanta/php/login.php';
+            window.location.href = '/elokuvatietokanta/Elokuvatietokanta/php/login.php';
         }, 2000);
       </script>";
 }

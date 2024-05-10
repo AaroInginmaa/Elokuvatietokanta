@@ -81,5 +81,5 @@ if ("movie with these values already exists") {
     die();
 }
 
-header("Location: /elokuvatietokanta/php/index.php");
+header("Location: /elokuvatietokanta/Elokuvatietokanta/php/index.php");
 exit();

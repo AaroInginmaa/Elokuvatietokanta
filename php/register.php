@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h2>Register</h2>
-        <form action="/elokuvatietokanta/php/register_user.php" method="POST">
+        <form action="/elokuvatietokanta/Elokuvatietokanta/php/register_user.php" method="POST">
             <div class="mb-3">
                 <label for="name" class="form-label">User Name</label>
                 <input type="text" class="form-control" id="name" name="name" autocomplete="off">
