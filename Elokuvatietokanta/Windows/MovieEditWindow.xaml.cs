@@ -71,7 +71,7 @@ namespace Elokuvatietokanta
             {
                 MessageBox.Show("Error: " + exception.Message);
             }
-            _database.Close();  
+            
         }
 
         private void OnReturn(object sender, RoutedEventArgs e)

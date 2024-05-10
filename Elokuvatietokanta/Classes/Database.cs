@@ -29,9 +29,17 @@ namespace Elokuvatietokanta.Classes
         {
             try
             {
-                _connection.Open();
+                if(_connection.State != ConnectionState.Open)
+                {
+                    _connection.Open();
 
-                return true;
+                    return true;
+                }
+                else
+                {
+                    return true;
+                }
+                
             }
             catch
             {
