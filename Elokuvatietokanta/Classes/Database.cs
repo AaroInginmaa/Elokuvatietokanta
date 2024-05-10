@@ -27,6 +27,8 @@ namespace Elokuvatietokanta.Classes
 
         public bool Connect()
         {
+            //Tässä katotaan että jos connection on open, jos ei nii laitetaa päälle
+            //älä ota if elseä pois koska muuten se failaa jos yrittää avata connectionia kun se on jo auki
             try
             {
                 if(_connection.State != ConnectionState.Open)
