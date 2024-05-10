@@ -63,8 +63,8 @@ if (!isset($_POST['name'], $_POST['length'], $_POST['year'], $_POST['genre'], $_
 }
 
 $name = $_POST['name'];
-$year = $_POST['length'];
-$length = $_POST['year'];
+$year = $_POST['year'];
+$length = $_POST['length'];
 $genre = $_POST['genre'];
 $main_actor = $_POST['main_actor'];
 $director = $_POST['director'];

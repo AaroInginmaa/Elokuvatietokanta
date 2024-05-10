@@ -35,10 +35,14 @@ class Database
         $ifExists = "SELECT * FROM movies WHERE Name = '$name' AND ReleaseYear = '$year'";
         $result = $this->connection->query($ifExists);
     
-        if ($result->num_rows < 0) {
-            echo "This movie is already in the database";
+        if ($result->num_rows <=1) {
+            echo "Movie is in ";
             return false;
         }
+        //elseif($result->num_rows ==0){
+           // echo "Movie added succesfully";
+           // return false;
+        //}
     
         $sql = "INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating, Image)
                 VALUES ('$name', '$length', '$year', '$genre', '$main_actor', '$director', '$rating', '$image')";

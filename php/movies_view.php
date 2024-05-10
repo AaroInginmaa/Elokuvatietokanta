@@ -22,8 +22,6 @@ if(!$database->connect()) {
             $director = $row["Director"];
             $rating = $row["Rating"]; 
             $image= $row["Image"];
-            
-
             echo '<tr> 
                       <td><img src="'.$image.'" alt="" width="200" height="200"></td>
                       <td>'.$name.'</td>
@@ -33,12 +31,11 @@ if(!$database->connect()) {
                       <td>'.$star.'</td>
                       <td>'.$director.'</td>
                       <td>'.$rating.'</td>
-                      <td><button>Poista</button></td>
-
-                      
+                      <td><form action="delete_movie.php" method="POST">
+                      <input type="hidden" name="movie_name" value="'.$name.'">
+                      <button type="submit">Poista</button>
+                  </form></td>
                   </tr>';
-
-            
         }
         $result->free();
     }
