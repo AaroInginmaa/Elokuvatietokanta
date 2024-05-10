@@ -47,8 +47,8 @@ namespace Elokuvatietokanta
         {
             if (!string.IsNullOrWhiteSpace(input))
             {
-                int rating;
-                if (int.TryParse(input, out rating))
+                decimal rating;
+                if (decimal.TryParse(input, out rating))
                 {
                     return 1 <= rating && rating <= 10;
                 }
