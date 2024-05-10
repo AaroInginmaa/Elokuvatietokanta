@@ -2,7 +2,8 @@
 
 require_once('Database.php');
 
-$query = "SELECT * FROM moviedb.movies;";
+$search_query = $_GET['query'];
+$query = "SELECT * FROM movies WHERE Name LIKE '%" . $search_query . "%'";
 $database = new Database();
     
 if(!$database->connect()) {
@@ -15,11 +16,11 @@ if(!$database->connect()) {
             
             $id = $row["idMovies"];
             $name = $row["Name"];
-            $length = $row["Length"];
-            $release_year = $row["ReleaseYear"];
-            $genre = $row["Genres"];
-            $star = $row["MainActors"];
             $director = $row["Director"];
+            $release_year = $row["ReleaseYear"];
+            $length = $row["Length"]; 
+            $genre = $row["Genres"]; 
+            $star = $row["MainActors"]; 
             $rating = $row["Rating"]; 
             $image= $row["Image"];
             
@@ -33,12 +34,9 @@ if(!$database->connect()) {
                       <td>'.$star.'</td>
                       <td>'.$director.'</td>
                       <td>'.$rating.'</td>
-                      <td><button>Poista</button></td>
 
                       
                   </tr>';
-
-            
         }
         $result->free();
     }

@@ -42,8 +42,8 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
         </li>
       </ul>
       <?php echo $profileButton; ?>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Elokuvan nimi" aria-label="Search">
+      <form class="d-flex" action="" method="GET">
+        <input class="form-control me-2" type="search" name="query" placeholder="Elokuvan nimi" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Hae</button>
       </form>
     </div>
@@ -54,19 +54,27 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
     <table class="table">
         <thead>
           <tr>
-            <th scope="col"></th>
+            <th scope="col">Kuva</th>
             <th scope="col">Nimi</th>
-            <th scope="col">Ohjaaja</th>
-            <th scope="col">Vuosi</th>
             <th scope="col">Kesto</th>
+            <th scope="col">Vuosi</th>
             <th scope="col">Genre</th>
             <th scope="col">Päänäyttelijä</th>
+            <th scope="col">Ohjaaja</th>
             <th scope="col">Arvostelu</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <?php require_once("C:/xampp/htdocs/elokuvatietokanta/php/movies_view.php") ?>
+            <?php
+            if(isset($_GET["query"])) {
+              require_once("C:/xampp/htdocs/elokuvatietokanta/php/search.php");
+            }
+            else
+            {
+              require_once("C:/xampp/htdocs/elokuvatietokanta/php/movies_view.php");
+            }
+            ?>
           </tr>
         </tbody>
     </table>

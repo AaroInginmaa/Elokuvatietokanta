@@ -7,24 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <div>
+    <div style="text-align:center;zoom:1.5">
         <h2>Elokuva</h2>
         <form action="post_handler.php" method="POST">
             <label for="name">Elokuvan nimi</label>
             <br>
             <input type="text" id="name" name="name" autocomplete="off">
             <br>
-            <label for="director">Elokuvan Ohjaaja</label>
-            <br>
-            <input type="text" id="director" name="director" autocomplete="off">
-            <br>
-            <label for="year">Elokuvan Julkaisuvuosi</label>
-            <br>
-            <input type="text" id="year" name="year" autocomplete="off" min="1800" max="2024">
-            <br>
             <label for="length">Elokuvan kesto</label>
             <br>
             <input type="text" id="length" name="length" autocomplete="off">
+            <br>
+            <label for="year">Elokuvan julkaisuvuosi</label>
+            <br>
+            <input type="text" id="year" name="year" autocomplete="off" min="1800" max="2024">
             <br>
             <label for="genre">Elokuvan genre</label>
             <br>
@@ -33,6 +29,10 @@
             <label for="main_actor">Elokuvan päänäyttelijä</label>
             <br>
             <input type="text" id="main_actor" name="main_actor" autocomplete="off">
+            <br>
+            <label for="director">Elokuvan ohjaaja</label>
+            <br>
+            <input type="text" id="director" name="director" autocomplete="off">
             <br>
             <label for="rating">Elokuvan arvostelu 1-10</label>
             <br>

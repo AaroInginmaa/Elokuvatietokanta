@@ -29,12 +29,20 @@ class Database
         $director = $this->connection->real_escape_string($director);
         $genre = $this->connection->real_escape_string($genre);
         $main_actor = $this->connection->real_escape_string($main_actor);
-        $rating = (int)$this->connection->real_escape_string($rating);
-        $image = (int)$this->connection->real_escape_string($image);
-
+        $rating = (float)$this->connection->real_escape_string($rating);
+        $image = $this->connection->real_escape_string($image);
+    
+        $ifExists = "SELECT * FROM movies WHERE Name = '$name' AND ReleaseYear = '$year'";
+        $result = $this->connection->query($ifExists);
+    
+        if ($result->num_rows < 0) {
+            echo "This movie is already in the database";
+            return false;
+        }
+    
         $sql = "INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating, Image)
                 VALUES ('$name', '$length', '$year', '$genre', '$main_actor', '$director', '$rating', '$image')";
-
+    
         if ($this->connection->query($sql) === TRUE) {
             return true;
         } else {
@@ -42,6 +50,7 @@ class Database
             return false;
         }
     }
+
     public function insert_user(User $user)
     {
         $username = $this->connection->real_escape_string($user->username);
