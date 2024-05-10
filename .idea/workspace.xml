@@ -1,10 +1,198 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config>
+        <device id="_android_virtual_device_id_Medium_Phone_API_29_10.0" />
+        <device id="_device_class_phone" />
+        <pickBest>false</pickBest>
+        <target>android-29</target>
+      </config>
+    </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
+        <config>
+          <theme>@style/Theme.MovieApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_log_in.xml">
+        <config>
+          <theme>@style/Theme.MovieApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.MovieApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_no_connection.xml">
+        <config>
+          <theme>@style/Theme.EMDb</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_recover_password.xml">
+        <config>
+          <theme>@style/Theme.MovieApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml">
+        <config>
+          <theme>@style/Theme.MovieApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_add_movie.xml">
+        <config>
+          <theme>@style/Theme.EMDb</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_detail.xml">
+        <config>
+          <theme>@style/Theme.EMDb</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml">
+        <config>
+          <theme>@style/Theme.EMDb</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_log_in.xml">
+        <config>
+          <theme>@style/Theme.EMDb</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml">
+        <config>
+          <theme>@style/Theme.EMDb</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_movies_by_genre.xml">
+        <config>
+          <theme>@style/Theme.EMDb</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml">
+        <config>
+          <theme>@style/Theme.MovieApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_recover_password.xml">
+        <config>
+          <theme>@style/Theme.EMDb</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_search.xml">
+        <config>
+          <theme>@style/Theme.EMDb</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_sign_up.xml">
+        <config>
+          <theme>@style/Theme.EMDb</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/view_holder_category.xml">
+        <config>
+          <theme>@style/Theme.MovieApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/view_holder_home_movie.xml">
+        <config>
+          <theme>@style/Theme.MovieApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/view_holder_search_movie.xml">
+        <config>
+          <theme>@style/Theme.EMDb</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/bottom_navigation_menu.xml">
+        <config>
+          <theme>@style/Theme.MovieApp</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f54662a-c337-4663-8410-1a0386f5614d" name="Changes" comment="" />
+    <list default="true" id="a4a7673b-572d-4c71-8ab2-5270d7ee1893" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/discord.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/migrations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/proguard-rules.pro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/androidTest/java/com/example/elokuvatietokanta/ExampleInstrumentedTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/java/com/example/elokuvatietokanta/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/java/com/example/elokuvatietokanta/ui/theme/Color.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/java/com/example/elokuvatietokanta/ui/theme/Theme.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/java/com/example/elokuvatietokanta/ui/theme/Type.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/drawable/ic_launcher_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/layout/login_screen.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-anydpi/ic_launcher.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/values/colors.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/values/strings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/values/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/xml/backup_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/main/res/xml/data_extraction_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/app/src/test/java/com/example/elokuvatietokanta/ExampleUnitTest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/build.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/gradle/libs.versions.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/Android/settings.gradle.kts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/App.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/App.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/Database.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/Elokuvat.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/Elokuvat.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/Elokuvatietokanta.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/LoginWindow.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/LoginWindow.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/MainWindow.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/MainWindow.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/SignupWindow.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sivut/WPF/Elokuvatietokanta/SignupWindow.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/php/Database.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/php/Movie.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/php/post_handler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tietokanta.md" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,22 +201,70 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\Luka Kinnunen\.android\avd\Pixel_7.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\pixel\.android\avd\Medium_Phone_API_34_14.0.avd)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EMDB" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EMDB" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EMDB" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EMDB" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layoutResourceFile" />
+        <option value="Class" />
+        <option value="resourceFile" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
-  <component name="ProjectId" id="2ed7gKjfJkY2Yhl00c0vvEjw0zU" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2fxJZ4djp6ambtctWaseE76xTXT" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -38,21 +274,63 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Android App.app.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "project.structure.last.edited": "Variables",
+    "git-widget-placeholder": "android-java",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "D:/GitHub/Android/Android_MovieApp/app/src/main/res/drawable",
+    "last_opened_file_path": "D:/GitHub/Eduko/Elokuvatietokanta",
+    "project.structure.last.edited": "Dependencies",
     "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "advanced.settings"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "two.files.diff.last.used.file": "D:/GitHub/Android/Android_MovieApp/app/src/main/res/layout/activity_detail.xml"
   }
 }]]></component>
+  <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Properties" />
+    <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
+    <option name="LAST_EDITED_BUILD_TYPE" value="release" />
+  </component>
+  <component name="RecentsManager">
+    <key name="android.template.-514871952">
+      <recent name="com.example.emdb.activities" />
+    </key>
+    <key name="android.template.577903453">
+      <recent name="com.example.emdb.activities" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitHub\Android\Android_MovieApp\app\src\main\res\layout" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GitHub\Android\Android_MovieApp\app\src\main\res\drawable" />
+      <recent name="D:\GitHub\Android\Android_MovieApp\app\src\main\java\com\example\emdb\php" />
+      <recent name="D:\GitHub\Android\Android_MovieApp\app\src\main\java\com\example\movieapp" />
+    </key>
+    <key name="android.template.-737822516">
+      <recent name="com.example.movieapp.activities" />
+      <recent name="com.example.movieapp" />
+    </key>
+    <key name="android.template.-1926238247">
+      <recent name="com.example.emdb.activities" />
+    </key>
+    <key name="android.template.-1727103180">
+      <recent name="com.example.emdb.activities" />
+      <recent name="com.example.emdb" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.emdb.adapters" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
-      <module name="Elokuvatietokanta.app.main" />
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="EMDB.app.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
       <option name="DEPLOY_AS_INSTANT" value="false" />
@@ -122,12 +400,18 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9f54662a-c337-4663-8410-1a0386f5614d" name="Changes" comment="" />
-      <created>1712222710455</created>
+      <changelist id="a4a7673b-572d-4c71-8ab2-5270d7ee1893" name="Changes" comment="" />
+      <created>1714736847873</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712222710455</updated>
+      <updated>1714736847873</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:com.google.protobuf:protobuf-java" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

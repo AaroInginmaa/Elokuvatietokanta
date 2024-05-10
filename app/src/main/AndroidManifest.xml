@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="false"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/main_logo"
+        android:label="EMDb"
+        android:roundIcon="@mipmap/main_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.EMDb"
+        tools:ignore="DataExtractionRules">
+        <activity
+            android:name=".activities.NoConnectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.RecoverPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.LogInActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
