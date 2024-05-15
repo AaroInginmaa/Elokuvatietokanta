@@ -34,6 +34,7 @@
                 @foreach (Movie movie in _movieSummary.GetMovies())
                 {
                     var editContext = new EditContext(movie);
+                    var navigationString= $"/editmovie?id={movie.IdElokuvat}";
                     <tr>
                         <td><img class="" width="140" src="@movie.Image" /></td>
                         <td><h3>@movie.Nimi </h3></td>
@@ -44,8 +45,11 @@
                         <td><strong>@movie.Genre</strong></td>
                         <td><strong>@movie.Päänäyttelijät</strong></td>
                         <td>
-                            <EditForm EditContext="editContext" FormName="@($"DeleteForm_{@movie.IdElokuvat}")" OnSubmit="() => DeleteMovie(movie)">
-                                <button type="submit" class="btn btn-primary">Delete</button>
+                            <EditForm EditContext="editContext" FormName=@($"EditForm_{@movie.IdElokuvat}") OnSubmit="() => NavigationManager.NavigateTo(navigationString)">
+                                <button type="submit" class="btn btn-primary">Edit</button>
+                            </EditForm>
+                            <EditForm EditContext="editContext" FormName="@($"DeleteForm_{@movie.IdElokuvat}")"OnSubmit="() => DeleteMovie(movie)">
+                                <button type="submit" class="btn btn-danger">Delete</button>
                             </EditForm>
                         </td>
                         

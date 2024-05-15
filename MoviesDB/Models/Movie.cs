@@ -15,7 +15,7 @@
             Image = image;
 
         }
-        public int IdElokuvat { get; private set; }
+        public int IdElokuvat { get; set; }
 
         public string Nimi { get; set; }
         public string Ohjaaja { get; set; }

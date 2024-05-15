@@ -1,5 +1,7 @@
 ﻿using MoviesDB.Models;
 using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
+using System.Collections.Generic;
 using System.Data;
 
 namespace MoviesDB
@@ -87,6 +89,17 @@ namespace MoviesDB
                 $"\"{movie.Päänäyttelijät}\"," +
                 $"\"{movie.Image}\"" +
                 $");";
+
+            OpenConnection();
+
+            MySqlCommand mySqlCommand = new MySqlCommand(query, _connection);
+            mySqlCommand.ExecuteNonQuery();
+            CloseConnection();
+        }
+
+        public void EditMovie(Movie movie)
+        {
+            string query = $"UPDATE movies SET Name = '{movie.Nimi}', Length = {movie.Pituus}, ReleaseYear = {movie.Julkaistu}, Genres = '{movie.Genre}', MainActors = '{movie.Päänäyttelijät}', Director = '{movie.Ohjaaja}', Rating = {movie.Arvio}, Image = '{movie.Image}' WHERE idMovies = {movie.IdElokuvat}";
 
             OpenConnection();
 
