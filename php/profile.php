@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
-    header("Location: /elokuvatietokanta/Elokuvatietokanta/php/login.php");
+    header("Location: /Test/index.php");
     exit();
 }
 
@@ -19,10 +19,10 @@ $email = $_SESSION['email'];
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<form action="/elokuvatietokanta/Elokuvatietokanta/php/profile_user.php" method="GET">    
+<form action="/Test/profile_user.php" method="GET">    
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand mb-0 h1" href="/elokuvatietokanta/Elokuvatietokanta/php/index.php">Elokuvatietokanta</a>
+            <a class="navbar-brand mb-0 h1" href="/Test/Website/index.php">Elokuvatietokanta</a>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     More actions
@@ -31,7 +31,7 @@ $email = $_SESSION['email'];
                     <li><a class="dropdown-item" href="#">Edit Profile</a></li>
                     <li><a class="dropdown-item" href="#">Change Password</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="/elokuvatietokanta/Elokuvatietokanta/php/logout.php">Logout</a></li>
+                    <li><a class="dropdown-item" href="/Test/Website/logout.php">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -50,7 +50,7 @@ $email = $_SESSION['email'];
     </div>
 
     <div class="container mt-3">
-        <a class="btn btn-primary" href="/elokuvatietokanta/Elokuvatietokanta/php/index.php">Back to Menu</a>
+        <a class="btn btn-primary" href="/Test/Website/index.php">Back to Menu</a>
     </div>
 </form>
 

@@ -61,7 +61,7 @@ if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password
     // Redirect to index.php after successful registration
     echo "<script>
             setTimeout(function() {
-                window.location.href = '/elokuvatietokanta/Elokuvatietokanta/php/index.php';
+                window.location.href = 'Website/index.php';
             }, 2000);
           </script>";
 
@@ -73,7 +73,7 @@ if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password
     function redirect(){
         echo "<script>
             setTimeout(function() {
-                window.location.href = '/elokuvatietokanta/Elokuvatietokanta/php/register.php';
+                window.location.href = '/index.php';
             }, 2000);
           </script>";
     }

@@ -72,15 +72,17 @@ $main_actor = $_POST['main_actor'];
 $director = $_POST['director'];
 $image = $_POST['image'];
 
-if ("movie with these values already exists") {
-    echo "This movie is already in the database";
-    die();
-}
+
 
 if (!$database->insert_movie($name, $length, $year, $genre, $main_actor, $director, $inputRating , $image)) {
     echo "Failed to insert new record.<br>";
     $database->close();
+
+}
+if ("movie with these values already exists") {
+    echo "This movie is already in the database";
+    header("Location: /Test/Website/index.php");
+    die();
 }
 
-header("Location: /elokuvatietokanta/Elokuvatietokanta/php/index.php");
-exit();
+//  exit();
