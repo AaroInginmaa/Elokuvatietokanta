@@ -1,16 +1,20 @@
-import tkinter as tk # pip install tk
+# Asenna mysql-connector, mysql-connector-python ja tk
+# pip install mysql-connector
+# pip install mysql-connector-python
+# pip install tk
 
-# pip install mysql.connector
-# Jos saat errorin  Authentication plugin 'caching_sha2_password' is not supported
-# Asenna mysql-connector ja mysql-connector-python pip:llä
+from io import BytesIO
 import mysql.connector
+import requests
+import tkinter as tk
 
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+from tkinter import VERTICAL, BOTH
+from PIL import ImageTk, Image
 import re
 import datetime
-import decimal
 
 def loginRegisterPage():
     
@@ -85,7 +89,7 @@ def logInPage():
         db = mysql.connector.connect(host="mc.koudata.fi", user="app", password="databaseApp!" , database="moviedb")
         cursor = db.cursor()
 
-        sql = "SELECT * FROM usertable WHERE (username = %s OR email = %s) AND password = %s"
+        sql = "SELECT * FROM moviedb.usertable WHERE (username = %s OR email = %s) AND password = %s"
         cursor.execute(sql, (nameEntry, nameEntry, pWordCheck))
         user = cursor.fetchone()
 
@@ -405,7 +409,7 @@ def mainWindow():
                 return False
         except ValueError:
             return False
-    
+        
     def showMovieList():
         movie_list_window = tk.Toplevel(root)
         movie_list_window.title("Elokuvalista")
@@ -415,40 +419,56 @@ def mainWindow():
         
         scrollbar = Scrollbar(movie_list_window, orient=VERTICAL, command=my_canvas.yview)
         scrollbar.pack(side=RIGHT, fill=Y)
-
         
         my_canvas.configure(yscrollcommand=scrollbar.set)
         my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion=my_canvas.bbox("all")))
         
         def _on_mousewheel(event):
             my_canvas.yview_scroll(int(-1*(event.delta/120)), "units")
+            
         def _bind_to_mousewheel(event):
             my_canvas.bind_all("<MouseWheel>", _on_mousewheel)
+            
         def _unbind_from_mousewheel(event):
             my_canvas.unbind_all("<MouseWheel>")
             
         my_canvas.bind('<Enter>', _bind_to_mousewheel)
         my_canvas.bind('<Leave>', _unbind_from_mousewheel)
-
-        second_frame = Frame(my_canvas)
+        
+        second_frame = tk.Frame(my_canvas)
         my_canvas.create_window((0, 0), window=second_frame, anchor="nw")
-
+        
         order = ""
         if combo.get().endswith("V"):
             order = f" ORDER BY {combo.get()[:-2]} DESC"
         elif combo.get().endswith("^"):
             order = f" ORDER BY {combo.get()[:-2]} ASC"
-
+            
         mycursor.execute(f"SELECT * FROM movies{order}")
         myresult = mycursor.fetchall()
-
+        
         for idx, movie in enumerate(myresult, start=1):
             movie_frame = ttk.LabelFrame(second_frame, text=f"Elokuva {idx}", width=500)
             movie_frame.pack(fill="x", padx=10, pady=5, anchor="w")
-
+            
             movie_info = f"Nimi: {movie[1]}\nPituus: {movie[2]}\nJulkaistu: {movie[3]}\nGenre: {movie[4]}\nPäänäyttelijät: {movie[5]}\nOhjaaja: {movie[6]}\nArvio: {movie[7]}"
             movie_label = ttk.Label(movie_frame, text=movie_info, wraplength=400, justify="left")
             movie_label.pack(padx=10, pady=5, anchor="w")
+            
+            image_url = movie[8]
+            
+            if image_url:
+                try:
+                    response = requests.get(image_url)
+                    img_data = response.content
+                    img = Image.open(BytesIO(img_data))
+                    img = img.resize((100, 150), Image.Resampling.LANCZOS)
+                    img = ImageTk.PhotoImage(img)
+                    img_label = tk.Label(movie_frame, image=img)
+                    img_label.image = img
+                    img_label.pack()
+                except Exception as e:
+                    print("Error loading image:", e)
 
         
     def searchMovieList(val):
@@ -460,7 +480,6 @@ def mainWindow():
         
         scrollbar = Scrollbar(movie_list_window, orient=VERTICAL, command=my_canvas.yview)
         scrollbar.pack(side=RIGHT, fill=Y)
-
         
         my_canvas.configure(yscrollcommand=scrollbar.set)
         my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion=my_canvas.bbox("all")))
@@ -495,6 +514,21 @@ def mainWindow():
             movie_info = f"Nimi: {movie[1]}\nPituus: {movie[2]}\nJulkaistu: {movie[3]}\nGenre: {movie[4]}\nPäänäyttelijät: {movie[5]}\nOhjaaja: {movie[6]}\nArvio: {movie[7]}"
             movie_label = ttk.Label(movie_frame, text=movie_info, wraplength=400, justify="left")
             movie_label.pack(padx=10, pady=5, anchor="w")
+
+            image_url = movie[8]
+            
+            if image_url:
+                try:
+                    response = requests.get(image_url)
+                    img_data = response.content
+                    img = Image.open(BytesIO(img_data))
+                    img = img.resize((100, 150), Image.Resampling.LANCZOS)
+                    img = ImageTk.PhotoImage(img)
+                    img_label = tk.Label(movie_frame, image=img)
+                    img_label.image = img
+                    img_label.pack()
+                except Exception as e:
+                    print("Error loading image:", e)
         
     def deleteData(val):
         try:
