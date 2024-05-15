@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Elokuvatietokanta.Classes
@@ -71,6 +72,23 @@ namespace Elokuvatietokanta.Classes
             int rowsAffected = command.ExecuteNonQuery();
 
             return rowsAffected;
+        }
+
+        public int DeleteMovie(string name)
+        {
+            try
+            {
+                using (MySqlCommand command = new MySqlCommand("DELETE FROM movies WHERE Name = @name", _connection))
+                {
+                    command.Parameters.AddWithValue("@name", name);
+                    return command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return -1;
+            }
         }
 
         public void FillDataGrid(DataGrid dg)

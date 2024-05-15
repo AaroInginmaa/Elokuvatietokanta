@@ -1,6 +1,8 @@
 ﻿using Elokuvatietokanta.Classes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Data.Common;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -33,30 +35,39 @@ namespace Elokuvatietokanta
             {
                 DataRowView dataRow = (DataRowView)_sqlDataGrid.SelectedItem;
 
-                int movieId = Convert.ToInt32(dataRow.Row.ItemArray[0]);
-                string movieName = dataRow.Row.ItemArray.ToString();
-
-                MessageBoxResult messageBoxResult = MessageBox.Show($"Are you sure you want to delete {movieName}", "Deletion", MessageBoxButton.YesNo, MessageBoxImage.Information);
-
-                if (messageBoxResult == MessageBoxResult.Yes)
+                if (dataRow == null)
                 {
-                    _database.DestructiveQuery($"DELETE FROM moviedb.movies WHERE idMovies = {movieId}");
-                }
-                else
-                {
+                    MessageBox.Show("Please select a movie to delete.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
+                string name = Convert.ToString(dataRow.Row.ItemArray[0]);
+
+                MessageBoxResult messageBoxResult = MessageBox.Show($"Are you sure you want to delete {name}?", "Deletion", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    int rowsAffected = _database.DeleteMovie(name);
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Movie deleted successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No movie found with the given name.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             _database.FillDataGrid(_sqlDataGrid);
             _deleteMovieButton.IsEnabled = false;
         }
+
 
         private void OpenLoadWindow(object sender, RoutedEventArgs e)
         {

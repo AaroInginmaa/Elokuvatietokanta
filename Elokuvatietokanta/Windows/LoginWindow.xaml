@@ -14,7 +14,6 @@
             <Setter Property="Height" Value="33"/>
             <Setter Property="Margin" Value="10,5"/>
             <Setter Property="Width" Value="234"/>
-            <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="BorderBrush" Value="#CCCCCC"/>
@@ -27,7 +26,6 @@
             <Setter Property="Height" Value="33"/>
             <Setter Property="Margin" Value="10,5"/>
             <Setter Property="Width" Value="234"/>
-            <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="BorderBrush" Value="#CCCCCC"/>
@@ -44,7 +42,7 @@
             <Setter Property="Foreground" Value="#FFFFFF"/>
             <!-- Text Color -->
             <Setter Property="Background" Value="#FFCA857E"/>
-            
+
             <!-- Background Color -->
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="BorderBrush" Value="#FFFFFF"/>
@@ -53,11 +51,8 @@
     </Window.Resources>
     <Grid Background="#FFCA857E">
         <!-- Main Grid Background Color -->
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Margin="0" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="0" Margin="0">
+            <StackPanel Orientation="Horizontal"/>
             <Label Content="Username or Email"/>
             <TextBox x:Name="_loginInputField"/>
             <Label Content="Password"/>
