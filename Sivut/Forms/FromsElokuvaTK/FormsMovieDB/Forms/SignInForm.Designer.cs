@@ -35,12 +35,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this._createAccountButton = new System.Windows.Forms.Button();
             this._signInButtonClicked = new System.Windows.Forms.Button();
-            this._passwordInputField = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this._loginInputField = new System.Windows.Forms.RichTextBox();
             this.SignInLable = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this._passwordInputField = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.SignInPanel.SuspendLayout();
             this.SuspendLayout();
@@ -60,11 +60,11 @@
             // 
             this.SignInPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SignInPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SignInPanel.Controls.Add(this._passwordInputField);
             this.SignInPanel.Controls.Add(this.label3);
             this.SignInPanel.Controls.Add(this.label2);
             this.SignInPanel.Controls.Add(this._createAccountButton);
             this.SignInPanel.Controls.Add(this._signInButtonClicked);
-            this.SignInPanel.Controls.Add(this._passwordInputField);
             this.SignInPanel.Controls.Add(this.label1);
             this.SignInPanel.Controls.Add(this._loginInputField);
             this.SignInPanel.Controls.Add(this.SignInLable);
@@ -113,7 +113,7 @@
             this._createAccountButton.Margin = new System.Windows.Forms.Padding(4);
             this._createAccountButton.Name = "_createAccountButton";
             this._createAccountButton.Size = new System.Drawing.Size(334, 50);
-            this._createAccountButton.TabIndex = 5;
+            this._createAccountButton.TabIndex = 4;
             this._createAccountButton.Text = "Create account";
             this._createAccountButton.UseVisualStyleBackColor = false;
             this._createAccountButton.Click += new System.EventHandler(this.OnCreateAccountButtonClick);
@@ -131,20 +131,10 @@
             this._signInButtonClicked.Margin = new System.Windows.Forms.Padding(4);
             this._signInButtonClicked.Name = "_signInButtonClicked";
             this._signInButtonClicked.Size = new System.Drawing.Size(342, 56);
-            this._signInButtonClicked.TabIndex = 4;
+            this._signInButtonClicked.TabIndex = 3;
             this._signInButtonClicked.Text = "Sign In";
             this._signInButtonClicked.UseVisualStyleBackColor = false;
             this._signInButtonClicked.Click += new System.EventHandler(this.OnSignInButtonClicked);
-            // 
-            // _passwordInputField
-            // 
-            this._passwordInputField.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this._passwordInputField.Location = new System.Drawing.Point(75, 230);
-            this._passwordInputField.Margin = new System.Windows.Forms.Padding(4);
-            this._passwordInputField.Name = "_passwordInputField";
-            this._passwordInputField.Size = new System.Drawing.Size(340, 38);
-            this._passwordInputField.TabIndex = 3;
-            this._passwordInputField.Text = "";
             // 
             // label1
             // 
@@ -201,6 +191,14 @@
             this.panel2.Size = new System.Drawing.Size(300, 783);
             this.panel2.TabIndex = 1;
             // 
+            // _passwordInputField
+            // 
+            this._passwordInputField.Location = new System.Drawing.Point(74, 227);
+            this._passwordInputField.Name = "_passwordInputField";
+            this._passwordInputField.PasswordChar = '*';
+            this._passwordInputField.Size = new System.Drawing.Size(342, 26);
+            this._passwordInputField.TabIndex = 2;
+            // 
             // SignInForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -227,7 +225,6 @@
         private System.Windows.Forms.Panel SignInPanel;
         private System.Windows.Forms.Button _createAccountButton;
         private System.Windows.Forms.Button _signInButtonClicked;
-        private System.Windows.Forms.RichTextBox _passwordInputField;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox _loginInputField;
         private System.Windows.Forms.Label SignInLable;
@@ -235,5 +232,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox _passwordInputField;
     }
 }

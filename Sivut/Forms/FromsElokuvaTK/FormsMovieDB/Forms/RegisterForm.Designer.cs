@@ -37,15 +37,15 @@
             this._returnButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this._rePasswordInputField = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this._passwordInputField = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this._emailInputField = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this._usernameInputField = new System.Windows.Forms.RichTextBox();
             this._submitButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this._passwordInputField = new System.Windows.Forms.TextBox();
+            this._rePasswordInputField = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -83,13 +83,13 @@
             // 
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this._rePasswordInputField);
+            this.panel4.Controls.Add(this._passwordInputField);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this._returnButton);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this._rePasswordInputField);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this._passwordInputField);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this._emailInputField);
             this.panel4.Controls.Add(this.label2);
@@ -126,7 +126,7 @@
             this._returnButton.Margin = new System.Windows.Forms.Padding(4);
             this._returnButton.Name = "_returnButton";
             this._returnButton.Size = new System.Drawing.Size(207, 44);
-            this._returnButton.TabIndex = 1;
+            this._returnButton.TabIndex = 6;
             this._returnButton.Text = "Back";
             this._returnButton.UseVisualStyleBackColor = false;
             this._returnButton.Click += new System.EventHandler(this.OnReturnButtonClick);
@@ -153,16 +153,6 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Create Account";
             // 
-            // _rePasswordInputField
-            // 
-            this._rePasswordInputField.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._rePasswordInputField.Location = new System.Drawing.Point(59, 328);
-            this._rePasswordInputField.Margin = new System.Windows.Forms.Padding(4);
-            this._rePasswordInputField.Name = "_rePasswordInputField";
-            this._rePasswordInputField.Size = new System.Drawing.Size(336, 36);
-            this._rePasswordInputField.TabIndex = 9;
-            this._rePasswordInputField.Text = "";
-            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -174,16 +164,6 @@
             this.label4.Size = new System.Drawing.Size(145, 20);
             this.label4.TabIndex = 8;
             this.label4.Text = "Re-enter Password";
-            // 
-            // _passwordInputField
-            // 
-            this._passwordInputField.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this._passwordInputField.Location = new System.Drawing.Point(59, 264);
-            this._passwordInputField.Margin = new System.Windows.Forms.Padding(4);
-            this._passwordInputField.Name = "_passwordInputField";
-            this._passwordInputField.Size = new System.Drawing.Size(336, 36);
-            this._passwordInputField.TabIndex = 7;
-            this._passwordInputField.Text = "";
             // 
             // label3
             // 
@@ -204,7 +184,7 @@
             this._emailInputField.Margin = new System.Windows.Forms.Padding(4);
             this._emailInputField.Name = "_emailInputField";
             this._emailInputField.Size = new System.Drawing.Size(336, 36);
-            this._emailInputField.TabIndex = 5;
+            this._emailInputField.TabIndex = 2;
             this._emailInputField.Text = "";
             // 
             // label2
@@ -224,7 +204,7 @@
             this._usernameInputField.Margin = new System.Windows.Forms.Padding(4);
             this._usernameInputField.Name = "_usernameInputField";
             this._usernameInputField.Size = new System.Drawing.Size(336, 36);
-            this._usernameInputField.TabIndex = 3;
+            this._usernameInputField.TabIndex = 1;
             this._usernameInputField.Text = "";
             // 
             // _submitButton
@@ -240,7 +220,7 @@
             this._submitButton.Margin = new System.Windows.Forms.Padding(4);
             this._submitButton.Name = "_submitButton";
             this._submitButton.Size = new System.Drawing.Size(207, 44);
-            this._submitButton.TabIndex = 2;
+            this._submitButton.TabIndex = 5;
             this._submitButton.Text = "Submit";
             this._submitButton.UseVisualStyleBackColor = false;
             this._submitButton.Click += new System.EventHandler(this.OnSubmitButtonClicked);
@@ -256,6 +236,22 @@
             this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
+            // 
+            // _passwordInputField
+            // 
+            this._passwordInputField.Location = new System.Drawing.Point(59, 263);
+            this._passwordInputField.Name = "_passwordInputField";
+            this._passwordInputField.PasswordChar = '*';
+            this._passwordInputField.Size = new System.Drawing.Size(336, 26);
+            this._passwordInputField.TabIndex = 3;
+            // 
+            // _rePasswordInputField
+            // 
+            this._rePasswordInputField.Location = new System.Drawing.Point(59, 327);
+            this._rePasswordInputField.Name = "_rePasswordInputField";
+            this._rePasswordInputField.PasswordChar = '*';
+            this._rePasswordInputField.Size = new System.Drawing.Size(336, 26);
+            this._rePasswordInputField.TabIndex = 4;
             // 
             // RegisterForm
             // 
@@ -284,9 +280,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.RichTextBox _rePasswordInputField;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox _passwordInputField;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox _emailInputField;
         private System.Windows.Forms.Label label2;
@@ -297,5 +291,7 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox _passwordInputField;
+        private System.Windows.Forms.TextBox _rePasswordInputField;
     }
 }
