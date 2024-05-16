@@ -6,8 +6,7 @@ namespace FormsMovieDB
 {
     public partial class RegisterForm : Form
     {
-        public static event Action<Form> ReturnButtonClicked;
-
+        public static event Action<Form> OnButtonClicked;
         readonly Database _database = new Database();
         readonly UserInputValidator _inputValidator = new UserInputValidator();
 
@@ -22,20 +21,44 @@ namespace FormsMovieDB
             string password = _passwordInputField.Text;
             string rePassword = _rePasswordInputField.Text;
 
-           if (!_inputValidator.ValidUsername(username) || !_inputValidator.ValidEmail(email) || !_inputValidator.ValidPassword(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(rePassword))
+            {
+                MessageBox.Show("Please fill all fields");
                 return;
+            }
+            if (!_inputValidator.ValidUsername(username))
+            {
+                MessageBox.Show("Invalid username");
+                return;
+            }
+            if (!_inputValidator.ValidEmail(email))
+            {
+                MessageBox.Show("Invalid email");
+                return;
+            }
+            if (!_inputValidator.ValidPassword(password))
+            {
+                MessageBox.Show("Invalid password");
+                return;
+            }
             if (password != rePassword)
+            {
+                MessageBox.Show("Passwords do not match");
                 return;
+            }
             if (_database.LoginIsAvailable(username, email) == false)
+            {
+                MessageBox.Show("User with this username and email already exists");
                 return;
+            }
 
             _database.RegisterUser(new User(username, email, password));
-            ReturnButtonClicked?.Invoke(new SignInForm());
+            OnButtonClicked?.Invoke(new SignInForm());
         }
 
         private void OnReturnButtonClick(object sender, EventArgs e)
         {
-            ReturnButtonClicked?.Invoke(new SignInForm());
+            OnButtonClicked?.Invoke(new SignInForm());
         }
     }
 }

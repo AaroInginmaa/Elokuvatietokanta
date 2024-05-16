@@ -26,13 +26,23 @@ namespace FormsMovieDB
         {
             string login = _loginInputField.Text;
             string password = _passwordInputField.Text;
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please fill all fields");
+                return;
+            }
             if (!_inputValidator.ValidInput(login) && !_inputValidator.ValidInput(password))
                 return;
 
             _database.LoginUser(login, password);
             if (Client.UserLoggedIn())
             {
-                SignInButtonClicked?.Invoke(new ProfileForm());
+
+                SignInButtonClicked?.Invoke(new HomeForm());
+            }
+            else
+            {
+                MessageBox.Show("Invalid user or password");
             }
         }
     }

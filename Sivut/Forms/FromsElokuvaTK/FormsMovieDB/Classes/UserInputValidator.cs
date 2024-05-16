@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using Tulpep.NotificationWindow;
 
 namespace FormsMovieDB.Classes
@@ -41,20 +42,9 @@ namespace FormsMovieDB.Classes
                 return false;
             if (input.Length >= _maxEmailLength)
                 return false;
-            string regex = @"^[\w.-]+@[\w.-]+.\w{2,}$";
+            string regex = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
             if (!Regex.IsMatch(input, regex, RegexOptions.IgnoreCase))
             {
-                PopupNotifier popup = new PopupNotifier
-                {
-                    ContentFont = new Font("Tahoma", 8F),
-                    HeaderHeight = 20,
-                    BodyColor = Color.Red,
-                    ShowCloseButton = false,
-                    TitleColor = Color.White,
-                    TitleText = "Error",
-                    ContentText = "Incorrect email"
-                };
-                popup.Popup();
                 return false;
             }
             return true;
@@ -63,30 +53,27 @@ namespace FormsMovieDB.Classes
         {
             if (ValidInput(input) == false)
                 return false;
+
             if (string.IsNullOrWhiteSpace(input))
             {
                 return false;
             }
-            if (input.Length < 8)
+            if (input.Length < 6)
             {
-                PopupNotifier popup = new PopupNotifier();
-                popup.ContentFont = new System.Drawing.Font("Tahoma", 8F);
-                popup.HeaderHeight = 20;
-                popup.BodyColor = Color.Red;
-                popup.ShowCloseButton = false;
-                popup.TitleColor = Color.White;
-                popup.TitleText = "Error";
-                popup.ContentText = "Password must be 8 characters long";
-                popup.Popup();
                 return false;
             }
+            bool foundUppercase = false;
             for (int i = 0; i < input.Length; i++)
             {
                 if (char.IsUpper(input[i]))
+                {
+                    foundUppercase = true;
                     break;
-                else if (i == input.Length)
-                    return false;
+                }
             }
+            if (!foundUppercase)
+                return false;
+
             for (int i = 0; i < input.Length; i++)
             {
                 if (char.IsLower(input[i]))

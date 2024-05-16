@@ -22,49 +22,19 @@ namespace FormsMovieDB.Forms
                 RatingNumUpDown.Value == 0 ||
                 string.IsNullOrWhiteSpace(ImageURLText.Text))
             {
-                PopupNotifier popup = new PopupNotifier
-                {
-                    ContentFont = new Font("Tahoma", 8F),
-                    HeaderHeight = 20,
-                    BodyColor = Color.Red,
-                    ShowCloseButton = false,
-                    TitleColor = Color.White,
-                    TitleText = "Error",
-                    ContentText = "Please fill out all the fields!"
-                };
-                popup.Popup();
+                MessageBox.Show("Please fill all fields");
                 return;
             }
 
             if (!Uri.TryCreate(ImageURLText.Text, UriKind.Absolute, out _))
             {
-                PopupNotifier popup = new PopupNotifier
-                {
-                    ContentFont = new Font("Tahoma", 8F),
-                    HeaderHeight = 20,
-                    BodyColor = Color.Red,
-                    ShowCloseButton = false,
-                    TitleColor = Color.White,
-                    TitleText = "Error",
-                    ContentText = "Please enter a valid URL!"
-                };
-                popup.Popup();
+                MessageBox.Show("Please give valid URL as image link");
                 return;
             }
             int enteredYear = Convert.ToInt32(YearNumUpDown.Value);
-            if (enteredYear < 1888)
+            if (enteredYear < 1888 && enteredYear > 2024)
             {
-                PopupNotifier popup = new PopupNotifier
-                {
-                    ContentFont = new Font("Tahoma", 8F),
-                    HeaderHeight = 20,
-                    BodyColor = Color.Red,
-                    ShowCloseButton = false,
-                    TitleColor = Color.White,
-                    TitleText = "Error",
-                    ContentText = "Year cannot be earlier than 1888!"
-                };
-                popup.Popup();
+                MessageBox.Show("Year cannot be earlier than 1888 or later than 2024!");
                 return;
             }
 

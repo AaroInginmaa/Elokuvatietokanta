@@ -6,7 +6,7 @@ namespace FormsMovieDB
     public partial class MovieForm : Form
     {
         private readonly Movie _movie;
-        public static event Action<Form> ReturnButtonClicked;
+        public static event Action<Form> BackButtonClicked;
 
         public MovieForm(Movie movie)
         {
@@ -18,13 +18,10 @@ namespace FormsMovieDB
             LoadMovieData();
         }
 
-        private void OnReturnButtonClick(object sender, EventArgs e)
+        private void OnBackButtonClick(object sender, EventArgs e)
         {
-            // Hide the MovieForm
-            this.Hide();
+            BackButtonClicked?.Invoke(this);
 
-            // Invoke the ReturnButtonClicked event
-            ReturnButtonClicked?.Invoke(this);
         }
 
         public void LoadMovieData()
@@ -40,7 +37,7 @@ namespace FormsMovieDB
                 }
                 catch (Exception ee)
                 {
-                    Console.WriteLine("Jotain meni väärin kuvan " + _movie.Image + " kanssa. Virhe : " + ee.Message);
+                    MessageBox.Show("Jotain meni väärin kuvan " + _movie.Image + " kanssa. Virhe : " + ee.Message);
                 }
             }
             _releaseYear.Text = _movie.ReleaseYear.ToString();
@@ -49,7 +46,6 @@ namespace FormsMovieDB
             _length.Text = $"{_movie.Length} minutes";
             _mainactors.Text = _movie.MainActors.ToString();
         }
-
         private void OnMovieFormShown(object sender, EventArgs e)
         {
             LoadMovieData();

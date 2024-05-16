@@ -1,4 +1,6 @@
-﻿namespace FormsMovieDB
+﻿using System.Runtime.Remoting.Messaging;
+
+namespace FormsMovieDB
 {
     sealed class Client
     {
@@ -6,6 +8,7 @@
 
         private static Client _instance;
         private static readonly object _lock = new object();
+        private MainForm _mainForm;
 
         public User LoggedUser { get; private set; }
 

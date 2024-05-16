@@ -31,7 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieForm));
             this.InfoPanel = new System.Windows.Forms.Panel();
             this._mainactors = new System.Windows.Forms.Label();
+            this._rating = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this._length = new System.Windows.Forms.Label();
             this.LenghtLable = new System.Windows.Forms.Label();
             this._director = new System.Windows.Forms.Label();
@@ -42,11 +44,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this._releaseYear = new System.Windows.Forms.Label();
             this.BottomPanel = new System.Windows.Forms.Panel();
-            this.ReturnButton = new System.Windows.Forms.Button();
-            this._rating = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this._title = new System.Windows.Forms.Label();
             this._picture = new System.Windows.Forms.PictureBox();
+            this.BackButton = new System.Windows.Forms.Button();
             this.InfoPanel.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._picture)).BeginInit();
@@ -57,7 +57,9 @@
             this.InfoPanel.BackColor = System.Drawing.Color.White;
             this.InfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.InfoPanel.Controls.Add(this._mainactors);
+            this.InfoPanel.Controls.Add(this._rating);
             this.InfoPanel.Controls.Add(this.label3);
+            this.InfoPanel.Controls.Add(this.label2);
             this.InfoPanel.Controls.Add(this._length);
             this.InfoPanel.Controls.Add(this.LenghtLable);
             this.InfoPanel.Controls.Add(this._director);
@@ -86,6 +88,18 @@
             this._mainactors.TabIndex = 16;
             this._mainactors.Text = "Actors here";
             // 
+            // _rating
+            // 
+            this._rating.AutoSize = true;
+            this._rating.BackColor = System.Drawing.Color.Transparent;
+            this._rating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this._rating.Location = new System.Drawing.Point(120, 230);
+            this._rating.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this._rating.Name = "_rating";
+            this._rating.Size = new System.Drawing.Size(153, 29);
+            this._rating.TabIndex = 9;
+            this._rating.Text = "Rating 1 - 10 ";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -98,6 +112,18 @@
             this.label3.Size = new System.Drawing.Size(127, 25);
             this.label3.TabIndex = 15;
             this.label3.Text = "Main Actors :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(4, 230);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 29);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Rating:";
             // 
             // _length
             // 
@@ -194,7 +220,7 @@
             this.label1.Location = new System.Drawing.Point(14, 63);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 7;
             // 
             // _releaseYear
@@ -213,9 +239,7 @@
             // BottomPanel
             // 
             this.BottomPanel.BackColor = System.Drawing.Color.White;
-            this.BottomPanel.Controls.Add(this.ReturnButton);
-            this.BottomPanel.Controls.Add(this._rating);
-            this.BottomPanel.Controls.Add(this.label2);
+            this.BottomPanel.Controls.Add(this.BackButton);
             this.BottomPanel.Controls.Add(this.InfoPanel);
             this.BottomPanel.Controls.Add(this._title);
             this.BottomPanel.Controls.Add(this._picture);
@@ -225,41 +249,6 @@
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Size = new System.Drawing.Size(1500, 1200);
             this.BottomPanel.TabIndex = 0;
-            this.BottomPanel.Click += new System.EventHandler(this.OnReturnButtonClick);
-            // 
-            // ReturnButton
-            // 
-            this.ReturnButton.BackColor = System.Drawing.Color.Yellow;
-            this.ReturnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReturnButton.Location = new System.Drawing.Point(1255, 26);
-            this.ReturnButton.Name = "ReturnButton";
-            this.ReturnButton.Size = new System.Drawing.Size(219, 49);
-            this.ReturnButton.TabIndex = 11;
-            this.ReturnButton.Text = "Back";
-            this.ReturnButton.UseVisualStyleBackColor = false;
-            this.ReturnButton.Click += new System.EventHandler(this.OnReturnButtonClick);
-            // 
-            // _rating
-            // 
-            this._rating.AutoSize = true;
-            this._rating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this._rating.Location = new System.Drawing.Point(651, 26);
-            this._rating.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this._rating.Name = "_rating";
-            this._rating.Size = new System.Drawing.Size(166, 29);
-            this._rating.TabIndex = 10;
-            this._rating.Text = "( rating 1 - 10 )";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(555, 26);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 29);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Rating:";
             // 
             // _title
             // 
@@ -282,6 +271,19 @@
             this._picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this._picture.TabIndex = 0;
             this._picture.TabStop = false;
+            // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.Color.Gold;
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.BackButton.Location = new System.Drawing.Point(1202, 23);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Padding = new System.Windows.Forms.Padding(2);
+            this.BackButton.Size = new System.Drawing.Size(220, 79);
+            this.BackButton.TabIndex = 8;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.OnBackButtonClick);
             // 
             // MovieForm
             // 
@@ -323,6 +325,6 @@
         private System.Windows.Forms.PictureBox _picture;
         private System.Windows.Forms.Label _mainactors;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button ReturnButton;
+        private System.Windows.Forms.Button BackButton;
     }
 }
