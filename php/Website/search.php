@@ -34,6 +34,9 @@ if(!$database->connect()) {
                       <td>'.$star.'</td>
                       <td>'.$director.'</td>
                       <td>'.$rating.'</td>
+                      <td><form action="delete_movie.php" method="POST">
+                      <input type="hidden" name="movie_name" value="'.$name.'">
+                      <button type="submit">Poista</button>
                   </tr>';
         }
         $result->free();

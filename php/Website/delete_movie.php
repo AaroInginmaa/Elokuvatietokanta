@@ -16,7 +16,7 @@ if(isset($_POST['movie_name'])) {
 
         if ($database->connection->query($query) === TRUE) {
             echo "Record deleted successfully";
-            header("Location: /Test/Website/index.php");
+            header("Location: /php/Website/index.php");
         } else {
             echo "Error deleting record: " . $database->connection->error;
         }
