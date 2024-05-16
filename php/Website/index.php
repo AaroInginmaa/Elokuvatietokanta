@@ -68,7 +68,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
           <tr>
             <?php
             if(isset($_GET["query"])) {
-              require_once("C:/xampp/htdocs/php/Webite/search.php");
+              require_once("C:/xampp/htdocs/php/Website/search.php");
             }
             else
             {
