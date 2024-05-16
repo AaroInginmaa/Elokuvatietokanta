@@ -140,7 +140,7 @@
                 android:id="@+id/movieRatingInput"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="IMDB Rating (0.0) *"
+                android:hint="IMDB Rating (0.0 - 10) *"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
