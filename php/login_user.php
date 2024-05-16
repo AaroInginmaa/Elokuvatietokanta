@@ -47,7 +47,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $_SESSION['username'] = $user->username;
     $_SESSION['email'] = $user->email;
 
-    header("Location: /Test/Website/index.php");
+    header("Location: /php/Website/index.php");
     exit();
 } else {
     echo "<p style='color: red;'>Email or password is missing.</p>";
@@ -58,7 +58,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 function redirect(){
     echo "<script>
         setTimeout(function() {
-            window.location.href = '/Test/login.php';
+            window.location.href = '/php/login.php';
         }, 2000);
       </script>";
 }

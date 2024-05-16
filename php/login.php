@@ -8,11 +8,11 @@
 </head>
 <body>
     <div class="container">
-    <form action="/Test/index.php">
+    <form action="/php/index.php">
             <button type="submit" class="btn">Register</button>
         </form>
         <h2>Login</h2>
-        <form action="/Test/login_user.php" method="POST">
+        <form action="/php/login_user.php" method="POST">
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" autocomplete="off">

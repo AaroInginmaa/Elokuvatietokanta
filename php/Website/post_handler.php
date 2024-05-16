@@ -81,7 +81,7 @@ if (!$database->insert_movie($name, $length, $year, $genre, $main_actor, $direct
 }
 if ("movie with these values already exists") {
     echo "This movie is already in the database";
-    header("Location: /Test/Website/index.php");
+    header("Location: /php/Website/index.php");
     die();
 }
 

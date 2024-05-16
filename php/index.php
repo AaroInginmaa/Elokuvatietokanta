@@ -8,11 +8,11 @@
 </head>
 <body>
     <div class="container">
-        <form action="/Test/login.php">
+        <form action="/php/login.php">
             <button type="submit" class="btn">Log In</button>
         </form>
         <h2>Register</h2>
-        <form action="/Test/register_user.php" method="POST">
+        <form action="/php/register_user.php" method="POST">
             <div class="mb-3">
                 <label for="name" class="form-label">User Käykää hei pojat ne teiän enkut ja äikät uusiks miks tässä on väli????? Name</label>
                 <input type="text" class="form-control" id="name" name="name" autocomplete="off">
