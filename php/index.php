@@ -8,27 +8,18 @@
 </head>
 <body>
     <div class="container">
-        <form action="/php/login.php">
-            <button type="submit" class="btn">Log In</button>
-        </form>
-        <h2>Register</h2>
-        <form action="/php/register_user.php" method="POST">
-            <div class="mb-3">
-                <label for="name" class="form-label">User Käykää hei pojat ne teiän enkut ja äikät uusiks miks tässä on väli????? Name</label>
-                <input type="text" class="form-control" id="name" name="name" autocomplete="off">
+        <div class="card my-5">
+            <div class="card-header">
+                <h5 class="card-title">Welcome to Elokuvatietokanta</h5>
             </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" autocomplete="off">
+            <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-body-secondary">Already have an account?</h6>
+                <a href="/php/login.php" class="btn btn-primary">Login</a>
+                <hr>
+                <p class="card-text">Don't have an account? Register here.</p>
+                <a href="/php/register.php" class="btn btn-primary">Register</a>
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" autocomplete="off">
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
-
-        
+        </div>
     </div>
 </body>
 </html>
