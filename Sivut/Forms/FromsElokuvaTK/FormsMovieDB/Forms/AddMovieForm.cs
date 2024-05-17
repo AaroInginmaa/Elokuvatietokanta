@@ -50,8 +50,8 @@ namespace FormsMovieDB.Forms
             );
             Database database = new Database();
             database.InsertMovie(movie);
-            AddMovieForm form = new AddMovieForm();
-            form.Hide();
+
+            this.Hide();
         }
     }
 }
