@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
-        <div class="my-5 card">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="my-5 card w-25">
             <div class="card-header">
-                <h5>Login</h5>
+                <h5 class="card-title">Login</h5>
             </div>
             <div class="card-body">
                 <form action="/php/login_user.php" method="POST">
