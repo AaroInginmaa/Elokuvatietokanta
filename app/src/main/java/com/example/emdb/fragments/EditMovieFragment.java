@@ -33,15 +33,16 @@ public class EditMovieFragment extends Fragment {
     private final InputValidator inputValidator = new InputValidator();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit_movie, container, false);
+        initView(view);
 
-        // Retrieve the movie object from the bundle
-        Bundle arguments = getArguments();
-        if (arguments != null) {
-            Movie movie = arguments.getParcelable("movie");
-            // Use the movie object as needed
+        Bundle args = getArguments();
+        if (args != null) {
+            movie = (Movie) args.getSerializable("movie");
+            if (movie != null) {
+                populateFields(movie);
+            }
         }
 
         return view;

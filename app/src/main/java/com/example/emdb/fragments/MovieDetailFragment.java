@@ -101,7 +101,7 @@ public class MovieDetailFragment extends Fragment {
 
         // Pass the current movie details to the EditMovieFragment
         Bundle bundle = new Bundle();
-        bundle.putParcelable("movie", currentMovie);
+        bundle.putSerializable("movie", currentMovie);
         editMovieFragment.setArguments(bundle);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -110,7 +110,6 @@ public class MovieDetailFragment extends Fragment {
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
-
 
     private class LoadDetailTask extends AsyncTask<Void, Void, Movie> {
         @Override
