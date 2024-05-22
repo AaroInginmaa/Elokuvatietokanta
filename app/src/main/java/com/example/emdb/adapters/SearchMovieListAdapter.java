@@ -24,7 +24,7 @@ import com.example.emdb.models.Movie;
 import java.util.ArrayList;
 
 public class SearchMovieListAdapter extends RecyclerView.Adapter<SearchMovieListAdapter.ViewHolder> {
-    private ArrayList<Movie> movies;
+    private final ArrayList<Movie> movies;
     private Context context;
 
     public SearchMovieListAdapter(ArrayList<Movie> movies) {

@@ -34,9 +34,9 @@ public class LogInFragment extends Fragment {
     private TextView signUp;
     private ImageView backImage;
 
-    private InputValidator inputValidator = new InputValidator();
-    private Database database = Database.getInstance();
-    private Client client = Client.getInstance();
+    private final InputValidator inputValidator = new InputValidator();
+    private final Database database = Database.getInstance();
+    private final Client client = Client.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

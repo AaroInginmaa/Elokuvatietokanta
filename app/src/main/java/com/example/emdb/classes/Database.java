@@ -77,6 +77,38 @@ public class Database {
         }
     }
 
+    public void updateMovie(Movie movie) {
+        Connection connection = createConnection();
+        if (connection == null) return;
+
+        PreparedStatement statement = null;
+
+        try {
+            String query = "UPDATE moviedb.movies SET Name = ?, Length = ?, ReleaseYear = ?, Genres = ?, MainActors = ?, Director = ?, Rating = ?, Image = ? WHERE idMovies = ?";
+            statement = connection.prepareStatement(query);
+            statement.setString(1, movie.getTitle());
+            statement.setInt(2, movie.getLength());
+            statement.setString(3, movie.getReleaseYear());
+            statement.setString(4, movie.getGenres());
+            statement.setString(5, movie.getStars());
+            statement.setString(6, movie.getDirector());
+            statement.setFloat(7, movie.getRating());
+            statement.setString(8, movie.getImage());
+            statement.setInt(9, movie.getId());
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (statement != null) statement.close();
+                connection.close();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        }
+    }
+
     public ArrayList<String> getMovieGenres(int movieId) {
         ArrayList<String> foundedGenres = new ArrayList<>();
 

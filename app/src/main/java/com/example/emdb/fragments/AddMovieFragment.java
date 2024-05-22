@@ -25,10 +25,9 @@ public class AddMovieFragment extends Fragment {
     private EditText starsInput;
     private EditText ratingInput;
     private EditText imageUrlInput;
-    private AppCompatButton submitButton;
 
-    private Database database = Database.getInstance();
-    private InputValidator inputValidator = new InputValidator();
+    private final Database database = Database.getInstance();
+    private final InputValidator inputValidator = new InputValidator();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,8 +45,8 @@ public class AddMovieFragment extends Fragment {
         starsInput = view.findViewById(R.id.movieStarsInput);
         ratingInput = view.findViewById(R.id.movieRatingInput);
         imageUrlInput = view.findViewById(R.id.movieImageInput);
-        submitButton = view.findViewById(R.id.submitButton);
-        submitButton.setOnClickListener(v -> onSubmitButton());
+        AppCompatButton editButton = view.findViewById(R.id.editButton);
+        editButton.setOnClickListener(v -> onSubmitButton());
     }
 
     private void onSubmitButton() {

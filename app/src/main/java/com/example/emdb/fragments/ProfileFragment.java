@@ -23,8 +23,8 @@ public class ProfileFragment extends Fragment {
     private TextView profileEmailText;
     private ImageView logoutButton;
 
-    private Client client = Client.getInstance();
-    private Database database = Database.getInstance();
+    private final Client client = Client.getInstance();
+    private final Database database = Database.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

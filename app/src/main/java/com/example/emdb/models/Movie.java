@@ -35,7 +35,7 @@ public class Movie {
         return Title;
     }
 
-    private void setTitle(String title) {
+    public void setTitle(String title) {
         Title = title;
     }
 
@@ -43,7 +43,7 @@ public class Movie {
         return Length;
     }
 
-    private void setLength(int length) {
+    public void setLength(int length) {
         Length = length;
     }
 
@@ -51,7 +51,7 @@ public class Movie {
         return ReleaseYear;
     }
 
-    private void setReleaseYear(String releaseYear) {
+    public void setReleaseYear(String releaseYear) {
         ReleaseYear = releaseYear;
     }
 
@@ -59,7 +59,7 @@ public class Movie {
         return Genres;
     }
 
-    private void setGenres(String genres) {
+    public void setGenres(String genres) {
         Genres = genres;
     }
 
@@ -67,7 +67,7 @@ public class Movie {
         return Stars;
     }
 
-    private void setStars(String stars) {
+    public void setStars(String stars) {
         Stars = stars;
     }
 
@@ -75,7 +75,7 @@ public class Movie {
         return Director;
     }
 
-    private void setDirector(String director) {
+    public void setDirector(String director) {
         Director = director;
     }
 
@@ -83,7 +83,7 @@ public class Movie {
         return Rating;
     }
 
-    private void setRating(float rating) {
+    public void setRating(float rating) {
         Rating = rating;
     }
 
@@ -91,7 +91,5 @@ public class Movie {
         return Image;
     }
 
-    private void setImage(String image) {
-        Image = image;
-    }
+    public void setImage(String image) { Image = image; }
 }

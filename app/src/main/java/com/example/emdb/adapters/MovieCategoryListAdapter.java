@@ -18,7 +18,7 @@ import com.example.emdb.fragments.MoviesByGenreFragment;
 import java.util.ArrayList;
 
 public class MovieCategoryListAdapter extends RecyclerView.Adapter<MovieCategoryListAdapter.ViewHolder> {
-    private ArrayList<String> genres;
+    private final ArrayList<String> genres;
     private Context context;
 
     public MovieCategoryListAdapter(ArrayList<String> genres) {

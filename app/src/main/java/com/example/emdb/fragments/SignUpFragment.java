@@ -32,9 +32,9 @@ public class SignUpFragment extends Fragment {
     private ImageView backImage;
     private TextView login;
 
-    private InputValidator inputValidator = new InputValidator();
-    private Database database = Database.getInstance();
-    private Client client = Client.getInstance();
+    private final InputValidator inputValidator = new InputValidator();
+    private final Database database = Database.getInstance();
+    private final Client client = Client.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);

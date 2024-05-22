@@ -27,15 +27,24 @@ public class EditMovieFragment extends Fragment {
     private EditText starsInput;
     private EditText ratingInput;
     private EditText imageUrlInput;
-    private AppCompatButton editButton;
+    private Movie movie;
 
-    private Database database = Database.getInstance();
-    private InputValidator inputValidator = new InputValidator();
+    private final Database database = Database.getInstance();
+    private final InputValidator inputValidator = new InputValidator();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_add_movie, container, false);
+        View view = inflater.inflate(R.layout.fragment_edit_movie, container, false);
         initView(view);
+
+        Bundle args = getArguments();
+        if (args != null) {
+            movie = (Movie) args.getSerializable("movie");
+            if (movie != null) {
+                populateFields(movie);
+            }
+        }
+
         return view;
     }
 
@@ -48,8 +57,19 @@ public class EditMovieFragment extends Fragment {
         starsInput = view.findViewById(R.id.movieStarsInput);
         ratingInput = view.findViewById(R.id.movieRatingInput);
         imageUrlInput = view.findViewById(R.id.movieImageInput);
-        editButton = view.findViewById(R.id.editButton);
+        AppCompatButton editButton = view.findViewById(R.id.editButton);
         editButton.setOnClickListener(v -> onEditButton());
+    }
+
+    private void populateFields(Movie movie) {
+        titleInput.setText(movie.getTitle());
+        lengthInput.setText(String.valueOf(movie.getLength()));
+        yearInput.setText(movie.getReleaseYear());
+        genresInput.setText(movie.getGenres());
+        directorInput.setText(movie.getDirector());
+        starsInput.setText(movie.getStars());
+        ratingInput.setText(String.valueOf(movie.getRating()));
+        imageUrlInput.setText(movie.getImage());
     }
 
     private void onEditButton() {
@@ -69,7 +89,6 @@ public class EditMovieFragment extends Fragment {
         boolean validDirector = inputValidator.validInput(director);
         boolean validStars = inputValidator.validInput(stars);
         boolean validRating = inputValidator.validRating(ratingText);
-        boolean movieAvailable = !database.movieAlreadyExists(title);
 
         FragmentActivity currentActivity = getActivity();
 
@@ -77,10 +96,18 @@ public class EditMovieFragment extends Fragment {
             int length = Integer.parseInt(lengthText);
             float rating = Float.parseFloat(ratingText);
 
-            Movie movie = new Movie(0, title, length, year, genres, director, stars, rating, imageUrl);
-            database.createMovie(movie);
+            movie.setTitle(title);
+            movie.setLength(length);
+            movie.setReleaseYear(year);
+            movie.setGenres(genres);
+            movie.setDirector(director);
+            movie.setStars(stars);
+            movie.setRating(rating);
+            movie.setImage(imageUrl);
 
-            Toast.makeText(currentActivity, "Movie added", Toast.LENGTH_SHORT).show();
+            database.updateMovie(movie);
+
+            Toast.makeText(currentActivity, "Movie updated", Toast.LENGTH_SHORT).show();
 
             startActivity(new Intent(currentActivity, MainActivity.class));
         } else {
@@ -98,8 +125,6 @@ public class EditMovieFragment extends Fragment {
                 Toast.makeText(currentActivity, "Invalid stars input", Toast.LENGTH_SHORT).show();
             } else if (!validRating) {
                 Toast.makeText(currentActivity, "Invalid rating input", Toast.LENGTH_SHORT).show();
-            } else if (!movieAvailable) {
-                Toast.makeText(currentActivity, "Movie already exists", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(currentActivity, "Invalid input", Toast.LENGTH_SHORT).show();
             }

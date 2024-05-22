@@ -4,13 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.core.widget.NestedScrollView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +12,21 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.example.emdb.R;
 import com.example.emdb.adapters.MovieCategoryListAdapter;
 import com.example.emdb.classes.Database;
 import com.example.emdb.models.Movie;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MovieDetailFragment extends Fragment {
@@ -46,6 +48,7 @@ public class MovieDetailFragment extends Fragment {
     private ImageView detailImage;
     private ProgressBar detailLoading;
     private ImageView backImage;
+    private Movie currentMovie;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -68,16 +71,13 @@ public class MovieDetailFragment extends Fragment {
         return view;
     }
 
-
     private void initView(View view) {
         detailTitle = view.findViewById(R.id.detailTitle);
         detailLoading = view.findViewById(R.id.detailProgressBar);
         detailImage = view.findViewById(R.id.detailImage);
 
         categoriesRecycler = view.findViewById(R.id.detailCategoriesRecycler);
-
         categoriesLoading = view.findViewById(R.id.detailCategoriesProgressBar);
-
         categoriesRecycler.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
 
         detailRating = view.findViewById(R.id.detailRating);
@@ -91,10 +91,27 @@ public class MovieDetailFragment extends Fragment {
             assert getFragmentManager() != null;
             getFragmentManager().popBackStack();
         });
+
+        AppCompatButton editButton = view.findViewById(R.id.editButton);
+        editButton.setOnClickListener(v -> onEditButton());
+    }
+
+    private void onEditButton() {
+        EditMovieFragment editMovieFragment = new EditMovieFragment();
+
+        // Pass the current movie details to the EditMovieFragment
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("movie", currentMovie);
+        editMovieFragment.setArguments(bundle);
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, editMovieFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
     private class LoadDetailTask extends AsyncTask<Void, Void, Movie> {
-
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -113,6 +130,7 @@ public class MovieDetailFragment extends Fragment {
             detailLoading.setVisibility(View.GONE);
 
             if (movie != null) {
+                currentMovie = movie;  // Store the movie object for use in the edit button click
                 detailTitle.setText(movie.getTitle());
 
                 Glide.with(requireContext())

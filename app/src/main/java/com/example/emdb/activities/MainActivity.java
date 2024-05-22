@@ -30,16 +30,16 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickList
     private BottomNavigationView bottomNavigationView;
     private SwipeRefreshLayout noConnectionSwipeRefresh;
 
-    private HomeFragment homeFragment = new HomeFragment();
-    private SearchFragment searchFragment = new SearchFragment();
-    private AddMovieFragment addMovieFragment = new AddMovieFragment();
-    private ProfileFragment profileFragment = new ProfileFragment();
-    private LogInFragment logInFragment = new LogInFragment();
-    private SignUpFragment signUpFragment = new SignUpFragment();
-    private RecoverPasswordFragment recoverPasswordFragment = new RecoverPasswordFragment();
+    private final HomeFragment homeFragment = new HomeFragment();
+    private final SearchFragment searchFragment = new SearchFragment();
+    private final AddMovieFragment addMovieFragment = new AddMovieFragment();
+    private final ProfileFragment profileFragment = new ProfileFragment();
+    private final LogInFragment logInFragment = new LogInFragment();
+    private final SignUpFragment signUpFragment = new SignUpFragment();
+    private final RecoverPasswordFragment recoverPasswordFragment = new RecoverPasswordFragment();
 
-    private Client client = Client.getInstance();
-    private Database database = Database.getInstance();
+    private final Client client = Client.getInstance();
+    private final Database database = Database.getInstance();
 
     private long backPressedTime = 0;
 
