@@ -38,11 +38,15 @@ public class EditMovieFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_edit_movie, container, false);
 
         // Retrieve the movie object from the bundle
-        Bundle arguments = getArguments();
-        if (arguments != null) {
-            Movie movie = arguments.getParcelable("movie");
-            // Use the movie object as needed
+        initView(view);
+        Bundle args = getArguments();
+        if (args != null) {
+            movie = (Movie) args.getSerializable("movie");
+            if (movie != null) {
+                populateFields(movie);
+            }
         }
+
 
         return view;
     }
