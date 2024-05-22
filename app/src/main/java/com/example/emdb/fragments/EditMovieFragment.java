@@ -37,31 +37,37 @@ public class EditMovieFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit_movie, container, false);
 
-        // Retrieve the movie object from the bundle
-        initView(view);
         Bundle args = getArguments();
         if (args != null) {
             movie = (Movie) args.getSerializable("movie");
             if (movie != null) {
+                initView(view);
                 populateFields(movie);
+            } else {
+                Toast.makeText(getActivity(), "Movie data is missing", Toast.LENGTH_SHORT).show();
             }
+        } else {
+            Toast.makeText(getActivity(), "Arguments are missing", Toast.LENGTH_SHORT).show();
         }
-
 
         return view;
     }
 
     private void initView(View view) {
-        titleInput = view.findViewById(R.id.movieNameInput);
-        lengthInput = view.findViewById(R.id.movieLengthInput);
-        yearInput = view.findViewById(R.id.movieYearInput);
-        genresInput = view.findViewById(R.id.movieGenresInput);
-        directorInput = view.findViewById(R.id.movieDirectorInput);
-        starsInput = view.findViewById(R.id.movieStarsInput);
-        ratingInput = view.findViewById(R.id.movieRatingInput);
-        imageUrlInput = view.findViewById(R.id.movieImageInput);
+        titleInput = view.findViewById(R.id.movieNameInput1);
+        lengthInput = view.findViewById(R.id.movieLengthInput1);
+        yearInput = view.findViewById(R.id.movieYearInput1);
+        genresInput = view.findViewById(R.id.movieGenresInput1);
+        directorInput = view.findViewById(R.id.movieDirectorInput1);
+        starsInput = view.findViewById(R.id.movieStarsInput1);
+        ratingInput = view.findViewById(R.id.movieRatingInput1);
+        imageUrlInput = view.findViewById(R.id.movieImageInput1);
         AppCompatButton saveButton = view.findViewById(R.id.saveButton);
-        saveButton.setOnClickListener(v -> onSaveButton());
+
+        saveButton.setOnClickListener(v -> {
+            Toast.makeText(getActivity(), "Save button clicked", Toast.LENGTH_SHORT).show();
+            onSaveButton();
+        });
     }
 
     private void populateFields(Movie movie) {
@@ -112,25 +118,18 @@ public class EditMovieFragment extends Fragment {
 
             Toast.makeText(currentActivity, "Movie updated", Toast.LENGTH_SHORT).show();
 
-            startActivity(new Intent(currentActivity, MainActivity.class));
+            Intent intent = new Intent(currentActivity, MainActivity.class);
+            startActivity(intent);
         } else {
-            if (!validTitle) {
-                Toast.makeText(currentActivity, "Invalid title input", Toast.LENGTH_SHORT).show();
-            } else if (!validLength) {
-                Toast.makeText(currentActivity, "Invalid length input", Toast.LENGTH_SHORT).show();
-            } else if (!validYear) {
-                Toast.makeText(currentActivity, "Invalid release year input", Toast.LENGTH_SHORT).show();
-            } else if (!validGenres) {
-                Toast.makeText(currentActivity, "Invalid genres input", Toast.LENGTH_SHORT).show();
-            } else if (!validDirector) {
-                Toast.makeText(currentActivity, "Invalid director input", Toast.LENGTH_SHORT).show();
-            } else if (!validStars) {
-                Toast.makeText(currentActivity, "Invalid stars input", Toast.LENGTH_SHORT).show();
-            } else if (!validRating) {
-                Toast.makeText(currentActivity, "Invalid rating input", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(currentActivity, "Invalid input", Toast.LENGTH_SHORT).show();
-            }
+            String errorMessage = "Invalid input: ";
+            if (!validTitle) errorMessage += "Title, ";
+            if (!validLength) errorMessage += "Length, ";
+            if (!validYear) errorMessage += "Year, ";
+            if (!validGenres) errorMessage += "Genres, ";
+            if (!validDirector) errorMessage += "Director, ";
+            if (!validStars) errorMessage += "Stars, ";
+            if (!validRating) errorMessage += "Rating, ";
+            Toast.makeText(currentActivity, errorMessage.substring(0, errorMessage.length() - 2), Toast.LENGTH_SHORT).show();
         }
     }
 }
