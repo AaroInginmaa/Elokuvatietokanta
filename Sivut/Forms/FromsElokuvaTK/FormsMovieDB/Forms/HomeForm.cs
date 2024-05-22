@@ -1,6 +1,9 @@
 ﻿using FormsMovieDB.Forms;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FormsMovieDB
@@ -16,24 +19,36 @@ namespace FormsMovieDB
             InitializeComponent();
         }
 
-        public void OnHomeFormLoad(object sender, EventArgs e)
+        public async void OnHomeFormLoad(object sender, EventArgs e)
         {
-            foreach (Movie movie in _database.SelectMovies())
+            List<Movie> movies = await Task.Run(() => _database.SelectMovies());
+            DisplayMovies(movies);
+        }
+
+        private void DisplayMovies(List<Movie> movies)
+        {
+
+            flowLayoutPanel1.SuspendLayout();
+
+            foreach (var movie in movies)
             {
                 DisplayMovie(movie);
             }
+
+            flowLayoutPanel1.ResumeLayout();
         }
+
         private void DisplayMovie(Movie movie)
         {
             Panel panel = CreateMoviePanel(movie);
             flowLayoutPanel1.Controls.Add(panel);
-            
         }
+
         private Panel CreateMoviePanel(Movie movie)
         {
             Panel panel = new Panel
             {
-                Name = string.Format("PnlMovie{0}", movie.Id),
+                Name = $"PnlMovie{movie.Id}",
                 BackColor = Color.White,
                 Size = new Size(125, 205),
                 Margin = new Padding(10),
@@ -42,28 +57,22 @@ namespace FormsMovieDB
 
             PictureBox pictureBox = new PictureBox
             {
-                Name = string.Format("MovieImage{0}", movie.Id),
+                Name = $"MovieImage{movie.Id}",
                 Size = new Size(100, 148),
                 Location = new Point(12, 10),
                 SizeMode = PictureBoxSizeMode.Zoom
             };
 
-            if (movie.Image != null && movie.Image.Length > 5)
+            if (!string.IsNullOrEmpty(movie.Image) && movie.Image.Length > 5)
             {
-                try
-                {
-                    pictureBox.Load(movie.Image);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Jotain meni väärin kuvan "+movie.Image+" kanssa. Virhe : "+e.Message);
-                }
+                LoadImageAsync(pictureBox, movie.Image);
             }
+
             pictureBox.Tag = movie.Id;
 
-            Label lableTitle = new Label
+            Label labelTitle = new Label
             {
-                Name = string.Format("LabelMovieName{0}", movie.Id),
+                Name = $"LabelMovieName{movie.Id}",
                 Text = movie.Name,
                 Location = new Point(12, 165),
                 ForeColor = Color.Black,
@@ -74,7 +83,7 @@ namespace FormsMovieDB
 
             Label labelYear = new Label
             {
-                Name = string.Format("LabelMovieYear{0}", movie.Id),
+                Name = $"LabelMovieYear{movie.Id}",
                 Text = movie.ReleaseYear.ToString(),
                 Location = new Point(12, 185),
                 ForeColor = Color.Gray,
@@ -82,16 +91,36 @@ namespace FormsMovieDB
                 Tag = movie.Id
             };
 
-            panel.Click += (sender, e) => OnMovieClicked((Panel)sender);
-            pictureBox.Click += (sender, e) => OnMovieClicked((Panel)((PictureBox)sender).Parent);
-            lableTitle.Click += (sender, e) => OnMovieClicked((Panel)((Label)sender).Parent);
-            labelYear.Click += (sender, e) => OnMovieClicked((Panel)((Label)sender).Parent);
+            panel.Click += (sender, e) => OnMovieClicked(panel);
+            pictureBox.Click += (sender, e) => OnMovieClicked(panel);
+            labelTitle.Click += (sender, e) => OnMovieClicked(panel);
+            labelYear.Click += (sender, e) => OnMovieClicked(panel);
 
             panel.Controls.Add(pictureBox);
-            panel.Controls.Add(lableTitle);
+            panel.Controls.Add(labelTitle);
             panel.Controls.Add(labelYear);
 
             return panel;
+        }
+
+        private async void LoadImageAsync(PictureBox pictureBox, string imageUrl)
+        {
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    var imageBytes = await client.GetByteArrayAsync(imageUrl);
+                    using (var stream = new System.IO.MemoryStream(imageBytes))
+                    {
+                        var image = Image.FromStream(stream);
+                        pictureBox.Invoke((MethodInvoker)(() => pictureBox.Image = image));
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error loading image {imageUrl}: {e.Message}");
+            }
         }
 
         private void OnAddMovieButtonClick(object sender, EventArgs e)
@@ -105,7 +134,7 @@ namespace FormsMovieDB
             if (_movieForm == null)
             {
                 _movieForm = new MovieForm(_database.SelectMovieById((int)panel.Tag));
-                _movieForm.FormClosed += (s, e) => _movieForm = null; // Reset the movie form reference when it's closed
+                _movieForm.FormClosed += (s, e) => _movieForm = null;
                 _movieForm.Show();
                 MovieButtonClicked?.Invoke(_movieForm);
             }

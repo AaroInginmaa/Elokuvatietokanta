@@ -21,7 +21,6 @@ namespace FormsMovieDB
         private void OnBackButtonClick(object sender, EventArgs e)
         {
             BackButtonClicked?.Invoke(this);
-            LoadMovieData();
 
         }
 
