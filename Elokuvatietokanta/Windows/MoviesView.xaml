@@ -20,22 +20,22 @@
                   ScrollViewer.CanContentScroll="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
                   ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionChanged="OnSQLDataGridSelectionChanged" IsReadOnly="True" DockPanel.Dock="Top" Margin="5,5,5,5"
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False" HorizontalGridLinesBrush="#FFBC7A7A" VerticalGridLinesBrush="#FFBC7A7A">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Image">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Image}" Height="100" Width="100"/>
+                            <Image Source="{Binding Image}" Height="200" Width="200"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" CanUserSort="False" />
-                <DataGridTextColumn Header="Length" Binding="{Binding Length}" CanUserSort="False" />
-                <DataGridTextColumn Header="Release Year" Binding="{Binding ReleaseYear}" CanUserSort="False" />
-                <DataGridTextColumn Header="Genres" Binding="{Binding Genres}" CanUserSort="False" />
-                <DataGridTextColumn Header="Main Actors" Binding="{Binding MainActors}" CanUserSort="False" />
-                <DataGridTextColumn Header="Director" Binding="{Binding Director}" CanUserSort="False" />
-                <DataGridTextColumn Header="Rating" Binding="{Binding Rating}" CanUserSort="False" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" CanUserSort="False" FontSize="20" FontFamily="Bahnschrift SemiBold" Foreground="#FF7D3A3A"/>
+                <DataGridTextColumn Header="Length" Binding="{Binding Length}" CanUserSort="False" FontSize="20" FontFamily="Bahnschrift SemiBold" Foreground="#FF7D3A3A" />
+                <DataGridTextColumn Header="Release Year" Binding="{Binding ReleaseYear}" CanUserSort="False" FontSize="20" FontFamily="Bahnschrift SemiBold" Foreground="#FF7D3A3A" />
+                <DataGridTextColumn Header="Genres" Binding="{Binding Genres}" CanUserSort="False" FontSize="20" FontFamily="Bahnschrift SemiBold" Foreground="#FF7D3A3A" />
+                <DataGridTextColumn Header="Main Actors" Binding="{Binding MainActors}" CanUserSort="False" FontSize="20" FontFamily="Bahnschrift SemiBold" Foreground="#FF7D3A3A" />
+                <DataGridTextColumn Header="Director" Binding="{Binding Director}" CanUserSort="False" FontSize="20" FontFamily="Bahnschrift SemiBold" Foreground="#FF7D3A3A" />
+                <DataGridTextColumn Header="Rating" Binding="{Binding Rating}" CanUserSort="False" FontSize="20" FontFamily="Bahnschrift SemiBold" Foreground="#FF7D3A3A" />
             </DataGrid.Columns>
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">
@@ -57,7 +57,7 @@
             </DataGrid.RowStyle>
         </DataGrid>
         <Button x:Name="_deleteMovieButton" Content="Delete movie" Height="50" Click="DeleteMovie" IsEnabled="false" Width="75" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="1" Margin="0,0,5,5" Background="#FFCA857E" BorderBrush="White" Foreground="White"/>
-        <Button x:Name="_returnButton" Content="Go Back" Height="50" Click="OpenLoadWindow" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Margin="5,0,0,0" Grid.Row="1" Background="#FFCA857E" BorderBrush="White" Foreground="White"/>
+        <Button x:Name="_returnButton" Content="Log out" Height="50" Click="OpenLoadWindow" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Margin="5,0,0,0" Grid.Row="1" Background="#FFCA857E" BorderBrush="White" Foreground="White"/>
         <Button x:Name="_addMovieButton" Content="Add movie" Height="50" Click="OpenMainWindow" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Width="75" Margin="0,0,85,5" Background="#FFCA857E" BorderBrush="White" Foreground="White"/>
         <Button x:Name="_refreshButton" Content="Refresh" Click="Refresh" Height="50" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,165,5" Background="#FFCA857E" BorderBrush="White" Foreground="White"/>
     </Grid>

@@ -43,7 +43,7 @@ namespace Elokuvatietokanta
                     return;
                 }
 
-                string name = Convert.ToString(dataRow.Row.ItemArray[0]);
+                string name = Convert.ToString(dataRow.Row.ItemArray[1]);
 
                 MessageBoxResult messageBoxResult = MessageBox.Show($"Are you sure you want to delete {name}?", "Deletion", MessageBoxButton.YesNo, MessageBoxImage.Information);
 
