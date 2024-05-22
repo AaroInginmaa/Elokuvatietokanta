@@ -5,4 +5,5 @@ public interface OnButtonClickListener {
     void onSignUpClicked();
     void onRecoverPasswordClicked();
     void onHomeClicked();
+    void onSaveClicked();
 }

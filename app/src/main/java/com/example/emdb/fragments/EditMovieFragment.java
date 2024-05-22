@@ -56,8 +56,8 @@ public class EditMovieFragment extends Fragment {
         starsInput = view.findViewById(R.id.movieStarsInput);
         ratingInput = view.findViewById(R.id.movieRatingInput);
         imageUrlInput = view.findViewById(R.id.movieImageInput);
-        AppCompatButton editButton = view.findViewById(R.id.editButton);
-        editButton.setOnClickListener(v -> onEditButton());
+        AppCompatButton saveButton = view.findViewById(R.id.saveButton);
+        saveButton.setOnClickListener(v -> onSaveButton());
     }
 
     private void populateFields(Movie movie) {
@@ -71,7 +71,7 @@ public class EditMovieFragment extends Fragment {
         imageUrlInput.setText(movie.getImage());
     }
 
-    private void onEditButton() {
+    private void onSaveButton() {
         String title = titleInput.getText().toString();
         String lengthText = lengthInput.getText().toString();
         String year = yearInput.getText().toString();
