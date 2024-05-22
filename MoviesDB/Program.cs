@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using MoviesDB.Components;
+using MoviesDB.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddAuthorization();
 builder.Services.AddCascadingAuthenticationState();
 
+builder.Services.AddScoped<MovieSummary>();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -35,4 +38,3 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
 app.Run();
-// https://localhost:7240/registeruser

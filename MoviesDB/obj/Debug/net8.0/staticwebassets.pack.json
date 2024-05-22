@@ -1,24 +1,172 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Eino.Taimisto\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MoviesDB.bundle.scp.css",
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MoviesDB.bundle.scp.css",
       "PackagePath": "staticwebassets\\MoviesDB.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Eino.Taimisto\\Elokuvatietokanta\\MoviesDB\\wwwroot\\app.css",
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\Users\\Eino.Taimisto\\Elokuvatietokanta\\MoviesDB\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\app.js",
+      "PackagePath": "staticwebassets\\app.js"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\Eino.Taimisto\\Elokuvatietokanta\\MoviesDB\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Eino.Taimisto\\Elokuvatietokanta\\MoviesDB\\wwwroot\\favicon.png",
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\grid.css",
+      "PackagePath": "staticwebassets\\grid.css"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\app-store.png",
+      "PackagePath": "staticwebassets\\images\\app-store.png"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\black-banner.png",
+      "PackagePath": "staticwebassets\\images\\black-banner.png"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\cartoons\\coco.jpg",
+      "PackagePath": "staticwebassets\\images\\cartoons\\coco.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\cartoons\\croods.jpg",
+      "PackagePath": "staticwebassets\\images\\cartoons\\croods.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\cartoons\\demon-slayer.jpg",
+      "PackagePath": "staticwebassets\\images\\cartoons\\demon-slayer.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\cartoons\\dragon.jpg",
+      "PackagePath": "staticwebassets\\images\\cartoons\\dragon.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\cartoons\\over-the-moon.jpg",
+      "PackagePath": "staticwebassets\\images\\cartoons\\over-the-moon.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\cartoons\\weathering.jpg",
+      "PackagePath": "staticwebassets\\images\\cartoons\\weathering.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\cartoons\\your-name.jpg",
+      "PackagePath": "staticwebassets\\images\\cartoons\\your-name.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\google-play.png",
+      "PackagePath": "staticwebassets\\images\\google-play.png"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\main_banner.jpg",
+      "PackagePath": "staticwebassets\\images\\main_banner.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\movies\\bat-man.jpg",
+      "PackagePath": "staticwebassets\\images\\movies\\bat-man.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\movies\\blood-shot.jpg",
+      "PackagePath": "staticwebassets\\images\\movies\\blood-shot.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\movies\\call.jpg",
+      "PackagePath": "staticwebassets\\images\\movies\\call.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\movies\\captain-marvel.png",
+      "PackagePath": "staticwebassets\\images\\movies\\captain-marvel.png"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\movies\\end-game.jpg",
+      "PackagePath": "staticwebassets\\images\\movies\\end-game.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\movies\\hunter-killer.jpg",
+      "PackagePath": "staticwebassets\\images\\movies\\hunter-killer.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\movies\\insidious.jpg",
+      "PackagePath": "staticwebassets\\images\\movies\\insidious.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\movies\\love-roise.jpg",
+      "PackagePath": "staticwebassets\\images\\movies\\love-roise.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\movies\\resident-evil.jpg",
+      "PackagePath": "staticwebassets\\images\\movies\\resident-evil.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\movies\\theatre-dead.jpg",
+      "PackagePath": "staticwebassets\\images\\movies\\theatre-dead.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\movies\\transformer.jpg",
+      "PackagePath": "staticwebassets\\images\\movies\\transformer.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\series\\mandalorian.jpg",
+      "PackagePath": "staticwebassets\\images\\series\\mandalorian.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\series\\penthouses.jpg",
+      "PackagePath": "staticwebassets\\images\\series\\penthouses.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\series\\star-trek.jpg",
+      "PackagePath": "staticwebassets\\images\\series\\star-trek.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\series\\start-trek.jpeg",
+      "PackagePath": "staticwebassets\\images\\series\\start-trek.jpeg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\series\\stranger-thing.jpg",
+      "PackagePath": "staticwebassets\\images\\series\\stranger-thing.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\series\\supergirl.jpg",
+      "PackagePath": "staticwebassets\\images\\series\\supergirl.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\series\\the-falcon.webp",
+      "PackagePath": "staticwebassets\\images\\series\\the-falcon.webp"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\series\\wanda.png",
+      "PackagePath": "staticwebassets\\images\\series\\wanda.png"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\series\\wanda.webp",
+      "PackagePath": "staticwebassets\\images\\series\\wanda.webp"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\supergirl-banner.jpg",
+      "PackagePath": "staticwebassets\\images\\supergirl-banner.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\transformer-banner.jpg",
+      "PackagePath": "staticwebassets\\images\\transformer-banner.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\images\\wanda-banner.jpg",
+      "PackagePath": "staticwebassets\\images\\wanda-banner.jpg"
+    },
+    {
+      "Id": "C:\\GitHub\\Eduko\\Elokuvatietokanta\\MoviesDB\\wwwroot\\new_app.css",
+      "PackagePath": "staticwebassets\\new_app.css"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MoviesDB.Microsoft.AspNetCore.StaticWebAssets.props",
