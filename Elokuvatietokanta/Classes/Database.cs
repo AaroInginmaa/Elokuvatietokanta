@@ -93,17 +93,14 @@ namespace Elokuvatietokanta.Classes
 
         public void FillDataGrid(DataGrid dg)
         {
-            string sql = "SELECT Name as Name, Length, ReleaseYear, Genres, MainActors, Director, Rating FROM movies";
+            string sql = "SELECT Image, Name, Length, ReleaseYear, Genres, MainActors, Director, Rating FROM movies";
             MySqlCommand cmd = new MySqlCommand(sql, _connection);
-            cmd.ExecuteNonQuery();
 
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmd);
             DataTable dataTable = new DataTable("movies");
 
             dataAdapter.Fill(dataTable);
             dg.ItemsSource = dataTable.DefaultView;
-            dataAdapter.Update(dataTable);
-
         }
     }
 }

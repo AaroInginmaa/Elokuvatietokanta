@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Elokuvatietokanta"
-        mc:Ignorable="d" Width="1117" Height="500">
+        mc:Ignorable="d" Width="1117" Height="500" WindowState="Maximized">
     <Grid x:Name="_grid" Background="#CA857E">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -20,7 +20,23 @@
                   ScrollViewer.CanContentScroll="True" 
                   ScrollViewer.VerticalScrollBarVisibility="Visible"
                   ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionChanged="OnSQLDataGridSelectionChanged" IsReadOnly="True" DockPanel.Dock="Top" Margin="5,5,5,5"
-                  >
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Image">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Image}" Height="100" Width="100"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" CanUserSort="False" />
+                <DataGridTextColumn Header="Length" Binding="{Binding Length}" CanUserSort="False" />
+                <DataGridTextColumn Header="Release Year" Binding="{Binding ReleaseYear}" CanUserSort="False" />
+                <DataGridTextColumn Header="Genres" Binding="{Binding Genres}" CanUserSort="False" />
+                <DataGridTextColumn Header="Main Actors" Binding="{Binding MainActors}" CanUserSort="False" />
+                <DataGridTextColumn Header="Director" Binding="{Binding Director}" CanUserSort="False" />
+                <DataGridTextColumn Header="Rating" Binding="{Binding Rating}" CanUserSort="False" />
+            </DataGrid.Columns>
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">
                     <Style.Triggers>
@@ -35,7 +51,6 @@
                                 <Condition Binding="{Binding RelativeSource={RelativeSource Mode=Self}, Path=(ItemsControl.AlternationIndex)}" Value="1"/>
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Background" Value="#FFEEC0C0"/>
-                            <!-- Slightly darker pink -->
                         </MultiDataTrigger>
                     </Style.Triggers>
                 </Style>
@@ -57,7 +72,4 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-
 </Window>
-    
-

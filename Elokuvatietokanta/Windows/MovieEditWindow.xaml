@@ -14,9 +14,10 @@
             <TextBox x:Name="_movieLengthInputField" HorizontalAlignment="Left" Height="16" Margin="8,83,0,0" Text="" Width="176" VerticalAlignment="Top"/>
             <TextBox x:Name="_movieGenreInputField" HorizontalAlignment="Left" Height="16" Margin="10,142,0,0" TextWrapping="Wrap" Text="" Width="176" VerticalAlignment="Top"/>
             <TextBox x:Name="_movieReleaseYearInputField" HorizontalAlignment="Left" Height="16" Margin="200,36,0,0" Text="" Width="176" VerticalAlignment="Top"/>
-            <TextBox x:Name="_movieStartInputField" HorizontalAlignment="Left" Height="16" Margin="200,83,0,0" Text="" Width="176" VerticalAlignment="Top"/>
+            <TextBox x:Name="_movieActorsInputField" HorizontalAlignment="Left" Height="16" Margin="200,83,0,0" Text="" Width="176" VerticalAlignment="Top"/>
             <TextBox x:Name="_movieDirectorInputField" HorizontalAlignment="Left" Height="16" Margin="200,142,0,0" Text="" Width="176" VerticalAlignment="Top"/>
             <TextBox x:Name="_movieRatingInputField" HorizontalAlignment="Left" Height="16" Margin="8,185,0,0" Text="" Width="109" VerticalAlignment="Top"/>
+            <TextBox x:Name="_movieImageLinkInputField" HorizontalAlignment="Left" Height="16" Margin="200,185,0,0" Text="" Width="109" VerticalAlignment="Top"/>
             <Label x:Name="_movieNameLabel" Content="Elokuvan nimi" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" Width="96" VerticalAlignment="Top" Foreground="White"/>
             <Label x:Name="_movieLengthLabel" Content="Elokuvan pituus (min)" HorizontalAlignment="Left" Height="26" Margin="8,57,0,0" Width="135" VerticalAlignment="Top" Foreground="White"/>
             <Label x:Name="_movieGenreLabel" Content="Elokuvan genre" HorizontalAlignment="Left" Height="26" Margin="8,109,0,0" Width="100" RenderTransformOrigin="0.23,0.295" VerticalAlignment="Top" Foreground="White"/>
@@ -24,6 +25,7 @@
             <Label x:Name="_movieStarsLabel" Content="Päänäyttelijät" HorizontalAlignment="Left" Height="26" Margin="200,57,0,0" Width="89" RenderTransformOrigin="0.435,1.089" VerticalAlignment="Top" Foreground="White"/>
             <Label x:Name="_movieDirectorLabel" Content="Ohjaaja" HorizontalAlignment="Left" Height="26" Margin="200,116,0,0" Width="61" RenderTransformOrigin="0.838,0.542" VerticalAlignment="Top" Foreground="White"/>
             <Label x:Name="_movieRatingLabel" Content="Arvio elokuvasta" HorizontalAlignment="Left" Height="26" Margin="8,159,0,0" Width="106" RenderTransformOrigin="0.23,0.295" VerticalAlignment="Top" Foreground="White"/>
+            <Label x:Name="_movieImageLinkLabel" Content="Linkki kuvaan" HorizontalAlignment="Left" Height="26" Margin="200,159,0,0" Width="88" RenderTransformOrigin="0.23,0.295" VerticalAlignment="Top" Foreground="White"/>
         </Grid>
     </Viewbox>
 </Window>

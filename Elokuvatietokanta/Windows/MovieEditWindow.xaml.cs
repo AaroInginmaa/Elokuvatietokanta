@@ -63,9 +63,9 @@ namespace Elokuvatietokanta
                 return "Please enter a valid movie name.";
             }
 
-            if (!IsTextValid(_movieStartInputField.Text))
+            if (!IsTextValid(_movieActorsInputField.Text))
             {
-                return "Please provide information about the movie start.";
+                return "Please provide names for the actors.";
             }
 
             if (!IsTextValid(_movieGenreInputField.Text))
@@ -123,14 +123,15 @@ namespace Elokuvatietokanta
 
             try
             {
-                string sqlQuery = $"INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating)" +
+                string sqlQuery = $"INSERT INTO movies (Name, Length, ReleaseYear, Genres, MainActors, Director, Rating, Image)" +
                     $"VALUES ('{_movieNameInputField.Text}'," +
                     $"'{_movieLengthInputField.Text}'," +
                     $"'{_movieReleaseYearInputField.Text}'," +
                     $"'{_movieGenreInputField.Text}'," +
-                    $"'{_movieStartInputField.Text}'," +
+                    $"'{_movieActorsInputField.Text}'," +
                     $"'{_movieDirectorInputField.Text}'," +
-                    $"'{_movieRatingInputField.Text}')";
+                    $"'{_movieRatingInputField.Text}'," +
+                    $"'{_movieImageLinkInputField.Text}')";
 
                 int rowsAffected = _database.DestructiveQuery(sqlQuery);
 

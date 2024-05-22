@@ -26,7 +26,7 @@ namespace Elokuvatietokanta
             {
                 Database.Connect();
 
-                if (ValidPassword(password))
+                if (ValidPassword(password) && ValidEmail(email))
                 {
                     int insertQueryResult = Database.DestructiveQuery($"INSERT INTO usertable (username, email, password) VALUES ('{username}' , '{email} ' , '{password}')");
 
@@ -40,9 +40,18 @@ namespace Elokuvatietokanta
                 {
                     MessageBox.Show("Passwords do not match");
                 }
+                else if (!ValidEmail (email))
+                {
+                    MessageBox.Show("Invalid email");
+                }
+                else if (!ValidPassword(password))
+                {
+                    MessageBox.Show("You need stronger password " +
+                        "\n The password most be 6 or more letters long and most at least one contain uppercase, number and special character");
+                }
                 else
                 {
-                    MessageBox.Show("Invalid signup information");
+                    MessageBox.Show("Something went wrong, try again with differnt values");
                 }
             }
             catch (Exception excepetion)
@@ -65,13 +74,22 @@ namespace Elokuvatietokanta
             Regex numbersRegex = new Regex(@"[0-9]+");
             Regex upperLettersRegex = new Regex(@"[A-Z]+");
             Regex minLengthRegex = new Regex(@".{6,}");
+            Regex hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?,-]");
 
-            if (numbersRegex.IsMatch(password) && upperLettersRegex.IsMatch(password) && minLengthRegex.IsMatch(password))
+            if (numbersRegex.IsMatch(password) && upperLettersRegex.IsMatch(password) && minLengthRegex.IsMatch(password) && hasSymbols.IsMatch(password))
             {
                 return true;
             }
 
             return false;
+        }
+        private bool ValidEmail(string email)
+        {
+            Regex EmailValidator = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,})+)$");
+                if (EmailValidator.IsMatch(email))
+                return true;
+            else
+                return false;
         }
     }
 }
