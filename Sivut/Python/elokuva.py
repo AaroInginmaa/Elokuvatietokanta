@@ -15,6 +15,7 @@ from tkinter import VERTICAL, BOTH
 from PIL import ImageTk, Image
 import re
 import datetime
+import threading
 
 def loginRegisterPage():
     
@@ -245,7 +246,7 @@ def mainWindow():
         combo.place(x=50, y=50)
         
         monospaced_font = ("Courier", 12)
-        listbox = Listbox(root, width=90, height=30, font=monospaced_font) 
+        listbox = Listbox(root, width=90, height=90, font=monospaced_font) 
         scrollbar = Scrollbar(root) 
         scrollbar.pack(side=RIGHT, fill=BOTH)    
         listbox.pack(side=RIGHT, fill=BOTH)     
@@ -327,6 +328,10 @@ def mainWindow():
         
         if not validateDirector(director):
             messagebox.showerror("Virheellinen ohjaaja", "Syötä kelvollinen ohjaaja")
+            return
+        
+        if not validateRating(rating):
+            messagebox.showerror("Virheellinen ohjaaja", "Syötä kelvollinen arvio")
             return
         
         if (all(val) and validateYear(realeseYear) and validateLength(length) and validateGenre(genre)
@@ -413,50 +418,42 @@ def mainWindow():
     def showMovieList():
         movie_list_window = tk.Toplevel(root)
         movie_list_window.title("Elokuvalista")
-        
+        movie_list_window.geometry("400x600")
+
         my_canvas = Canvas(movie_list_window)
         my_canvas.pack(side=LEFT, fill=BOTH, expand=1)
-        
+
         scrollbar = Scrollbar(movie_list_window, orient=VERTICAL, command=my_canvas.yview)
         scrollbar.pack(side=RIGHT, fill=Y)
-        
+
         my_canvas.configure(yscrollcommand=scrollbar.set)
         my_canvas.bind('<Configure>', lambda e: my_canvas.configure(scrollregion=my_canvas.bbox("all")))
-        
+
         def _on_mousewheel(event):
-            my_canvas.yview_scroll(int(-1*(event.delta/120)), "units")
-            
+            my_canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
+
         def _bind_to_mousewheel(event):
             my_canvas.bind_all("<MouseWheel>", _on_mousewheel)
-            
+
         def _unbind_from_mousewheel(event):
             my_canvas.unbind_all("<MouseWheel>")
-            
+
         my_canvas.bind('<Enter>', _bind_to_mousewheel)
         my_canvas.bind('<Leave>', _unbind_from_mousewheel)
-        
+
         second_frame = tk.Frame(my_canvas)
         my_canvas.create_window((0, 0), window=second_frame, anchor="nw")
-        
+
         order = ""
         if combo.get().endswith("V"):
             order = f" ORDER BY {combo.get()[:-2]} DESC"
         elif combo.get().endswith("^"):
             order = f" ORDER BY {combo.get()[:-2]} ASC"
-            
+
         mycursor.execute(f"SELECT * FROM movies{order}")
         myresult = mycursor.fetchall()
-        
-        for idx, movie in enumerate(myresult, start=1):
-            movie_frame = ttk.LabelFrame(second_frame, text=f"Elokuva {idx}", width=500)
-            movie_frame.pack(fill="x", padx=10, pady=5, anchor="w")
-            
-            movie_info = f"Nimi: {movie[1]}\nPituus: {movie[2]}\nJulkaistu: {movie[3]}\nGenre: {movie[4]}\nPäänäyttelijät: {movie[5]}\nOhjaaja: {movie[6]}\nArvio: {movie[7]}"
-            movie_label = ttk.Label(movie_frame, text=movie_info, wraplength=400, justify="left")
-            movie_label.pack(padx=10, pady=5, anchor="w")
-            
-            image_url = movie[8]
-            
+
+        def fetch_and_display_image(movie_frame, image_url):
             if image_url:
                 try:
                     response = requests.get(image_url)
@@ -470,10 +467,26 @@ def mainWindow():
                 except Exception as e:
                     print("Error loading image:", e)
 
+        for idx, movie in enumerate(myresult, start=1):
+            movie_frame = ttk.LabelFrame(second_frame, text=f"Elokuva {idx}", width=500)
+            movie_frame.pack(fill="x", padx=10, pady=5, anchor="w")
+
+            movie_info = f"Nimi: {movie[1]}\nPituus: {movie[2]}\nJulkaistu: {movie[3]}\nGenre: {movie[4]}\nPäänäyttelijät: {movie[5]}\nOhjaaja: {movie[6]}\nArvio: {movie[7]}"
+            movie_label = ttk.Label(movie_frame, text=movie_info, wraplength=400, justify="left")
+            movie_label.pack(padx=10, pady=5, anchor="w")
+
+            image_url = movie[8]
+
+            # Create a new thread to fetch and display the image
+            if image_url:
+                threading.Thread(target=fetch_and_display_image, args=(movie_frame, image_url)).start()
+
+
         
     def searchMovieList(val):
         movie_list_window = tk.Toplevel(root)
         movie_list_window.title("Elokuvalista")
+        movie_list_window.geometry("400x600")
         
         my_canvas = Canvas(movie_list_window)
         my_canvas.pack(side=LEFT, fill=BOTH, expand=1)
@@ -505,18 +518,9 @@ def mainWindow():
 
         search = val
         mycursor.execute(f"SELECT * FROM movies WHERE Name LIKE '%{search}%'")
-        searchResult = mycursor.fetchall()
+        myresult = mycursor.fetchall()
 
-        for idx, movie in enumerate(searchResult, start=1):
-            movie_frame = ttk.LabelFrame(second_frame, text=f"Elokuva {idx}", width=500)
-            movie_frame.pack(fill="x", padx=10, pady=5, anchor="w")
-
-            movie_info = f"Nimi: {movie[1]}\nPituus: {movie[2]}\nJulkaistu: {movie[3]}\nGenre: {movie[4]}\nPäänäyttelijät: {movie[5]}\nOhjaaja: {movie[6]}\nArvio: {movie[7]}"
-            movie_label = ttk.Label(movie_frame, text=movie_info, wraplength=400, justify="left")
-            movie_label.pack(padx=10, pady=5, anchor="w")
-
-            image_url = movie[8]
-            
+        def fetch_and_display_image(movie_frame, image_url):
             if image_url:
                 try:
                     response = requests.get(image_url)
@@ -529,6 +533,21 @@ def mainWindow():
                     img_label.pack()
                 except Exception as e:
                     print("Error loading image:", e)
+
+        for idx, movie in enumerate(myresult, start=1):
+            movie_frame = ttk.LabelFrame(second_frame, text=f"Elokuva {idx}", width=500)
+            movie_frame.pack(fill="x", padx=10, pady=5, anchor="w")
+
+            movie_info = f"Nimi: {movie[1]}\nPituus: {movie[2]}\nJulkaistu: {movie[3]}\nGenre: {movie[4]}\nPäänäyttelijät: {movie[5]}\nOhjaaja: {movie[6]}\nArvio: {movie[7]}"
+            movie_label = ttk.Label(movie_frame, text=movie_info, wraplength=400, justify="left")
+            movie_label.pack(padx=10, pady=5, anchor="w")
+
+            image_url = movie[8]
+
+            # Create a new thread to fetch and display the image
+            if image_url:
+                threading.Thread(target=fetch_and_display_image, args=(movie_frame, image_url)).start()
+
         
     def deleteData(val):
         try:
