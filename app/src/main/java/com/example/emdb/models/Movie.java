@@ -13,7 +13,7 @@ public class Movie implements Parcelable {
     public String Director;
     public float Rating;
     public String Image;
-
+//kommentti
     public Movie(int id, String title, int length, String releaseYear, String genres, String stars, String director, float rating, String image) {
         Id = id;
         Title = title;
