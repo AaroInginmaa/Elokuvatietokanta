@@ -106,7 +106,7 @@ public class MovieDetailFragment extends Fragment {
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, editMovieFragment);
+        fragmentTransaction.replace(R.id.container, editMovieFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }

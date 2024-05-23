@@ -45,8 +45,8 @@ public class AddMovieFragment extends Fragment {
         starsInput = view.findViewById(R.id.movieStarsInput);
         ratingInput = view.findViewById(R.id.movieRatingInput);
         imageUrlInput = view.findViewById(R.id.movieImageInput);
-        AppCompatButton editButton = view.findViewById(R.id.editButton);
-        editButton.setOnClickListener(v -> onSubmitButton());
+        AppCompatButton submitButton = view.findViewById(R.id.submitButton);
+        submitButton.setOnClickListener(v -> onSubmitButton());
     }
 
     private void onSubmitButton() {
