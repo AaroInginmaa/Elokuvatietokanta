@@ -26,20 +26,15 @@ import com.example.emdb.adapters.MovieCategoryListAdapter;
 import com.example.emdb.classes.Database;
 import com.example.emdb.models.Movie;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MovieDetailFragment extends Fragment {
 
     private int movieId;
     private TextView detailTitle;
-
     private RecyclerView.Adapter categoriesAdapter;
-
     private RecyclerView categoriesRecycler;
-
     private ProgressBar categoriesLoading;
-
     private TextView detailRating;
     private TextView detailLength;
     private TextView detailYear;
@@ -101,17 +96,17 @@ public class MovieDetailFragment extends Fragment {
 
         // Pass the current movie details to the EditMovieFragment
         Bundle bundle = new Bundle();
-        bundle.putSerializable("movie", currentMovie);
+        bundle.putParcelable("movie", currentMovie);
         editMovieFragment.setArguments(bundle);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, editMovieFragment);
+        fragmentTransaction.replace(R.id.container, editMovieFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
-    private class LoadDetailTask extends AsyncTask<Void, Void, Movie> {
+    class LoadDetailTask extends AsyncTask<Void, Void, Movie> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -146,7 +141,7 @@ public class MovieDetailFragment extends Fragment {
         }
     }
 
-    private class LoadCategoriesTask extends AsyncTask<Void, Void, ArrayList<String>> {
+    class LoadCategoriesTask extends AsyncTask<Void, Void, ArrayList<String>> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
