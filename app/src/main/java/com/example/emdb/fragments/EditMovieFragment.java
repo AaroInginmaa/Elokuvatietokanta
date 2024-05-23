@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,7 @@ public class EditMovieFragment extends Fragment {
     private EditText movieRatingInput;
     private EditText movieImageInput;
     private Button saveButton;
+    private ImageView backImage;
 
     private Movie currentMovie;
 
@@ -52,6 +54,13 @@ public class EditMovieFragment extends Fragment {
         }
 
         saveButton.setOnClickListener(v -> onSaveButtonClicked());
+
+        backImage = view.findViewById(R.id.backImage);
+
+        backImage.setOnClickListener(v -> {
+            assert getFragmentManager() != null;
+            getFragmentManager().popBackStack();
+        });
 
         return view;
     }
