@@ -107,7 +107,12 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/classes/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/classes/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/fragments/AddMovieFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/fragments/AddMovieFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/fragments/EditMovieFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/fragments/EditMovieFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_edit_movie.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_edit_movie.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/fragments/LogInFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/fragments/LogInFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/fragments/MovieDetailFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/fragments/MovieDetailFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/fragments/ProfileFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/fragments/ProfileFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/fragments/SignUpFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/fragments/SignUpFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/models/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/emdb/models/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_movie_detail.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +204,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "Reverting in android-java",
+    "git-widget-placeholder": "android-java",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "D:/GitHub/Android/Android_MovieApp/app/src/main/res/drawable",
     "last_opened_file_path": "C:/Kouluhommat/Elokuvatietokanta",

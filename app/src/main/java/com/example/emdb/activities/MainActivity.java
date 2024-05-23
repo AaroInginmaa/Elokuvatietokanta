@@ -18,11 +18,11 @@ import com.example.emdb.classes.Database;
 import com.example.emdb.fragments.AddMovieFragment;
 import com.example.emdb.fragments.HomeFragment;
 import com.example.emdb.fragments.LogInFragment;
+import com.example.emdb.fragments.MoviesByGenreFragment;
 import com.example.emdb.fragments.ProfileFragment;
 import com.example.emdb.fragments.RecoverPasswordFragment;
 import com.example.emdb.fragments.SearchFragment;
 import com.example.emdb.fragments.SignUpFragment;
-import com.example.emdb.fragments.EditMovieFragment;
 import com.example.emdb.interfaces.OnButtonClickListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickList
     private final ProfileFragment profileFragment = new ProfileFragment();
     private final LogInFragment logInFragment = new LogInFragment();
     private final SignUpFragment signUpFragment = new SignUpFragment();
-    private final EditMovieFragment editMovieFragment = new EditMovieFragment();
     private final RecoverPasswordFragment recoverPasswordFragment = new RecoverPasswordFragment();
 
     private final Client client = Client.getInstance();
@@ -135,11 +134,6 @@ public class MainActivity extends AppCompatActivity implements OnButtonClickList
     @Override
     public void onHomeClicked() {
         getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
-    }
-
-    @Override
-    public void onSaveClicked() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, editMovieFragment).commit();
     }
 
     @Override
