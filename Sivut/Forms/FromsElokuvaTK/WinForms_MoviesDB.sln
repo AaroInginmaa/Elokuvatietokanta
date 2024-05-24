@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForms_MoviesDB", "FormsMovieDB\WinForms_MoviesDB.csproj", "{F999B2CE-3929-494E-96EF-DF7F1B7F6226}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F999B2CE-3929-494E-96EF-DF7F1B7F6226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F999B2CE-3929-494E-96EF-DF7F1B7F6226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F999B2CE-3929-494E-96EF-DF7F1B7F6226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F999B2CE-3929-494E-96EF-DF7F1B7F6226}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D0551D23-7E3C-429B-AE43-641EFA8C1EA8}
+	EndGlobalSection
+EndGlobal
