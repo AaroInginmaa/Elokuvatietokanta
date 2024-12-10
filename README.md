@@ -19,19 +19,3 @@ Elokuvista on seuraavat tiedot:
 
 Käyttöliittymät täytyy suunnitella etukäteen, tehkää tekniikalle soveltuvat mock-up piirrokset käyttöliittymistä.
 Testivaiheessa MySQL-tietokanta riittää olla omalla paikallisella koneella.
-
-## Tiimit
-> [!NOTE]
-> Muista varmistaa [aikataulusta](https://docs.google.com/spreadsheets/d/1NEqnXOf7Z1ryIY_puHlkVnVfvkVt-kew2BHigMRRhkQ/edit#gid=0) tiimisi tekniikka.
-- Android
-   - Aapo, Konsta
-- Python
-   - Aleksei, Ruslan
-- Blazor
-   - Aaro, Arttu, Lassi
-- HTML, PHP
-   - Waltteri, Okko, Eino
-- Forms
-   - Roope, Jimi, Alexi
-- WPF
-   - Luka, Aava, Riku
